@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+DEBUG=${DEBUG:=0}
+[[ $DEBUG -eq 1 ]] && set -o xtrace
+
+apt-get install -y \
+  dnsmasq \
+  dnsutils
+
+mkdir -p "/etc/hosts.d"
+
+cat <<DNSMASQCONF > /etc/dnsmasq.conf
+# http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq.conf.example
+
+addn-hosts=/etc/hosts.d
+all-servers
+bind-interfaces
+bogus-priv
+cache-size=10000
+dhcp-authoritative
+dhcp-host=00:11:32:64:d8:87,nas,192.168.1.250
+dhcp-host=00:17:88:19:7b:ab,philips-hue-hub,192.168.1.252
+dhcp-host=64:7c:34:31:28:68,router,192.168.1.254
+dhcp-host=b8:27:eb:5d:d1:61,pi,192.168.1.251
+dhcp-option=1,255.255.255.0
+dhcp-option=3,192.168.1.254
+dhcp-option=6,192.168.1.251
+dhcp-range=192.168.1.10,192.168.1.20,24h
+domain-needed
+domain=bds.home,192.168.1.0/24
+group=nogroup
+host-record=nas.bds.home,nas,192.168.1.250
+host-record=philips-hue-hub.bds.home,philips-hue-hub,192.168.1.252
+host-record=pi.bds.home,pi,192.168.1.251
+host-record=router.bds.home,router,192.168.1.254
+interface=eth0
+local=/bds.home/
+log-async
+log-dhcp
+log-facility=/var/log/dnsmasq.log
+no-negcache
+no-resolv
+port=53
+proxy-dnssec
+server=127.0.0.1#9053
+server=208.67.220.220
+server=208.67.222.222
+server=8.8.4.4
+server=8.8.8.8
+stop-dns-rebind
+strict-order
+user=nobody
+DNSMASQCONF
+
+# Extending and consolidating hosts files, https://github.com/StevenBlack/hosts
+curl -s 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' \
+  > "/etc/hosts.d/fakenews-gambling"
+
+service dnsmasq reload || service dnsmasq restart
