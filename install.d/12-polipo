@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+DEBUG=${DEBUG:=0}
+[[ $DEBUG -eq 1 ]] && set -o xtrace
+
+ENABLE_TOR=${ENABLE_TOR:=1}
+
+apt-get install -y curl polipo
+
+cat <<POLIPO > /etc/polipo/config
+allowedClients = 127.0.0.1, 192.168.1.0/24
+allowedPorts = 1-65535
+cacheIsShared = false
+censorReferer = maybe
+censoredHeaders = from,accept-language,x-pad,link
+chunkHighMark = 67108864
+disableIndexing = false
+disableVia = true
+diskCacheRoot = ""
+dnsNameServer = 127.0.0.1
+dnsUseGethostbyname = true
+logSyslog = true
+maxConnectionAge = 5m
+maxConnectionRequests = 120
+proxyAddress = "0.0.0.0"
+proxyName = "pi.bds.home"
+proxyPort = 8123
+scrubLogs = true
+tunnelAllowedPorts = 1-65535
+POLIPO
+
+if [[ $ENABLE_TOR -eq 1 ]]; then
+  cat <<POLIPO >> /etc/polipo/config
+diskCacheRoot=""
+socksParentProxy = "localhost:9050"
+socksProxyType = socks5
+POLIPO
+fi
+
+service polipo restart
+
+env https_proxy='http://127.0.0.1:8123' \
+  curl -N -s https://check.torproject.org/ \
+  | grep -q -m 1 'Congratulations'
