@@ -33,6 +33,10 @@ scrubLogs = true
 tunnelAllowedPorts = 1-65535
 POLIPO
 
+cat <<ULIMIT > /etc/security/limits.d/proxy.conf
+proxy - nofile 65536
+ULIMIT
+
 if [[ $ENABLE_TOR -eq 1 ]]; then
   cat <<POLIPO >> /etc/polipo/config
 diskCacheRoot=""
