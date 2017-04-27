@@ -43,6 +43,12 @@ fi
 
 service polipo restart
 
-env https_proxy='http://127.0.0.1:8123' \
-  curl -N -s https://check.torproject.org/ \
-  | grep -q -m 1 'Congratulations'
+if [[ $ENABLE_TOR -eq 1 ]]; then
+  env https_proxy='http://127.0.0.1:8123' \
+    curl -N -s https://check.torproject.org/ \
+    | grep -q -m 1 'Congratulations'
+else
+  env https_proxy='http://127.0.0.1:8123' \
+    curl -N -s https://check.torproject.org/ \
+    | grep -q -m 1 'Sorry. You are not using Tor.'
+fi
