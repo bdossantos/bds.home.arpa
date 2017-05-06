@@ -85,6 +85,7 @@ Restart=always
 DNSCRYPTPROXYCONF
 
 # ensure `nobody` home directory exist to avoid chroot errors
+# shellcheck disable=SC2174
 mkdir -m 0700 -p /nonexistent
 chown nobody.nogroup /nonexistent
 
