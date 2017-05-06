@@ -1,0 +1,12 @@
+#
+# ┌────────── minute (0 - 59)
+# │ ┌──────── hour (0 - 23)
+# │ │ ┌────── day of month (1 - 31)
+# │ │ │ ┌──── month (1 - 12)
+# │ │ │ │ ┌── day of week (0 - 6 => Sunday - Saturday, or
+# │ │ │ │ │                1 - 7 => Monday - Sunday)
+# ↓ ↓ ↓ ↓ ↓
+# * * * * * command to be executed
+#
+
+0 5 * * 0 /opt/bds.home/scripts/update-dnscrypt-resolvers 2>&1 | /usr/bin/logger -t update-dnscrypt-resolvers
