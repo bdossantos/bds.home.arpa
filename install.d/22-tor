@@ -21,6 +21,7 @@ HardwareAccel 1
 HashedControlPassword $(tor --hash-password "$(pwgen 16)" | tail -n 1)
 Log notice syslog
 NumCPUs 2
+SafeLogging 1
 SocksPort 9050
 TORCONF
 
