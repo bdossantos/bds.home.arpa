@@ -9,7 +9,7 @@ DEBUG=${DEBUG:=0}
 
 ENABLE_TOR=${ENABLE_TOR:=1}
 
-apt-get install -y curl polipo
+apt-get install -y polipo wget
 
 cat <<POLIPO > /etc/polipo/config
 allowedClients = 127.0.0.1, 192.168.1.0/24
@@ -49,10 +49,10 @@ service polipo restart
 
 if [[ $ENABLE_TOR -eq 1 ]]; then
   env https_proxy='http://127.0.0.1:8123' \
-    curl -N -s https://check.torproject.org/ \
-    | grep -q -m 1 'Congratulations'
+    wget -q -O - https://check.torproject.org/ \
+    | grep 'Congratulations. This browser is configured to use Tor.'
 else
   env https_proxy='http://127.0.0.1:8123' \
-    curl -N -s https://check.torproject.org/ \
-    | grep -q -m 1 'Sorry. You are not using Tor.'
+    wget -q -O - https://check.torproject.org/ \
+    | grep 'Sorry. You are not using Tor.'
 fi

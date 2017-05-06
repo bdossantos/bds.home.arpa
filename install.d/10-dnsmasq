@@ -9,7 +9,8 @@ DEBUG=${DEBUG:=0}
 
 apt-get install -y \
   dnsmasq \
-  dnsutils
+  dnsutils \
+  wget
 
 mkdir -p "/etc/hosts.d"
 
@@ -57,7 +58,7 @@ user=nobody
 DNSMASQCONF
 
 # Extending and consolidating hosts files, https://github.com/StevenBlack/hosts
-curl -s 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' \
-  > "/etc/hosts.d/fakenews-gambling"
+wget 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' \
+  -O '/etc/hosts.d/fakenews-gambling'
 
 service dnsmasq reload || service dnsmasq restart

@@ -7,7 +7,7 @@ set -o nounset
 DEBUG=${DEBUG:=0}
 [[ $DEBUG -eq 1 ]] && set -o xtrace
 
-apt-get install -y curl pwgen tor
+apt-get install -y pwgen tor wget
 
 cat <<TORCONF > /etc/tor/torrc
 AutomapHostsOnResolve 1
@@ -30,9 +30,5 @@ service tor reload || service tor restart
 tor-resolve bds.io >/dev/null
 tor-resolve -x 8.8.8.8 >/dev/null
 
-torify curl -s https://check.torproject.org/ | grep -q -m 1 'Congratulations'
-curl \
-  --socks5 localhost:9050 \
-  --socks5-hostname localhost:9050 \
-  -s https://check.torproject.org/ \
-  | grep -q -m 1 'Congratulations'
+torify wget -q -O - https://check.torproject.org/ \
+  | grep 'Congratulations. This browser is configured to use Tor.'
