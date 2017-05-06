@@ -1,5 +1,5 @@
 CWD := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-SHELL := /usr/bin/env bash
+SHELL := /usr/bin/env bash -e -u -o pipefail
 
 help:
 	@grep -E '^[a-zA-Z1-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -8,3 +8,11 @@ help:
 
 install: ## Install all the things
 	run-parts -v $(CWD)/install.d
+
+shellcheck: ## Run shellcheck on /scripts directory
+	$(info --> Run shellsheck)
+	find install.d -type f \
+		| xargs -n 1 -P 1 -I % shellcheck %
+
+test: ## Run tests suite
+	$(MAKE) shellcheck
