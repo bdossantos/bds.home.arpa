@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+DEBUG=${DEBUG:=0}
+[[ $DEBUG -eq 1 ]] && set -o xtrace
+
+NOW=$(date +"%F_%H-%M")
+
+if [[ "$(id -u)" != 0 ]]; then
+  echo 'This script must be run as root' 1>&2
+  exit 1
+fi
+
+pushd /tmp &>/dev/null
+
+# shellcheck disable=SC2064
+trap "rm -f dnscrypt-resolvers-${NOW}.csv && popd &>/dev/null" INT TERM EXIT
+
+wget -O "dnscrypt-resolvers-${NOW}.csv" \
+  https://raw.githubusercontent.com/jedisct1/dnscrypt-proxy/master/dnscrypt-resolvers.csv
+
+if [[ -s "dnscrypt-resolvers-${NOW}.csv" ]]; then
+  chown root:root "/tmp/dnscrypt-resolvers-$NOW.csv"
+  chmod 0444 "/tmp/dnscrypt-resolvers-$NOW.csv"
+
+  pushd /usr/local/share/dnscrypt-proxy/
+    mv -f dnscrypt-resolvers.csv dnscrypt-resolvers.csv.bak
+    mv -f "/tmp/dnscrypt-resolvers-${NOW}.csv" ./dnscrypt-resolvers.csv
+  popd &>/dev/null
+
+  systemctl restart dnscrypt-proxy@\*
+  echo 'Resolvers file updated'
+else
+  echo 'Something went wrong with dnscrypt-resolvers.csv'
+fi
