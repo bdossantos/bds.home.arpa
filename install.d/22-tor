@@ -7,7 +7,64 @@ set -o nounset
 DEBUG=${DEBUG:=0}
 [[ $DEBUG -eq 1 ]] && set -o xtrace
 
-apt-get install -y pwgen tor wget
+PATH=$PATH:/usr/local/bin
+TOR_VERSION=0.3.0.6
+TORSOCKS_VERSION=2.2.0
+
+apt-get install -y autoconf automake libevent-dev libssl-dev libtool pwgen wget
+apt-get purge -y tor
+
+mkdir -p "$HOME/tor/${TOR_VERSION}"
+
+pushd "$HOME/tor/${TOR_VERSION}"
+
+if [[ ! -f "tor-${TOR_VERSION}.tar.gz" ]]; then
+  wget \
+    "https://www.torproject.org/dist/tor-${TOR_VERSION}.tar.gz" \
+    -O "tor-${TOR_VERSION}.tar.gz"
+  wget \
+    "https://www.torproject.org/dist/tor-${TOR_VERSION}.tar.gz.asc" \
+    -O "tor-${TOR_VERSION}.tar.gz.asc"
+
+  gpg --keyserver pool.sks-keyservers.net --recv-keys 0x4E2C6E8793298290
+  gpg --fingerprint 0x4E2C6E8793298290
+  gpg --verify "tor-${TOR_VERSION}.tar.gz.asc" "tor-${TOR_VERSION}.tar.gz"
+
+  tar -zxf "tor-${TOR_VERSION}.tar.gz" --strip-components=1 -C \
+    "$HOME/tor/${TOR_VERSION}"
+fi
+
+if ! /usr/local/bin/tor --version | grep -q "$TOR_VERSION"; then
+  ./configure
+  make
+  make install
+fi
+
+popd
+
+mkdir -p "$HOME/torsocks/${TORSOCKS_VERSION}"
+
+pushd "$HOME/torsocks/${TORSOCKS_VERSION}"
+
+if [[ ! -f "torsocks-${TORSOCKS_VERSION}.tar.gz" ]]; then
+  wget \
+    "https://github.com/dgoulet/torsocks/archive/v${TORSOCKS_VERSION}.tar.gz" \
+    -O "torsocks-${TORSOCKS_VERSION}.tar.gz"
+
+  tar -zxf "torsocks-${TORSOCKS_VERSION}.tar.gz" --strip-components=1 -C \
+    "$HOME/torsocks/${TORSOCKS_VERSION}"
+fi
+
+if ! /usr/local/bin/torsocks --version | grep -q "$TORSOCKS_VERSION"; then
+  ./autogen.sh
+  ./configure
+  make
+  make install
+fi
+
+popd
+
+mkdir -p /etc/tor
 
 cat <<TORCONF > /etc/tor/torrc
 AutomapHostsOnResolve 1
@@ -25,7 +82,33 @@ SafeLogging 1
 SocksPort 9050
 TORCONF
 
-service tor reload || service tor restart
+cat <<TOR_SYSTEMD > /etc/systemd/system/tor.service
+[Unit]
+Description=Anonymizing Overlay Network
+After=network.target
+
+[Service]
+User=nobody
+Group=nogroup
+Type=simple
+ExecStart=/usr/local/bin/tor --runasdaemon 0 --defaults-torrc /usr/local/etc/tor/torrc.sample -f /etc/tor/torrc
+ExecReload=/bin/kill -HUP \$MAINPID
+KillSignal=SIGINT
+TimeoutSec=30
+Restart=on-failure
+LimitNOFILE=8192
+PrivateDevices=yes
+
+[Install]
+WantedBy=multi-user.target
+TOR_SYSTEMD
+
+chown -R root.root /etc/tor /etc/systemd/system/tor.service
+
+systemctl daemon-reload
+systemctl enable tor
+
+service tor reload || service tor restart && sleep 30
 
 # check if Tor is Up & Running
 tor-resolve bds.io >/dev/null
