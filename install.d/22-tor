@@ -80,6 +80,9 @@ Log notice syslog
 NumCPUs 2
 SafeLogging 1
 SocksPort 9050
+SocksBindAddress 0.0.0.0
+FascistFirewall 1
+FirewallPorts 80,443
 TORCONF
 
 cat <<TOR_SYSTEMD > /etc/systemd/system/tor.service
