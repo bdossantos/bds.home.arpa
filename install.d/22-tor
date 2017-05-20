@@ -112,6 +112,7 @@ systemctl daemon-reload
 systemctl enable tor
 
 service tor reload || service tor restart && sleep 30
+while ! true | nc 127.0.0.1 9050 >/dev/null; do sleep 2; done
 
 # check if Tor is Up & Running
 tor-resolve bds.io >/dev/null
