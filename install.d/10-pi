@@ -11,3 +11,6 @@ DEBUG=${DEBUG:=0}
 dphys-swapfile swapoff
 dphys-swapfile uninstall
 update-rc.d dphys-swapfile remove
+
+# enable ssh
+systemctl enable ssh
