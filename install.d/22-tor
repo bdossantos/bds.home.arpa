@@ -29,12 +29,13 @@ if [[ ! -f "tor-${TOR_VERSION}.tar.gz" ]]; then
   gpg --keyserver pool.sks-keyservers.net --recv-keys 0x4E2C6E8793298290
   gpg --fingerprint 0x4E2C6E8793298290
   gpg --verify "tor-${TOR_VERSION}.tar.gz.asc" "tor-${TOR_VERSION}.tar.gz"
-
-  tar -zxf "tor-${TOR_VERSION}.tar.gz" --strip-components=1 -C \
-    "$HOME/tor/${TOR_VERSION}"
 fi
 
-if ! /usr/local/bin/tor --version | grep -q "$TOR_VERSION"; then
+tar -zxf "tor-${TOR_VERSION}.tar.gz" --strip-components=1 -C \
+  "$HOME/tor/${TOR_VERSION}"
+
+if [[ ! -f /usr/local/bin/tor ]] ||
+  ! /usr/local/bin/tor --version | grep -q "$TOR_VERSION"; then
   ./configure
   make
   make install
@@ -50,12 +51,13 @@ if [[ ! -f "torsocks-${TORSOCKS_VERSION}.tar.gz" ]]; then
   wget \
     "https://github.com/dgoulet/torsocks/archive/v${TORSOCKS_VERSION}.tar.gz" \
     -O "torsocks-${TORSOCKS_VERSION}.tar.gz"
-
-  tar -zxf "torsocks-${TORSOCKS_VERSION}.tar.gz" --strip-components=1 -C \
-    "$HOME/torsocks/${TORSOCKS_VERSION}"
 fi
 
-if ! /usr/local/bin/torsocks --version | grep -q "$TORSOCKS_VERSION"; then
+tar -zxf "torsocks-${TORSOCKS_VERSION}.tar.gz" --strip-components=1 -C \
+  "$HOME/torsocks/${TORSOCKS_VERSION}"
+
+if [[ ! -f /usr/local/bin/torsocks ]] ||
+  ! /usr/local/bin/torsocks --version | grep -q "$TORSOCKS_VERSION"; then
   ./autogen.sh
   ./configure
   make
