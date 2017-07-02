@@ -8,7 +8,7 @@ DEBUG=${DEBUG:=0}
 [[ $DEBUG -eq 1 ]] && set -o xtrace
 
 DNSCRYPT_PROXY_PORT=5300
-DNSCRYPT_PROXY_VERSION=1.9.4
+DNSCRYPT_PROXY_VERSION=1.9.5
 DNSCRYPT_RESOLVERS='dnscrypt.org-fr cs-fr cs-fr2 cs-uk'
 
 apt-get install -y \
