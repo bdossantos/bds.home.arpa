@@ -12,7 +12,7 @@ apt-get install -y \
   dnsutils \
   wget
 
-mkdir -p "/etc/hosts.d"
+mkdir -p '/etc/hosts.d'
 
 cat <<DNSMASQCONF > /etc/dnsmasq.conf
 # http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq.conf.example
