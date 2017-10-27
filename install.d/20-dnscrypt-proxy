@@ -91,7 +91,4 @@ chown nobody.nogroup /nonexistent
 
 systemctl daemon-reload
 systemctl enable dnscrypt-proxy@.service
-
-for resolver in $DNSCRYPT_RESOLVERS; do
-  service "dnscrypt-proxy@${resolver}" restart
-done
+systemctl restart dnscrypt-proxy@\*
