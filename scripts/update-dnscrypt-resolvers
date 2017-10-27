@@ -23,8 +23,8 @@ wget -O "dnscrypt-resolvers-${NOW}.csv" \
   https://raw.githubusercontent.com/jedisct1/dnscrypt-proxy/master/dnscrypt-resolvers.csv
 
 if [[ -s "dnscrypt-resolvers-${NOW}.csv" ]]; then
-  chown root:root "/tmp/dnscrypt-resolvers-$NOW.csv"
-  chmod 0444 "/tmp/dnscrypt-resolvers-$NOW.csv"
+  chown root:root "/tmp/dnscrypt-resolvers-${NOW}.csv"
+  chmod 0444 "/tmp/dnscrypt-resolvers-${NOW}.csv"
 
   pushd /usr/local/share/dnscrypt-proxy/
     mv -f dnscrypt-resolvers.csv dnscrypt-resolvers.csv.bak
