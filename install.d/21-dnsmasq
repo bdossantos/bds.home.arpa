@@ -58,6 +58,7 @@ user=nobody
 DNSMASQCONF
 
 # Extending and consolidating hosts files, https://github.com/StevenBlack/hosts
+rm -f '/etc/hosts.d/*'
 wget 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' \
   -O '/etc/hosts.d/fakenews-gambling'
 
