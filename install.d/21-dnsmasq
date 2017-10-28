@@ -26,7 +26,7 @@ dhcp-authoritative
 dhcp-host=00:11:32:64:d8:87,nas,192.168.1.250
 dhcp-host=b8:27:eb:5d:d1:61,albert,192.168.1.251
 dhcp-host=b8:27:eb:3f:d6:ec,nestor,192.168.1.252
-dhcp-host=00:17:88:19:7b:ab,philips-hue-hub,192.168.1.253
+dhcp-host=00:17:88:19:7b:ab,hue,192.168.1.253
 dhcp-host=64:7c:34:31:28:68,router,192.168.1.254
 dhcp-option=1,255.255.255.0
 dhcp-option=3,192.168.1.254
@@ -38,7 +38,7 @@ group=nogroup
 host-record=nas.bds.home,nas,192.168.1.250
 host-record=albert.bds.home,albert,192.168.1.251
 host-record=nestor.bds.home,nestor,192.168.1.252
-host-record=philips-hue-hub.bds.home,philips-hue-hub,192.168.1.253
+host-record=hue.bds.home,hue,192.168.1.253
 host-record=router.bds.home,router,192.168.1.254
 interface=eth0
 local=/bds.home/
