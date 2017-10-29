@@ -7,6 +7,8 @@ set -o nounset
 DEBUG=${DEBUG:=0}
 [[ $DEBUG -eq 1 ]] && set -o xtrace
 
+TIMEZONE='Europe/Paris'
+
 # disable swapping
 dphys-swapfile swapoff
 dphys-swapfile uninstall
@@ -14,3 +16,7 @@ update-rc.d dphys-swapfile remove
 
 # enable ssh
 systemctl enable ssh
+
+# setup timezone
+echo "$TIMEZONE" > /etc/timezone \
+  && dpkg-reconfigure --frontend noninteractive tzdata
