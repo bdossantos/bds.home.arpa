@@ -9,7 +9,7 @@ DEBUG=${DEBUG:=0}
 
 DNSCRYPT_PROXY_PORT=5300
 DNSCRYPT_PROXY_VERSION=1.9.5
-DNSCRYPT_RESOLVERS='dnscrypt.org-fr dnscrypt.eu-nl dnscrypt.eu-nl-ipv6 bn-fr1 bn-fr1-ipv6'
+DNSCRYPT_RESOLVERS='cs-cfi dnscrypt.org-fr'
 
 apt-get install -y \
   build-essential \
