@@ -30,7 +30,8 @@ if [[ ! -f "dnscrypt-proxy-${DNSCRYPT_PROXY_VERSION}.tar.gz" ]]; then
     "$HOME/dnscrypt-proxy/${DNSCRYPT_PROXY_VERSION}"
 fi
 
-if ! /usr/local/sbin/dnscrypt-proxy --version | grep -q "$DNSCRYPT_PROXY_VERSION"; then
+if [[ ! -f /usr/local/sbin/dnscrypt-proxy ]] ||
+  ! /usr/local/sbin/dnscrypt-proxy --version | grep -q "$DNSCRYPT_PROXY_VERSION"; then
   ldconfig
   ./configure --with-systemd
   make
