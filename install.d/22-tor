@@ -11,7 +11,8 @@ PATH=$PATH:/usr/local/bin
 TOR_VERSION=0.3.0.6
 TORSOCKS_VERSION=2.2.0
 
-apt-get install -y autoconf automake libevent-dev libssl-dev libtool pwgen wget
+apt-get install -y autoconf automake dirmngr libevent-dev libssl-dev libtool \
+  pwgen wget
 apt-get purge -y tor
 
 mkdir -p "$HOME/tor/${TOR_VERSION}"
