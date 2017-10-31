@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+DEBUG=${DEBUG:=0}
+[[ $DEBUG -eq 1 ]] && set -o xtrace
+
+apt-get install -y \
+  bluetooth \
+  libbluetooth-dev \
+  libboost-python-dev \
+  libboost-thread-dev \
+  libcap2-bin \
+  libglib2.0-dev \
+  nmap \
+  pkg-config \
+  python-dev \
+  python3-dev \
+  python3-pip
+
+adduser --system homeassistant
+addgroup homeassistant
+usermod -G dialout -a homeassistant
+
+# http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root
+setcap cap_net_raw,cap_net_admin+eip /srv/homeassistant/bin/python3
+
+# shellcheck disable=SC2174
+mkdir -m 0700 -p /srv/homeassistant
+
+sudo -u homeassistant pip3 install --upgrade virtualenv
+sudo -u homeassistant /home/homeassistant/.local/bin/virtualenv -p python3 \
+  /srv/homeassistant
+sudo -u homeassistant \
+  bash -c 'source /srv/homeassistant/bin/activate && pip3 install --upgrade homeassistant'
+cp files/homeassistant/configuration.yaml \
+  /home/homeassistant/.homeassistant/configuration.yaml
+chown -R homeassistant:homeassistant /srv/homeassistant
+sudo -u homeassistant -H /srv/homeassistant/bin/hass
