@@ -7,7 +7,7 @@ help:
 		| awk 'BEGIN { FS = ":.*?## " }; { printf "\033[36m%-30s\033[0m %s\n", $$1, $$2 }'
 
 install: ## Install all the things
-	run-parts -v $(CWD)/install.d
+	DEBIAN_FRONTEND='noninteractive' run-parts -v $(CWD)/install.d
 
 shellcheck: ## Run shellcheck on /scripts directory
 	$(info --> Run shellsheck)
