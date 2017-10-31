@@ -1,0 +1,8 @@
+---
+
+device_tracker.dc0b3487486b:
+  name: Benjamin
+  friendly_name: Benjamin
+  picture: https://avatars3.githubusercontent.com/u/245284?s=460&v=4
+  track: yes
+  hide_if_away: no

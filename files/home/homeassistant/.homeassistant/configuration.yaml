@@ -1,0 +1,248 @@
+---
+
+homeassistant:
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 30
+  unit_system: metric
+  time_zone: Europe/Paris
+  name: BDS Home
+  customize: !include_dir_merge_named customize
+
+frontend:
+
+config:
+
+http:
+  server_port: 8080
+  ip_ban_enabled: 'True'
+  login_attempts_threshold: 3
+
+discovery:
+
+conversation:
+
+history:
+
+logbook:
+
+map:
+
+sun:
+
+tts:
+  platform: google
+
+recorder:
+  purge_interval: 2
+  purge_keep_days: 30
+
+light:
+  platform: hue
+  host: hue.bds.home
+  filename: phue.conf
+  allow_unreachable: true
+  allow_in_emulated_hue: true
+  allow_hue_groups: false
+
+sensor:
+  - platform: google_wifi
+    host: 192.168.1.253
+    monitored_conditions:
+      - current_version
+      - new_version
+      - uptime
+      - last_restart
+      - status
+  - platform: bbox
+    monitored_variables:
+      - down_max_bandwidth
+      - up_max_bandwidth
+      - current_down_bandwidth
+      - current_up_bandwidth
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_use
+      - type: memory_free
+      - type: processor_use
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+      - type: last_boot
+  - platform: speedtest
+    minute:
+      - 0
+      - 30
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+  - platform: command_line
+    name: CPU Temperature
+    command: 'cat /sys/class/thermal/thermal_zone0/temp'
+    unit_of_measurement: '°C'
+    value_template: '{{ value | multiply(0.001) | round(2) }}'
+
+device_tracker:
+  - platform: nmap_tracker
+    home_interval: 10
+    hosts: 192.168.1.0/24
+    interval_seconds: 10
+    exclude:
+      - 192.168.1.249
+      - 192.168.1.250
+      - 192.168.1.251
+      - 192.168.1.252
+      - 192.168.1.253
+      - 192.168.1.254
+    scan_options: '-F --host-timeout 5s'
+
+group:
+  default_view:
+    name: Home
+    icon: mdi:home
+    view: yes
+    entities:
+      - group.bathroom
+      - group.bedroom
+      - group.hall
+      - group.kitchen
+      - group.livingroom
+      - group.lights
+      - group.people
+      - group.all_automations
+      - group.all_scripts
+      - group.all_switches
+  sensor_view:
+    name: Sensors
+    icon: mdi:temperature-celsius
+    view: yes
+    entities:
+      - group.speedtest
+      - group.nestor
+      - group.router
+  bathroom:
+    name: Bathroom
+    entities:
+      - light.bathroom1
+  bedroom:
+    name: Bedroom
+    entities:
+      - light.bedroom1
+  hall:
+    name: Hall
+    entities:
+      - light.hall1
+  kitchen:
+    name: Kitchen
+    entities:
+      - light.kitchen1
+  livingroom:
+    name: Living Room
+    entities:
+      - light.livingroom1
+  lights:
+    name: Lights
+    entities:
+      - script.all_lights_off
+      - script.all_lights_on
+  router:
+    name: Router
+    entities:
+      - sensor.bbox_currently_used_download_bandwidth
+      - sensor.bbox_currently_used_upload_bandwidth
+      - sensor.bbox_maximum_download_bandwidth
+      - sensor.bbox_maximum_upload_bandwidth
+      - history_graph.router_graph
+  speedtest:
+    name: Internet
+    entities:
+      - sensor.speedtest_ping
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+  nestor:
+    name: Nestor
+    entities:
+      - sensor.cpu_used
+      - sensor.ram_used
+      - sensor.cpu_temperature
+      - history_graph.cpu_temperature
+  people:
+    name: People
+    entities:
+      - device_tracker.dc0b3487486b
+
+history_graph:
+  router:
+    name: Router Graph
+    entities:
+      - sensor.bbox_currently_used_download_bandwidth
+      - sensor.bbox_currently_used_upload_bandwidth
+    hours_to_show: 24
+    refresh: 60
+  cpu_temperature:
+    name: Nestor CPU temperature
+    entities:
+      - sensor.cpu_temperature
+    hours_to_show: 24
+    refresh: 60
+
+automation:
+  - alias: 'Natural wake up light'
+    trigger:
+      platform: time
+      at: '07:00:00'
+    action:
+      service: light.turn_on
+      entity_id: light.bedroom
+      data:
+        transition: 900
+  - alias: 'Turn on the living room lights 15 minutes before sunset if anyone is
+    at home'
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '-00:45:00'
+    condition:
+      condition: state
+      entity_id: group.all_devices
+      state: home
+    action:
+      service: homeassistant.turn_on
+      entity_id: group.livingroom_lights
+  - alias: 'Set dark theme for the night'
+    initial_state: 'True'
+    trigger:
+      - platform: time
+        at: '21:00'
+    action:
+      - service: frontend.set_theme
+        data:
+          name: darkred
+
+script:
+  all_lights_off:
+    sequence:
+      - service: light.turn_off
+        data:
+          entity_id: group.all_lights
+          transition: 15
+  all_lights_on:
+    sequence:
+      - service: light.turn_on
+        data:
+          entity_id: group.all_lights
+          brightness: 255
+          color_temp: 260
+          transition: 15
+
+zone:
+  - name: Work
+    latitude: !secret work_latitude
+    longitude: !secret work_longitude
+    elevation: 40
+    icon: mdi:worker
+    radius: 100
