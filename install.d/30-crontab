@@ -9,4 +9,4 @@ DEBUG=${DEBUG:=0}
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-crontab -u root "${DIR}/../crontab/root"
+crontab -u root "${DIR}/../files/var/spool/cron/crontabs/root"
