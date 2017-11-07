@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2154
 
 set -o errexit
 set -o pipefail
@@ -20,3 +21,29 @@ systemctl enable ssh
 # setup timezone
 echo "$TIMEZONE" > /etc/timezone \
   && dpkg-reconfigure --frontend noninteractive tzdata
+
+# Update disk scheduler
+echo noop > /sys/block/*blk*/queue/scheduler
+
+# sysctl tuning
+cat <<SYSCTL > /etc/sysctl.d/local.conf
+vm.dirty_background_ratio=20
+vm.dirty_expire_centisecs=12000
+vm.dirty_ratio=40
+vm.dirty_writeback_centisecs=12000
+vm.swappiness=0
+SYSCTL
+
+sysctl -p /etc/sysctl.d/local.conf
+
+# forward syslog messages to a external host and prevent any log files to be
+# written to the local disk
+cat <<\RSYSLOG > /etc/rsyslog.d/local.conf
+$ActionQueueType LinkedList
+$ActionQueueFileName log-queue
+$ActionResumeRetryCount -1
+$ActionQueueSaveOnShutdown on
+*.* @@nas.bds.home
+RSYSLOG
+
+service rsyslogd restart
