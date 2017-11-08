@@ -22,6 +22,7 @@ all-servers
 bind-interfaces
 bogus-priv
 cache-size=10000
+cname=bds.home,nestor.bds.home
 dhcp-authoritative
 dhcp-host=00:17:88:19:7b:ab,hue,192.168.1.249
 dhcp-host=00:11:32:64:d8:87,nas,192.168.1.250
