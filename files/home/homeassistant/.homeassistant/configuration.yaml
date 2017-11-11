@@ -85,6 +85,16 @@ sensor:
     command: 'cat /sys/class/thermal/thermal_zone0/temp'
     unit_of_measurement: '°C'
     value_template: '{{ value | multiply(0.001) | round(2) }}'
+  - platform: airvisual
+    api_key: !secret airvisual_api_key
+    monitored_conditions:
+      - us
+      - cn
+    city: paris
+    state: ile-de-france
+    country: france
+    radius: 10000
+    show_on_map: false
 
 device_tracker:
   - platform: nmap_tracker
@@ -124,6 +134,7 @@ group:
       - group.speedtest
       - group.nestor
       - group.router
+      - group.air_quality
   bathroom:
     name: Bathroom
     entities:
@@ -170,6 +181,12 @@ group:
       - sensor.ram_used
       - sensor.cpu_temperature
       - history_graph.cpu_temperature
+  air_quality:
+    name: Paris Air quality
+    entities:
+      - sensor.us_air_pollution_level
+      - sensor.us_air_quality_index
+      - sensor.us_main_pollutant
   people:
     name: People
     entities:
