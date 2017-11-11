@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+DEBUG=${DEBUG:=0}
+[[ $DEBUG -eq 1 ]] && set -o xtrace
+
+apt-get install -y supervisor
+
+cat <<SUPERVISOR_INET > /etc/supervisor/conf.d/inet_http_server.conf
+[inet_http_server]
+port=127.0.0.1:9001
+
+[unix_http_server]
+file=/var/run/supervisor.sock
+chmod=0700
+
+[supervisorctl]
+serverurl=unix:///var/run/supervisor.sock
+SUPERVISOR_INET
+
+systemctl enable supervisor
+service supervisor start
