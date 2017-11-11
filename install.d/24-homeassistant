@@ -38,4 +38,18 @@ sudo -u homeassistant \
 cp files/home/homeassistant/.homeassistant/configuration.yaml \
   /home/homeassistant/.homeassistant/configuration.yaml
 chown -R homeassistant:homeassistant /srv/homeassistant
-sudo -u homeassistant -H /srv/homeassistant/bin/hass
+
+cat <<SUPERVISOR_HASS > /etc/supervisor/conf.d/hass.conf
+[program:hass]
+autorestart = true
+command = /srv/homeassistant/bin/hass
+group = root
+redirect_stderr = true
+stderr_logfile = syslog
+stdout_logfile = syslog
+user = homeassistant
+SUPERVISOR_HASS
+
+supervisorctl reread
+supervisorctl update
+supervisorctl start hass
