@@ -68,7 +68,7 @@ wget 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fake
   -O '/etc/hosts.d/fakenews-gambling'
 
 systemctl disable dnsmasq
-service stop dnsmasq
+service stop dnsmasq || true
 
 cat <<SUPERVISOR_DNSMASQ > /etc/supervisor/conf.d/dnsmasq.conf
 [program:dnsmasq]
