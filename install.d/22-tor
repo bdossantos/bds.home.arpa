@@ -87,31 +87,25 @@ FascistFirewall 1
 ReachableAddresses *:80,*:443
 TORCONF
 
-cat <<TOR_SYSTEMD > /etc/systemd/system/tor.service
-[Unit]
-Description=Anonymizing Overlay Network
-After=network.target
+chown -R root.root /etc/tor
+rm -f /etc/systemd/system/tor.service
+systemctl disable tor
 
-[Service]
-User=nobody
-Group=nogroup
-Type=simple
-ExecStart=/usr/local/bin/tor --runasdaemon 0 --defaults-torrc /usr/local/etc/tor/torrc.sample -f /etc/tor/torrc
-ExecReload=/bin/kill -HUP \$MAINPID
-KillSignal=SIGINT
-TimeoutSec=30
-Restart=on-failure
-LimitNOFILE=8192
-PrivateDevices=yes
+cat <<SUPERVISOR_TOR > /etc/supervisor/conf.d/tor.conf
+[program:tor]
+autorestart = true
+command = /usr/local/bin/tor --runasdaemon 0 --defaults-torrc /usr/local/etc/tor/torrc.sample -f /etc/tor/torrc
+environment = HOME=/tmp
+group = nogroup
+redirect_stderr = true
+stderr_logfile = syslog
+stdout_logfile = syslog
+user = nobody
+SUPERVISOR_TOR
 
-[Install]
-WantedBy=multi-user.target
-TOR_SYSTEMD
-
-chown -R root.root /etc/tor /etc/systemd/system/tor.service
-
-systemctl daemon-reload
-systemctl enable tor
+supervisorctl reread
+supervisorctl update
+supervisorctl start tor
 
 service tor reload || service tor restart && sleep 30
 while ! true | nc 127.0.0.1 9050 >/dev/null; do sleep 2; done
