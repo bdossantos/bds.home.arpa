@@ -45,7 +45,23 @@ socksProxyType = socks5
 POLIPO
 fi
 
-service polipo restart
+service polipo stop
+systemctl disable polipo
+
+cat <<SUPERVISOR_POLIPO > /etc/supervisor/conf.d/polipo.conf
+[program:polipo]
+autorestart = true
+command = /usr/bin/polipo -c /etc/polipo/config daemonise=false
+group = nogroup
+redirect_stderr = true
+stderr_logfile = syslog
+stdout_logfile = syslog
+user = nobody
+SUPERVISOR_POLIPO
+
+supervisorctl reread
+supervisorctl update
+supervisorctl start polipo
 
 if [[ $ENABLE_TOR -eq 1 ]]; then
   env https_proxy='http://127.0.0.1:8123' \
