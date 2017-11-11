@@ -89,7 +89,7 @@ TORCONF
 
 chown -R root.root /etc/tor
 rm -f /etc/systemd/system/tor.service
-systemctl disable tor
+systemctl disable tor || true
 
 cat <<SUPERVISOR_TOR > /etc/supervisor/conf.d/tor.conf
 [program:tor]
@@ -107,7 +107,6 @@ supervisorctl reread
 supervisorctl update
 supervisorctl start tor
 
-service tor reload || service tor restart && sleep 30
 while ! true | nc 127.0.0.1 9050 >/dev/null; do sleep 2; done
 
 # check if Tor is Up & Running
