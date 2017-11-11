@@ -194,34 +194,18 @@ automation:
   - alias: 'Natural wake up light'
     trigger:
       platform: time
-      at: '07:00:00'
+      at: '07:30:00'
     action:
       service: light.turn_on
-      entity_id: light.bedroom
+      entity_id: light.bedroom1
       data:
         transition: 900
-  - alias: 'Turn on the living room lights 15 minutes before sunset if anyone is
-    at home'
-    trigger:
-      platform: sun
-      event: sunset
-      offset: '-00:45:00'
-    condition:
-      condition: state
-      entity_id: group.all_devices
-      state: home
-    action:
-      service: homeassistant.turn_on
-      entity_id: group.livingroom_lights
-  - alias: 'Set dark theme for the night'
-    initial_state: 'True'
-    trigger:
-      - platform: time
-        at: '21:00'
-    action:
-      - service: frontend.set_theme
-        data:
-          name: darkred
+
+device_sun_light_trigger:
+  light_group: group.all_lights
+  light_profile: relax
+  device_group: group.all_devices
+  disable_turn_off: 0
 
 script:
   all_lights_off:
