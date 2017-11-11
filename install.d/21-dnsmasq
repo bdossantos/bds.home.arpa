@@ -45,9 +45,9 @@ host-record=wifi.bds.home,wifi,192.168.1.253
 host-record=router.bds.home,router,192.168.1.254
 interface=eth0
 local=/bds.home/
-log-async
+log-async=0
 log-dhcp
-log-facility=/var/log/dnsmasq.log
+log-facility=/dev/fd/2
 no-negcache
 no-resolv
 port=53
@@ -67,4 +67,20 @@ rm -f '/etc/hosts.d/*'
 wget 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' \
   -O '/etc/hosts.d/fakenews-gambling'
 
-service dnsmasq reload || service dnsmasq restart
+systemctl disable dnsmasq
+service stop dnsmasq
+
+cat <<SUPERVISOR_DNSMASQ > /etc/supervisor/conf.d/dnsmasq.conf
+[program:dnsmasq]
+autorestart = true
+command = /usr/sbin/dnsmasq -k -C /etc/dnsmasq.conf
+group = root
+redirect_stderr = true
+stderr_logfile = syslog
+stdout_logfile = syslog
+user = root
+SUPERVISOR_DNSMASQ
+
+supervisorctl reread
+supervisorctl update
+supervisorctl start dnsmasq
