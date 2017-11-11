@@ -43,7 +43,7 @@ cat <<SUPERVISOR_HASS > /etc/supervisor/conf.d/hass.conf
 [program:hass]
 autorestart = true
 command = /srv/homeassistant/bin/hass
-group = root
+group = homeassistant
 redirect_stderr = true
 stderr_logfile = syslog
 stdout_logfile = syslog
