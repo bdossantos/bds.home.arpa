@@ -7,6 +7,8 @@ set -o nounset
 DEBUG=${DEBUG:=0}
 [[ $DEBUG -eq 1 ]] && set -o xtrace
 
+[[ $(hostname -s) != 'albert' ]] && exit 0
+
 apt-get install -y \
   bluetooth \
   libbluetooth-dev \
