@@ -40,50 +40,29 @@ fi
 
 popd
 
+SUPERVISOR_GROUP=''
+
 for resolver in $DNSCRYPT_RESOLVERS; do
-cat <<DNSCRYPTSOCKET > "/etc/systemd/system/dnscrypt-proxy@${resolver}.socket"
-[Unit]
-Description=dnscrypt-proxy listening socket
-
-[Socket]
-ListenStream=127.0.0.1:${DNSCRYPT_PROXY_PORT}
-ListenDatagram=127.0.0.1:${DNSCRYPT_PROXY_PORT}
-
-[Install]
-WantedBy=sockets.target
-DNSCRYPTSOCKET
+  program="dnscrypt-proxy-${resolver}"
+cat <<SUPERVISOR_DNSCRYPT > "/etc/supervisor/conf.d/${program}.conf"
+[program:$program]
+autorestart = true
+command = /usr/local/sbin/dnscrypt-proxy --local-address=127.0.0.1:$DNSCRYPT_PROXY_PORT --resolver-name=$resolver --user=nobody --ephemeral-keys
+group = root
+redirect_stderr = true
+stderr_logfile = syslog
+stdout_logfile = syslog
+user = root
+SUPERVISOR_DNSCRYPT
 
   DNSCRYPT_PROXY_PORT=$((DNSCRYPT_PROXY_PORT + 1))
+  SUPERVISOR_GROUP="${program},${SUPERVISOR_GROUP}"
 done
 
-function _generate_install_section {
-  install_section="[Install]\n"
-
-  for resolver in $DNSCRYPT_RESOLVERS; do
-    install_section+="Also=dnscrypt-proxy@${resolver}.socket\n"
-  done
-
-  install_section+="WantedBy=multi-user.target\n"
-
-  echo -e "$install_section"
-}
-
-cat <<-DNSCRYPTPROXYCONF > /etc/systemd/system/dnscrypt-proxy@.service
-[Unit]
-Description=DNSCrypt client proxy
-Documentation=man:dnscrypt-proxy(8)
-Requires=dnscrypt-proxy@%i.socket
-After=network.target
-Before=nss-lookup.target
-
-$(_generate_install_section)
-
-[Service]
-Type=simple
-NonBlocking=true
-ExecStart=/usr/local/sbin/dnscrypt-proxy --resolver-name=%i --user=nobody --ephemeral-keys
-Restart=always
-DNSCRYPTPROXYCONF
+cat <<SUPERVISOR_DNSCRYPT_GROUP > '/etc/supervisor/conf.d/dnscrypt-proxy.conf'
+[group:dnscrypt-proxy]
+programs = ${SUPERVISOR_GROUP%,}
+SUPERVISOR_DNSCRYPT_GROUP
 
 # ensure `nobody` home directory exist to avoid chroot errors
 # shellcheck disable=SC2174
@@ -91,5 +70,9 @@ mkdir -m 0700 -p /nonexistent
 chown nobody.nogroup /nonexistent
 
 systemctl daemon-reload
-systemctl enable dnscrypt-proxy@.service
-systemctl restart dnscrypt-proxy@\*
+systemctl disable dnscrypt-proxy@.service
+systemctl stop dnscrypt-proxy@\*
+
+supervisorctl reread
+supervisorctl update
+supervisorctl start dnscrypt-proxy:*
