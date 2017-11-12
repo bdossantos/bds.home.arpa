@@ -110,6 +110,9 @@ device_tracker:
       - 192.168.1.254
     scan_options: '-F --host-timeout 5s'
 
+media_player:
+  - platform: sonos
+
 group:
   default_view:
     name: Home
@@ -155,6 +158,9 @@ group:
     name: Living Room
     entities:
       - light.livingroom1
+      - media_player.living_room
+      - group.router
+      - group.nestor
   lights:
     name: Lights
     entities:
