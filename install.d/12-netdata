@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+DEBUG=${DEBUG:=0}
+[[ $DEBUG -eq 1 ]] && set -o xtrace
+
+# YOLO, Ok?
+bash <(curl -Ss https://my-netdata.io/kickstart.sh) --dont-wait
+
+mkdir -p /var/cache/netdata
+chown -R netdata:netdata /var/cache/netdata
+
+systemctl disable netdata
+service netdata stop
+
+cat <<SUPERVISOR_DNSMASQ > /etc/supervisor/conf.d/netdata.conf
+[program:netdata]
+autorestart = true
+command = /usr/sbin/netdata -D -u netdata -i 0.0.0.0 -p 19999
+group = root
+redirect_stderr = true
+stderr_logfile = syslog
+stdout_logfile = syslog
+user = root
+SUPERVISOR_DNSMASQ
+
+supervisorctl reread
+supervisorctl update
+supervisorctl start netdata
