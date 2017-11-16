@@ -200,6 +200,7 @@ group:
     name: People
     entities:
       - device_tracker.dc0b3487486b
+      - device_tracker.nexus_5x
 
 history_graph:
   router:
