@@ -102,14 +102,16 @@ device_tracker:
     hosts: 192.168.1.0/24
     interval_seconds: 10
     exclude:
-      - 192.168.1.248
-      - 192.168.1.249
-      - 192.168.1.250
-      - 192.168.1.251
-      - 192.168.1.252
-      - 192.168.1.253
-      - 192.168.1.254
+     - 192.168.1.248
+     - 192.168.1.249
+     - 192.168.1.250
+     - 192.168.1.251
+     - 192.168.1.252
+     - 192.168.1.253
+     - 192.168.1.254
     scan_options: '-F --host-timeout 5s'
+  - platform: bluetooth_tracker
+  - platform: bbox
 
 media_player:
   - platform: sonos
