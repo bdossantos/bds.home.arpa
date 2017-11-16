@@ -7,7 +7,7 @@ set -o nounset
 DEBUG=${DEBUG:=0}
 [[ $DEBUG -eq 1 ]] && set -o xtrace
 
-[[ $(hostname -s) != 'albert' ]] && exit 0
+[[ $(hostname -s) != 'nestor' ]] && exit 0
 
 apt-get install -y \
   bluetooth \
@@ -23,7 +23,7 @@ apt-get install -y \
   python3-pip
 
 adduser --system homeassistant
-addgroup homeassistant
+getent group homeassistant || addgroup homeassistant
 usermod -G dialout -a homeassistant
 
 # http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root
