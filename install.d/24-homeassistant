@@ -20,7 +20,8 @@ apt-get install -y \
   pkg-config \
   python-dev \
   python3-dev \
-  python3-pip
+  python3-pip \
+  python3-venv
 
 adduser --system homeassistant
 getent group homeassistant || addgroup homeassistant
@@ -31,10 +32,10 @@ setcap cap_net_raw,cap_net_admin+eip /srv/homeassistant/bin/python3
 
 # shellcheck disable=SC2174
 mkdir -m 0700 -p /srv/homeassistant
+chown -R homeassistant:homeassistant /srv/homeassistant
 
 sudo -u homeassistant pip3 install --upgrade virtualenv
-sudo -u homeassistant /home/homeassistant/.local/bin/virtualenv -p python3 \
-  /srv/homeassistant
+sudo -u homeassistant python3 -m venv /srv/homeassistant
 sudo -u homeassistant \
   bash -c 'source /srv/homeassistant/bin/activate && pip3 install --upgrade homeassistant'
 cp files/home/homeassistant/.homeassistant/configuration.yaml \
