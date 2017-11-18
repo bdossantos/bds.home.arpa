@@ -244,14 +244,14 @@ history_graph:
     entities:
       - sensor.bbox_currently_used_download_bandwidth
       - sensor.bbox_currently_used_upload_bandwidth
-    hours_to_show: 24
-    refresh: 60
+    hours_to_show: 12
+    refresh: 30
   cpu_temperature:
     name: Nestor CPU temperature
     entities:
       - sensor.cpu_temperature
-    hours_to_show: 24
-    refresh: 60
+    hours_to_show: 12
+    refresh: 30
 
 automation:
   - alias: 'Natural wake up light'
