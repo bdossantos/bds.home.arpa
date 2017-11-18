@@ -97,6 +97,7 @@ sensor:
     radius: 10000
     show_on_map: false
   - platform: nest
+  - platform: netatmo
 
 binary_sensor:
   - platform: nest
@@ -125,6 +126,12 @@ nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
+netatmo:
+  api_key: !secret netatmo_api_key
+  secret_key: !secret netatmo_secret_key
+  username: !secret netatmo_username
+  password: !secret netatmo_password
+
 group:
   default_view:
     name: Home
@@ -143,12 +150,13 @@ group:
       - group.all_switches
   sensor_view:
     name: Sensors
-    icon: mdi:temperature-celsius
+    icon: mdi:thermometer
     view: yes
     entities:
       - group.speedtest
       - group.nestor
       - group.router
+      - group.netatmo
       - group.air_quality
   bathroom:
     name: Bathroom
@@ -176,6 +184,9 @@ group:
       - media_player.living_room
       - group.router
       - group.nestor
+      - sensor.netatmo_indoor_temperature
+      - sensor.netatmo_indoor_co2
+      - sensor.netatmo_indoor_humidity
   lights:
     name: Lights
     entities:
@@ -208,6 +219,19 @@ group:
       - sensor.us_air_pollution_level
       - sensor.us_air_quality_index
       - sensor.us_main_pollutant
+  netatmo:
+    name: Netatmo
+    entities:
+      - sensor.netatmo_indoor_co2
+      - sensor.netatmo_indoor_humidity
+      - sensor.netatmo_indoor_noise
+      - sensor.netatmo_indoor_pressure
+      - sensor.netatmo_indoor_temperature
+      - sensor.netatmo_indoor_wifi
+      - sensor.netatmo_outdoor_battery
+      - sensor.netatmo_outdoor_humidity
+      - sensor.netatmo_outdoor_radio
+      - sensor.netatmo_outdoor_temperature
   people:
     name: People
     entities:
