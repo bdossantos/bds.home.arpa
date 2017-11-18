@@ -283,6 +283,14 @@ automation:
       entity_id: light.bedroom1
       data:
         transition: 900
+  - alias: 'Turn off music when I leave home'
+    trigger:
+      platform: state
+      entity_id: device_tracker.nexus_5x
+      from: 'home'
+      to: 'not_home'
+    action:
+      service: media_player.turn_off
 
 device_sun_light_trigger:
   light_group: group.all_lights
