@@ -96,6 +96,10 @@ sensor:
     country: france
     radius: 10000
     show_on_map: false
+  - platform: nest
+
+binary_sensor:
+  - platform: nest
 
 device_tracker:
   - platform: nmap_tracker
@@ -116,6 +120,10 @@ device_tracker:
 
 media_player:
   - platform: sonos
+
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
 
 group:
   default_view:
@@ -154,6 +162,9 @@ group:
     name: Hall
     entities:
       - light.hall1
+      - sensor.hallway_nest_protect_battery_health
+      - sensor.hallway_nest_protect_co_status
+      - sensor.hallway_nest_protect_smoke_status
   kitchen:
     name: Kitchen
     entities:
