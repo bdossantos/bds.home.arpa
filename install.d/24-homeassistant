@@ -64,8 +64,7 @@ chown -R homeassistant:homeassistant /srv/homeassistant
 sudo -u homeassistant pip3 install --upgrade virtualenv
 sudo -u homeassistant python3 -m venv /srv/homeassistant
 sudo -u homeassistant \
-  bash -c 'source /srv/homeassistant/bin/activate \
-    && pip3 install --upgrade homeassistant psycopg2'
+  bash -c 'source /srv/homeassistant/bin/activate && pip3 install --upgrade homeassistant psycopg2'
 cp files/home/homeassistant/.homeassistant/configuration.yaml \
   /home/homeassistant/.homeassistant/configuration.yaml
 chown -R homeassistant:homeassistant /srv/homeassistant
