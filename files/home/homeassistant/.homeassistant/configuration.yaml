@@ -186,6 +186,7 @@ group:
       - history_graph.indoor_co2
       - history_graph.indoor_humidity
       - group.apc_be700g
+      - history_graph.noise
   bathroom:
     name: Bathroom
     entities:
@@ -215,6 +216,7 @@ group:
       - sensor.netatmo_indoor_temperature
       - sensor.netatmo_indoor_co2
       - sensor.netatmo_indoor_humidity
+      - sensor.netatmo_indoor_noise
       - sensor.apc_be700g_input_voltage
       - sensor.apc_be700g_load
   lights:
@@ -308,6 +310,12 @@ history_graph:
       - sensor.netatmo_indoor_humidity
     hours_to_show: 168
     refresh: 600
+  noise:
+    name: Noise
+    entities:
+      - sensor.netatmo_indoor_noise
+    hours_to_show: 24
+    refresh: 60
 
 automation:
   - alias: 'Natural wake up light'
