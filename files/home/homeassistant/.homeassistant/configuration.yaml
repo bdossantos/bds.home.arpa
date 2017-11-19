@@ -185,6 +185,7 @@ group:
       - history_graph.indoor_temperature
       - history_graph.indoor_co2
       - history_graph.indoor_humidity
+      - group.apc_be700g
   bathroom:
     name: Bathroom
     entities:
@@ -214,6 +215,8 @@ group:
       - sensor.netatmo_indoor_temperature
       - sensor.netatmo_indoor_co2
       - sensor.netatmo_indoor_humidity
+      - sensor.apc_be700g_input_voltage
+      - sensor.apc_be700g_load
   lights:
     name: Lights
     entities:
@@ -259,6 +262,15 @@ group:
       - sensor.netatmo_outdoor_humidity
       - sensor.netatmo_outdoor_radio
       - sensor.netatmo_outdoor_temperature
+  apc_be700g:
+    name: APC BE700G
+    entities:
+      - sensor.apc_be700g_battery_charge
+      - sensor.apc_be700g_battery_runtime
+      - sensor.apc_be700g_battery_voltage
+      - sensor.apc_be700g_beeper_status
+      - sensor.apc_be700g_input_voltage
+      - sensor.apc_be700g_load
   people:
     name: People
     entities:
