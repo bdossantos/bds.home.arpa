@@ -16,6 +16,7 @@ apt-get install -y \
   libboost-thread-dev \
   libcap2-bin \
   libglib2.0-dev \
+  nut-client \
   nmap \
   pkg-config \
   postgresql-9.6 \
