@@ -13,6 +13,8 @@ bash <(curl -Ss https://my-netdata.io/kickstart.sh) --dont-wait
 mkdir -p /var/cache/netdata
 chown -R netdata:netdata /var/cache/netdata
 
+unlink /etc/cron.daily/netdata-updater
+
 systemctl disable netdata
 service netdata stop
 
