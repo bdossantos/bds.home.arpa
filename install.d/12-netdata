@@ -19,7 +19,7 @@ service netdata stop
 cat <<SUPERVISOR_DNSMASQ > /etc/supervisor/conf.d/netdata.conf
 [program:netdata]
 autorestart = true
-command = /usr/sbin/netdata -D -u netdata -i 0.0.0.0 -p 19999
+command = /usr/sbin/netdata -P /run/netdata/netdata.pid -D -u netdata -i 0.0.0.0 -p 19999
 group = root
 redirect_stderr = true
 stderr_logfile = syslog
