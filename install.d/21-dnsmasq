@@ -24,6 +24,7 @@ bogus-priv
 cache-size=10000
 cname=bds.home,nestor.bds.home
 dhcp-authoritative
+dhcp-host=18:b4:30:9e:b1:4f,nest-protect,192.168.1.246
 dhcp-host=70:ee:50:28:f2:e8,netatmo,192.168.1.247
 dhcp-host=5c:aa:fd:5a:84:90,sonos,192.168.1.248
 dhcp-host=00:17:88:19:7b:ab,hue,192.168.1.249
@@ -39,6 +40,7 @@ dhcp-range=192.168.1.10,192.168.1.20,24h
 domain-needed
 domain=bds.home,192.168.1.0/24
 group=nogroup
+host-record=nest-protect.bds.home,nest-protect,192.168.1.246
 host-record=netatmo.bds.home,netatmo,192.168.1.247
 host-record=sonos.bds.home,sonos,192.168.1.248
 host-record=hue.bds.home,hue,192.168.1.249
