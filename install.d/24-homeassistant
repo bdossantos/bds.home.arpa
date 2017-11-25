@@ -27,29 +27,78 @@ apt-get install -y \
   python3-pip \
   python3-venv
 
+
+#
+# Setup PG
+#
+cat <<PG_CONF_D > /etc/postgresql/9.6/main/conf.d/00-tuning.conf
+archive_command = 'test ! -f /mnt/nas/archivedir/%f && cp %p /mnt/nas/archivedir/%f'
+archive_mode = on
+max_wal_senders = 3
+unix_socket_directories = '/var/run/postgresql,/tmp'
+wal_level = replica
+PG_CONF_D
+
+cat <<START_PG > /usr/local/bin/start-postgresql
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+mkdir -p \
+  /etc/postgresql/9.6/main/conf.d \
+  /var/run/postgresql/9.6-main.pg_stat_tmp \
+  /mnt/nas/archivedir
+
+chmod -R 0700 \
+  /etc/postgresql/9.6/main/conf.d \
+  /var/run/postgresql/9.6-main.pg_stat_tmp \
+  /mnt/nas/archivedir
+
+chown -R postgres.postgres \
+  /etc/postgresql/9.6/main/conf.d \
+  /var/run/postgresql \
+  /mnt/nas/archivedir
+
+exec runuser -l postgres -c 'exec /usr/lib/postgresql/9.6/bin/postgres \
+  -D /var/lib/postgresql/9.6/main \
+  -c config_file=/etc/postgresql/9.6/main/postgresql.conf'
+START_PG
+
+chmod +x /usr/local/bin/start-postgresql
+
 cat <<SUPERVISOR_PG > /etc/supervisor/conf.d/postgresql.conf
 [program:postgresql]
 autorestart = true
-command = /usr/lib/postgresql/9.6/bin/postgres -D /var/lib/postgresql/9.6/main -c config_file=/etc/postgresql/9.6/main/postgresql.conf
-group = postgres
+command = /usr/local/bin/start-postgresql
+group = root
 redirect_stderr = true
 stderr_logfile = syslog
 stdout_logfile = syslog
-user = postgres
+user = root
 SUPERVISOR_PG
 
 systemctl disable postgresql
 service postgresql stop
 supervisorctl reread
+supervisorctl update
 supervisorctl start postgresql
 
 sudo -u postgres psql postgres -tAc \
   "SELECT 1 FROM pg_roles WHERE rolname='homeassistant'" | grep -q 1 \
   || sudo -u postgres createuser homeassistant
 
+sudo -u postgres psql postgres -tAc \
+  "SELECT 1 FROM pg_roles WHERE rolname='replication'" | grep -q 1 \
+  || sudo -u postgres createuser replication -c 5 --replication
+
 sudo -u postgres psql homeassistant -c '' 2>/dev/null \
   || sudo -u postgres createdb -O homeassistant homeassistant
 
+#
+# Setup Home Assistant
+#
 adduser --system homeassistant
 getent group homeassistant || addgroup homeassistant
 usermod -G dialout -a homeassistant
@@ -82,4 +131,5 @@ user = homeassistant
 SUPERVISOR_HASS
 
 supervisorctl reread
+supervisorctl update
 supervisorctl start hass
