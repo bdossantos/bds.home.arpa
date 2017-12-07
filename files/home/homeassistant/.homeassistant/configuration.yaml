@@ -64,12 +64,6 @@ sensor:
       - uptime
       - last_restart
       - status
-  - platform: bbox
-    monitored_variables:
-      - down_max_bandwidth
-      - up_max_bandwidth
-      - current_down_bandwidth
-      - current_up_bandwidth
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
@@ -235,12 +229,6 @@ group:
       - script.all_lights_on
   router:
     name: Router
-    entities:
-      - sensor.bbox_currently_used_download_bandwidth
-      - sensor.bbox_currently_used_upload_bandwidth
-      - sensor.bbox_maximum_download_bandwidth
-      - sensor.bbox_maximum_upload_bandwidth
-      - history_graph.router_graph
   speedtest:
     name: Internet
     entities:
@@ -288,13 +276,6 @@ group:
       - device_tracker.nexus_5x
 
 history_graph:
-  router:
-    name: Router Graph
-    entities:
-      - sensor.bbox_currently_used_download_bandwidth
-      - sensor.bbox_currently_used_upload_bandwidth
-    hours_to_show: 12
-    refresh: 30
   cpu_temperature:
     name: Nestor CPU temperature
     entities:
