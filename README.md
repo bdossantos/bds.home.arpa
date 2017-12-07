@@ -19,6 +19,7 @@ sudo make install
 * 1 * Google Wifi
 * 1 * Nest Protect 2
 * 1 * Netatmo weather station
+* 1 * Netgate SG-1000
 * 1 * Netgear GS308P-100PES Switch Gigabit Ethernet 8 Ports with 4 Ports PoE
 * 1 * Philips Hue Go
 * 1 * Philips Hue Motion Sensor
