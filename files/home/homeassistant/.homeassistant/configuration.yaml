@@ -179,7 +179,7 @@ group:
       - group.kitchen
       - group.livingroom
       - group.lights
-      - group.people
+      - group.family
       - group.all_automations
       - group.all_scripts
       - group.all_switches
@@ -278,10 +278,21 @@ group:
       - sensor.apc_be700g_beeper_status
       - sensor.apc_be700g_input_voltage
       - sensor.apc_be700g_load
-  people:
-    name: People
+  benjamin:
+    name: Benjamin
     entities:
       - device_tracker.nexus_5x
+      - device_tracker.tile_home_keys
+  tile:
+    name: Tile
+    entities:
+      - device_tracker.tile_home_keys
+      - device_tracker.tile_home_keys_double
+      - device_tracker.tile_passport
+  family:
+    name: Family
+    entities:
+      - group.benjamin
 
 history_graph:
   cpu_temperature:
@@ -319,7 +330,7 @@ automation:
   - alias: 'Turn off music when I leave home'
     trigger:
       platform: state
-      entity_id: device_tracker.nexus_5x
+      entity_id: group.benjamin
       from: 'home'
       to: 'not_home'
     action:
@@ -328,7 +339,7 @@ automation:
 device_sun_light_trigger:
   light_group: group.all_lights
   light_profile: relax
-  device_group: group.people
+  device_group: group.benjamin
   disable_turn_off: 0
 
 script:
