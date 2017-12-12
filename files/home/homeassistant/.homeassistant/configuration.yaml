@@ -55,6 +55,8 @@ light:
   allow_in_emulated_hue: true
   allow_hue_groups: false
 
+scene: !include_dir_list scenes
+
 sensor:
   - platform: google_wifi
     host: 192.168.1.253
@@ -164,6 +166,7 @@ group:
       - group.kitchen
       - group.livingroom
       - group.lights
+      - group.scenes
       - group.family
       - group.all_automations
       - group.all_scripts
@@ -220,6 +223,10 @@ group:
     entities:
       - script.all_lights_off
       - script.all_lights_on
+  scenes:
+    name: Scenes
+    entities:
+      - scene.nightlight
   router:
     name: Router
   speedtest:
