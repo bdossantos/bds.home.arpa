@@ -117,6 +117,8 @@ sudo -u homeassistant \
   bash -c 'source /srv/homeassistant/bin/activate && pip3 install --upgrade homeassistant psycopg2'
 cp files/home/homeassistant/.homeassistant/configuration.yaml \
   /home/homeassistant/.homeassistant/configuration.yaml
+rsync -za files/home/homeassistant/.homeassistant/scenes/ \
+  /home/homeassistant/.homeassistant/scenes/
 chown -R homeassistant:homeassistant /srv/homeassistant
 
 cat <<SUPERVISOR_HASS > /etc/supervisor/conf.d/hass.conf
