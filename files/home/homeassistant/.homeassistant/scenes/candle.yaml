@@ -1,0 +1,8 @@
+---
+
+name: Candle
+entities:
+  light.bedroom1:
+    state: on
+    brightness: 25
+    xy_color: [0.5639, 0.3904]

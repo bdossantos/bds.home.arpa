@@ -227,6 +227,7 @@ group:
     name: Scenes
     entities:
       - scene.nightlight
+      - scene.candle
   router:
     name: Router
   speedtest:
