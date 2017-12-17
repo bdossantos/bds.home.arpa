@@ -194,6 +194,7 @@ group:
     name: Bedroom
     entities:
       - light.bedroom1
+      - media_player.bedroom
   hall:
     name: Hall
     entities:
