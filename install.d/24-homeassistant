@@ -32,6 +32,7 @@ apt-get install -y \
 # Setup PG
 #
 cat <<PG_CONF_D > /etc/postgresql/9.6/main/conf.d/00-tuning.conf
+archive_cleanup_command = 'pg_archivecleanup -d /mnt/nas/archivedir %r'
 archive_command = 'test ! -f /mnt/nas/archivedir/%f && cp %p /mnt/nas/archivedir/%f'
 archive_mode = on
 max_wal_senders = 3
