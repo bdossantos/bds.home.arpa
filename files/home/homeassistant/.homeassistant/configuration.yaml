@@ -330,7 +330,7 @@ automation:
       service: media_player.turn_off
 
 device_sun_light_trigger:
-  light_group: group.all_lights
+  light_group: group.hall
   light_profile: relax
   device_group: group.benjamin
   disable_turn_off: 0
