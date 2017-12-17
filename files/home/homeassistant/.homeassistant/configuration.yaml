@@ -122,7 +122,6 @@ sensor:
       - ups.beeper.status
       - ups.load
       - ups.model
-      - ups.realpower.nominal
       - ups.status
       - ups.timer.reboot
       - ups.timer.shutdown
