@@ -10,7 +10,7 @@ homeassistant:
   customize: !include_dir_merge_named customize
 
 logger:
-  default: critical
+  default: warning
   logs:
     homeassistant.components.http.ban: warning
 
