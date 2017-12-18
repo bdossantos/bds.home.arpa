@@ -1,0 +1,8 @@
+---
+
+name: Green
+entities:
+  light.bedroom1:
+    state: on
+    brightness: 170
+    rgb_color: [255, 178, 142]
