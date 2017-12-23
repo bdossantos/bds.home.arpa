@@ -229,6 +229,10 @@ group:
     entities:
       - scene.nightlight
       - scene.candle
+      - scene.relax
+      - scene.concentrate
+      - scene.reading
+      - scene.energize
   router:
     name: Router
   speedtest:
