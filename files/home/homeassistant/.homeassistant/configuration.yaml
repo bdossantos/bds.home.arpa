@@ -47,13 +47,13 @@ recorder:
   purge_interval: 1
   purge_keep_days: 7
 
-light:
-  platform: hue
-  host: hue.bds.home
-  filename: phue.conf
-  allow_unreachable: true
-  allow_in_emulated_hue: true
-  allow_hue_groups: false
+hue:
+  bridges:
+    - host: hue.bds.home
+      filename: phue.conf
+      allow_unreachable: true
+      allow_in_emulated_hue: true
+      allow_hue_groups: false
 
 scene: !include_dir_list scenes
 
