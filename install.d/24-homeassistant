@@ -33,7 +33,7 @@ apt-get install -y \
 #
 cat <<PG_CONF_D > /etc/postgresql/9.6/main/conf.d/00-tuning.conf
 archive_command = 'test ! -f /mnt/nas/archivedir/%f && cp %p /mnt/nas/archivedir/%f'
-archive_mode = on
+archive_mode = off
 max_wal_senders = 3
 unix_socket_directories = '/var/run/postgresql,/tmp'
 wal_level = replica
