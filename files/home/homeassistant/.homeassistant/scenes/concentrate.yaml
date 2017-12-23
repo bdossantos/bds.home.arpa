@@ -1,0 +1,10 @@
+---
+
+name: Concentrate
+entities:
+  switch.fluxer:
+    state: off
+  group.all_lights:
+    state: on
+    brightness: 219
+    xy_color: [0.5119, 0.4147]
