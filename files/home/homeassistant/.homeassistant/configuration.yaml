@@ -165,6 +165,7 @@ group:
       - group.hall
       - group.kitchen
       - group.livingroom
+      - group.dressing
       - group.lights
       - group.scenes
       - group.family
@@ -219,6 +220,11 @@ group:
       - sensor.netatmo_indoor_noise
       - sensor.apc_be700g_input_voltage
       - sensor.apc_be700g_load
+  dressing:
+    name: Dressing
+    entities:
+      - light.dressing1
+      - light.dressing2
   lights:
     name: Lights
     entities:

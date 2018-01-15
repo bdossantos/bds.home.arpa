@@ -27,6 +27,6 @@ sudo make install
 * 1 * Phillips hue hub
 * 1 * Raspberry Pi 2
 * 1 * Raspberry Pi 3
-* 1 * Sonos PLAY:3
+* 2 * Sonos PLAY:3
 * 1 * Synology DiskStation DS716+ II
 * 4 * Phillips Hue bulbs
