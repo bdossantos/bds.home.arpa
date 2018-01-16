@@ -85,6 +85,8 @@ SocksPort 9050
 SocksBindAddress 0.0.0.0
 FascistFirewall 1
 ReachableAddresses *:80,*:443
+ExitNodes {fr},{fx},{ch},{de},{nl},{se},{no},{fi},{es},{cz}
+StrictNodes 1
 TORCONF
 
 chown -R root.root /etc/tor
