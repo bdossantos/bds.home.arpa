@@ -198,6 +198,9 @@ group:
     name: Bedroom
     entities:
       - light.bedroom1
+      - light.bedroom2
+      - light.bedroom3
+      - light.bedroom4
       - media_player.bedroom
   hall:
     name: Hall
