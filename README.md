@@ -15,16 +15,15 @@ sudo make install
 ## Hardware and devices
 
 * 1 * APC BE700G-FR Onduleur BACK-UPS ES 700VA / 405 W
-* 1 * BBox Router
 * 1 * Google Wifi
 * 1 * Nest Protect 2
 * 1 * Netatmo weather station
 * 1 * Netgate SG-1000
 * 1 * Netgear GS308P-100PES Switch Gigabit Ethernet 8 Ports with 4 Ports PoE
 * 1 * Philips Hue Go
-* 1 * Philips Hue Motion Sensor
+* 2 * Philips Hue Motion Sensor
 * 1 * Phillips Hue tap
-* 1 * Phillips hue hub
+* 1 * Phillips Hue hub
 * 1 * Raspberry Pi 2
 * 1 * Raspberry Pi 3
 * 2 * Sonos PLAY:3
