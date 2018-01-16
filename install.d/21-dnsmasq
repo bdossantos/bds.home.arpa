@@ -75,6 +75,11 @@ rm -f '/etc/hosts.d/*'
 wget 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' \
   -O '/etc/hosts.d/fakenews-gambling'
 
+# Consolidate /etc/hosts too just in case I don't use my DNS, eg: automatic
+# network profile
+curl 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' \
+  | sudo tee -a /etc/hosts
+
 systemctl disable dnsmasq
 service dnsmasq stop
 
