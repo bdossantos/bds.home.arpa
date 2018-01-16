@@ -18,6 +18,11 @@ update-rc.d dphys-swapfile remove
 # enable ssh
 systemctl enable ssh
 
+# SSH keys
+sudo -u pi mkdir -p -m 0700 /home/pi/.ssh
+sudo -u pi wget -q -S -O - https://github.com/bdossantos.keys \
+  1> /home/pi/.ssh/authorized_keys
+
 # setup timezone
 echo "$TIMEZONE" > /etc/timezone \
   && dpkg-reconfigure --frontend noninteractive tzdata
