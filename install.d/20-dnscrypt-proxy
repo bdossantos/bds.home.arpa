@@ -8,61 +8,72 @@ DEBUG=${DEBUG:=0}
 [[ $DEBUG -eq 1 ]] && set -o xtrace
 
 DNSCRYPT_PROXY_PORT=5300
-DNSCRYPT_PROXY_VERSION=1.9.5
-DNSCRYPT_RESOLVERS='cs-cfi dnscrypt.org-fr'
+DNSCRYPT_PROXY_VERSION='2.0.0alpha6'
+OS=$(uname)
+ARCH=$(arch)
 
-apt-get install -y \
-  build-essential \
-  dnsutils \
-  libsodium-dev \
-  libsystemd-dev \
-  pkg-config
+if [[ "$ARCH" == 'arm'* ]]; then
+  ARCH='arm'
+fi
 
 mkdir -p "$HOME/dnscrypt-proxy/${DNSCRYPT_PROXY_VERSION}"
 
 pushd "$HOME/dnscrypt-proxy/${DNSCRYPT_PROXY_VERSION}"
 
-if [[ ! -f "dnscrypt-proxy-${DNSCRYPT_PROXY_VERSION}.tar.gz" ]]; then
+if [[ ! -f /usr/local/sbin/dnscrypt-proxy ]] ||
+  ! /usr/local/sbin/dnscrypt-proxy -version | grep -q "$DNSCRYPT_PROXY_VERSION"; then
   wget \
-    "https://download.dnscrypt.org/dnscrypt-proxy/dnscrypt-proxy-${DNSCRYPT_PROXY_VERSION}.tar.gz" \
+    "https://github.com/jedisct1/dnscrypt-proxy/releases/download/${DNSCRYPT_PROXY_VERSION}/dnscrypt-proxy-${OS}_${ARCH}-${DNSCRYPT_PROXY_VERSION}.tar.gz" \
     -O "dnscrypt-proxy-${DNSCRYPT_PROXY_VERSION}.tar.gz"
   tar -zxf "dnscrypt-proxy-${DNSCRYPT_PROXY_VERSION}.tar.gz" --strip-components=1 -C \
     "$HOME/dnscrypt-proxy/${DNSCRYPT_PROXY_VERSION}"
-fi
 
-if [[ ! -f /usr/local/sbin/dnscrypt-proxy ]] ||
-  ! /usr/local/sbin/dnscrypt-proxy --version | grep -q "$DNSCRYPT_PROXY_VERSION"; then
-  ldconfig
-  ./configure --with-systemd
-  make
-  make install
+  mv dnscrypt-proxy /usr/local/sbin/dnscrypt-proxy
+  chown root.root /usr/local/sbin/dnscrypt-proxy
+  chmod +x /usr/local/sbin/dnscrypt-proxy
 fi
 
 popd
 
-SUPERVISOR_GROUP=''
+cat <<DNSCRYPT-PROXY> /etc/dnscrypt-proxy.toml
+block_ipv6 = false
+cache = true
+cache_max_ttl = 86400
+cache_min_ttl = 600
+cache_neg_ttl = 60
+cache_size = 256
+cert_refresh_delay = 30
+daemonize = false
+force_tcp = true
+listen_addresses = ["127.0.0.1:${DNSCRYPT_PROXY_PORT}"]
+server_names = ["dnscrypt.org-fr", "cs-cfi"]
+timeout = 3000
 
-for resolver in $DNSCRYPT_RESOLVERS; do
-  program="dnscrypt-proxy-${resolver}"
-cat <<SUPERVISOR_DNSCRYPT > "/etc/supervisor/conf.d/${program}.conf"
-[program:$program]
+[query_log]
+file = "/dev/null"
+format = "tsv"
+
+[sources]
+  [sources."proxy v1 list from github"]
+  url = "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v1/dnscrypt-resolvers.csv"
+  minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3"
+  cache_file = "/tmp/dnscrypt-resolvers.csv"
+  format = "v1"
+  refresh_delay = 24
+DNSCRYPT-PROXY
+
+rm -f /etc/supervisor/conf.d/dnscrypt-proxy-*
+
+cat <<SUPERVISOR_DNSCRYPT > '/etc/supervisor/conf.d/dnscrypt-proxy.conf'
+[program:dnscrypt-proxy]
 autorestart = true
-command = /usr/local/sbin/dnscrypt-proxy --local-address=127.0.0.1:$DNSCRYPT_PROXY_PORT --resolver-name=$resolver --user=nobody --ephemeral-keys
-group = root
+command = /usr/local/sbin/dnscrypt-proxy -loglevel 2 -config /etc/dnscrypt-proxy.toml
+group = nogroup
 redirect_stderr = true
 stderr_logfile = syslog
 stdout_logfile = syslog
-user = root
+user = nobody
 SUPERVISOR_DNSCRYPT
-
-  DNSCRYPT_PROXY_PORT=$((DNSCRYPT_PROXY_PORT + 1))
-  SUPERVISOR_GROUP="${program},${SUPERVISOR_GROUP}"
-done
-
-cat <<SUPERVISOR_DNSCRYPT_GROUP > '/etc/supervisor/conf.d/dnscrypt-proxy.conf'
-[group:dnscrypt-proxy]
-programs = ${SUPERVISOR_GROUP%,}
-SUPERVISOR_DNSCRYPT_GROUP
 
 # ensure `nobody` home directory exist to avoid chroot errors
 # shellcheck disable=SC2174
@@ -70,9 +81,9 @@ mkdir -m 0700 -p /nonexistent
 chown nobody.nogroup /nonexistent
 
 systemctl daemon-reload
-systemctl disable dnscrypt-proxy@.service
+systemctl disable dnscrypt-proxy@.service || true
 systemctl stop dnscrypt-proxy@\*
 
 supervisorctl reread
 supervisorctl update
-supervisorctl start dnscrypt-proxy:*
+supervisorctl start dnscrypt-proxy
