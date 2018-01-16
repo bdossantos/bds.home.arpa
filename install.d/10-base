@@ -27,6 +27,9 @@ sudo -u pi wget -q -S -O - https://github.com/bdossantos.keys \
 echo "$TIMEZONE" > /etc/timezone \
   && dpkg-reconfigure --frontend noninteractive tzdata
 
+# locales
+locale-gen en_US.UTF-8
+
 # Update disk scheduler
 echo noop > /sys/block/*blk*/queue/scheduler
 
