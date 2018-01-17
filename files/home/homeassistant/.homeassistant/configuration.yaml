@@ -130,6 +130,9 @@ binary_sensor:
   - platform: nest
 
 device_tracker:
+  - platform: nmap_tracker
+    home_interval: 10
+    hosts: 192.168.1.10-20
   - platform: bluetooth_tracker
     consider_home: 300
   - platform: tile
