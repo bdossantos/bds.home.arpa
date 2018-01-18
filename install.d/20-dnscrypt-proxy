@@ -46,6 +46,9 @@ cert_refresh_delay = 30
 daemonize = false
 force_tcp = true
 listen_addresses = ["127.0.0.1:${DNSCRYPT_PROXY_PORT}"]
+require_dnssec = false
+require_nofilter = true
+require_nolog = true
 server_names = ["dnscrypt.org-fr", "cs-cfi"]
 timeout = 3000
 
