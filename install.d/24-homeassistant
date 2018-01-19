@@ -78,6 +78,7 @@ group = root
 redirect_stderr = true
 stderr_logfile = syslog
 stdout_logfile = syslog
+stopsignal = INT
 user = root
 SUPERVISOR_PG
 
