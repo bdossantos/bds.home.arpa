@@ -8,7 +8,7 @@ DEBUG=${DEBUG:=0}
 [[ $DEBUG -eq 1 ]] && set -o xtrace
 
 DNSCRYPT_PROXY_PORT=5300
-DNSCRYPT_PROXY_VERSION='2.0.0beta2'
+DNSCRYPT_PROXY_VERSION='2.0.0beta4'
 OS=$(uname)
 ARCH=$(arch)
 
@@ -45,6 +45,8 @@ cache_size = 256
 cert_refresh_delay = 30
 daemonize = false
 force_tcp = true
+ipv4_servers = true
+ipv6_servers = false
 listen_addresses = ["127.0.0.1:${DNSCRYPT_PROXY_PORT}"]
 require_dnssec = false
 require_nofilter = true
