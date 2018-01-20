@@ -18,6 +18,13 @@ unlink /etc/cron.daily/netdata-updater
 systemctl disable netdata
 service netdata stop
 
+cat <<NETDATA > /etc/netdata.conf
+[global]
+history = 1800
+memory mode = ram
+update every = 2
+NETDATA
+
 cat <<SUPERVISOR_DNSMASQ > /etc/supervisor/conf.d/netdata.conf
 [program:netdata]
 autorestart = true
