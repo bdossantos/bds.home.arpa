@@ -185,7 +185,6 @@ group:
     entities:
       - group.speedtest
       - group.nestor
-      - group.router
       - group.netatmo
       - group.air_quality
       - history_graph.indoor_temperature
@@ -221,7 +220,6 @@ group:
     entities:
       - light.livingroom1
       - media_player.living_room
-      - group.router
       - group.nestor
       - sensor.netatmo_indoor_temperature
       - sensor.netatmo_indoor_co2
@@ -249,8 +247,6 @@ group:
       - scene.reading
       - scene.energize
       - scene.arctic
-  router:
-    name: Router
   speedtest:
     name: Internet
     entities:
