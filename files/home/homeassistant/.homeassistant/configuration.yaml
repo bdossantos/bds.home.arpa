@@ -248,6 +248,7 @@ group:
       - scene.concentrate
       - scene.reading
       - scene.energize
+      - scene.arctic
   router:
     name: Router
   speedtest:
