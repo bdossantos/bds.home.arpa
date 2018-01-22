@@ -28,7 +28,6 @@ apt-get install -y \
   python3-pip \
   python3-venv
 
-
 #
 # Setup PG
 #
@@ -48,6 +47,11 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+function _teardown() {
+  kill -INT "$(cat /var/run/postgresql/9.6-main.pid)"
+  rm -f /var/run/postgresql/9.6-main.pid
+}
+
 mkdir -p \
   /etc/postgresql/9.6/main/conf.d \
   /var/run/postgresql/9.6-main.pg_stat_tmp \
@@ -63,7 +67,9 @@ chown -R postgres.postgres \
   /var/run/postgresql \
   /mnt/nas/archivedir
 
-exec runuser -l postgres -c 'exec /usr/lib/postgresql/9.6/bin/postgres \
+trap _teardown INT TERM EXIT
+
+exec runuser -l postgres -c '/usr/lib/postgresql/9.6/bin/postgres \
   -D /var/lib/postgresql/9.6/main \
   -c config_file=/etc/postgresql/9.6/main/postgresql.conf'
 START_PG
