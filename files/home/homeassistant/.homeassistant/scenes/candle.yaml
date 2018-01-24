@@ -16,11 +16,19 @@ entities:
     state: on
     brightness: 25
     xy_color: [0.5639, 0.3904]
+  light.bathroom1:
+    state: on
+    brightness: 25
+    xy_color: [0.5639, 0.3904]
   light.livingroom2:
     state: on
     brightness: 25
     xy_color: [0.5639, 0.3904]
   light.livingroom3:
+    state: on
+    brightness: 25
+    xy_color: [0.5639, 0.3904]
+  light.livingroom4:
     state: on
     brightness: 25
     xy_color: [0.5639, 0.3904]
