@@ -8,7 +8,7 @@ DEBUG=${DEBUG:=0}
 [[ $DEBUG -eq 1 ]] && set -o xtrace
 
 DNSCRYPT_PROXY_PORT=5300
-DNSCRYPT_PROXY_VERSION='2.0.0beta4'
+DNSCRYPT_PROXY_VERSION='2.0.0beta9'
 OS=$(uname)
 ARCH=$(arch)
 
