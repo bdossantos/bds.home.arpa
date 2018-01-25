@@ -133,10 +133,11 @@ device_tracker:
   - platform: nmap_tracker
     home_interval: 10
     hosts: 192.168.1.10-20
+    consider_home: 600
   - platform: bluetooth_tracker
-    consider_home: 300
+    consider_home: 600
   - platform: tile
-    consider_home: 300
+    consider_home: 600
     show_inactive: false
     username: !secret tile_username
     password: !secret tile_password
