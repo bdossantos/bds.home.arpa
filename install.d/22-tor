@@ -73,19 +73,19 @@ cat <<TORCONF > /etc/tor/torrc
 AutomapHostsOnResolve 1
 AutomapHostsSuffixes .exit,.onion
 AvoidDiskWrites 1
-ControlPort 9051
 ClientOnly 1
+ControlPort 9051
 DNSPort 127.0.0.1:9053
+ExitNodes {fr},{fx},{ch},{de},{nl},{se},{no},{fi},{es},{cz}
+FascistFirewall 1
 HardwareAccel 1
 HashedControlPassword $(tor --hash-password "$(pwgen 16)" | tail -n 1)
 Log notice syslog
 NumCPUs 2
-SafeLogging 1
-SocksPort 9050
-SocksBindAddress 0.0.0.0
-FascistFirewall 1
 ReachableAddresses *:80,*:443
-ExitNodes {fr},{fx},{ch},{de},{nl},{se},{no},{fi},{es},{cz}
+SafeLogging 1
+SocksBindAddress 0.0.0.0
+SocksPort 9050
 StrictNodes 1
 TORCONF
 
