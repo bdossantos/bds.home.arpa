@@ -80,6 +80,9 @@ ExitNodes {fr},{fx},{ch},{de},{nl},{se},{no},{fi},{es},{cz}
 FascistFirewall 1
 HardwareAccel 1
 HashedControlPassword $(tor --hash-password "$(pwgen 16)" | tail -n 1)
+HiddenServiceAuthorizeClient stealth client1
+HiddenServiceDir /var/lib/tor/homeassistant/
+HiddenServicePort 80 127.0.0.1:8080
 Log notice syslog
 NumCPUs 2
 ReachableAddresses *:80,*:443
