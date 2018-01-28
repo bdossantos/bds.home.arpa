@@ -21,7 +21,7 @@ addn-hosts=/etc/hosts.d
 all-servers
 bind-interfaces
 bogus-priv
-cache-size=10000
+cache-size=16000
 cname=bds.home,nestor.bds.home
 dhcp-authoritative
 dhcp-host=18:b4:30:9e:b1:4f,nest-protect,192.168.1.246
