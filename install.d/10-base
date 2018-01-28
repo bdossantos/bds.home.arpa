@@ -44,6 +44,7 @@ vm.dirty_expire_centisecs=12000
 vm.dirty_ratio=40
 vm.dirty_writeback_centisecs=12000
 vm.swappiness=0
+vm.vfs_cache_pressure=50
 SYSCTL
 
 sysctl -p /etc/sysctl.d/local.conf
