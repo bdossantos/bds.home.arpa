@@ -60,12 +60,17 @@ file = "/dev/null"
 format = "tsv"
 
 [sources]
-  [sources."proxy v1 list from github"]
-  url = "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v1/dnscrypt-resolvers.csv"
-  minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3"
-  cache_file = "/tmp/dnscrypt-resolvers.csv"
-  format = "v1"
-  refresh_delay = 24
+  [sources.'public-resolvers']
+  url = 'http://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md'
+  cache_file = '/tmp/public-resolvers.md'
+  format = 'v2'
+  minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+  refresh_delay = 168
+  prefix = ''
+
+[static]
+  [static.'google']
+  stamp = 'sdns://AgEAAAAAAAAADTIxNi41OC4yMDUuNzgg8lxq3HOXjXnCfJ6JiQifqungi0xJ-mx4nNIVhlMGEGgOZG5zLmdvb2dsZS5jb20NL2V4cGVyaW1lbnRhbA'
 DNSCRYPT-PROXY
 
 rm -f /etc/supervisor/conf.d/dnscrypt-proxy-*
