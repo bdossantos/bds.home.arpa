@@ -67,7 +67,7 @@ fi
 
 popd
 
-mkdir -p /etc/tor
+mkdir -p /etc/tor /usr/local/etc/tor/hidden_service/
 
 cat <<TORCONF > /etc/tor/torrc
 AutomapHostsOnResolve 1
@@ -80,8 +80,8 @@ ExitNodes {fr},{fx},{ch},{de},{nl},{se},{no},{fi},{es},{cz}
 FascistFirewall 1
 HardwareAccel 1
 HashedControlPassword $(tor --hash-password "$(pwgen 16)" | tail -n 1)
+HiddenServiceDir /usr/local/etc/tor/hidden_service/
 HiddenServiceAuthorizeClient stealth client1
-HiddenServiceDir /var/lib/tor/homeassistant/
 HiddenServicePort 80 127.0.0.1:8080
 Log notice syslog
 NumCPUs 2
@@ -93,6 +93,8 @@ StrictNodes 1
 TORCONF
 
 chown -R root.root /etc/tor
+chown -R nobody.nogroup /usr/local/etc/tor/hidden_service/
+chmod 0700 -R /usr/local/etc/tor/hidden_service/
 rm -f /etc/systemd/system/tor.service
 systemctl disable tor || true
 
