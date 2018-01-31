@@ -126,6 +126,8 @@ sudo -u homeassistant \
   bash -c 'source /srv/homeassistant/bin/activate && pip3 install --upgrade homeassistant psycopg2'
 cp files/home/homeassistant/.homeassistant/configuration.yaml \
   /home/homeassistant/.homeassistant/configuration.yaml
+cp files/home/homeassistant/.homeassistant/light_profiles.csv  \
+  /home/homeassistant/.homeassistant/light_profiles.csv
 rsync -za files/home/homeassistant/.homeassistant/scenes/ \
   /home/homeassistant/.homeassistant/scenes/
 chown -R homeassistant:homeassistant /srv/homeassistant
