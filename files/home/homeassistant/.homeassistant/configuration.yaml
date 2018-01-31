@@ -291,6 +291,16 @@ group:
       - sensor.apc_be700g_beeper_status
       - sensor.apc_be700g_input_voltage
       - sensor.apc_be700g_load
+  sun_light_trigger:
+    name: Presence based lights
+    entities:
+      - light.hall1
+      - light.bedroom2
+      - light.bedroom3
+      - light.bathroom1
+      - light.livingroom2
+      - light.livingroom3
+      - light.livingroom4
   benjamin:
     name: Benjamin
     entities:
@@ -350,8 +360,8 @@ automation:
       service: media_player.turn_off
 
 device_sun_light_trigger:
-  light_group: group.hall
-  light_profile: relax
+  light_group: group.sun_light_trigger
+  light_profile: candle
   device_group: group.benjamin
   disable_turn_off: 0
 
