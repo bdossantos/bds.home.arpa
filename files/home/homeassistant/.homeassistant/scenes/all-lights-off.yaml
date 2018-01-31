@@ -1,0 +1,26 @@
+---
+
+name: All Lights Off
+entities:
+  light.hall1:
+    state: off
+  light.dressing1:
+    state: off
+  light.dressing2:
+    state: off
+  light.kitchen1:
+    state: off
+  light.bedroom1:
+    state: off
+  light.bedroom2:
+    state: off
+  light.bedroom3:
+    state: off
+  light.bathroom1:
+    state: off
+  light.livingroom2:
+    state: off
+  light.livingroom3:
+    state: off
+  light.livingroom4:
+    state: off
