@@ -35,7 +35,14 @@ fi
 
 popd
 
-cat <<DNSCRYPT-PROXY> /etc/dnscrypt-proxy.toml
+cat <<DNSCRYPT-PROXY-BLACKLIST > /etc/dnscrypt-proxy-blacklist.txt
+## Time-based rules
+*.youtube.*  @time-to-sleep
+facebook.com @time-to-sleep
+facebook.com @work
+DNSCRYPT-PROXY-BLACKLIST
+
+cat <<DNSCRYPT-PROXY > /etc/dnscrypt-proxy.toml
 block_ipv6 = false
 cache = true
 cache_max_ttl = 86400
@@ -44,7 +51,9 @@ cache_neg_ttl = 60
 cache_size = 16000
 cert_refresh_delay = 30
 daemonize = false
+fallback_resolver = '9.9.9.9:53'
 force_tcp = false
+ignore_system_dns = true
 ipv4_servers = true
 ipv6_servers = false
 listen_addresses = ["127.0.0.1:${DNSCRYPT_PROXY_PORT}"]
@@ -56,8 +65,13 @@ server_names = ["dnscrypt.org-fr", "cs-cfi"]
 timeout = 3000
 
 [query_log]
-file = "/dev/null"
-format = "tsv"
+  file = "/dev/null"
+  format = "tsv"
+
+[blacklist]
+  blacklist_file = '/etc/dnscrypt-proxy-blacklist.txt'
+  log_file = '/dev/null'
+  format = "tsv"
 
 [sources]
   [sources.'public-resolvers']
@@ -71,6 +85,23 @@ format = "tsv"
 [static]
   [static.'google']
   stamp = 'sdns://AgEAAAAAAAAADTIxNi41OC4yMDUuNzgg8lxq3HOXjXnCfJ6JiQifqungi0xJ-mx4nNIVhlMGEGgOZG5zLmdvb2dsZS5jb20NL2V4cGVyaW1lbnRhbA'
+
+[schedules]
+  [schedules.'time-to-sleep']
+  mon = [{after='23:00', before='7:00'}]
+  tue = [{after='23:00', before='7:00'}]
+  wed = [{after='23:00', before='7:00'}]
+  thu = [{after='23:00', before='7:00'}]
+  fri = [{after='00:00', before='7:00'}]
+  sat = [{after='00:00', before='7:00'}]
+  sun = [{after='23:00', before='7:00'}]
+
+  [schedules.'work']
+  mon = [{after='9:00', before='18:00'}]
+  tue = [{after='9:00', before='18:00'}]
+  wed = [{after='9:00', before='18:00'}]
+  thu = [{after='9:00', before='18:00'}]
+  fri = [{after='9:00', before='17:00'}]
 DNSCRYPT-PROXY
 
 rm -f /etc/supervisor/conf.d/dnscrypt-proxy-*
