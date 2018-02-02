@@ -32,12 +32,25 @@ apt-get install -y \
 # Setup PG
 #
 cat <<PG_CONF_D > /etc/postgresql/9.6/main/conf.d/00-tuning.conf
+# http://pgtune.leopard.in.ua/
+
 archive_command = 'test ! -f /mnt/nas/archivedir/%f && cp %p /mnt/nas/archivedir/%f'
 archive_mode = off
+checkpoint_completion_target = 0.7
+default_statistics_target = 100
+effective_cache_size = 768MB
 log_destination = 'stderr'
+maintenance_work_mem = 64MB
+max_connections = 50
 max_wal_senders = 3
+max_wal_size = 2GB
+min_wal_size = 1GB
+random_page_cost = 4
+shared_buffers = 256MB
 unix_socket_directories = '/var/run/postgresql,/tmp'
+wal_buffers = 7864kB
 wal_level = replica
+work_mem = 1310kB
 PG_CONF_D
 
 cat <<START_PG > /usr/local/bin/start-postgresql
