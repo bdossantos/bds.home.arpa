@@ -61,7 +61,6 @@ max_clients = 100
 require_dnssec = false
 require_nofilter = true
 require_nolog = true
-server_names = ["dnscrypt.org-fr", "cs-cfi"]
 timeout = 3000
 
 [query_log]
