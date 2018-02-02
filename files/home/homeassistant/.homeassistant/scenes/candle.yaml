@@ -4,7 +4,11 @@ name: Candle
 entities:
   light.hall1:
     state: off
+  light.dressing1:
+    state: off
   light.kitchen1:
+    state: off
+  light.dressing2:
     state: off
   light.bedroom1:
     state: off
