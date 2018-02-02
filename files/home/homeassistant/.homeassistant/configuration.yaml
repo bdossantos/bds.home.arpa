@@ -221,6 +221,9 @@ group:
     name: Living Room
     entities:
       - light.livingroom1
+      - light.livingroom2
+      - light.livingroom3
+      - light.livingroom4
       - media_player.living_room
       - group.nestor
       - sensor.netatmo_indoor_temperature
