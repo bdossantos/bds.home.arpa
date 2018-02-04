@@ -56,6 +56,7 @@ popd >/dev/null
 
 cat <<CLOAKING > /etc/dnscrypt-proxy-cloaking-rules.txt
 albert.bds.home 192.168.1.251
+bds.home 192.168.1.252
 hue.bds.home 192.168.1.249
 nas.bds.home 192.168.1.250
 nest-protect.bds.home 192.168.1.246
