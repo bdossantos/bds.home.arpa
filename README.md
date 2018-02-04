@@ -34,12 +34,12 @@ sudo make install
 
 ### Internet
 
-1/ Add VLAN 835 on WAN interface: go to Interfaces -> Assignements -> VLANs
+* Add VLAN 835 on WAN interface: go to Interfaces -> Assignements -> VLANs
   * Parent Interface: your WAN interface
   * VLAN Tag: 835
   * VLAN Priority: 0
   * Description:  "Orange Internet"
-2/ Edit WAN interface and setup the PPPoE:
+* Edit WAN interface and setup the PPPoE:
   * IPv4 Configuration Type: PPPoE
   * PPPoE Configuration:
     * Username: fti/xxxx
