@@ -54,6 +54,19 @@ python <(curl -Ss https://raw.githubusercontent.com/jedisct1/dnscrypt-proxy/35e3
 
 popd >/dev/null
 
+cat <<CLOAKING > /etc/dnscrypt-proxy-cloaking-rules.txt
+albert.bds.home 192.168.1.251
+hue.bds.home 192.168.1.249
+nas.bds.home 192.168.1.250
+nest-protect.bds.home 192.168.1.246
+nestor.bds.home 192.168.1.252
+netatmo.bds.home 192.168.1.247
+router.bds.home 192.168.1.254
+sonos01.bds.home 192.168.1.248
+sonos02.bds.home 192.168.1.245
+wifi.bds.home wifi 192.168.1.253
+CLOAKING
+
 cat <<DNSCRYPT-PROXY > /etc/dnscrypt-proxy.toml
 block_ipv6 = true
 cache = true
@@ -62,6 +75,7 @@ cache_min_ttl = 600
 cache_neg_ttl = 60
 cache_size = 16000
 cert_refresh_delay = 30
+cloaking_rules = "/etc/dnscrypt-proxy-cloaking-rules.txt"
 daemonize = false
 fallback_resolver = '9.9.9.9:53'
 force_tcp = false
