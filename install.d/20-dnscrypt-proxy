@@ -7,7 +7,7 @@ set -o nounset
 DEBUG=${DEBUG:=0}
 [[ $DEBUG -eq 1 ]] && set -o xtrace
 
-DNSCRYPT_PROXY_PORT=5300
+DNSCRYPT_PROXY_PORT=53
 DNSCRYPT_PROXY_VERSION='2.0.0rc3'
 OS=$(uname)
 ARCH=$(arch)
@@ -16,7 +16,10 @@ if [[ "$ARCH" == 'arm'* ]]; then
   ARCH='arm'
 fi
 
-mkdir -p "$HOME/dnscrypt-proxy/${DNSCRYPT_PROXY_VERSION}"
+apt-get purge -y dnsmasq
+rm -rf /etc/dnsmasq.conf /etc/supervisor/conf.d/dnsmasq.conf
+
+mkdir -p "$HOME/dnscrypt-proxy/${DNSCRYPT_PROXY_VERSION}" '/etc/hosts.d'
 
 pushd "$HOME/dnscrypt-proxy/${DNSCRYPT_PROXY_VERSION}"
 
@@ -35,15 +38,24 @@ fi
 
 popd
 
-cat <<DNSCRYPT-PROXY-BLACKLIST > /etc/dnscrypt-proxy-blacklist.txt
-## Time-based rules
-*.youtube.*  @time-to-sleep
-facebook.com @time-to-sleep
-facebook.com @work
-DNSCRYPT-PROXY-BLACKLIST
+# Running it as a non-root user
+setcap cap_net_bind_service=+pe /usr/local/sbin/dnscrypt-proxy
+
+# Consolidate /etc/hosts too just in case I don't use my DNS, eg: automatic
+# network profile
+curl 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' \
+  | sudo tee -a /etc/hosts
+
+# YOLO
+pushd files/etc/dnscrypt-proxy/ >/dev/null
+
+python <(curl -Ss https://raw.githubusercontent.com/jedisct1/dnscrypt-proxy/35e32b823f2e722b7166c7464a90e9799e90c441/utils/generate-domains-blacklists/generate-domains-blacklist.py) \
+  > /etc/dnscrypt-proxy-blacklist.txt
+
+popd >/dev/null
 
 cat <<DNSCRYPT-PROXY > /etc/dnscrypt-proxy.toml
-block_ipv6 = false
+block_ipv6 = true
 cache = true
 cache_max_ttl = 86400
 cache_min_ttl = 600
@@ -56,7 +68,7 @@ force_tcp = false
 ignore_system_dns = true
 ipv4_servers = true
 ipv6_servers = false
-listen_addresses = ["127.0.0.1:${DNSCRYPT_PROXY_PORT}"]
+listen_addresses = ["0.0.0.0:${DNSCRYPT_PROXY_PORT}"]
 max_clients = 100
 require_dnssec = false
 require_nofilter = true
@@ -81,10 +93,6 @@ timeout = 3000
   refresh_delay = 72
   prefix = ''
 
-[static]
-  [static.'google']
-  stamp = 'sdns://AgEAAAAAAAAADTIxNi41OC4yMDUuNzgg8lxq3HOXjXnCfJ6JiQifqungi0xJ-mx4nNIVhlMGEGgOZG5zLmdvb2dsZS5jb20NL2V4cGVyaW1lbnRhbA'
-
 [schedules]
   [schedules.'time-to-sleep']
   mon = [{after='23:00', before='7:00'}]
@@ -103,7 +111,7 @@ timeout = 3000
   fri = [{after='9:00', before='17:00'}]
 DNSCRYPT-PROXY
 
-rm -f /etc/supervisor/conf.d/dnscrypt-proxy-*
+rm -f /etc/supervisor/conf.d/dnscrypt-proxy-* /tmp/public-resolvers.md*
 
 cat <<SUPERVISOR_DNSCRYPT > '/etc/supervisor/conf.d/dnscrypt-proxy.conf'
 [program:dnscrypt-proxy]
