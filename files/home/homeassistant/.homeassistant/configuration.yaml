@@ -301,6 +301,7 @@ group:
       - light.bedroom2
       - light.bedroom3
       - light.bathroom1
+      - light.livingroom1
       - light.livingroom2
       - light.livingroom3
       - light.livingroom4
