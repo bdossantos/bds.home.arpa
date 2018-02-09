@@ -14,6 +14,8 @@ entities:
     state: off
   light.bedroom1:
     state: off
+  light.livingroom1:
+    state: off
   light.bedroom2:
     state: on
     brightness: 25
