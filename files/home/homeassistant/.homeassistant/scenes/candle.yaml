@@ -2,6 +2,8 @@
 
 name: Candle
 entities:
+  switch.fluxer:
+    state: off
   light.hall1:
     state: off
   light.dressing1:
