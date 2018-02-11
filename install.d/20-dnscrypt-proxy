@@ -44,14 +44,16 @@ setcap cap_net_bind_service=+pe /usr/local/sbin/dnscrypt-proxy
 # Consolidate /etc/hosts too just in case I don't use my DNS, eg: automatic
 # network profile
 curl 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' \
-  | sudo tee -a /etc/hosts
+  > /etc/hosts.back
+
+mv -f /etc/hosts.back /etc/hosts
 
 # YOLO
 pushd files/etc/dnscrypt-proxy/ >/dev/null
 
 python <(curl -Ss https://raw.githubusercontent.com/jedisct1/dnscrypt-proxy/ebe79c5df14862be77f5583cfa3d2cc58b97176a/utils/generate-domains-blacklists/generate-domains-blacklist.py) \
   > /etc/dnscrypt-proxy-blacklist.txt.tmp
-mv /etc/dnscrypt-proxy-blacklist.txt.tmp /etc/dnscrypt-proxy-blacklist.txt
+mv -f /etc/dnscrypt-proxy-blacklist.txt.tmp /etc/dnscrypt-proxy-blacklist.txt
 
 popd >/dev/null
 
