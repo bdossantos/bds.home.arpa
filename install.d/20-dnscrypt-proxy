@@ -49,7 +49,7 @@ curl 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fake
 # YOLO
 pushd files/etc/dnscrypt-proxy/ >/dev/null
 
-python <(curl -Ss https://raw.githubusercontent.com/jedisct1/dnscrypt-proxy/35e32b823f2e722b7166c7464a90e9799e90c441/utils/generate-domains-blacklists/generate-domains-blacklist.py) \
+python <(curl -Ss https://raw.githubusercontent.com/jedisct1/dnscrypt-proxy/ebe79c5df14862be77f5583cfa3d2cc58b97176a/utils/generate-domains-blacklists/generate-domains-blacklist.py) \
   > /etc/dnscrypt-proxy-blacklist.txt.tmp
 mv /etc/dnscrypt-proxy-blacklist.txt.tmp /etc/dnscrypt-proxy-blacklist.txt
 
