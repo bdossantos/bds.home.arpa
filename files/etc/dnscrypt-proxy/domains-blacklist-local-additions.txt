@@ -27,16 +27,6 @@ tracker.*
 
 eth0.me
 
-#
-# My additions
-#
-
-# StevenBlack/hosts
-https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts
-
-# ZeroDot1/CoinBlockerLists
-https://raw.githubusercontent.com/ZeroDot1/CoinBlockerLists/master/hosts
-
 # Time-based rules
 *.youtube.*  @time-to-sleep
 facebook.com @time-to-sleep
