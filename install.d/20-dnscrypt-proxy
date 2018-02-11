@@ -70,7 +70,7 @@ wifi.bds.home wifi 192.168.1.253
 CLOAKING
 
 cat <<DNSCRYPT-PROXY > /etc/dnscrypt-proxy.toml
-block_ipv6 = true
+block_ipv6 = false
 cache = true
 cache_max_ttl = 86400
 cache_min_ttl = 600
