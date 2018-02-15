@@ -268,7 +268,7 @@ group:
     name: Nestor
     entities:
       - sensor.cpu_used
-      - sensor.ram_used
+      - sensor.memory_use
       - sensor.cpu_temperature
       - history_graph.cpu_temperature
   air_quality:
