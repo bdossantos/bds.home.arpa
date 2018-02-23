@@ -103,7 +103,6 @@ timeout = 3000
 [blacklist]
   blacklist_file = '/etc/dnscrypt-proxy-blacklist.txt'
   log_file = '/dev/null'
-  format = "tsv"
 
 [sources]
   [sources.'public-resolvers']
