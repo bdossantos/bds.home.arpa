@@ -31,7 +31,7 @@ apt-get install -y \
 #
 # Setup PG
 #
-mkdir /etc/postgresql/9.6/main/conf.d
+mkdir -p /etc/postgresql/9.6/main/conf.d
 chown postgres.postgres /etc/postgresql/9.6/main/conf.d
 
 cat <<PG_CONF_D > /etc/postgresql/9.6/main/conf.d/00-tuning.conf
