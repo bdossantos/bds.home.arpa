@@ -348,7 +348,7 @@ group:
     name: Benjamin
     entities:
       - device_tracker.nexus_5x
-      - device_tracker.benjamin
+      - device_tracker.smartphone
       - device_tracker.tile_home_keys
   tile:
     name: Tile
