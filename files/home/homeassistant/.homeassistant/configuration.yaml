@@ -58,6 +58,39 @@ hue:
 
 scene: !include_dir_list scenes
 
+light:
+  - platform: group
+    name: hall lights
+    entities:
+      - light.hall1
+  - platform: group
+    name: kitchen lights
+    entities:
+      - light.kitchen1
+  - platform: group
+    name: livingroom lights
+    entities:
+      - light.livingroom1
+      - light.livingroom2
+      - light.livingroom3
+      - light.livingroom4
+  - platform: group
+    name: bedroom lights
+    entities:
+      - light.bathroom1
+      - light.bedroom1
+      - light.bedroom2
+      - light.bedroom3
+  - platform: group
+    name: dressing lights
+    entities:
+      - light.dressing1
+      - light.dressing2
+  - platform: group
+    name: bathroom lights
+    entities:
+      - light.bathroom1
+
 sensor:
   - platform: google_wifi
     host: 192.168.1.253
