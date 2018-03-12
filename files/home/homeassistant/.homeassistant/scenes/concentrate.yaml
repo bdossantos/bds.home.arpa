@@ -2,8 +2,6 @@
 
 name: Concentrate
 entities:
-  switch.fluxer:
-    state: off
   group.all_lights:
     state: on
     brightness: 219

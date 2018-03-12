@@ -2,8 +2,6 @@
 
 name: Green
 entities:
-  switch.fluxer:
-    state: off
   light.bedroom1:
     state: on
     brightness: 170

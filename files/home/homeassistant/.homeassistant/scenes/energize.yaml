@@ -2,11 +2,9 @@
 
 name: Energize
 entities:
-  switch.fluxer:
+  group.dressing:
     state: off
   group.all_lights:
     state: on
     brightness: 203
     xy_color: [0.368, 0.3686]
-  group.dressing:
-    state: off

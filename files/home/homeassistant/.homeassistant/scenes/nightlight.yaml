@@ -2,8 +2,6 @@
 
 name: Nightlight
 entities:
-  switch.fluxer:
-    state: off
   group.all_lights:
     state: on
     transition: 2

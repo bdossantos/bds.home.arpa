@@ -2,8 +2,6 @@
 
 name: Arctic
 entities:
-  switch.fluxer:
-    state: off
   light.livingroom3:
     state: on
     brightness: 101
