@@ -139,6 +139,7 @@ device_tracker:
     home_interval: 10
     hosts:
       smartphone: 192.168.1.2
+      count: 2
     consider_home: 600
   - platform: bluetooth_tracker
     consider_home: 600
