@@ -8,3 +8,5 @@ entities:
     state: on
     brightness: 219
     xy_color: [0.5119, 0.4147]
+  group.dressing:
+    state: off

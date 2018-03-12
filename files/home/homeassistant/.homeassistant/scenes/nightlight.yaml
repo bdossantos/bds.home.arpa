@@ -9,3 +9,5 @@ entities:
     transition: 2
     brightness: 25
     color_temp: 500
+  group.dressing:
+    state: off
