@@ -104,6 +104,7 @@ autorestart = true
 command = /usr/local/bin/tor --runasdaemon 0 --defaults-torrc /usr/local/etc/tor/torrc.sample -f /etc/tor/torrc
 environment = HOME=/tmp
 group = nogroup
+priotity = 999
 redirect_stderr = true
 stderr_logfile = syslog
 stdout_logfile = syslog

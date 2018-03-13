@@ -48,6 +48,7 @@ cat <<SUPERVISOR_FAIL2BAN > /etc/supervisor/conf.d/fail2ban.conf
 autorestart = true
 command = /usr/bin/python3 /usr/bin/fail2ban-server -x -f -s /var/run/fail2ban/fail2ban.sock
 group = root
+priority = 1
 redirect_stderr = true
 stderr_logfile = syslog
 stdout_logfile = syslog

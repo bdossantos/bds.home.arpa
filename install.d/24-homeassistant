@@ -97,6 +97,7 @@ cat <<SUPERVISOR_PG > /etc/supervisor/conf.d/postgresql.conf
 autorestart = true
 command = /usr/local/bin/start-postgresql
 group = root
+priority = 1
 redirect_stderr = true
 stderr_logfile = syslog
 stdout_logfile = syslog
@@ -153,6 +154,7 @@ cat <<SUPERVISOR_HASS > /etc/supervisor/conf.d/hass.conf
 autorestart = true
 command = /srv/homeassistant/bin/hass
 group = homeassistant
+priority = 2
 redirect_stderr = true
 stderr_logfile = syslog
 stdout_logfile = syslog

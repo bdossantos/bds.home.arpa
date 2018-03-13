@@ -138,6 +138,7 @@ cat <<SUPERVISOR_DNSCRYPT > '/etc/supervisor/conf.d/dnscrypt-proxy.conf'
 autorestart = true
 command = /usr/local/sbin/dnscrypt-proxy -loglevel 2 -config /etc/dnscrypt-proxy.toml
 group = nogroup
+priority = 1
 redirect_stderr = true
 stderr_logfile = syslog
 stdout_logfile = syslog

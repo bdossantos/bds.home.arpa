@@ -53,6 +53,7 @@ cat <<SUPERVISOR_POLIPO > /etc/supervisor/conf.d/polipo.conf
 autorestart = true
 command = /usr/bin/polipo -c /etc/polipo/config daemonise=false
 group = nogroup
+priotity = 999
 redirect_stderr = true
 stderr_logfile = syslog
 stdout_logfile = syslog
