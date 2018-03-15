@@ -394,14 +394,17 @@ history_graph:
     refresh: 60
 
 automation:
-  - alias: 'Turn off music when I leave home'
+  - alias: 'Away Mode'
     trigger:
       platform: state
-      entity_id: group.benjamin
+      entity_id: group.family
       from: 'home'
       to: 'not_home'
+      for:
+        minutes: 5
     action:
-      service: media_player.turn_off
+      - service: media_player.turn_off
+      - service: script.all_lights_off
 
 device_sun_light_trigger:
   light_group: group.sun_light_trigger
