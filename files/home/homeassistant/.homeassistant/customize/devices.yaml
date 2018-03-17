@@ -1,6 +1,6 @@
 ---
 
-device_tracker.nexus_5x:
+device_tracker.nexus5x:
   name: Benjamin
   friendly_name: Benjamin
   picture: https://avatars3.githubusercontent.com/u/245284?s=460&v=4
