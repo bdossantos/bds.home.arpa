@@ -53,7 +53,6 @@ hue:
     - host: hue.bds.home
       filename: phue.conf
       allow_unreachable: true
-      allow_in_emulated_hue: true
       allow_hue_groups: false
 
 scene: !include_dir_list scenes
