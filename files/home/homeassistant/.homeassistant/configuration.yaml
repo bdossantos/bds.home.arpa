@@ -50,7 +50,7 @@ recorder:
 
 hue:
   bridges:
-    - host: hue.bds.home
+    - host: 192.168.1.249
       filename: phue.conf
       allow_unreachable: true
       allow_hue_groups: false
