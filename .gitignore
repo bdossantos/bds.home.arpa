@@ -1,2 +1,10 @@
-secrets.yaml
+.HA_VERSION
+.tile.conf
+entity_registry.yaml
+files/home/homeassistant/.homeassistant/deps/
+home-assistant.log
+home-assistant_v2.db
 known_devices.yaml
+nest.conf
+phue*
+secrets.yaml
