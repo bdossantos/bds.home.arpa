@@ -213,7 +213,7 @@ group:
       - group.dressing
       - group.lights
       - group.scenes
-      - group.family_status
+      - group.family
       - group.all_automations
       - group.all_scripts
       - group.all_switches
@@ -333,8 +333,8 @@ group:
       - light.livingroom2
       - light.livingroom3
       - light.livingroom4
-  benjamin:
-    name: Benjamin
+  benjamin_devices:
+    name: Benjamin devices
     entities:
       - device_tracker.nexus5x
       - device_tracker.benjamin_smartphone
@@ -345,10 +345,10 @@ group:
       - device_tracker.tile_home_keys
       - device_tracker.tile_home_keys_double
       - device_tracker.tile_passport
-  family_status:
-    name: Family Status
+  family:
+    name: Family
     entities:
-      - sensor.benjamin_status
+      - group.benjamin_devices
 
 input_select:
   benjamin_status_dropdown:
@@ -388,42 +388,70 @@ history_graph:
     refresh: 60
 
 automation:
-  - alias: 'Away Mode'
+  - alias: 'Turn on Nightlight Scene when dark and we Just Arrived'
+    trigger:
+      - platform: state
+        entity_id: sensor.benjamin_status
+        to: 'Just Arrived'
+    condition:
+      condition: or  # 'when dark': either after sunset or before sunrise
+      conditions:
+        - condition: sun
+          after: sunset
+        - condition: sun
+          before: sunrise
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: group.family
+              state: 'home'
+    action:
+      service: scene.turn_on
+      entity_id: scene.nightlight
+  - alias: 'Turn off Media Players when everybody is Away'
     trigger:
       platform: state
-      entity_id: group.family_status
-      from: 'home'
-      to: 'not_home'
-      for:
-        minutes: 5
+      entity_id: sensor.benjamin_status
+      to: 'Away'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: group.family
+          state: 'not_home'
     action:
       - service: media_player.turn_off
-      - service: script.all_lights_off
+  - alias: 'Turn off lights when everybody is Away'
+    trigger:
+      platform: state
+      entity_id: sensor.benjamin_status
+      to: 'Away'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: group.family
+          state: 'not_home'
+    action:
+      service: light.turn_off
+      entity_id: group.all_lights
   # Automating Transitions Between States
   # https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
   - alias: Mark person as just arrived
     trigger:
       - platform: state
-        entity_id: group.benjamin
+        entity_id: group.benjamin_devices
         from: 'not_home'
         to: 'home'
-    # handle another person, eg:
-    # - platform: state
-    #   entity_id: group.someoneelse
-    #   from: 'not_home'
-    #   to: 'home'
     action:
       - service: input_select.select_option
         data_template:
           entity_id: >
-            {% if trigger.entity_id == 'group.benjamin' %}
+            {% if trigger.entity_id == 'group.benjamin_devices' %}
               input_select.benjamin_status_dropdown
-            # handle another person, eg:
-            # {% else %}
-            #   input_select.someoneelse_status_dropdown
             {% endif %}
           option: >
-            {% if trigger.entity_id == 'group.benjamin' %}
+            {% if trigger.entity_id == 'group.benjamin_devices' %}
               {% if states.input_select.benjamin_status_dropdown.state == 'Just Left' %}
                 Home
               {% else %}
@@ -452,14 +480,14 @@ automation:
   - alias: Mark person as just left
     trigger:
       - platform: state
-        entity_id: group.benjamin
+        entity_id: group.benjamin_devices
         from: 'home'
         to: 'not_home'
     action:
       - service: input_select.select_option
         data_template:
           entity_id: >
-            {% if trigger.entity_id == 'group.benjamin' %}
+            {% if trigger.entity_id == 'group.benjamin_devices' %}
               input_select.benjamin_status_dropdown
             {% endif %}
           option: Just Left
@@ -493,12 +521,6 @@ automation:
               input_select.benjamin_status_dropdown
             {% endif %}
           option: Extended Away
-
-device_sun_light_trigger:
-  light_group: group.sun_light_trigger
-  light_profile: candle
-  device_group: group.benjamin
-  disable_turn_off: 0
 
 script:
   all_lights_off:
