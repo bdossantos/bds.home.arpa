@@ -45,7 +45,7 @@ tts:
 
 recorder:
   purge_interval: 1
-  purge_keep_days: 7
+  purge_keep_days: 30
 
 hue:
   bridges:
