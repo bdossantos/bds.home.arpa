@@ -1,0 +1,13 @@
+---
+
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  sha: v1.2.3
+  hooks:
+    - id: check-added-large-files
+    - id: check-case-conflict
+    - id: check-executables-have-shebangs
+    - id: check-merge-conflict
+    - id: check-symlinks
+    - id: detect-private-key
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
