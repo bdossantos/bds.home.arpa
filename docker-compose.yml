@@ -1,0 +1,21 @@
+---
+
+version: '3'
+
+services:
+  home-assistant:
+    image: homeassistant/home-assistant:0.66.1
+    container_name: home-assistant
+    command: >
+      bash -c 'set -euo pipefail \
+        && apt-get update && apt-get install -y nut-client \
+        && exec python -m homeassistant --config /config'
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - /volume1/homes/admin/Code/bds.home/files/home/homeassistant/.homeassistant:/config
+    environment:
+      - TZ=Europe/Paris
+    ports:
+      - 8080:8080
+    network_mode: host
+    privileged: true

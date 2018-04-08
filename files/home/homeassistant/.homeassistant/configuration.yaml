@@ -44,7 +44,6 @@ tts:
     language: 'fr'
 
 recorder:
-  db_url: postgres://@/homeassistant
   purge_interval: 1
   purge_keep_days: 7
 
