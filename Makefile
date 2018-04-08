@@ -7,7 +7,7 @@ help:
 		| awk 'BEGIN { FS = ":.*?## " }; { printf "\033[36m%-30s\033[0m %s\n", $$1, $$2 }'
 
 install: ## Install all the things
-	pip3 install -r requirements.txt
+	@pip install --user -r requirements.txt
 
 pre-commit: ## Run pre-commit tests
 	$(info --> Run pre-commit)
