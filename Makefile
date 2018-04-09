@@ -19,4 +19,4 @@ shellcheck: ## Run shellcheck on /scripts directory
 		| xargs -n 1 -P 1 -I % shellcheck %
 
 test: ## Run tests suite
-	$(MAKE) pre-commit shellcheck
+	$(MAKE) pre-commit
