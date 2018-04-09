@@ -118,11 +118,6 @@ sensor:
       - ping
       - download
       - upload
-  - platform: command_line
-    name: CPU Temperature
-    command: 'cat /sys/class/thermal/thermal_zone0/temp'
-    unit_of_measurement: '°C'
-    value_template: '{{ value | multiply(0.001) | round(2) }}'
   - platform: airvisual
     api_key: !secret airvisual_api_key
     monitored_conditions:
@@ -228,7 +223,6 @@ group:
     view: yes
     entities:
       - group.speedtest
-      - group.nestor
       - group.netatmo
       - group.air_quality
       - history_graph.indoor_temperature
@@ -267,7 +261,6 @@ group:
       - light.livingroom3
       - light.livingroom4
       - media_player.living_room
-      - group.nestor
       - sensor.netatmo_indoor_temperature
       - sensor.netatmo_indoor_co2
       - sensor.netatmo_indoor_humidity
@@ -301,13 +294,6 @@ group:
       - sensor.speedtest_ping
       - sensor.speedtest_download
       - sensor.speedtest_upload
-  nestor:
-    name: Nestor
-    entities:
-      - sensor.cpu_used
-      - sensor.memory_use
-      - sensor.cpu_temperature
-      - history_graph.cpu_temperature
   air_quality:
     name: Paris Air quality
     entities:
@@ -376,12 +362,6 @@ input_select:
     initial: Home
 
 history_graph:
-  cpu_temperature:
-    name: Nestor CPU temperature
-    entities:
-      - sensor.cpu_temperature
-    hours_to_show: 12
-    refresh: 30
   indoor_temperature:
     name: Indoor temperature
     entities:
