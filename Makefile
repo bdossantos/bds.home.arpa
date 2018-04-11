@@ -7,7 +7,11 @@ help:
 		| awk 'BEGIN { FS = ":.*?## " }; { printf "\033[36m%-30s\033[0m %s\n", $$1, $$2 }'
 
 install: ## Install all the things
-	@pip install --user -r requirements.txt
+	@if [[ -z $CI ]]; then \
+		pip install --user -r requirements.txt; \
+	else \
+		pip install -r requirements.txt; \
+	fi
 
 pre-commit: ## Run pre-commit tests
 	$(info --> Run pre-commit)
