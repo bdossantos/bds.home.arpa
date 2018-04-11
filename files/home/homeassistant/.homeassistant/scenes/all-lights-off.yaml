@@ -18,6 +18,8 @@ entities:
     state: off
   light.bathroom1:
     state: off
+  light.livingroom1:
+    state: off
   light.livingroom2:
     state: off
   light.livingroom3:
