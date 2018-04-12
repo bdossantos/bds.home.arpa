@@ -9,7 +9,7 @@ addons:
     packages:
       - make
 before_install:
-  - cp files/home/homeassistant/.homeassistant/secrets.yaml.dist files/home/homeassistant/.homeassistant/secrets.yaml
+  - cp homeassistant/secrets.yaml.dist homeassistant/secrets.yaml
 install:
   - make install
 before_script:
@@ -19,4 +19,4 @@ before_script:
   - export PATH="$HOME/bin:$PATH"
 script:
   - make test
-  - hass -c files/home/homeassistant/.homeassistant/ --script check_config
+  - hass -c homeassistant --script check_config

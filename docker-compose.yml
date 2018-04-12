@@ -12,7 +12,7 @@ services:
         && exec python -m homeassistant --config /config'
     volumes:
       - /dev/bus/usb:/dev/bus/usb
-      - /volume1/homes/admin/Code/bds.home/files/home/homeassistant/.homeassistant:/config
+      - /volume1/homes/admin/Code/bds.home/homeassistant:/config
     environment:
       - TZ=Europe/Paris
     ports:
