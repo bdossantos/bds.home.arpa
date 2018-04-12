@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/bdossantos/bds.home.svg?branch=feat%2Fhome-assistant)](https://travis-ci.org/bdossantos/bds.home)
 
-My LAN Dnsmasq, dnscrypt-proxy, tor, Polipo, Home Assistant [...] configurations.
+🏡 My Home Assistant configuration
 
 ## Installation
 
