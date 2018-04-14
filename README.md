@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/bdossantos/bds.home.svg?branch=feat%2Fhome-assistant)](https://travis-ci.org/bdossantos/bds.home)
 
-🏡 My Home Assistant configuration
+🏡 My [Home Assistant](https://www.home-assistant.io/) configuration
 
 ## Installation
 
