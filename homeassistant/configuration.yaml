@@ -152,6 +152,35 @@ sensor:
       - ups.status
       - ups.timer.reboot
       - ups.timer.shutdown
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    language: en
+    monitored_conditions:
+      - apparent_temperature
+      - apparent_temperature_max
+      - apparent_temperature_min
+      - cloud_cover
+      - daily_summary
+      - dew_point
+      - hourly_summary
+      - humidity
+      - minutely_summary
+      - nearest_storm_distance
+      - ozone
+      - precip_accumulation
+      - precip_intensity
+      - precip_intensity_max
+      - precip_probability
+      - precip_type
+      - pressure
+      - summary
+      - temperature
+      - temperature_max
+      - temperature_min
+      - uv_index
+      - visibility
+      - wind_bearing
+      - wind_speed
   - platform: template
     sensors:
       benjamin_status:
