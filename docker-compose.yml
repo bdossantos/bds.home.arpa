@@ -4,7 +4,7 @@ version: '3'
 
 services:
   home-assistant:
-    image: homeassistant/home-assistant:0.66.1
+    image: homeassistant/home-assistant:0.67.1
     container_name: home-assistant
     command: >
       bash -c 'set -euo pipefail \
