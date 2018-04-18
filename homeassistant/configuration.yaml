@@ -301,11 +301,6 @@ group:
     entities:
       - light.dressing1
       - light.dressing2
-  lights:
-    name: Lights
-    entities:
-      - script.all_lights_off
-      - script.all_lights_on
   scenes:
     name: Scenes
     entities:
@@ -550,22 +545,6 @@ automation:
               input_select.benjamin_status_dropdown
             {% endif %}
           option: Extended Away
-
-script:
-  all_lights_off:
-    sequence:
-      - service: light.turn_off
-        data:
-          entity_id: group.all_lights
-          transition: 15
-  all_lights_on:
-    sequence:
-      - service: light.turn_on
-        data:
-          entity_id: group.all_lights
-          brightness: 255
-          color_temp: 260
-          transition: 15
 
 zone:
   - name: Work
