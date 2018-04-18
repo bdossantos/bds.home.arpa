@@ -452,6 +452,24 @@ history_graph:
     refresh: 600
 
 automation:
+  - alias: '06:30 weekdays morning routine'
+    trigger:
+      - platform: time
+        at: '06:30:00'
+    condition:
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
+      service: scene.turn_on
+      entity_id: scene.energize_kitchen
   - alias: 'Turn on Nightlight Scene when dark and we Just Arrived'
     trigger:
       - platform: state
