@@ -389,7 +389,12 @@ group:
   family:
     name: Family
     entities:
-      - sensor.benjamin_status
+      - group.benjamin_devices
+  all_media_players:
+    name: All media players
+    entities:
+      - media_player.living_room
+      - media_player.bedroom
 
 input_select:
   benjamin_status_dropdown:
@@ -470,8 +475,8 @@ automation:
   - alias: 'Turn off Media Players when everybody is Away'
     trigger:
       platform: state
-      entity_id: sensor.benjamin_status
-      to: 'Away'
+      entity_id: group.all_media_players
+      to: 'off'
     condition:
       condition: and
       conditions:
