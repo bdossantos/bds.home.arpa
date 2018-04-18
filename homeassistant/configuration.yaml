@@ -261,7 +261,7 @@ group:
       - history_graph.indoor_noise
       - history_graph.outdoor_temperature
       - history_graph.outdoor_humidity
-      - history_graph.ozone
+      - history_graph.outdoor_ozone
       - group.apc_be700g
   bathroom:
     name: Bathroom
