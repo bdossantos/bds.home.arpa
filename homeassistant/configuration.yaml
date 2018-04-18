@@ -253,12 +253,16 @@ group:
     entities:
       - group.speedtest
       - group.netatmo
+      - group.darksky
       - group.air_quality
       - history_graph.indoor_temperature
       - history_graph.indoor_co2
       - history_graph.indoor_humidity
-      - group.apc_be700g
       - history_graph.noise
+      - history_graph.outdoor_temperature
+      - history_graph.outdoor_humidity
+      - history_graph.ozone
+      - group.apc_be700g
   bathroom:
     name: Bathroom
     entities:
@@ -325,7 +329,7 @@ group:
       - sensor.us_air_quality_index
       - sensor.us_main_pollutant
   netatmo:
-    name: Netatmo
+    name: Indoor metrics
     entities:
       - sensor.netatmo_indoor_co2_2
       - sensor.netatmo_indoor_humidity_2
@@ -337,6 +341,19 @@ group:
       - sensor.netatmo_outdoor_humidity_2
       - sensor.netatmo_outdoor_radio_2
       - sensor.netatmo_outdoor_temperature_2
+  darksky:
+    name: Outdoor metrics
+    entities:
+      - sensor.dark_sky_daily_summary
+      - sensor.dark_sky_daily_high_temperature
+      - sensor.dark_sky_daily_low_temperature
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_ozone
+      - sensor.dark_sky_precip_intensity
+      - sensor.dark_sky_precip_probability
+      - sensor.dark_sky_temperature
+      - sensor.dark_sky_uv_index
+      - sensor.dark_sky_wind_speed
   apc_be700g:
     name: APC BE700G
     entities:
@@ -410,6 +427,24 @@ history_graph:
       - sensor.netatmo_indoor_noise_2
     hours_to_show: 24
     refresh: 60
+  outdoor_temperature:
+    name: Outdoor temperature
+    entities:
+      - sensor.dark_sky_temperature
+    hours_to_show: 168
+    refresh: 600
+  outdoor_humidity:
+    name: Outdoor humidity
+    entities:
+      - sensor.dark_sky_humidity
+    hours_to_show: 168
+    refresh: 600
+  outdoor_ozone:
+    name: Outdoor ozone
+    entities:
+      - sensor.dark_sky_ozone
+    hours_to_show: 168
+    refresh: 600
 
 automation:
   - alias: 'Turn on Nightlight Scene when dark and we Just Arrived'
