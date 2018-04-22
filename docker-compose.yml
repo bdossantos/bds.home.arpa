@@ -16,7 +16,7 @@ services:
     environment:
       - TZ=Europe/Paris
     ports:
-      - 8080:8080
+      - 0.0.0.0:8080:8080/tcp
     network_mode: host
     privileged: true
     restart: always
