@@ -19,3 +19,4 @@ services:
       - 8080:8080
     network_mode: host
     privileged: true
+    restart: always
