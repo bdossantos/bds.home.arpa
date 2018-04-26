@@ -25,10 +25,8 @@ services:
     container_name: homeassistant-postgresql
     volumes:
       - /volume1/docker/homeassistant-postgres/data:/var/lib/postgresql/data
-      - /volume1/docker/homeassistant-postgres/postgres-secrets:/run/secrets/postgres-secrets
-    environment:
-      - POSTGRES_DB=homeassistant
-      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres-secrets
+    env_file:
+      - /volume1/docker/homeassistant-postgres/.env
     command: -p 5433
     ports:
       - 127.0.0.1:5433:5433/tcp
