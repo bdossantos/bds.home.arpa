@@ -155,6 +155,7 @@ sensor:
       - ups.timer.shutdown
   - platform: darksky
     api_key: !secret darksky_api_key
+    update_interval: 600
     language: en
     monitored_conditions:
       - apparent_temperature
