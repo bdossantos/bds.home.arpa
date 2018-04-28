@@ -27,6 +27,7 @@ sudo make install
 * 1 * Raspberry Pi 2
 * 1 * Raspberry Pi 3
 * 1 * Synology DiskStation DS716+ II
+* 1 * TP-Link HS100
 * 1 * TP-Link MC220L RJ45 Gigabit Converter
 * 2 * Philips Hue Motion Sensor
 * 2 * Sonos PLAY:3
