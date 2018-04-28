@@ -292,6 +292,7 @@ group:
     name: Kitchen
     entities:
       - light.kitchen1
+      - switch.smartplugkitchen1
   livingroom:
     name: Living Room
     entities:
