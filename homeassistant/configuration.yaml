@@ -246,7 +246,6 @@ group:
       - group.kitchen
       - group.livingroom
       - group.dressing
-      - group.lights
       - group.scenes
       - group.family
       - group.all_automations
