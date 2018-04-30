@@ -2,6 +2,7 @@
 
 name: All Lights Off
 entities:
+  switch.smartplugkitchen1: off
   light.hall1:
     state: off
   light.dressing1:
