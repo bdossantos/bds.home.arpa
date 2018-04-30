@@ -4,12 +4,9 @@ version: '3'
 
 services:
   home-assistant:
-    image: homeassistant/home-assistant:0.67.1
+    build: .
+    image: bdossantos/home-assistant
     container_name: home-assistant
-    command: >
-      bash -c 'set -euo pipefail \
-        && apt-get update && apt-get install -y nut-client \
-        && exec python -m homeassistant --config /config'
     volumes:
       - /dev/bus/usb:/dev/bus/usb
       - /volume1/homes/admin/Code/bds.home/homeassistant:/config
