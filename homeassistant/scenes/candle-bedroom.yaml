@@ -15,11 +15,11 @@ entities:
     state: off
   light.bedroom2:
     state: on
-    brightness: 35
+    brightness: 40
     xy_color: [0.5639, 0.3904]
   light.bedroom3:
     state: on
-    brightness: 35
+    brightness: 40
     xy_color: [0.5639, 0.3904]
   light.bathroom1:
     state: off
