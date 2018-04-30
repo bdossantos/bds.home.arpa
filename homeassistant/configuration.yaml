@@ -317,6 +317,7 @@ group:
       - scene.all_lights_off
       - scene.nightlight
       - scene.candle
+      - scene.candle_bedroom
       - scene.relax
       - scene.concentrate
       - scene.reading

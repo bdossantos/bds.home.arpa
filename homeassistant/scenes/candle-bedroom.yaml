@@ -1,0 +1,33 @@
+---
+
+name: Candle bedroom
+entities:
+  switch.smartplugkitchen1: off
+  light.hall1:
+    state: off
+  light.dressing1:
+    state: off
+  light.kitchen1:
+    state: off
+  light.dressing2:
+    state: off
+  light.bedroom1:
+    state: off
+  light.bedroom2:
+    state: on
+    brightness: 35
+    xy_color: [0.5639, 0.3904]
+  light.bedroom3:
+    state: on
+    brightness: 35
+    xy_color: [0.5639, 0.3904]
+  light.bathroom1:
+    state: off
+  light.livingroom1:
+    state: off
+  light.livingroom2:
+    state: off
+  light.livingroom3:
+    state: off
+  light.livingroom4:
+    state: off
