@@ -478,8 +478,11 @@ automation:
           - thu
           - fri
     action:
-      service: scene.turn_on
-      entity_id: scene.energize_kitchen
+      - service: switch.turn_on
+        entity_id: switch.smartplugkitchen1
+      - delay: '00:15:00'
+      - service: scene.turn_on
+        entity_id: scene.energize_kitchen
   - alias: 'Turn on Nightlight Scene when dark and we Just Arrived'
     trigger:
       - platform: state
