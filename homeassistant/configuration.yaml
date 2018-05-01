@@ -489,25 +489,22 @@ automation:
         entity_id: sensor.benjamin_status
         to: 'Just Arrived'
     condition:
-      condition: or  # 'when dark': either after sunset or before sunrise
+      condition: or
       conditions:
         - condition: sun
           after: sunset
         - condition: sun
           before: sunrise
-        - condition: and
-          conditions:
-            - condition: state
-              entity_id: group.family
-              state: 'home'
     action:
-      service: scene.turn_on
-      entity_id: scene.nightlight
+      - service: scene.turn_on
+        entity_id: scene.nightlight
+      - service: switch.turn_on
+        entity_id: switch.smartplugkitchen1
   - alias: 'Turn off Media Players when everybody is Away'
     trigger:
-      platform: state
-      entity_id: group.all_media_players
-      to: 'off'
+      - platform: state
+        entity_id: sensor.benjamin_status
+        to: 'Away'
     condition:
       condition: and
       conditions:
@@ -516,6 +513,7 @@ automation:
           state: 'not_home'
     action:
       - service: media_player.turn_off
+        entity_id: group.all_media_players
   - alias: 'Turn off lights when everybody is Away'
     trigger:
       platform: state
@@ -528,21 +526,10 @@ automation:
           entity_id: group.family
           state: 'not_home'
     action:
-      service: light.turn_off
-      entity_id: group.all_lights
-  - alias: 'Turn off switchs when everybody is Away'
-    trigger:
-      platform: state
-      entity_id: group.all_switchs
-      to: 'off'
-    condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: group.family
-          state: 'not_home'
-    action:
+      - service: light.turn_off
+        entity_id: group.all_lights
       - service: switch.turn_off
+        entity_id: group.all_switchs
   # Automating Transitions Between States
   # https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
   - alias: Mark person as just arrived
