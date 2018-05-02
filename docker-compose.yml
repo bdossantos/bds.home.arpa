@@ -41,7 +41,7 @@ services:
     volumes:
       - /volume1/docker/homeassistant-postgres/data:/var/lib/postgresql/data
     env_file:
-      - /volume1/docker/homeassistant-postgres/.env
+      - /volume1/homes/admin/Code/bds.home/.env
     command: -p 5433
     ports:
       - 127.0.0.1:5433:5433/tcp
