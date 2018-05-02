@@ -26,7 +26,7 @@ services:
     image: bdossantos/home-assistant
     container_name: home-assistant
     volumes:
-      - /dev/bus/usb:/dev/bus/usb
+      - /dev/bus/usb:/dev/bus/usb:ro
       - /volume1/homes/admin/Code/bds.home/homeassistant:/config
     environment:
       - TZ=Europe/Paris
