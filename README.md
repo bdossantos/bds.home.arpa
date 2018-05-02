@@ -24,6 +24,7 @@ sudo make install
 * 1 * Philips Hue Go
 * 1 * Phillips Hue hub
 * 1 * Phillips Hue tap
+* 1 * Plugable Technologies USB-BT4LE Bluetooth
 * 1 * Raspberry Pi 2
 * 1 * Raspberry Pi 3
 * 1 * Synology DiskStation DS716+ II
