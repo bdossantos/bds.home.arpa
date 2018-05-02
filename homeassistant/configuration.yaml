@@ -665,3 +665,6 @@ zone:
     elevation: 40
     icon: mdi:worker
     radius: 100
+
+zwave:
+  usb_path: /dev/ttyACM0
