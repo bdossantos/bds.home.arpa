@@ -668,3 +668,4 @@ zone:
 
 zwave:
   usb_path: /dev/ttyACM0
+  network_key: !secret z_wave_network_key
