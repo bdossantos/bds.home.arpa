@@ -1,7 +1,8 @@
 .HA_VERSION
+.env
 .tile.conf
-entity_registry.yaml
 deps
+entity_registry.yaml
 home-assistant.log
 home-assistant_v2.db
 known_devices.yaml
