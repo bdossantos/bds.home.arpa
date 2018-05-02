@@ -1,0 +1,54 @@
+---
+
+name: Sun gets dimmer
+entities:
+  switch.smartplugkitchen1:
+    state: on
+  light.hall1:
+    state: on
+    brightness_pct: 25
+    transition: 10
+    xy_color: [0.5639, 0.3904]
+  light.dressing1:
+    state: off
+  light.kitchen1:
+    state: off
+  light.dressing2:
+    state: off
+  light.bedroom1:
+    state: off
+  light.bedroom2:
+    state: on
+    brightness_pct: 25
+    transition: 10
+    xy_color: [0.5639, 0.3904]
+  light.bedroom3:
+    state: on
+    brightness_pct: 25
+    transition: 10
+    xy_color: [0.5639, 0.3904]
+  light.bathroom1:
+    state: on
+    brightness_pct: 25
+    transition: 10
+    xy_color: [0.5639, 0.3904]
+  light.livingroom1:
+    state: on
+    brightness_pct: 25
+    transition: 10
+    xy_color: [0.5639, 0.3904]
+  light.livingroom2:
+    state: on
+    brightness_pct: 25
+    transition: 10
+    xy_color: [0.5639, 0.3904]
+  light.livingroom3:
+    state: on
+    brightness_pct: 25
+    transition: 10
+    xy_color: [0.5639, 0.3904]
+  light.livingroom4:
+    state: on
+    brightness_pct: 25
+    transition: 10
+    xy_color: [0.5639, 0.3904]

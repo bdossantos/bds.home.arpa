@@ -483,6 +483,47 @@ automation:
       - delay: '00:15:00'
       - service: scene.turn_on
         entity_id: scene.energize_kitchen
+  - alias: 'Turn a few lights on when the sun gets dim'
+    trigger:
+      platform: numeric_state
+      entity_id: sun.sun
+      value_template: '{{ state.attributes.elevation }}'
+      below: 3.5
+    condition:
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.candle
+      - service: switch.turn_on
+        entity_id: switch.smartplugkitchen1
+  - alias: 'Turn more lights on as the sun gets dimmer'
+    trigger:
+      platform: numeric_state
+      entity_id: sun.sun
+      value_template: '{{ state.attributes.elevation }}'
+      below: 1.5
+    condition:
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.sun_gets_dimmer
+  - alias: 'Turn on nightlight at dusk'
+    trigger:
+      platform: numeric_state
+      entity_id: sun.sun
+      value_template: '{{ state.attributes.elevation }}'
+      below: -2.5
+    condition:
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.nightlight
   - alias: 'Turn on Nightlight Scene when dark and we Just Arrived'
     trigger:
       - platform: state
