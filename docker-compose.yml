@@ -25,6 +25,8 @@ services:
     build: .
     image: bdossantos/home-assistant
     container_name: home-assistant
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
     volumes:
       - /dev/bus/usb:/dev/bus/usb:ro
       - /volume1/homes/admin/Code/bds.home/homeassistant:/config
