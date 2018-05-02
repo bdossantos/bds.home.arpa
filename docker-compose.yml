@@ -3,6 +3,24 @@
 version: '3'
 
 services:
+  netdata:
+    image: titpetric/netdata:1.9
+    container_name: netdata
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /volume1/docker/netdata/config:/etc/netdata:rw
+      - /volume1/docker/netdata/log:/var/log/netdata:rw
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+    environment:
+      - NETDATA_IP=0.0.0.0
+      - NETDATA_PORT=19999
+    ports:
+      - 0.0.0.0:19999:19999/tcp
+    network_mode: host
+    restart: always
   home-assistant:
     build: .
     image: bdossantos/home-assistant
