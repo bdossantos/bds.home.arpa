@@ -9,3 +9,5 @@ entities:
     color_temp: 500
   group.dressing:
     state: off
+  light.kitchen1:
+    state: off
