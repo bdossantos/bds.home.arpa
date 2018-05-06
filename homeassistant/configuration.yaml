@@ -266,6 +266,7 @@ netatmo:
   secret_key: !secret netatmo_secret_key
   username: !secret netatmo_username
   password: !secret netatmo_password
+  discovery: false
 
 group:
   default_view:
