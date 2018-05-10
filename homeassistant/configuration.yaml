@@ -224,6 +224,19 @@ binary_sensor:
           {% else %}
             unknown
           {% endif %}
+  - platform: template
+    sensors:
+      livingroom_door:
+        friendly_name: 'Living room door'
+        device_class: door
+        value_template: >-
+          {% if is_state('sensor.fibaro_system_fgdw002_door_opening_sensor_2_access_control_2', '22') %}
+            on
+          {% elif is_state('sensor.fibaro_system_fgdw002_door_opening_sensor_2_access_control_2', '254') %}
+            off
+          {% else %}
+            unknown
+          {% endif %}
 
 device_tracker:
   - platform: nmap_tracker
@@ -274,7 +287,7 @@ group:
     icon: mdi:home
     view: yes
     entities:
-      - group.front_door
+      - group.door
       - group.hall
       - group.kitchen
       - group.livingroom
@@ -291,7 +304,7 @@ group:
     icon: mdi:thermometer
     view: yes
     entities:
-      - group.front_door
+      - group.door
       - group.speedtest
       - group.netatmo
       - group.darksky
@@ -304,10 +317,11 @@ group:
       - history_graph.outdoor_humidity
       - history_graph.outdoor_ozone
       - group.apc_be700g
-  front_door:
-    name: Front door
+  door:
+    name: Door
     entities:
       - binary_sensor.front_door
+      - binary_sensor.livingroom_door
   bathroom:
     name: Bathroom
     entities:
