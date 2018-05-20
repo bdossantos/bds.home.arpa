@@ -4,10 +4,12 @@ name: Nightlight
 entities:
   group.all_lights:
     state: on
-    transition: 10
-    brightness: 25
+    transition: 60
+    brightness_pct: 25
     color_temp: 500
   group.dressing:
     state: off
+    transition: 60
   light.kitchen1:
     state: off
+    transition: 60
