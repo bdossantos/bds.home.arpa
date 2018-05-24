@@ -4,7 +4,7 @@ version: '3'
 
 services:
   netdata:
-    image: titpetric/netdata:1.9
+    image: titpetric/netdata:1.10
     container_name: netdata
     cap_add:
       - SYS_PTRACE
