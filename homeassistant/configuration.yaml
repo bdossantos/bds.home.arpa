@@ -208,10 +208,15 @@ sensor:
       benjamin_status:
         value_template: '{{ states.input_select.benjamin_status_dropdown.state }}'
         friendly_name: 'Benjamin'
+  - platform: netdata
+    host: 127.0.0.1
+    port: 19999
   - platform: cert_expiry
     host: bds.run
+    name: bds.run
   - platform: cert_expiry
     host: b-ds.fr
+    name: b-ds.fr
 
 binary_sensor:
   - platform: nest
