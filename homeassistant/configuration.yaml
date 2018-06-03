@@ -179,8 +179,8 @@ sensor:
     language: en
     monitored_conditions:
       - apparent_temperature
-      - apparent_temperature_max
-      - apparent_temperature_min
+      - apparent_temperature_high
+      - apparent_temperature_low
       - cloud_cover
       - daily_summary
       - dew_point
@@ -197,8 +197,8 @@ sensor:
       - pressure
       - summary
       - temperature
-      - temperature_max
-      - temperature_min
+      - temperature_high
+      - temperature_low
       - uv_index
       - visibility
       - wind_bearing
