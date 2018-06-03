@@ -531,6 +531,22 @@ history_graph:
     refresh: 600
 
 automation:
+  - alias: 'Hass Startup Notification'
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      service: notify.slack
+      data:
+        message: 'Home Assistant restarted'
+  - alias: 'Hass Shutdown Notification'
+    trigger:
+      - platform: homeassistant
+        event: shutdown
+    action:
+      service: notify.slack
+      data:
+        message: 'Home Assistant shutdown'
   - alias: '06:30 weekdays morning routine'
     trigger:
       - platform: time
