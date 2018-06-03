@@ -7,49 +7,49 @@ entities:
   light.hall1:
     state: on
     brightness_pct: 30
-    transition: 60
+    transition: 30
     xy_color: [0.5639, 0.3904]
   group.dressing:
     state: off
-    transition: 60
+    transition: 30
   light.kitchen1:
     state: off
-    transition: 60
+    transition: 30
   light.bedroom1:
     state: off
-    transition: 60
+    transition: 30
   light.bedroom2:
     state: on
     brightness_pct: 30
-    transition: 60
+    transition: 30
     xy_color: [0.5639, 0.3904]
   light.bedroom3:
     state: on
     brightness_pct: 30
-    transition: 60
+    transition: 30
     xy_color: [0.5639, 0.3904]
   light.bathroom1:
     state: on
     brightness_pct: 30
-    transition: 60
+    transition: 30
     xy_color: [0.5639, 0.3904]
   light.livingroom1:
     state: on
     brightness_pct: 30
-    transition: 60
+    transition: 30
     xy_color: [0.5639, 0.3904]
   light.livingroom2:
     state: on
     brightness_pct: 30
-    transition: 60
+    transition: 30
     xy_color: [0.5639, 0.3904]
   light.livingroom3:
     state: on
     brightness_pct: 30
-    transition: 60
+    transition: 30
     xy_color: [0.5639, 0.3904]
   light.livingroom4:
     state: on
     brightness_pct: 30
-    transition: 60
+    transition: 30
     xy_color: [0.5639, 0.3904]
