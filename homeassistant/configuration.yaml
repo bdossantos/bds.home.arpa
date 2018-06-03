@@ -305,6 +305,7 @@ group:
       - group.bathroom
       - group.scenes
       - group.family
+      - group.input_booleans
       - group.all_automations
       - group.all_scripts
       - group.all_switches
@@ -455,6 +456,11 @@ group:
       - device_tracker.tile_home_keys
       - device_tracker.tile_home_keys_double
       - device_tracker.tile_passport
+  input_booleans:
+    name: Home modes
+    entities:
+      - input_boolean.vacation_mode
+      - input_boolean.guest_mode
   family:
     name: Family
     entities:
@@ -720,6 +726,8 @@ automation:
               input_select.benjamin_status_dropdown
             {% endif %}
           option: Extended Away
+
+input_boolean: !include input_boolean.yaml
 
 zone:
   - name: Work
