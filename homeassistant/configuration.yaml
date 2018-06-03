@@ -640,6 +640,33 @@ automation:
         entity_id: group.all_lights
       - service: switch.turn_off
         entity_id: group.all_switchs
+  - alias: 'Turn on vacation mode when away for 24h'
+    trigger:
+      - platform: state
+        entity_id: group.family
+        to: 'not_home'
+        for:
+          hours: 24
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.vacation_mode
+  - alias: 'Turn off vacation mode when coming home'
+    trigger:
+      - platform: state
+        entity_id: group.family
+        from: 'not_home'
+        to: 'home'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'on'
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.vacation_mode
   # Automating Transitions Between States
   # https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
   - alias: Mark person as just arrived
