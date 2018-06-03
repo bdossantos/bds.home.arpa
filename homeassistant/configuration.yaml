@@ -771,6 +771,12 @@ automation:
 
 input_boolean: !include input_boolean.yaml
 
+notify:
+  - name: slack
+    platform: slack
+    api_key: !secret slack_api_key
+    default_channel: '#general'
+
 zone:
   - name: Work
     latitude: !secret work_latitude
