@@ -296,6 +296,7 @@ group:
     icon: mdi:home
     view: yes
     entities:
+      - group.input_booleans
       - group.door
       - group.hall
       - group.kitchen
@@ -305,7 +306,6 @@ group:
       - group.bathroom
       - group.scenes
       - group.family
-      - group.input_booleans
       - group.all_automations
       - group.all_scripts
       - group.all_switches
@@ -546,6 +546,9 @@ automation:
           - wed
           - thu
           - fri
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
     action:
       - service: switch.turn_on
         entity_id: switch.smartplugkitchen1
@@ -621,6 +624,9 @@ automation:
         - condition: state
           entity_id: group.family
           state: 'not_home'
+        - condition: state
+          entity_id: input_boolean.guest_mode
+          state: 'off'
     action:
       - service: media_player.turn_off
         entity_id: group.all_media_players
@@ -635,6 +641,9 @@ automation:
         - condition: state
           entity_id: group.family
           state: 'not_home'
+        - condition: state
+          entity_id: input_boolean.guest_mode
+          state: 'off'
     action:
       - service: light.turn_off
         entity_id: group.all_lights
@@ -656,6 +665,9 @@ automation:
         entity_id: input_boolean.vacation_mode
   - alias: 'Turn off vacation mode when coming home'
     trigger:
+      - platform: state
+        entity_id: sensor.benjamin_status
+        to: 'Just Arrived'
       - platform: state
         entity_id: group.family
         from: 'not_home'
