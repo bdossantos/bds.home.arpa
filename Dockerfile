@@ -7,7 +7,7 @@ ENV \
 RUN set -x \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    nut-client=2.7.2-4 \
+    nut-client=2.7.4-5 \
   && apt-get autoremove -y \
   && apt-get clean \
   && apt-get autoclean \
