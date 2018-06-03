@@ -652,6 +652,9 @@ automation:
   - alias: 'Turn on vacation mode when away for 24h'
     trigger:
       - platform: state
+        entity_id: sensor.benjamin_status
+        to: 'Extended Away'
+      - platform: state
         entity_id: group.family
         to: 'not_home'
         for:
