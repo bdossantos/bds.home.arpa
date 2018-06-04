@@ -20,4 +20,3 @@ before_script:
   - export PATH="$HOME/bin:$PATH"
 script:
   - make test
-  - hass -c homeassistant --script check_config

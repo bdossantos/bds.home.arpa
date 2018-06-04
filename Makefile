@@ -24,3 +24,9 @@ shellcheck: ## Run shellcheck on /scripts directory
 
 test: ## Run tests suite
 	$(MAKE) pre-commit
+	docker build -t bdossantos/home-assistant .
+	docker run \
+		-v "${PWD}/homeassistant:/config" \
+		-v '${PWD}/homeassistant/secrets.yaml.dist:/config/secrets.yaml:ro' \
+		bdossantos/home-assistant \
+		python -m homeassistant --config /config --script check_config
