@@ -682,6 +682,9 @@ automation:
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.vacation_mode
+      - service: notify.slack
+        data:
+          message: 'Vacation mode had been turned on automatically because everyone is away since 24h'
   - alias: 'Turn off vacation mode when coming home'
     trigger:
       - platform: state
@@ -698,6 +701,9 @@ automation:
     action:
       - service: input_boolean.turn_off
         entity_id: input_boolean.vacation_mode
+      - service: notify.slack
+        data:
+          message: 'Vacation mode had been turned off'
   # Automating Transitions Between States
   # https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
   - alias: Mark person as just arrived
