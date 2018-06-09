@@ -131,7 +131,7 @@ sensor:
     show_on_map: false
   - platform: nest
   - platform: netatmo
-    station: BDS Netatmo
+    station: BDS
     modules:
       indoor:
         - temperature
