@@ -211,6 +211,21 @@ sensor:
   - platform: netdata
     host: 127.0.0.1
     port: 19999
+    resources:
+      system.load:
+        element: load15
+      system.cpu:
+        element: system
+      system.ram:
+        element: free
+      system.ram:
+        element: used
+      net.bond0:
+        element: received
+      net.bond0:
+        element: sent
+      netfilter.conntrack_sockets:
+        element: connections
   - platform: cert_expiry
     host: bds.run
     name: bds.run
