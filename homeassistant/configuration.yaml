@@ -171,6 +171,7 @@ sensor:
       - ups.load
       - ups.model
       - ups.status
+      - ups.status.display
       - ups.timer.reboot
       - ups.timer.shutdown
   - platform: darksky
