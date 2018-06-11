@@ -562,10 +562,10 @@ automation:
       service: notify.slack
       data:
         message: 'Home Assistant shutdown'
-  - alias: '06:30 weekdays morning routine'
+  - alias: '07:00 weekdays morning routine'
     trigger:
       - platform: time
-        at: '06:30:00'
+        at: '07:00:00'
     condition:
       - condition: state
         entity_id: group.family
