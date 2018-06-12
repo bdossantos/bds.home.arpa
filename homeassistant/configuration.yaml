@@ -553,16 +553,32 @@ automation:
         event: start
     action:
       service: notify.slack
-      data:
-        message: 'Home Assistant restarted'
+      data_template:
+        message: ''
+        data:
+          attachments:
+            - color: >
+                good
+              title: >
+                Home Assistant
+              text: |
+                Home Assistant restarted at {{ now().strftime('%c') }}
   - alias: 'Hass Shutdown Notification'
     trigger:
       - platform: homeassistant
         event: shutdown
     action:
       service: notify.slack
-      data:
-        message: 'Home Assistant shutdown'
+      data_template:
+        message: ''
+        data:
+          attachments:
+            - color: >
+                danger
+              title: >
+                Home Assistant
+              text: |
+                Home Assistant shutdown at {{ now().strftime('%c') }}
   - alias: '07:00 weekdays morning routine'
     trigger:
       - platform: time
