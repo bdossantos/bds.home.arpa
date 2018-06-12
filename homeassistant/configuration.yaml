@@ -579,6 +579,41 @@ automation:
                 Home Assistant
               text: |
                 Home Assistant shutdown at {{ now().strftime('%c') }}
+  - alias: 'Nest Protect smoke or carbon monoxide emergency'
+    hide_entity: true
+    trigger:
+      platform: state
+      entity_id:
+        - sensor.hallway_nest_protect_smoke_status
+        - sensor.hallway_nest_protect_co_status
+      to: 'Emergency'
+    action:
+      - service: light.turn_on
+        entity_id:
+          - group.all_lights
+        data:
+          flash: long
+          color: white
+          brightness: 255
+      - service: light.turn_on
+        entity_id:
+          - group.all_lights
+      - service: notify.slack
+        data_template:
+          message: ''
+          data:
+            attachments:
+              - color: >
+                  danger
+                title: >
+                  Emergency
+                text: |
+                  Emergency! There's smoke or carbon monoxide in the {{ trigger.to_state.attributes.friendly_name }}!
+      - service: tts.google_say
+        data_template:
+          entity_id: group.all_media_players
+          message: |
+            Emergency! There's smoke or carbon monoxide in the {{ trigger.to_state.attributes.friendly_name }}!
   - alias: '07:00 weekdays morning routine'
     trigger:
       - platform: time
