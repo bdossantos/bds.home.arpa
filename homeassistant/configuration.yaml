@@ -131,7 +131,6 @@ sensor:
     show_on_map: false
   - platform: nest
   - platform: netatmo
-    station: BDS
     modules:
       indoor:
         - temperature
@@ -304,7 +303,7 @@ netatmo:
   secret_key: !secret netatmo_secret_key
   username: !secret netatmo_username
   password: !secret netatmo_password
-  discovery: false
+  discovery: true
 
 group:
   default_view:
