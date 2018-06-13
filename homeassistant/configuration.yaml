@@ -445,6 +445,7 @@ group:
   apc_be700g:
     name: APC BE700G
     entities:
+      - sensor.apc_be700g_status
       - sensor.apc_be700g_battery_charge
       - sensor.apc_be700g_battery_runtime
       - sensor.apc_be700g_battery_voltage
