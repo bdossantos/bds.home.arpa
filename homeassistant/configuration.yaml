@@ -580,7 +580,7 @@ automation:
               title: >
                 :warning: Warning
               text: |
-                Home Assistant shutdown at {{ now().strftime('%c') }} :wawe:
+                Home Assistant shutdown at {{ now().strftime('%c') }} :wave:
   - alias: 'Nest Protect smoke or carbon monoxide emergency'
     trigger:
       platform: state
