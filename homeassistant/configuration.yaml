@@ -564,7 +564,7 @@ automation:
               title: >
                 :information_source: Information
               text: |
-                Home Assistant restarted at {{ now().strftime('%c') }}
+                Home Assistant restarted at {{ now().strftime('%c') }} :ok_hand:
   - alias: 'Hass Shutdown Notification'
     trigger:
       - platform: homeassistant
@@ -580,7 +580,7 @@ automation:
               title: >
                 :warning: Warning
               text: |
-                Home Assistant shutdown at {{ now().strftime('%c') }}
+                Home Assistant shutdown at {{ now().strftime('%c') }} :wawe:
   - alias: 'Nest Protect smoke or carbon monoxide emergency'
     trigger:
       platform: state
@@ -609,12 +609,12 @@ automation:
                 title: >
                   :sos: Fatal
                 text: |
-                  There's smoke or carbon monoxide on {{ trigger.to_state.attributes.friendly_name }}!
+                  There's smoke or carbon monoxide detected! :skull:
       - service: tts.google_say
         data_template:
           entity_id: group.all_media_players
           message: |
-            Emergency! There's smoke or carbon monoxide on {{ trigger.to_state.attributes.friendly_name }}!
+            There's smoke or carbon monoxide detected!
   - alias: 'Nest Protect is Offline'
     trigger:
       platform: state
@@ -632,12 +632,12 @@ automation:
                 title: >
                   :warning: Warning
                 text: |
-                  {{ trigger.to_state.attributes.friendly_name }} is Offline!
+                  Nest protect is Offline!
       - service: tts.google_say
         data_template:
           entity_id: group.all_media_players
           message: |
-            {{ trigger.to_state.attributes.friendly_name }} is Offline!
+            Nest protect is Offline!
   - alias: 'Nest Protect is back Online'
     trigger:
       platform: state
@@ -655,12 +655,12 @@ automation:
                 title: >
                   :information_source: Information
                 text: |
-                  Nest protect in the {{ trigger.to_state.attributes.friendly_name }} is back Online!
+                  Nest protect is back Online!
       - service: tts.google_say
         data_template:
           entity_id: group.all_media_players
           message: |
-            Nest protect in the {{ trigger.to_state.attributes.friendly_name }} is back Online!
+            Nest protect is back Online!
   - alias: '07:00 weekdays morning routine'
     trigger:
       - platform: time
@@ -797,8 +797,16 @@ automation:
       - service: input_boolean.turn_on
         entity_id: input_boolean.vacation_mode
       - service: notify.slack
-        data:
-          message: 'Vacation mode had been turned on automatically because everyone is away since 24h'
+        data_template:
+          message: ''
+          data:
+            attachments:
+              - color: >
+                  good
+                title: >
+                  :information_source: Information
+                text: |
+                  Vacation mode had been turned on automatically because everyone is away since 24h :beach_with_umbrella:
   - alias: 'Turn off vacation mode when coming home'
     trigger:
       - platform: state
@@ -816,8 +824,16 @@ automation:
       - service: input_boolean.turn_off
         entity_id: input_boolean.vacation_mode
       - service: notify.slack
-        data:
-          message: 'Vacation mode had been turned off'
+        data_template:
+          message: ''
+          data:
+            attachments:
+              - color: >
+                  good
+                title: >
+                  :information_source: Information
+                text: |
+                  Vacation mode had been turned off :briefcase:
   # Automating Transitions Between States
   # https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
   - alias: Mark person as just arrived
