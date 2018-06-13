@@ -560,7 +560,7 @@ automation:
             - color: >
                 good
               title: >
-                Home Assistant
+                :information_source: Information
               text: |
                 Home Assistant restarted at {{ now().strftime('%c') }}
   - alias: 'Hass Shutdown Notification'
@@ -574,9 +574,9 @@ automation:
         data:
           attachments:
             - color: >
-                danger
+                warning
               title: >
-                Home Assistant
+                :warning: Warning
               text: |
                 Home Assistant shutdown at {{ now().strftime('%c') }}
   - alias: 'Nest Protect smoke or carbon monoxide emergency'
@@ -605,9 +605,9 @@ automation:
               - color: >
                   danger
                 title: >
-                  Emergency
+                  :sos: Fatal
                 text: |
-                  Emergency! There's smoke or carbon monoxide on {{ trigger.to_state.attributes.friendly_name }}!
+                  There's smoke or carbon monoxide on {{ trigger.to_state.attributes.friendly_name }}!
       - service: tts.google_say
         data_template:
           entity_id: group.all_media_players
@@ -626,9 +626,9 @@ automation:
           data:
             attachments:
               - color: >
-                  danger
+                  warning
                 title: >
-                  Emergency
+                  :warning: Warning
                 text: |
                   {{ trigger.to_state.attributes.friendly_name }} is Offline!
       - service: tts.google_say
@@ -651,7 +651,7 @@ automation:
               - color: >
                   good
                 title: >
-                  Emergency
+                  :information_source: Information
                 text: |
                   Nest protect in the {{ trigger.to_state.attributes.friendly_name }} is back Online!
       - service: tts.google_say
