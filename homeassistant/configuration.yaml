@@ -594,7 +594,6 @@ automation:
           - group.all_lights
         data:
           flash: long
-          color: white
           brightness: 255
       - service: light.turn_on
         entity_id:
