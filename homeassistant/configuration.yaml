@@ -41,7 +41,7 @@ tts:
     cache: true
     cache_dir: /tmp/tts
     time_memory: 300
-    language: 'fr'
+    language: 'en'
 
 recorder:
   db_url: !secret db_url
