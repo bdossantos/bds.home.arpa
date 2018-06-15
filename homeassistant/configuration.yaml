@@ -937,7 +937,7 @@ automation:
             {% endif %}
           option: Extended Away
 
-scripts:
+script:
   sonos_say:
     alias: 'Sonos TTS script'
     sequence:
