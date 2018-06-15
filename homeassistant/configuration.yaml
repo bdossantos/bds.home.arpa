@@ -624,9 +624,10 @@ automation:
                   :sos: Fatal
                 text: |
                   There's smoke or carbon monoxide detected! :skull:
-      - service: tts.google_say
-        data_template:
-          entity_id: group.all_media_players
+      - service: script.sonos_say
+        data:
+          sonos_entity: group.all_media_players
+          volume: 0.5
           message: |
             There's smoke or carbon monoxide detected!
   - alias: 'Nest Protect is Offline'
@@ -647,9 +648,10 @@ automation:
                   :warning: Warning
                 text: |
                   Nest protect is Offline!
-      - service: tts.google_say
-        data_template:
-          entity_id: group.all_media_players
+      - service: script.sonos_say
+        data:
+          sonos_entity: group.all_media_players
+          volume: 0.5
           message: |
             Nest protect is Offline!
   - alias: 'Nest Protect is back Online'
@@ -670,9 +672,10 @@ automation:
                   :information_source: Information
                 text: |
                   Nest protect is back Online!
-      - service: tts.google_say
-        data_template:
-          entity_id: group.all_media_players
+      - service: script.sonos_say
+        data:
+          sonos_entity: group.all_media_players
+          volume: 0.5
           message: |
             Nest protect is back Online!
   - alias: '07:00 weekdays morning routine'
