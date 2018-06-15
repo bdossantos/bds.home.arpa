@@ -580,6 +580,22 @@ automation:
                 :warning: Warning
               text: |
                 Home Assistant shutdown at {{ now().strftime('%c') }} :wave:
+  - alias: 'Hass Update notifications'
+    trigger:
+      - platform: state
+        entity_id: updater.updater
+    action:
+      service: notify.slack
+      data_template:
+        message: ''
+        data:
+          attachments:
+            - color: >
+                good
+              title: >
+                :information_source: Information
+              text: |
+                There is a new Home Assistant release available.
   - alias: 'Nest Protect smoke or carbon monoxide emergency'
     trigger:
       platform: state
