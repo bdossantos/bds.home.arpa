@@ -1,5 +1,8 @@
 ---
 
+group.benjamin_devices:
+  entity_picture: 'https://avatars3.githubusercontent.com/u/245284?s=460&v=4'
+  friendly_name: Benjamin
 group.all_automations:
   hidden: false
 group.all_scripts:
