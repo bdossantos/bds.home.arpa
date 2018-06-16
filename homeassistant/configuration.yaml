@@ -321,9 +321,6 @@ group:
       - group.bathroom
       - group.scenes
       - group.family
-      - group.all_automations
-      - group.all_scripts
-      - group.all_switches
   sensor_view:
     name: Sensors
     icon: mdi:thermometer
@@ -342,6 +339,13 @@ group:
       - history_graph.outdoor_humidity
       - history_graph.outdoor_ozone
       - group.apc_be700g
+  system_view:
+    name: System
+    icon: mdi:toolbox
+    view: yes
+    entities:
+      - group.all_automations
+      - group.all_scripts
   door:
     name: Door
     entities:
