@@ -553,6 +553,7 @@ history_graph:
 
 automation:
   - alias: 'Hass Startup Notification'
+    initial_state: 'True'
     trigger:
       - platform: homeassistant
         event: start
@@ -569,6 +570,7 @@ automation:
               text: |
                 Home Assistant restarted at {{ now().strftime('%c') }} :ok_hand:
   - alias: 'Hass Shutdown Notification'
+    initial_state: 'True'
     trigger:
       - platform: homeassistant
         event: shutdown
@@ -585,6 +587,7 @@ automation:
               text: |
                 Home Assistant shutdown at {{ now().strftime('%c') }} :wave:
   - alias: 'Hass Update notifications'
+    initial_state: 'True'
     trigger:
       - platform: state
         entity_id: updater.updater
@@ -601,6 +604,7 @@ automation:
               text: |
                 There is a new Home Assistant release available.
   - alias: 'Nest Protect smoke or carbon monoxide emergency'
+    initial_state: 'True'
     trigger:
       platform: state
       entity_id:
@@ -635,6 +639,7 @@ automation:
           message: |
             There's smoke or carbon monoxide detected!
   - alias: 'Nest Protect is Offline'
+    initial_state: 'True'
     trigger:
       platform: state
       entity_id:
@@ -659,6 +664,7 @@ automation:
           message: |
             Nest protect is Offline!
   - alias: 'Nest Protect is back Online'
+    initial_state: 'True'
     trigger:
       platform: state
       entity_id:
@@ -683,6 +689,7 @@ automation:
           message: |
             Nest protect is back Online!
   - alias: '07:00 weekdays morning routine'
+    initial_state: 'True'
     trigger:
       - platform: time
         at: '07:00:00'
@@ -707,6 +714,7 @@ automation:
       - service: scene.turn_on
         entity_id: scene.energize_kitchen
   - alias: 'Turn a few lights on when the sun gets dim'
+    initial_state: 'True'
     trigger:
       platform: numeric_state
       entity_id: sun.sun
@@ -722,6 +730,7 @@ automation:
       - service: switch.turn_on
         entity_id: switch.smartplugkitchen1
   - alias: 'Turn more lights on as the sun gets dimmer'
+    initial_state: 'True'
     trigger:
       platform: numeric_state
       entity_id: sun.sun
@@ -735,6 +744,7 @@ automation:
       - service: scene.turn_on
         entity_id: scene.sun_gets_dimmer
   - alias: 'Turn on nightlight at dusk'
+    initial_state: 'True'
     trigger:
       platform: numeric_state
       entity_id: sun.sun
@@ -748,6 +758,7 @@ automation:
       - service: scene.turn_on
         entity_id: scene.nightlight
   - alias: 'Turn on Nightlight Scene when dark and we Just Arrived'
+    initial_state: 'True'
     trigger:
       - platform: state
         entity_id: sensor.benjamin_status
@@ -765,6 +776,7 @@ automation:
       - service: switch.turn_on
         entity_id: switch.smartplugkitchen1
   - alias: 'Turn off Media Players when everybody is Away'
+    initial_state: 'True'
     trigger:
       - platform: state
         entity_id: sensor.benjamin_status
@@ -782,6 +794,7 @@ automation:
       - service: media_player.turn_off
         entity_id: group.all_media_players
   - alias: 'Turn off lights when everybody is Away'
+    initial_state: 'True'
     trigger:
       platform: state
       entity_id: sensor.benjamin_status
@@ -801,6 +814,7 @@ automation:
       - service: switch.turn_off
         entity_id: group.all_switchs
   - alias: 'Turn on vacation mode when away for 24h'
+    initial_state: 'True'
     trigger:
       - platform: state
         entity_id: sensor.benjamin_status
@@ -829,6 +843,7 @@ automation:
                 text: |
                   Vacation mode had been turned on automatically because everyone is away since 24h :beach_with_umbrella:
   - alias: 'Turn off vacation mode when coming home'
+    initial_state: 'True'
     trigger:
       - platform: state
         entity_id: sensor.benjamin_status
@@ -857,6 +872,7 @@ automation:
   # Automating Transitions Between States
   # https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
   - alias: Mark person as just arrived
+    initial_state: 'True'
     trigger:
       - platform: state
         entity_id: group.benjamin_devices
@@ -878,6 +894,7 @@ automation:
               {% endif %}
             {% endif %}
   - alias: Mark person as home
+    initial_state: 'True'
     trigger:
       - platform: state
         entity_id: input_select.benjamin_status_dropdown
@@ -897,6 +914,7 @@ automation:
             {% endif %}
           option: Home
   - alias: Mark person as just left
+    initial_state: 'True'
     trigger:
       - platform: state
         entity_id: group.benjamin_devices
@@ -911,6 +929,7 @@ automation:
             {% endif %}
           option: Just Left
   - alias: Mark person as away
+    initial_state: 'True'
     trigger:
       - platform: state
         entity_id: input_select.benjamin_status_dropdown
@@ -926,6 +945,7 @@ automation:
             {% endif %}
           option: Away
   - alias: Mark person as extended away
+    initial_state: 'True'
     trigger:
       - platform: state
         entity_id: input_select.benjamin_status_dropdown
