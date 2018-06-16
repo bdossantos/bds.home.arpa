@@ -312,6 +312,7 @@ group:
     view: yes
     entities:
       - group.input_booleans
+      - group.family
       - group.door
       - group.hall
       - group.kitchen
@@ -320,7 +321,6 @@ group:
       - group.dressing
       - group.bathroom
       - group.scenes
-      - group.family
   sensor_view:
     name: Sensors
     icon: mdi:thermometer
