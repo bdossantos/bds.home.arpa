@@ -7,3 +7,5 @@ group.all_automations:
   hidden: false
 group.all_scripts:
   hidden: false
+group.dressing:
+  initial_state: 'off'
