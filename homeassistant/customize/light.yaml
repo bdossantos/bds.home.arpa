@@ -1,0 +1,14 @@
+---
+
+light.bedroom2:
+  icon: mdi:lava-lamp
+light.bedroom3:
+  icon: mdi:lava-lamp
+light.livingroom1:
+  icon: mdi:floor-lamp
+light.livingroom2:
+  icon: mdi:lava-lamp
+light.livingroom3:
+  icon: mdi:lava-lamp
+light.livingroom4:
+  icon: mdi:lamp
