@@ -281,6 +281,24 @@ binary_sensor:
           {%- else -%}
             false
           {%- endif -%}
+  - platform: bayesian
+    name: 'in_bed'
+    prior: 0.25
+    probability_threshold: 0.95
+    observations:
+      - entity_id: 'sensor.livingroom_motion'
+        prob_given_true: 0.4
+        prob_given_false: 0.2
+        platform: 'state'
+        to_state: 'off'
+      - entity_id: 'sensor.bedroom_motion'
+        prob_given_true: 0.5
+        platform: 'state'
+        to_state: 'on'
+      - entity_id: 'sun.sun'
+        prob_given_true: 0.7
+        platform: 'state'
+        to_state: 'below_horizon'
 
 device_tracker:
   - platform: nmap_tracker
