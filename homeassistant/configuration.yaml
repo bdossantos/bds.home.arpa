@@ -266,7 +266,7 @@ binary_sensor:
       livingroom_motion:
         friendly_name: 'Living room motion'
         value_template: >-
-          {%- if is_state('sensor.fibaro_system_fgms001zw5_motion_sensor_burglar_2', '8') -%}
+          {%- if is_state('sensor.livingroom_motion_burglar', '8') -%}
             true
           {%- else -%}
             false
@@ -406,8 +406,9 @@ group:
       - light.livingroom2
       - light.livingroom3
       - light.livingroom4
-      - sensor.fibaro_system_fgdw002_door_opening_sensor_2_temperature_2
       - binary_sensor.livingroom_motion
+      - sensor.livingroom_motion_luminance
+      - sensor.livingroom_motion_temperature
       - media_player.living_room
       - sensor.netatmo_indoor_temperature
       - sensor.netatmo_indoor_co2
