@@ -271,6 +271,16 @@ binary_sensor:
           {%- else -%}
             false
           {%- endif -%}
+  - platform: template
+    sensors:
+      bedroom_motion:
+        friendly_name: 'Bedroom motion'
+        value_template: >-
+          {%- if is_state('sensor.bedroom_motion_burglar', '8') -%}
+            true
+          {%- else -%}
+            false
+          {%- endif -%}
 
 device_tracker:
   - platform: nmap_tracker
@@ -372,6 +382,9 @@ group:
       - light.bedroom2
       - light.bedroom3
       - light.bedroom4
+      - binary_sensor.bedroom_motion
+      - sensor.bedroom_motion_luminance
+      - sensor.bedroom_motion_temperature
       - media_player.bedroom
   hall:
     name: Hall
