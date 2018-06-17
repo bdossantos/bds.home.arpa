@@ -352,6 +352,7 @@ group:
       - group.darksky
       - group.air_quality
       - history_graph.indoor_temperature
+      - history_graph.indoor_luminance
       - history_graph.indoor_co2
       - history_graph.indoor_humidity
       - history_graph.indoor_noise
@@ -539,6 +540,13 @@ history_graph:
     entities:
       - sensor.livingroom_motion_temperature
       - sensor.bedroom_motion_temperature
+    hours_to_show: 168
+    refresh: 600
+  indoor_luminance:
+    name: Indoor luminance
+    entities:
+      - sensor.livingroom_motion_luminance
+      - sensor.bedroom_motion_luminance
     hours_to_show: 168
     refresh: 600
   indoor_co2:
