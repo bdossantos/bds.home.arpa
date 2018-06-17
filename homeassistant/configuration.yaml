@@ -537,7 +537,8 @@ history_graph:
   indoor_temperature:
     name: Indoor temperature
     entities:
-      - sensor.netatmo_indoor_temperature
+      - sensor.livingroom_motion_temperature
+      - sensor.bedroom_motion_temperature
     hours_to_show: 168
     refresh: 600
   indoor_co2:
