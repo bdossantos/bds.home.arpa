@@ -714,6 +714,35 @@ automation:
           volume: 0.5
           message: |
             Nest protect is back Online!
+  - alias: 'Motion detected when everybody is away'
+    initial_state: 'True'
+    trigger:
+      platform: state
+      entity_id:
+        - binary_sensor.livingroom_motion
+        - binary_sensor.bedroom_motion
+      to: 'on'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: group.family
+          state: 'not_home'
+        - condition: state
+          entity_id: input_boolean.guest_mode
+          state: 'off'
+    action:
+      - service: notify.slack
+        data_template:
+          message: ''
+          data:
+            attachments:
+              - color: >
+                  danger
+                title: >
+                  :sos: Fatal
+                text: |
+                  Motion detected!
   - alias: '07:00 weekdays morning routine'
     initial_state: 'True'
     trigger:
