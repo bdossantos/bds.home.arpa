@@ -743,7 +743,7 @@ automation:
                 title: >
                   :sos: Fatal
                 text: |
-                  Motion detected!
+                  Motion detected ({{ state.attributes.friendly_name }})!
   - alias: '07:00 weekdays morning routine'
     initial_state: 'True'
     trigger:
