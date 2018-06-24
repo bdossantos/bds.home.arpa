@@ -899,17 +899,19 @@ automation:
     initial_state: 'True'
     trigger:
       - platform: state
-        entity_id: sensor.benjamin_status
-        to: 'Extended Away'
-      - platform: state
         entity_id: group.family
         to: 'not_home'
         for:
           hours: 24
     condition:
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'off'
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: sensor.benjamin_status
+          state: 'Extended Away'
+        - condition: state
+          entity_id: input_boolean.guest_mode
+          state: 'off'
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.vacation_mode
@@ -927,9 +929,6 @@ automation:
   - alias: 'Turn off vacation mode when coming home'
     initial_state: 'True'
     trigger:
-      - platform: state
-        entity_id: sensor.benjamin_status
-        to: 'Just Arrived'
       - platform: state
         entity_id: group.family
         to: 'home'
