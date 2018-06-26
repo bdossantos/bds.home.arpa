@@ -218,12 +218,8 @@ sensor:
         element: system
       system.ram:
         element: free
-      system.ram:
-        element: used
       net.bond0:
         element: received
-      net.bond0:
-        element: sent
       netfilter.conntrack_sockets:
         element: connections
   - platform: cert_expiry
