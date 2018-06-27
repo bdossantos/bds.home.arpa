@@ -687,6 +687,25 @@ automation:
           volume: 0.5
           message: |
             There's smoke or carbon monoxide detected!
+  - alias: 'APC status changed'
+    initial_state: 'True'
+    trigger:
+      platform: state
+      entity_id:
+        - sensor.apc_be700g_status
+      from: 'Online'
+    action:
+      - service: notify.slack
+        data_template:
+          message: ''
+          data:
+            attachments:
+              - color: >
+                  danger
+                title: >
+                  :sos: Fatal
+                text: |
+                  APC status changed to {{ state.attributes.friendly_name }}! :battery:
   - alias: 'Nest Protect is Offline'
     initial_state: 'True'
     trigger:
