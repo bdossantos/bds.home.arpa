@@ -337,7 +337,7 @@ netatmo:
   secret_key: !secret netatmo_secret_key
   username: !secret netatmo_username
   password: !secret netatmo_password
-  discovery: true
+  discovery: True
 
 group:
   default_view:
