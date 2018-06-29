@@ -257,37 +257,17 @@ binary_sensor:
           {% else %}
             unknown
           {% endif %}
-  - platform: template
-    sensors:
-      livingroom_motion:
-        friendly_name: 'Living room motion'
-        value_template: >-
-          {%- if is_state('sensor.livingroom_motion_burglar', '8') -%}
-            true
-          {%- else -%}
-            false
-          {%- endif -%}
-  - platform: template
-    sensors:
-      bedroom_motion:
-        friendly_name: 'Bedroom motion'
-        value_template: >-
-          {%- if is_state('sensor.bedroom_motion_burglar', '8') -%}
-            true
-          {%- else -%}
-            false
-          {%- endif -%}
   - platform: bayesian
     name: 'in_bed'
     prior: 0.25
     probability_threshold: 0.95
     observations:
-      - entity_id: 'sensor.livingroom_motion'
+      - entity_id: 'binary_sensor.livingroom_motion_sensor'
         prob_given_true: 0.4
         prob_given_false: 0.2
         platform: 'state'
         to_state: 'off'
-      - entity_id: 'sensor.bedroom_motion'
+      - entity_id: 'binary_sensor.bedroom_motion_sensor'
         prob_given_true: 0.5
         platform: 'state'
         to_state: 'on'
@@ -397,7 +377,7 @@ group:
       - light.bedroom2
       - light.bedroom3
       - light.bedroom4
-      - binary_sensor.bedroom_motion
+      - binary_sensor.bedroom_motion_sensor
       - sensor.bedroom_motion_luminance
       - sensor.bedroom_motion_temperature
       - media_player.bedroom
@@ -410,6 +390,9 @@ group:
       - sensor.hallway_nest_protect_co_status
       - sensor.hallway_nest_protect_color_status
       - sensor.hallway_nest_protect_smoke_status
+      - binary_sensor.hallway_motion_sensor
+      - sensor.hallway_motion_luminance
+      - sensor.hallway_motion_temperature
   kitchen:
     name: Kitchen
     entities:
@@ -422,7 +405,7 @@ group:
       - light.livingroom2
       - light.livingroom3
       - light.livingroom4
-      - binary_sensor.livingroom_motion
+      - binary_sensor.livingroom_motion_sensor
       - sensor.livingroom_motion_luminance
       - sensor.livingroom_motion_temperature
       - media_player.living_room
@@ -762,6 +745,7 @@ automation:
     trigger:
       platform: state
       entity_id:
+        - binary_sensor.hallway_motion
         - binary_sensor.livingroom_motion
         - binary_sensor.bedroom_motion
       to: 'on'
