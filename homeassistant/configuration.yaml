@@ -539,15 +539,19 @@ history_graph:
   indoor_temperature:
     name: Indoor temperature
     entities:
-      - sensor.livingroom_motion_temperature
       - sensor.bedroom_motion_temperature
+      - sensor.hallway_motion_temperature
+      - sensor.kitchen_motion_temperature
+      - sensor.livingroom_motion_temperature
     hours_to_show: 168
     refresh: 600
   indoor_luminance:
     name: Indoor luminance
     entities:
-      - sensor.livingroom_motion_luminance
       - sensor.bedroom_motion_luminance
+      - sensor.hallway_motion_luminance
+      - sensor.kitchen_motion_luminance
+      - sensor.livingroom_motion_luminance
     hours_to_show: 168
     refresh: 600
   indoor_co2:
