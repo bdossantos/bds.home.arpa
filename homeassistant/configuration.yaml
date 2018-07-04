@@ -228,6 +228,22 @@ sensor:
   - platform: cert_expiry
     host: b-ds.fr
     name: b-ds.fr
+  - platform: statistics
+    entity_id: sensor.bedroom_motion_temperature
+  - platform: statistics
+    entity_id: sensor.hallway_motion_temperature
+  - platform: statistics
+    entity_id: sensor.kitchen_motion_temperature
+  - platform: statistics
+    entity_id: sensor.livingroom_motion_temperature
+  - platform: statistics
+    entity_id: sensor.bedroom_motion_luminance
+  - platform: statistics
+    entity_id: sensor.bedroom_motion_luminance
+  - platform: statistics
+    entity_id: sensor.kitchen_motion_luminance
+  - platform: statistics
+    entity_id: sensor.livingroom_motion_luminance
 
 binary_sensor:
   - platform: nest
