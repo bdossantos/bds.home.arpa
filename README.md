@@ -20,19 +20,17 @@ sudo make install
 * 1 * Module mini-GBiC SFP Multimode-Monomode/0.55-10km
 * 1 * Nest Protect 2
 * 1 * Netatmo weather station
-* 1 * Netgate SG-1000
+* 1 * Netgate SG-3100
 * 1 * Netgear GS308P-100PES Switch Gigabit Ethernet 8 Ports with 4 Ports PoE
-* 1 * Philips Hue Go
+* 5 * Philips Hue Go
 * 1 * Phillips Hue hub
-* 1 * Phillips Hue tap
 * 1 * Plugable Technologies USB-BT4LE Bluetooth
-* 1 * Raspberry Pi 2
 * 1 * Raspberry Pi 3
 * 1 * Synology DiskStation DS716+ II
 * 1 * TP-Link HS100
 * 1 * TP-Link MC220L RJ45 Gigabit Converter
 * 2 * Fibaro Door / Window Sensor
-* 2 * Fibaro Motion Sensor
+* 6 * Fibaro Motion Sensor
 * 2 * Philips Hue Motion Sensor
 * 2 * Sonos PLAY:3
 * 6 * Phillips Hue bulbs
