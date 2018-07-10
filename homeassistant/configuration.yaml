@@ -930,9 +930,6 @@ automation:
       condition: and
       conditions:
         - condition: state
-          entity_id: sensor.benjamin_status
-          state: 'Extended Away'
-        - condition: state
           entity_id: input_boolean.guest_mode
           state: 'off'
     action:
