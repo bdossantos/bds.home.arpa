@@ -7,9 +7,8 @@
 ## Installation
 
 ```
-git clone https://github.com/bdossantos/bds.home /opt/bds.home
-cd /opt/bds.home
-sudo make install
+git clone https://github.com/bdossantos/bds.home ~/Code/bds.home
+~/Code/bds.home/scripts/deploy
 ```
 
 ## Hardware and devices
