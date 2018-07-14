@@ -19,12 +19,12 @@ entities:
     xy_color: [0.5639, 0.3904]
   light.bedroom2:
     state: on
-    brightness_pct: 30
+    brightness_pct: 40
     transition: 30
     xy_color: [0.5639, 0.3904]
   light.bedroom3:
     state: on
-    brightness_pct: 30
+    brightness_pct: 40
     transition: 30
     xy_color: [0.5639, 0.3904]
   group.dressing:
