@@ -540,6 +540,7 @@ group:
     name: Family
     entities:
       - group.benjamin_devices
+      - device_tracker.iphone_laura
   all_media_players:
     name: All media players
     entities:
