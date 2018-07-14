@@ -351,8 +351,8 @@ group:
     icon: mdi:home
     view: yes
     entities:
-      - group.input_booleans
       - group.family
+      - group.input_booleans
       - group.door
       - group.hall
       - group.kitchen
