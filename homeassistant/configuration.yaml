@@ -525,6 +525,11 @@ group:
     entities:
       - device_tracker.nexus5x
       - device_tracker.benjamin_smartphone
+  laura_devices:
+    name: Laura devices
+    entities:
+      - device_tracker.iphone_laura
+      - device_tracker.tile_home_keys_double
   tile:
     name: Tile
     entities:
@@ -540,7 +545,7 @@ group:
     name: Family
     entities:
       - group.benjamin_devices
-      - device_tracker.iphone_laura
+      - group.laura_devices
   all_media_players:
     name: All media players
     entities:

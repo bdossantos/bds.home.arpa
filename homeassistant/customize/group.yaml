@@ -3,6 +3,9 @@
 group.benjamin_devices:
   entity_picture: 'https://avatars3.githubusercontent.com/u/245284?s=460&v=4'
   friendly_name: Benjamin
+group.laura_devices:
+  entity_picture: 'https://lafeber.com/mammals/wp-content/uploads/rabbit-in-bunnysupplyco.jpg'
+  friendly_name: Laura
 group.all_automations:
   hidden: false
 group.all_scripts:
