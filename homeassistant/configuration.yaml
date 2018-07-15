@@ -726,7 +726,6 @@ automation:
       platform: state
       entity_id:
         - sensor.apc_be700g_status
-      from: 'Online'
     action:
       - service: notify.slack
         data_template:
@@ -738,7 +737,14 @@ automation:
                 title: >
                   :sos: Fatal
                 text: |
-                  "APC status changed to {{ trigger.to_state.attributes.friendly_name }}! :battery:"
+                  APC status summary :battery:
+
+                  Status: {{ states("sensor.apc_be700g_status") }}
+                  Battery: {{ states("sensor.apc_be700g_battery_charge") }}
+                  Battery runtime: {{ states("sensor.apc_be700g_battery_runtime") }}
+                  Battery voltage: {{ states("sensor.apc_be700g_battery_voltage") }}
+                  Input voltage: {{ states("sensor.apc_be700g_input_voltage") }}
+                  Load: {{ states("sensor.apc_be700g_load") }}
   - alias: 'Nest Protect is Offline'
     initial_state: 'True'
     trigger:
