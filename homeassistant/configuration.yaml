@@ -738,7 +738,7 @@ automation:
                 title: >
                   :sos: Fatal
                 text: |
-                  "APC status changed to {{ state.attributes.friendly_name }}! :battery:"
+                  "APC status changed to {{ trigger.to_state.attributes.friendly_name }}! :battery:"
   - alias: 'Nest Protect is Offline'
     initial_state: 'True'
     trigger:
