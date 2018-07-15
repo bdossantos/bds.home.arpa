@@ -697,7 +697,9 @@ automation:
           - group.all_lights
         data:
           flash: long
-          brightness: 255
+          brightness_pct: 100
+          white_value: 255
+          kelvin: 4100
       - service: light.turn_on
         entity_id:
           - group.all_lights
