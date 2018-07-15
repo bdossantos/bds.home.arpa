@@ -648,7 +648,7 @@ automation:
               title: >
                 :information_source: Information
               text: |
-                Home Assistant restarted at {{ now().strftime('%c') }} :ok_hand:
+                "Home Assistant restarted at {{ now().strftime('%c') }} :ok_hand:"
   - alias: 'Hass Shutdown Notification'
     initial_state: 'True'
     trigger:
@@ -665,7 +665,7 @@ automation:
               title: >
                 :warning: Warning
               text: |
-                Home Assistant shutdown at {{ now().strftime('%c') }} :wave:
+                "Home Assistant shutdown at {{ now().strftime('%c') }} :wave:"
   - alias: 'Hass Update notifications'
     initial_state: 'True'
     trigger:
@@ -682,7 +682,7 @@ automation:
               title: >
                 :information_source: Information
               text: |
-                There is a new Home Assistant release available.
+                'There is a new Home Assistant release available.'
   - alias: 'Nest Protect smoke or carbon monoxide emergency'
     initial_state: 'True'
     trigger:
@@ -711,13 +711,13 @@ automation:
                 title: >
                   :sos: Fatal
                 text: |
-                  There's smoke or carbon monoxide detected! :skull:
+                  "There's smoke or carbon monoxide detected! :skull:"
       - service: script.sonos_say
         data:
           sonos_entity: group.all_media_players
           volume: 0.5
           message: |
-            There's smoke or carbon monoxide detected!
+            "There's smoke or carbon monoxide detected!"
   - alias: 'APC status changed'
     initial_state: 'True'
     trigger:
@@ -736,7 +736,7 @@ automation:
                 title: >
                   :sos: Fatal
                 text: |
-                  APC status changed to {{ state.attributes.friendly_name }}! :battery:
+                  "APC status changed to {{ state.attributes.friendly_name }}! :battery:"
   - alias: 'Nest Protect is Offline'
     initial_state: 'True'
     trigger:
@@ -755,13 +755,13 @@ automation:
                 title: >
                   :warning: Warning
                 text: |
-                  Nest protect is Offline!
+                  'Nest protect is Offline!'
       - service: script.sonos_say
         data:
           sonos_entity: group.all_media_players
           volume: 0.5
           message: |
-            Nest protect is Offline!
+            'Nest protect is Offline!'
   - alias: 'Nest Protect is back Online'
     initial_state: 'True'
     trigger:
@@ -780,13 +780,13 @@ automation:
                 title: >
                   :information_source: Information
                 text: |
-                  Nest protect is back Online!
+                  'Nest protect is back Online!'
       - service: script.sonos_say
         data:
           sonos_entity: group.all_media_players
           volume: 0.5
           message: |
-            Nest protect is back Online!
+            'Nest protect is back Online!'
   - alias: 'Motion detected when everybody is away'
     initial_state: 'True'
     trigger:
@@ -816,7 +816,7 @@ automation:
                 title: >
                   :sos: Fatal
                 text: |
-                  Motion detected ({{ state.attributes.friendly_name }})!
+                  "Motion detected ({{ state.attributes.friendly_name }})!"
   - alias: '07:00 weekdays morning routine'
     initial_state: 'True'
     trigger:
