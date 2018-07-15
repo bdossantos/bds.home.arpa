@@ -59,7 +59,7 @@ scene: !include_dir_list scenes
 
 light:
   - platform: group
-    name: hall lights
+    name: hallway lights
     entities:
       - light.hall1
   - platform: group
