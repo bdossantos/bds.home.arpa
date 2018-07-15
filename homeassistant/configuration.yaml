@@ -76,7 +76,6 @@ light:
   - platform: group
     name: bedroom lights
     entities:
-      - light.bathroom1
       - light.bedroom1
       - light.bedroom2
       - light.bedroom3
@@ -89,6 +88,15 @@ light:
     name: bathroom lights
     entities:
       - light.bathroom1
+  - platform: group
+    name: candle lights
+    entities:
+      - light.bedroom2
+      - light.bedroom3
+      - light.livingroom1
+      - light.livingroom2
+      - light.livingroom3
+      - light.livingroom4
 
 sensor:
   - platform: google_wifi
