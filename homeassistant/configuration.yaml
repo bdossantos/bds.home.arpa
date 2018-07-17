@@ -1006,7 +1006,7 @@ automation:
                   Vacation mode had been turned off :briefcase:
   # Automating Transitions Between States
   # https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
-  - alias: Mark person as just arrived
+  - alias: 'Mark person as just arrived'
     initial_state: 'True'
     trigger:
       - platform: state
@@ -1028,7 +1028,7 @@ automation:
                 Just Arrived
               {% endif %}
             {% endif %}
-  - alias: Mark person as home
+  - alias: 'Mark person as home'
     initial_state: 'True'
     trigger:
       - platform: state
@@ -1048,7 +1048,7 @@ automation:
               input_select.benjamin_status_dropdown
             {% endif %}
           option: Home
-  - alias: Mark person as just left
+  - alias: 'Mark person as just left'
     initial_state: 'True'
     trigger:
       - platform: state
@@ -1063,7 +1063,7 @@ automation:
               input_select.benjamin_status_dropdown
             {% endif %}
           option: Just Left
-  - alias: Mark person as away
+  - alias: 'Mark person as away'
     initial_state: 'True'
     trigger:
       - platform: state
@@ -1079,7 +1079,7 @@ automation:
               input_select.benjamin_status_dropdown
             {% endif %}
           option: Away
-  - alias: Mark person as extended away
+  - alias: 'Mark person as extended away'
     initial_state: 'True'
     trigger:
       - platform: state
