@@ -932,6 +932,17 @@ automation:
     action:
       - service: media_player.turn_off
         entity_id: group.all_media_players
+      - service: notify.slack
+        data_template:
+          message: ''
+          data:
+            attachments:
+              - color: >
+                  good
+                title: >
+                  :information_source: Information
+                text: |
+                  All media players was turned off :mute:
   - alias: 'Turn off lights when everybody is Away'
     initial_state: 'True'
     trigger:
@@ -952,6 +963,17 @@ automation:
         entity_id: group.all_lights
       - service: switch.turn_off
         entity_id: group.all_switchs
+      - service: notify.slack
+        data_template:
+          message: ''
+          data:
+            attachments:
+              - color: >
+                  good
+                title: >
+                  :information_source: Information
+                text: |
+                  All light turned off :bulb:
   - alias: 'Turn on vacation mode when away for 24h'
     initial_state: 'True'
     trigger:
