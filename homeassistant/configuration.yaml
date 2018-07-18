@@ -461,7 +461,14 @@ group:
     name: Dressing
     entities:
       - light.dressing1
+      - binary_sensor.dressing1_motion_sensor
+      - sensor.dressing1_motion_luminance
+      - sensor.dressing1_motion_temperature
       - light.dressing2
+      - binary_sensor.dressing2_motion_sensor
+      - sensor.dressing2_motion_luminance
+      - sensor.dressing2_motion_temperature
+
   scenes:
     name: Scenes
     entities:
