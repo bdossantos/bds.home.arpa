@@ -440,6 +440,9 @@ group:
       - binary_sensor.kitchen_motion_sensor
       - sensor.kitchen_motion_luminance
       - sensor.kitchen_motion_temperature
+      - binary_sensor.fridge_motion_sensor
+      - sensor.fridge_motion_luminance
+      - sensor.fridge_motion_temperature
   livingroom:
     name: Living Room
     entities:
