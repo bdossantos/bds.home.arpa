@@ -845,6 +845,23 @@ automation:
                   :sos: Fatal
                 text: |
                   "Intrusion detected!"
+  - alias: Fridge temperature
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.fridge_motion_temperature
+      below: 7
+    action:
+      service: notify.slack
+      data_template:
+        message: ''
+        data:
+          attachments:
+            - color: >
+                warning
+              title: >
+                :warning: Warning
+              text: |
+                "Fridge temperature is {{ states('sensor.fridge_motion_temperature') }}, that's below 7°C :thermometer:"
   - alias: '07:00 weekdays morning routine'
     initial_state: 'True'
     trigger:
