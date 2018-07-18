@@ -14,6 +14,9 @@ logger:
   logs:
     homeassistant.components.http.ban: warning
 
+updater:
+  reporting: false
+
 frontend:
 
 config:
