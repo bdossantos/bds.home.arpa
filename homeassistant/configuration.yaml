@@ -1045,9 +1045,14 @@ automation:
         entity_id: group.family
         to: 'home'
     condition:
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'on'
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.guest_mode
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.vacation_mode
+          state: 'on'
     action:
       - service: input_boolean.turn_off
         entity_id: input_boolean.vacation_mode
