@@ -666,7 +666,7 @@ automation:
               title: >
                 :information_source: Information
               text: |
-                "Home Assistant restarted at {{ now().strftime('%c') }} :ok_hand:"
+                Home Assistant restarted at {{ now().strftime('%c') }} :ok_hand:
   - alias: 'Hass Shutdown Notification'
     initial_state: 'True'
     trigger:
@@ -683,7 +683,7 @@ automation:
               title: >
                 :warning: Warning
               text: |
-                "Home Assistant shutdown at {{ now().strftime('%c') }} :wave:"
+                Home Assistant shutdown at {{ now().strftime('%c') }} :wave:
   - alias: 'Hass Update notifications'
     initial_state: 'True'
     trigger:
@@ -700,7 +700,7 @@ automation:
               title: >
                 :information_source: Information
               text: |
-                'There is a new Home Assistant release available.'
+                Home Assistant v {{ states('updater.updater') }} release is available! :champagne:
   - alias: 'Nest Protect smoke or carbon monoxide emergency'
     initial_state: 'True'
     trigger:
@@ -731,13 +731,13 @@ automation:
                 title: >
                   :sos: Fatal
                 text: |
-                  "There's smoke or carbon monoxide detected! :skull:"
+                  There's smoke or carbon monoxide detected! :skull:
       - service: script.sonos_say
         data:
           sonos_entity: group.all_media_players
           volume: 0.5
           message: |
-            "There's smoke or carbon monoxide detected!"
+            There's smoke or carbon monoxide detected!
   - alias: 'APC status changed'
     initial_state: 'True'
     trigger:
@@ -781,7 +781,7 @@ automation:
                 title: >
                   :warning: Warning
                 text: |
-                  'Nest protect is Offline!'
+                  Nest protect is Offline!
       - service: script.sonos_say
         data:
           sonos_entity: group.all_media_players
@@ -806,13 +806,13 @@ automation:
                 title: >
                   :information_source: Information
                 text: |
-                  'Nest protect is back Online!'
+                  Nest protect is back Online!
       - service: script.sonos_say
         data:
           sonos_entity: group.all_media_players
           volume: 0.5
           message: |
-            'Nest protect is back Online!'
+            Nest protect is back Online!
   - alias: 'Intrusion detection'
     initial_state: 'True'
     trigger:
@@ -844,7 +844,7 @@ automation:
                 title: >
                   :sos: Fatal
                 text: |
-                  "Intrusion detected!"
+                  Intrusion detected!
   - alias: Fridge temperature
     trigger:
       platform: numeric_state
@@ -862,7 +862,7 @@ automation:
               title: >
                 :warning: Warning
               text: |
-                "Fridge temperature is {{ states('sensor.fridge_motion_temperature') }} :thermometer:"
+                Fridge temperature is {{ states('sensor.fridge_motion_temperature') }} :thermometer:
   - alias: '07:00 weekdays morning routine'
     initial_state: 'True'
     trigger:
