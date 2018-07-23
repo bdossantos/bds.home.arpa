@@ -1002,6 +1002,9 @@ automation:
         - condition: state
           entity_id: input_boolean.guest_mode
           state: 'off'
+        - condition: state
+          entity_id: group.all_lights
+          state: 'on'
     action:
       - service: scene.turn_on
         entity_id: scene.all_lights_off
