@@ -246,20 +246,28 @@ sensor:
     name: b-ds.fr
   - platform: statistics
     entity_id: sensor.bedroom_motion_temperature
+    name: bedroom_temperature
   - platform: statistics
     entity_id: sensor.hallway_motion_temperature
+    name: hallway_temperature
   - platform: statistics
     entity_id: sensor.kitchen_motion_temperature
+    name: kitchen_temperature
   - platform: statistics
     entity_id: sensor.livingroom_motion_temperature
+    name: livingroom_temperature
   - platform: statistics
     entity_id: sensor.bedroom_motion_luminance
+    name: bedroom_luminance
   - platform: statistics
     entity_id: sensor.bedroom_motion_luminance
+    name: bedroom_luminance
   - platform: statistics
     entity_id: sensor.kitchen_motion_luminance
+    name: kitchen_luminance
   - platform: statistics
     entity_id: sensor.livingroom_motion_luminance
+    name: livingroom_luminance
 
 binary_sensor:
   - platform: nest
