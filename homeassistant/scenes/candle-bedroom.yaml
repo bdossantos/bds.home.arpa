@@ -3,7 +3,7 @@
 name: Candle bedroom
 entities:
   switch.smartplugkitchen1: off
-  group.dressing:
+  light.dressing_lights:
     state: off
     transition: 30
   light.hall1:
