@@ -317,6 +317,16 @@ binary_sensor:
         prob_given_false: 0.2
         platform: 'state'
         to_state: 'off'
+      - entity_id: 'binary_sensor.dressing1_motion_sensor'
+        prob_given_true: 0.7
+        prob_given_false: 0.2
+        platform: 'state'
+        to_state: 'off'
+      - entity_id: 'binary_sensor.dressing2_motion_sensor'
+        prob_given_true: 0.7
+        prob_given_false: 0.2
+        platform: 'state'
+        to_state: 'off'
       - entity_id: 'binary_sensor.bedroom_motion_sensor'
         prob_given_true: 0.5
         platform: 'state'
