@@ -9,7 +9,7 @@ entities:
     brightness_pct: 30
     transition: 30
     xy_color: [0.5639, 0.3904]
-  group.dressing:
+  light.dressing_lights:
     state: off
     transition: 30
   light.kitchen1:
