@@ -958,6 +958,47 @@ automation:
         entity_id: scene.just_arrived
       - service: switch.turn_on
         entity_id: switch.smartplugkitchen1
+  - alias: 'Turn on dressing lights when there is a movement'
+    trigger:
+      platform: state
+      entity_id:
+        - binary_sensor.dressing1_motion_sensor
+        - binary_sensor.dressing2_motion_sensor
+      to: 'on'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id:
+            - light.dressing_lights
+          color_temp: >
+            {%- if now().strftime('%H') | int >= 20 %}
+              450
+            {%- elif now().strftime('%H') | int >= 7 %}
+              350
+            {%- else %}
+              500
+            {%- endif %}
+          brightness_pct: >
+            {%- if now().strftime('%H') | int >= 20 %}
+              60
+            {%- elif now().strftime('%H') | int >= 8 %}
+              80
+            {%- else %}
+              50
+            {%- endif %}
+  - alias: 'Turn off dressing lights 5 minutes after last movement'
+    trigger:
+      platform: state
+      entity_id:
+        - binary_sensor.dressing1_motion_sensor
+        - binary_sensor.dressing2_motion_sensor
+      to: 'off'
+      for:
+        minutes: 5
+    action:
+      - service: light.turn_off
+        entity_id:
+          - light.dressing_lights
   - alias: 'Turn off Media Players when everybody is Away'
     initial_state: 'True'
     trigger:
