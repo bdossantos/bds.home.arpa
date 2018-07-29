@@ -43,7 +43,7 @@ services:
     privileged: true
     restart: always
   homeassistant-postgresql:
-    image: postgres:10
+    image: postgres:10.4
     container_name: homeassistant-postgresql
     volumes:
       - /volume1/docker/homeassistant-postgres/data:/var/lib/postgresql/data
