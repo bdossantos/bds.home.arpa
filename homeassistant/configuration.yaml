@@ -1195,7 +1195,7 @@ automation:
         entity_id: light.hall1
         data:
           rgb_color: [255, 255, 255]
-          brightness_pct: '(range(20, 100)|random|int)'
+          brightness_pct: '{{ (range(20, 100)|random|int) }}'
       - delay: '00:0{{ (range(1, 4) | random) }}:{{ (range(1, 59)|random|int) }}'
       - service: light.turn_on
         data_template:
