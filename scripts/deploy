@@ -30,3 +30,20 @@ pushd "${HOME}/Code/bds.home" >/dev/null
   sudo docker-compose build --pull
   sudo docker-compose up -d
 popd >/dev/null
+
+if [[ ! -d "${HOME}/Code/dockerfiles" ]]; then
+  mkdir "${HOME}/Code"
+  chmod 0755 "${HOME}/Code"
+  git clone https://github.com/bdossantos/dockerfiles "${HOME}/Code/dockerfiles"
+fi
+
+pushd "${HOME}/Code/dockerfiles" >/dev/null
+  git checkout .
+  git pull
+  sudo docker-compose \
+    -f docker-compose.yml \
+    -f docker-compose.synology.override.yml build --pull
+  sudo docker-compose \
+    -f docker-compose.yml \
+    -f docker-compose.synology.override.yml up -d
+popd >/dev/null
