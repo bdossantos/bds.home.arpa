@@ -558,12 +558,10 @@ group:
     entities:
       - device_tracker.nexus5x
       - device_tracker.benjamin_smartphone
-      - device_tracker.tile_home_keys
   laura_devices:
     name: Laura devices
     entities:
       - device_tracker.iphone_laura
-      - device_tracker.tile_home_keys_double
   tile:
     name: Tile
     entities:
