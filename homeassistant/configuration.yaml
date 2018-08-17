@@ -1,6 +1,8 @@
 ---
 
 homeassistant:
+  auth_providers:
+    - type: homeassistant
   latitude: !secret home_latitude
   longitude: !secret home_longitude
   elevation: 30
