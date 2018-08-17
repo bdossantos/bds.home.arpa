@@ -938,7 +938,7 @@ automation:
     action:
       - service: scene.turn_on
         entity_id: scene.nightlight
-  - alias: 'Turn on Nightlight Scene when dark and we Just Arrived'
+  - alias: 'Turn on lights when dark and we Just Arrived'
     initial_state: 'True'
     trigger:
       - platform: state
