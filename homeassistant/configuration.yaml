@@ -908,8 +908,6 @@ automation:
     action:
       - service: scene.turn_on
         entity_id: scene.candle
-      - service: switch.turn_on
-        entity_id: switch.smartplugkitchen1
   - alias: 'Turn more lights on as the sun gets dimmer'
     initial_state: 'True'
     trigger:
