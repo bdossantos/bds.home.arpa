@@ -24,14 +24,6 @@ entities:
     xy_color: [0.207, 0.2658]
   light.dressing2:
     state: off
-  light.hall2:
-    state: on
-    brightness: 103
-    xy_color: [0.1714, 0.3531]
-  light.bedroom4:
-    state: on
-    brightness: 101
-    xy_color: [0.2917, 0.2862]
   light.dressing1:
     state: off
   light.kitchen1:

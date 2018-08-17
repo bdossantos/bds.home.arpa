@@ -438,7 +438,6 @@ group:
       - light.bedroom1
       - light.bedroom2
       - light.bedroom3
-      - light.bedroom4
       - binary_sensor.bedroom_motion_sensor
       - sensor.bedroom_motion_luminance
       - sensor.bedroom_motion_temperature
