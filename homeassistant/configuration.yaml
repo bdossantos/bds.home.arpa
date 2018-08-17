@@ -930,7 +930,7 @@ automation:
       platform: numeric_state
       entity_id: sun.sun
       value_template: '{{ state.attributes.elevation }}'
-      below: -2.5
+      below: -5
     condition:
       - condition: state
         entity_id: group.family
