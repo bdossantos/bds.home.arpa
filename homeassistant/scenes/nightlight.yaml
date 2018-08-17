@@ -3,18 +3,27 @@
 name: Nightlight
 entities:
   light.hall1:
-    state: on
-    brightness_pct: 30
-    color_temp: 500
-  switch.smartplugkitchen1: on
+    state: off
+  switch.smartplugkitchen1: off
   light.bedroom1:
     state: on
-    brightness_pct: 30
-    color_temp: 500
+    brightness: 1
+    xy_color: [0.561, 0.404]
+    transition: 10
+  light.livingroom1:
+    state: on
+    brightness: 1
+    xy_color: [0.561, 0.404]
+    transition: 10
+  light.livingroom4:
+    state: on
+    brightness: 1
+    xy_color: [0.561, 0.404]
+    transition: 10
   light.candle_lights:
     state: on
     brightness_pct: 40
-    xy_color: [0.5639, 0.3904]
     transition: 30
+    xy_color: [0.5639, 0.3904]
   light.dressing_lights:
     state: off
