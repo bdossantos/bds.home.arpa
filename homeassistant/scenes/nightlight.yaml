@@ -7,17 +7,17 @@ entities:
   switch.smartplugkitchen1: off
   light.bedroom1:
     state: on
-    brightness: 1
+    brightness_pct: 5
     xy_color: [0.561, 0.404]
     transition: 10
   light.livingroom1:
     state: on
-    brightness: 1
+    brightness_pct: 10
     xy_color: [0.561, 0.404]
     transition: 10
   light.livingroom4:
     state: on
-    brightness: 1
+    brightness_pct: 10
     xy_color: [0.561, 0.404]
     transition: 10
   light.candle_lights:
