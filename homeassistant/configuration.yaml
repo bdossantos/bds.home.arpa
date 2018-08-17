@@ -166,7 +166,6 @@ sensor:
         - min_temp
         - max_temp
         - rf_status
-        - wifi_status
         - battery_vp
   - platform: nut
     name: APC BE700G
