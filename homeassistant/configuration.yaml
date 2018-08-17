@@ -1188,7 +1188,7 @@ automation:
           state: 'not_home'
         - condition: state
           entity_id: input_boolean.guest_mode
-          state: 'off'
+          state: 'on'
     action:
       - service: scene.turn_on
         entity_id: scene.candle
