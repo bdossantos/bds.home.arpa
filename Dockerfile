@@ -1,4 +1,4 @@
-FROM homeassistant/home-assistant:0.76.1
+FROM homeassistant/home-assistant:0.77.1
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
