@@ -1165,10 +1165,6 @@ automation:
                   Vacation mode had been turned off :briefcase:
   - alias: 'Simulate presence'
     trigger:
-      - platform: state
-        entity_id: group.all_devices
-        from: 'home'
-        to: 'not_home'
       - platform: sun
         event: sunset
       - platform: event
@@ -1186,7 +1182,7 @@ automation:
           state: 'not_home'
         - condition: state
           entity_id: input_boolean.guest_mode
-          state: 'on'
+          state: 'off'
     action:
       - service: scene.turn_on
         entity_id: scene.candle
