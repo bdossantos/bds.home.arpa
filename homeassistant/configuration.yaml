@@ -1184,6 +1184,17 @@ automation:
           entity_id: input_boolean.guest_mode
           state: 'off'
     action:
+      - service: notify.slack
+        data_template:
+          message: ''
+          data:
+            attachments:
+              - color: >
+                  good
+                title: >
+                  :information_source: Information
+                text: |
+                  Presence simulation triggered :speaking_head_in_silhouette:
       - service: scene.turn_on
         entity_id: scene.candle
       - delay: '00:00:{{ (range(1, 59)|random|int) }}'
