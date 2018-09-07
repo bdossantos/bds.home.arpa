@@ -789,6 +789,10 @@ automation:
                   :information_source: Information
                 text: |
                   Power is back! :battery:
+
+      # wait few minutes to let hue bridge reboot after a power outage
+      # TODO: buy an APC with more battery backed slots
+      - delay: '00:02:00'
       - service: notify.slack
         data_template:
           message: ''
