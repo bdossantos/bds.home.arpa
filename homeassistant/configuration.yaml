@@ -1202,8 +1202,9 @@ automation:
                   Vacation mode had been turned off :briefcase:
   - alias: 'Simulate presence'
     trigger:
-      - platform: sun
-        event: sunset
+      - platform: state
+        entity_id: 'sun.sun'
+        to: 'below_horizon'
       - platform: event
         event_type: event_simulate_presence
     condition:
