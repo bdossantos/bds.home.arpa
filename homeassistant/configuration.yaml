@@ -229,15 +229,20 @@ sensor:
     host: 127.0.0.1
     port: 19999
     resources:
-      system.load:
+      load:
+        data_group: system.load
         element: load15
-      system.cpu:
+      cpu:
+        data_group: system.cpu
         element: system
-      system.ram:
+      ram:
+        data_group: system.ram
         element: free
-      net.bond0:
+      net:
+        data_group: net.bond0
         element: received
-      netfilter.conntrack_sockets:
+      netfilter:
+        data_group: netfilter.conntrack_sockets
         element: connections
   - platform: cert_expiry
     host: bds.run
