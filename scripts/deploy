@@ -7,6 +7,10 @@ set -o nounset
 DEBUG=${DEBUG:=0}
 [[ $DEBUG -eq 1 ]] && set -o xtrace
 
+COMPOSE_HTTP_TIMEOUT=300
+
+export COMPOSE_HTTP_TIMEOUT
+
 if [[ "$(whoami)" != 'admin' ]]; then
   echo "Script must be run as user 'admin'"
   exit 1
