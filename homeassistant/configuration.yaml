@@ -1071,7 +1071,7 @@ automation:
             {%- else %}
               50
             {%- endif %}
-  - alias: 'Turn off dressing lights 5 minutes after last movement'
+  - alias: 'Turn off dressing lights 2 minutes after last movement'
     trigger:
       platform: state
       entity_id:
@@ -1079,7 +1079,7 @@ automation:
         - binary_sensor.dressing2_motion_sensor
       to: 'off'
       for:
-        minutes: 5
+        minutes: 2
     action:
       - service: light.turn_off
         entity_id:
