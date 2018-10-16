@@ -1029,14 +1029,14 @@ automation:
             {%- else %}
               50
             {%- endif %}
-  - alias: 'Turn off kitchen lights 15 minutes after last movement'
+  - alias: 'Turn off kitchen lights 5 minutes after last movement'
     trigger:
       platform: state
       entity_id:
         - binary_sensor.kitchen_motion_sensor
       to: 'off'
       for:
-        minutes: 15
+        minutes: 5
     action:
       - service: switch.turn_off
         entity_id: switch.smartplugkitchen1
