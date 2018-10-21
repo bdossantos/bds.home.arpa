@@ -563,6 +563,7 @@ group:
     entities:
       - device_tracker.nexus5x
       - device_tracker.benjamin_smartphone
+      - device_tracker.tile_501f64ac9a2fd431
   laura_devices:
     name: Laura devices
     entities:
