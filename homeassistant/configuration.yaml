@@ -274,6 +274,14 @@ sensor:
   - platform: statistics
     entity_id: sensor.livingroom_motion_luminance
     name: livingroom_luminance
+  - platform: history_stats
+    name: Time in bed
+    entity_id: binary_sensor.in_bed
+    state: 'on'
+    type: time
+    end: '{{ now() }}'
+    duration:
+      hours: 24
 
 binary_sensor:
   - platform: nest
@@ -303,6 +311,11 @@ binary_sensor:
           {% else %}
             unknown
           {% endif %}
+  - platform: template
+    sensors:
+      time_in_bed_template:
+        friendly_name: 'Time in bed'
+        value_template: '{{ states.sensor.time_in_bed.attributes.value }}'
   - platform: bayesian
     name: 'in_bed'
     prior: 0.25
