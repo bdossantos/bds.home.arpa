@@ -309,27 +309,27 @@ binary_sensor:
     probability_threshold: 0.95
     observations:
       - entity_id: 'binary_sensor.livingroom_motion_sensor'
-        prob_given_true: 0.7
+        prob_given_true: 0.4
         prob_given_false: 0.2
         platform: 'state'
         to_state: 'off'
       - entity_id: 'binary_sensor.hallway_motion_sensor'
-        prob_given_true: 0.7
-        prob_given_false: 0.2
+        prob_given_true: 0.5
+        prob_given_false: 0.4
         platform: 'state'
         to_state: 'off'
       - entity_id: 'binary_sensor.kitchen_motion_sensor'
-        prob_given_true: 0.7
+        prob_given_true: 0.4
         prob_given_false: 0.2
         platform: 'state'
         to_state: 'off'
       - entity_id: 'binary_sensor.dressing1_motion_sensor'
-        prob_given_true: 0.7
+        prob_given_true: 0.4
         prob_given_false: 0.2
         platform: 'state'
         to_state: 'off'
       - entity_id: 'binary_sensor.dressing2_motion_sensor'
-        prob_given_true: 0.7
+        prob_given_true: 0.4
         prob_given_false: 0.2
         platform: 'state'
         to_state: 'off'
@@ -338,7 +338,7 @@ binary_sensor:
         platform: 'state'
         to_state: 'on'
       - entity_id: 'sun.sun'
-        prob_given_true: 0.6
+        prob_given_true: 0.7
         platform: 'state'
         to_state: 'below_horizon'
 
