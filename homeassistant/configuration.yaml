@@ -220,6 +220,18 @@ sensor:
       - visibility
       - wind_bearing
       - wind_speed
+  - platform: meteo_france
+    postal_code: 75017
+    monitored_conditions:
+      - temperature
+      - weather
+      - wind_speed
+      - uv
+      - next_rain
+      - freeze_chance
+      - rain_chance
+      - snow_chance
+      - thunder_chance
   - platform: template
     sensors:
       benjamin_status:
