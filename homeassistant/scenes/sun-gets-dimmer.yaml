@@ -2,17 +2,12 @@
 
 name: Sun gets dimmer
 entities:
-  switch.smartplugkitchen1:
-    state: on
   light.hall1:
     state: on
     brightness_pct: 30
     transition: 30
     xy_color: [0.5639, 0.3904]
   light.dressing_lights:
-    state: off
-    transition: 30
-  light.kitchen1:
     state: off
     transition: 30
   light.bedroom1:
