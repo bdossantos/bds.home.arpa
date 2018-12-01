@@ -433,6 +433,7 @@ group:
       - group.input_booleans
       - group.door
       - group.hall
+      - group.toilet
       - group.kitchen
       - group.livingroom
       - group.bedroom
@@ -496,6 +497,10 @@ group:
       - binary_sensor.hallway_motion_sensor
       - sensor.hallway_motion_luminance
       - sensor.hallway_motion_temperature
+  toilet:
+    name: Toilet
+    entities:
+      - switch.hot_water_cylinder
   kitchen:
     name: Kitchen
     entities:
