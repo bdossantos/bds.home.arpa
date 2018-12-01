@@ -408,6 +408,8 @@ sonos:
 switch:
   - platform: tplink
     host: 192.168.1.240
+  - platform: tplink
+    host: 192.168.1.241
 
 nest:
   client_id: !secret nest_client_id
