@@ -1333,6 +1333,29 @@ automation:
       - delay: '00:00:0{{ (range(1, 59)|random|int) }}'
       # generate an event to call again this automation rule
       - event: event_simulate_presence
+  - alias: 'Turn off Hot water cylinder between 06:30 and 22:30'
+    trigger:
+      platform: time
+      minutes: '/1'
+      seconds: 00
+    condition:
+      condition: and
+      conditions:
+        - condition: time
+          after: '06:30:00'
+          before: '22:30:00'
+        - condition: state
+          entity_id: switch.hot_water_cylinder
+          state: 'on'
+        - condition: state
+          entity_id: input_boolean.guest_mode
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.vacation_mode
+          state: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.hot_water_cylinder
   # Automating Transitions Between States
   # https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
   - alias: 'Mark person as just arrived'
