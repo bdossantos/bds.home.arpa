@@ -1265,6 +1265,8 @@ automation:
     action:
       - service: input_boolean.turn_off
         entity_id: input_boolean.vacation_mode
+      - service: switch.turn_on
+        entity_id: switch.hot_water_cylinder
       - service: notify.slack
         data_template:
           message: ''
@@ -1353,6 +1355,8 @@ automation:
         - condition: state
           entity_id: input_boolean.vacation_mode
           state: 'off'
+          for:
+            hours: 24
     action:
       - service: switch.turn_off
         entity_id: switch.hot_water_cylinder
