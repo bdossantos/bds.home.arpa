@@ -1350,15 +1350,32 @@ automation:
           entity_id: switch.hot_water_cylinder
           state: 'on'
         - condition: state
-          entity_id: input_boolean.guest_mode
-          state: 'off'
-        - condition: state
           entity_id: input_boolean.vacation_mode
           state: 'off'
           for:
             hours: 24
     action:
       - service: switch.turn_off
+        entity_id: switch.hot_water_cylinder
+  - alias: 'Turn on Hot water cylinder between 22:30 and 06:30'
+    trigger:
+      platform: time
+      minutes: '/1'
+      seconds: 00
+    condition:
+      condition: and
+      conditions:
+        - condition: time
+          after: '22:30:00'
+          before: '06:30:00'
+        - condition: state
+          entity_id: switch.hot_water_cylinder
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.vacation_mode
+          state: 'off'
+    action:
+      - service: switch.turn_on
         entity_id: switch.hot_water_cylinder
   # Automating Transitions Between States
   # https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
