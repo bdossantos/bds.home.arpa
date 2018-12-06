@@ -259,25 +259,6 @@ sensor:
       benjamin_status:
         value_template: '{{ states.input_select.benjamin_status_dropdown.state }}'
         friendly_name: 'Benjamin'
-  - platform: netdata
-    host: 127.0.0.1
-    port: 19999
-    resources:
-      load:
-        data_group: system.load
-        element: load15
-      cpu:
-        data_group: system.cpu
-        element: system
-      ram:
-        data_group: system.ram
-        element: free
-      net:
-        data_group: net.bond0
-        element: received
-      netfilter:
-        data_group: netfilter.conntrack_sockets
-        element: connections
   - platform: cert_expiry
     host: bds.run
     name: bds.run
