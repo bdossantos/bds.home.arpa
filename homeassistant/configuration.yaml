@@ -599,7 +599,6 @@ group:
   benjamin_devices:
     name: Benjamin devices
     entities:
-      - device_tracker.nexus5x
       - device_tracker.benjamin_smartphone
       - device_tracker.pixel3bdshome
   laura_devices:
