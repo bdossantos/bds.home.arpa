@@ -5,4 +5,4 @@ entities:
   switch.smartplugkitchen1: off
   group.all_lights:
     state: off
-    transition: 5
+    transition: 10
