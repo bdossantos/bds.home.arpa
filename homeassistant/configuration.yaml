@@ -411,13 +411,13 @@ netatmo:
   secret_key: !secret netatmo_secret_key
   username: !secret netatmo_username
   password: !secret netatmo_password
-  discovery: True
+  discovery: 'True'
 
 group:
   default_view:
     name: Home
     icon: mdi:home
-    view: yes
+    view: 'True'
     entities:
       - group.family
       - group.input_booleans
@@ -433,7 +433,7 @@ group:
   sensor_view:
     name: Sensors
     icon: mdi:thermometer
-    view: yes
+    view: 'True'
     entities:
       - group.door
       - group.speedtest
@@ -452,7 +452,7 @@ group:
   system_view:
     name: System
     icon: mdi:toolbox
-    view: yes
+    view: 'True'
     entities:
       - group.all_automations
       - group.all_scripts
