@@ -67,46 +67,7 @@ hue:
 
 scene: !include_dir_list scene
 
-light:
-  - platform: group
-    name: hallway lights
-    entities:
-      - light.hall1
-  - platform: group
-    name: kitchen lights
-    entities:
-      - light.kitchen1
-  - platform: group
-    name: livingroom lights
-    entities:
-      - light.livingroom1
-      - light.livingroom2
-      - light.livingroom3
-      - light.livingroom4
-  - platform: group
-    name: bedroom lights
-    entities:
-      - light.bedroom1
-      - light.bedroom2
-      - light.bedroom3
-  - platform: group
-    name: dressing lights
-    entities:
-      - light.dressing1
-      - light.dressing2
-  - platform: group
-    name: bathroom lights
-    entities:
-      - light.bathroom1
-  - platform: group
-    name: candle lights
-    entities:
-      - light.bedroom2
-      - light.bedroom3
-      - light.livingroom1
-      - light.livingroom2
-      - light.livingroom3
-      - light.livingroom4
+light: !include_dir_merge_list light
 
 sensor:
   - platform: google_wifi
