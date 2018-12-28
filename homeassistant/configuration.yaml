@@ -1067,7 +1067,7 @@ automation:
             {%- else %}
               50
             {%- endif %}
-  - alias: 'Turn off kitchen lights 5 minutes after last movement'
+  - alias: 'Turn off kitchen lights few minutes after last movement'
     trigger:
       platform: state
       entity_id:
@@ -1109,7 +1109,7 @@ automation:
             {%- else %}
               50
             {%- endif %}
-  - alias: 'Turn off dressing lights 2 minutes after last movement'
+  - alias: 'Turn off dressing lights few minutes after last movement'
     trigger:
       platform: state
       entity_id:
@@ -1195,7 +1195,7 @@ automation:
             {%- else %}
               50
             {%- endif %}
-  - alias: 'Turn off lights when everybody is Away'
+  - alias: 'Turn off all lights when everybody is Away'
     initial_state: 'True'
     trigger:
       platform: state
