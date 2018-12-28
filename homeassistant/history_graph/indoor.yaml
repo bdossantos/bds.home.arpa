@@ -1,0 +1,42 @@
+---
+
+indoor_temperature:
+  name: Indoor temperature
+  entities:
+    - sensor.bedroom_motion_temperature
+    - sensor.hallway_motion_temperature
+    - sensor.kitchen_motion_temperature
+    - sensor.livingroom_motion_temperature
+  hours_to_show: 168
+  refresh: 600
+
+indoor_luminance:
+  name: Indoor luminance
+  entities:
+    - sensor.bedroom_motion_luminance
+    - sensor.hallway_motion_luminance
+    - sensor.kitchen_motion_luminance
+    - sensor.livingroom_motion_luminance
+  hours_to_show: 168
+  refresh: 600
+
+indoor_co2:
+  name: Indoor CO2
+  entities:
+    - sensor.netatmo_indoor_co2
+  hours_to_show: 168
+  refresh: 600
+
+indoor_humidity:
+  name: Indoor humidity
+  entities:
+    - sensor.netatmo_indoor_humidity
+  hours_to_show: 168
+  refresh: 600
+
+indoor_noise:
+  name: Indoor noise
+  entities:
+    - sensor.netatmo_indoor_noise
+  hours_to_show: 24
+  refresh: 60
