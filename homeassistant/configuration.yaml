@@ -65,7 +65,7 @@ hue:
       allow_unreachable: true
       allow_hue_groups: false
 
-scene: !include_dir_list scenes
+scene: !include_dir_list scene
 
 light:
   - platform: group
