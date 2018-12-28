@@ -1,0 +1,29 @@
+---
+
+- platform: template
+  sensors:
+    hot_water_cylinder_amps:
+      friendly_name_template: "{{ states.switch.hot_water_cylinder.name}} Current"
+      value_template: '{{ states.switch.hot_water_cylinder.attributes["current_a"] | float }}'
+      unit_of_measurement: 'A'
+    hot_water_cylinder_watts:
+      friendly_name_template: "{{ states.switch.hot_water_cylinder.name}} Current Consumption"
+      value_template: '{{ states.switch.hot_water_cylinder.attributes["current_power_w"] | float }}'
+      unit_of_measurement: 'W'
+    hot_water_cylinder_total_kwh:
+      friendly_name_template: "{{ states.switch.hot_water_cylinder.name}} Total Consumption"
+      value_template: '{{ states.switch.hot_water_cylinder.attributes["total_energy_kwh"] | float }}'
+      unit_of_measurement: 'kWh'
+    hot_water_cylinder_volts:
+      friendly_name_template: "{{ states.switch.hot_water_cylinder.name}} Voltage"
+      value_template: '{{ states.switch.hot_water_cylinder.attributes["voltage"] | float }}'
+      unit_of_measurement: 'V'
+    hot_water_cylinder_today_kwh:
+      friendly_name_template: "{{ states.switch.hot_water_cylinder.name}} Today's Consuption"
+      value_template: '{{ states.switch.hot_water_cylinder.attributes["today_energy_kwh"] | float }}'
+      unit_of_measurement: 'kWh'
+- platform: template
+  sensors:
+    benjamin_status:
+      value_template: '{{ states.input_select.benjamin_status_dropdown.state }}'
+      friendly_name: 'Benjamin'

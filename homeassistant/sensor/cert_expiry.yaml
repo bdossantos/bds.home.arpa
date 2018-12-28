@@ -1,0 +1,9 @@
+---
+
+- platform: cert_expiry
+  host: bds.run
+  name: bds.run
+
+- platform: cert_expiry
+  host: b-ds.fr
+  name: b-ds.fr
