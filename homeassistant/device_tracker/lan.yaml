@@ -1,0 +1,16 @@
+---
+
+- platform: nmap_tracker
+  home_interval: 10
+  hosts: 192.168.1.10-20
+  consider_home: 600
+
+- platform: ping
+  home_interval: 10
+  hosts:
+    benjamin_smartphone: 192.168.1.11
+    count: 2
+  consider_home: 600
+
+- platform: bluetooth_tracker
+  consider_home: 600

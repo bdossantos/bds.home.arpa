@@ -1,0 +1,10 @@
+---
+
+- platform: tile
+  consider_home: 600
+  show_inactive: false
+  username: !secret tile_username
+  password: !secret tile_password
+  monitored_variables:
+    - TILE
+    - PHONE
