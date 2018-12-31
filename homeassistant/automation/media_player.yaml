@@ -1,0 +1,31 @@
+---
+
+- alias: 'Turn off Media Players when everybody is Away'
+  initial_state: 'True'
+  trigger:
+    - platform: state
+      entity_id: sensor.benjamin_status
+      to: 'Away'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: 'not_home'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+  action:
+    - service: media_player.turn_off
+      entity_id: group.all_media_players
+    - service: notify.slack
+      data_template:
+        message: ''
+        data:
+          attachments:
+            - color: >
+                good
+              title: >
+                :information_source: Information
+              text: |
+                All media players was turned off :mute:

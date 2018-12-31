@@ -1,0 +1,236 @@
+---
+
+- alias: 'Turn a few lights on when the sun gets dim'
+  initial_state: 'True'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 3.5
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: 'home'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.candle
+
+- alias: 'Turn more lights on as the sun gets dimmer'
+  initial_state: 'True'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 1.5
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: 'home'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.sun_gets_dimmer
+
+- alias: 'Turn on nightlight at dusk'
+  initial_state: 'True'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -5
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: 'home'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.nightlight
+
+- alias: 'Turn on lights when dark and we Just Arrived'
+  initial_state: 'True'
+  trigger:
+    - platform: state
+      entity_id: sensor.benjamin_status
+      to: 'Just Arrived'
+  condition:
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+  action:
+    - service: scene.turn_on
+      entity_id: scene.just_arrived
+    - service: switch.turn_on
+      entity_id: switch.smartplugkitchen1
+
+- alias: 'Turn on kitchen lights when there is a movement'
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.kitchen_motion_sensor
+    to: 'on'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.kitchen_motion_luminance
+      below: 150
+  action:
+    - service: switch.turn_on
+      entity_id: switch.smartplugkitchen1
+    - service: light.turn_on
+      data_template:
+        entity_id:
+          - light.kitchen_lights
+        color_temp: >
+          {%- if now().strftime('%H') | int >= 20 %}
+            450
+          {%- elif now().strftime('%H') | int >= 7 %}
+            350
+          {%- else %}
+            500
+          {%- endif %}
+        brightness_pct: >
+          {%- if now().strftime('%H') | int >= 20 %}
+            60
+          {%- elif now().strftime('%H') | int >= 8 %}
+            80
+          {%- else %}
+            50
+          {%- endif %}
+
+- alias: 'Turn off kitchen lights few minutes after last movement'
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.kitchen_motion_sensor
+    to: 'off'
+    for:
+      minutes: 5
+  action:
+    - service: switch.turn_off
+      entity_id: switch.smartplugkitchen1
+    - service: light.turn_off
+      entity_id:
+        - light.kitchen_lights
+
+- alias: 'Turn on dressing lights when there is a movement'
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.dressing1_motion_sensor
+      - binary_sensor.dressing2_motion_sensor
+    to: 'on'
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id:
+          - light.dressing_lights
+        color_temp: >
+          {%- if now().strftime('%H') | int >= 20 %}
+            450
+          {%- elif now().strftime('%H') | int >= 7 %}
+            350
+          {%- else %}
+            500
+          {%- endif %}
+        brightness_pct: >
+          {%- if now().strftime('%H') | int >= 20 %}
+            60
+          {%- elif now().strftime('%H') | int >= 8 %}
+            80
+          {%- else %}
+            50
+          {%- endif %}
+
+- alias: 'Turn off dressing lights few minutes after last movement'
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.dressing1_motion_sensor
+      - binary_sensor.dressing2_motion_sensor
+    to: 'off'
+    for:
+      minutes: 2
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.dressing_lights
+
+- alias: 'Turn on living room lights when there is a movement and when dark'
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.livingroom_motion_sensor
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+      - condition: state
+        entity_id: light.livingroom3
+        state: 'off'
+      - condition: state
+        entity_id: light.livingroom4
+        state: 'off'
+      - condition: numeric_state
+        entity_id: sensor.livingroom_motion_luminance
+        below: 10
+      - condition: or
+        conditions:
+          - condition: sun
+            after: sunset
+          - condition: sun
+            before: sunrise
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id:
+          - light.livingroom3
+          - light.livingroom4
+        color_temp: >
+          {%- if now().strftime('%H') | int <= 9 %}
+            350
+          {%- else %}
+            500
+          {%- endif %}
+        brightness_pct: >
+          {%- if now().strftime('%H') | int <= 9 %}
+            70
+          {%- else %}
+            50
+          {%- endif %}
+
+- alias: 'Turn off all lights when everybody is Away'
+  initial_state: 'True'
+  trigger:
+    platform: state
+    entity_id: sensor.benjamin_status
+    to: 'Away'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: 'not_home'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: state
+        entity_id: group.all_lights
+        state: 'on'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.all_lights_off
+    - service: notify.slack
+      data_template:
+        message: ''
+        data:
+          attachments:
+            - color: >
+                good
+              title: >
+                :information_source: Information
+              text: |
+                All light turned off :bulb:

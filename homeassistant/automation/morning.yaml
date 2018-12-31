@@ -1,0 +1,27 @@
+---
+
+- alias: '07:00 weekdays morning routine'
+  initial_state: 'True'
+  trigger:
+    - platform: time
+      at: '07:00:00'
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: 'home'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.smartplugkitchen1
+    - delay: '00:15:00'
+    - service: scene.turn_on
+      entity_id: scene.energize_kitchen

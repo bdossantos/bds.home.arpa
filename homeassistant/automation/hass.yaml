@@ -1,0 +1,53 @@
+---
+
+- alias: 'Hass Startup Notification'
+  initial_state: 'True'
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    service: notify.slack
+    data_template:
+      message: ''
+      data:
+        attachments:
+          - color: >
+              good
+            title: >
+              :information_source: Information
+            text: |
+              Home Assistant restarted at {{ now().strftime('%c') }} :ok_hand:
+- alias: 'Hass Shutdown Notification'
+  initial_state: 'True'
+  trigger:
+    - platform: homeassistant
+      event: shutdown
+  action:
+    service: notify.slack
+    data_template:
+      message: ''
+      data:
+        attachments:
+          - color: >
+              warning
+            title: >
+              :warning: Warning
+            text: |
+              Home Assistant shutdown at {{ now().strftime('%c') }} :wave:
+- alias: 'Hass Update notifications'
+  initial_state: 'True'
+  trigger:
+    - platform: state
+      entity_id: updater.updater
+  action:
+    service: notify.slack
+    data_template:
+      message: ''
+      data:
+        attachments:
+          - color: >
+              good
+            title: >
+              :information_source: Information
+            text: |
+              Home Assistant v {{ states('updater.updater') }} release is available! :champagne:
