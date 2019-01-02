@@ -1,9 +1,0 @@
----
-
-name: Energize kitchen
-entities:
-  light.kitchen_lights:
-    state: on
-    transition: 900
-    brightness: 203
-    xy_color: [0.368, 0.3686]
