@@ -1,10 +1,10 @@
 ---
 
-- alias: '07:00 weekdays morning routine'
+- alias: 'Weekdays morning routine'
   initial_state: 'True'
   trigger:
     - platform: time
-      at: '07:00:00'
+      at: '07:15:00'
   condition:
     - condition: state
       entity_id: group.family
@@ -20,8 +20,9 @@
       entity_id: input_boolean.guest_mode
       state: 'off'
   action:
-    - service: switch.turn_on
-      entity_id: switch.smartplugkitchen1
-    - delay: '00:15:00'
-    - service: scene.turn_on
-      entity_id: scene.energize_kitchen
+    - service: light.turn_on
+      entity_id: light.bedroom_lights
+      data:
+        transition: 1200
+        brightness: 200
+        xy_color: [0.368, 0.3686]
