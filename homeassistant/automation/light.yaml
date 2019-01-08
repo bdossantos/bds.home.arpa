@@ -169,7 +169,7 @@
         entity_id: group.family
         state: 'home'
       - condition: state
-        entity_id: light.livingroom3
+        entity_id: light.livingroom1
         state: 'off'
       - condition: state
         entity_id: light.livingroom4
@@ -187,7 +187,7 @@
     - service: light.turn_on
       data_template:
         entity_id:
-          - light.livingroom3
+          - light.livingroom1
           - light.livingroom4
         color_temp: >
           {%- if now().strftime('%H') | int <= 9 %}
@@ -197,9 +197,9 @@
           {%- endif %}
         brightness_pct: >
           {%- if now().strftime('%H') | int <= 9 %}
-            70
+            15
           {%- else %}
-            50
+            20
           {%- endif %}
 
 - alias: 'Turn off all lights when everybody is Away'
