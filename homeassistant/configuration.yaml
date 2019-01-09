@@ -332,6 +332,34 @@ history_graph: !include_dir_merge_list history_graph
 
 automation: !include_dir_merge_list automation
 
+android_ip_webcam:
+  - host: 192.168.1.20
+    port: 8080
+    username: !secret android_ip_webcam_username
+    password: !secret android_ip_webcam_password
+    scan_interval: 10
+    sensors:
+      - audio_connections
+      - battery_level
+      - battery_temp
+      - battery_voltage
+      - light
+      - motion
+      - pressure
+      - proximity
+      - sound
+      - video_connections
+    switches:
+      - exposure_lock
+      - ffc
+      - focus
+      - gps_active
+      - night_vision
+      - overlay
+      - torch
+      - whitebalance_lock
+      - video_recording
+
 script:
   sonos_say:
     alias: 'Sonos TTS script'
