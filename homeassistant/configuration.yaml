@@ -287,7 +287,6 @@ group:
     entities:
       - device_tracker.benjamin_smartphone
       - device_tracker.pixel3bdshome
-      - !secret gpslogger_device_tracker
   laura_devices:
     name: Laura devices
     entities:
