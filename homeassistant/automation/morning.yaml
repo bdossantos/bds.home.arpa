@@ -24,5 +24,5 @@
       entity_id: light.bedroom_lights
       data:
         transition: 1200
-        brightness: 200
-        xy_color: [0.368, 0.3686]
+        brightness_pct: 30
+        xy_color: [0.561, 0.404]
