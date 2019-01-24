@@ -165,7 +165,7 @@ group:
     name: Hall
     entities:
       - light.hall1
-      - sensor.hallway_nest_protect_online
+      - binary_sensor.hallway_nest_protect_online
       - sensor.hallway_nest_protect_battery_health
       - sensor.hallway_nest_protect_co_status
       - sensor.hallway_nest_protect_color_status
@@ -403,8 +403,8 @@ proximity:
   home:
     zone: home
     devices:
-      - device_tracker.tile_bag__tnf_basecamp_s_black
-      - device_tracker.tile_bag__tnf_borealis_backpack
+      - device_tracker.tile_bag_tnf_basecamp_s_black
+      - device_tracker.tile_bag_tnf_borealis_backpack
       - device_tracker.tile_home_keys
       - device_tracker.tile_home_keys_double
       - device_tracker.tile_passport

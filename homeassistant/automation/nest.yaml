@@ -43,7 +43,7 @@
   trigger:
     platform: state
     entity_id:
-      - sensor.hallway_nest_protect_online
+      - binary_sensor.hallway_nest_protect_online
     from: 'on'
   action:
     - service: notify.slack
@@ -69,7 +69,7 @@
   trigger:
     platform: state
     entity_id:
-      - sensor.hallway_nest_protect_online
+      - binary_sensor.hallway_nest_protect_online
     to: 'on'
   action:
     - service: notify.slack
