@@ -412,7 +412,7 @@ proximity:
   work:
     zone: work
     devices:
-      - device_tracker.tile_bag__pro_laptop_briefcase
+      - device_tracker.tile_bag_pro_laptop_briefcase
       - device_tracker.tile_home_keys
     tolerance: 100
 
