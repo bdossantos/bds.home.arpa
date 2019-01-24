@@ -2,9 +2,8 @@
 
 - alias: 'Turn off Hot water cylinder between 06:30 and 22:30'
   trigger:
-    platform: time
-    minutes: '/1'
-    seconds: 00
+    platform: time_pattern
+    minutes: '/5'
   condition:
     condition: and
     conditions:
@@ -25,9 +24,8 @@
 
 - alias: 'Turn on Hot water cylinder between 22:30 and 06:30'
   trigger:
-    platform: time
-    minutes: '/1'
-    seconds: 00
+    platform: time_pattern
+    minutes: '/5'
   condition:
     condition: and
     conditions:
