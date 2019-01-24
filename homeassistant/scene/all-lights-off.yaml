@@ -2,7 +2,7 @@
 
 name: All Lights Off
 entities:
-  switch.smartplugkitchen1: off
+  switch.smartplug_kitchen1: off
   group.all_lights:
     state: off
     transition: 10

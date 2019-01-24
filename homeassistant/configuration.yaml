@@ -186,7 +186,7 @@ group:
     name: Kitchen
     entities:
       - light.kitchen1
-      - switch.smartplugkitchen1
+      - switch.smartplug_kitchen1
       - binary_sensor.kitchen_motion_sensor
       - sensor.kitchen_motion_luminance
       - sensor.kitchen_motion_temperature
@@ -315,7 +315,7 @@ group:
   all_switchs:
     name: All switchs
     entities:
-      - switch.smartplugkitchen1
+      - switch.smartplug_kitchen1
 
 input_select:
   benjamin_status_dropdown:

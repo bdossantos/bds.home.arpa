@@ -2,7 +2,7 @@
 
 name: Just arrived
 entities:
-  switch.smartplugkitchen1:
+  switch.smartplug_kitchen1:
     state: off
   light.dressing_lights:
     state: off

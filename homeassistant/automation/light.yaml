@@ -62,7 +62,7 @@
     - service: scene.turn_on
       entity_id: scene.just_arrived
     - service: switch.turn_on
-      entity_id: switch.smartplugkitchen1
+      entity_id: switch.smartplug_kitchen1
 
 - alias: 'Turn on kitchen lights when there is a movement'
   trigger:
@@ -76,7 +76,7 @@
       below: 150
   action:
     - service: switch.turn_on
-      entity_id: switch.smartplugkitchen1
+      entity_id: switch.smartplug_kitchen1
     - service: light.turn_on
       data_template:
         entity_id:
@@ -108,7 +108,7 @@
       minutes: 5
   action:
     - service: switch.turn_off
-      entity_id: switch.smartplugkitchen1
+      entity_id: switch.smartplug_kitchen1
     - service: light.turn_off
       entity_id:
         - light.kitchen_lights
