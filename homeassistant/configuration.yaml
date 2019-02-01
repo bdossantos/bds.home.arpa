@@ -254,11 +254,6 @@ group:
       - sensor.netatmo_indoor_noise
       - sensor.netatmo_indoor_pressure
       - sensor.netatmo_indoor_temperature
-      - sensor.netatmo_indoor_wifi
-      - sensor.netatmo_outdoor_battery
-      - sensor.netatmo_outdoor_humidity
-      - sensor.netatmo_outdoor_radio
-      - sensor.netatmo_outdoor_temperature
   darksky:
     name: Outdoor metrics
     entities:
