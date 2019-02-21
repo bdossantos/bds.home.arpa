@@ -1,0 +1,6 @@
+---
+
+- name: Laura
+  id: laura
+  device_trackers:
+    - device_tracker.iphone_laura
