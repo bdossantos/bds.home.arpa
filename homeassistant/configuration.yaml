@@ -16,6 +16,8 @@ logger:
   logs:
     homeassistant.components.http.ban: warning
 
+system_health:
+
 updater:
   reporting: false
 
