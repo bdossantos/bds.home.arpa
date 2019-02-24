@@ -8,7 +8,6 @@
   city: paris
   state: ile-de-france
   country: france
-  radius: 10000
   show_on_map: false
 
 - platform: darksky
