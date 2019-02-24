@@ -124,7 +124,6 @@ group:
     view: 'True'
     entities:
       - group.door
-      - group.speedtest
       - group.netatmo
       - group.darksky
       - group.air_quality
@@ -236,12 +235,6 @@ group:
       - scene.reading
       - scene.energize
       - scene.arctic
-  speedtest:
-    name: Internet
-    entities:
-      - sensor.speedtest_ping
-      - sensor.speedtest_download
-      - sensor.speedtest_upload
   air_quality:
     name: Paris Air quality
     entities:
