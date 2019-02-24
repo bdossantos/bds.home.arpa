@@ -272,15 +272,6 @@ group:
       - sensor.apc_be700g_beeper_status
       - sensor.apc_be700g_input_voltage
       - sensor.apc_be700g_load
-  benjamin_devices:
-    name: Benjamin devices
-    entities:
-      - device_tracker.benjamin_smartphone
-      - device_tracker.pixel3bdshome
-  laura_devices:
-    name: Laura devices
-    entities:
-      - device_tracker.iphone_laura
   tile:
     name: Tile
     entities:
@@ -295,8 +286,8 @@ group:
   family:
     name: Family
     entities:
-      - group.benjamin_devices
-      - group.laura_devices
+      - person.benjamin
+      - person.laura
   all_media_players:
     name: All media players
     entities:

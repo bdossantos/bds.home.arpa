@@ -6,18 +6,18 @@
   initial_state: 'True'
   trigger:
     - platform: state
-      entity_id: group.benjamin_devices
+      entity_id: person.benjamin
       from: 'not_home'
       to: 'home'
   action:
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'group.benjamin_devices' %}
+          {% if trigger.entity_id == 'person.benjamin' %}
             input_select.benjamin_status_dropdown
           {% endif %}
         option: >
-          {% if trigger.entity_id == 'group.benjamin_devices' %}
+          {% if trigger.entity_id == 'person.benjamin' %}
             {% if states.input_select.benjamin_status_dropdown.state == 'Just Left' %}
               Home
             {% else %}
@@ -50,14 +50,14 @@
   initial_state: 'True'
   trigger:
     - platform: state
-      entity_id: group.benjamin_devices
+      entity_id: person.benjamin
       from: 'home'
       to: 'not_home'
   action:
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'group.benjamin_devices' %}
+          {% if trigger.entity_id == 'person.benjamin' %}
             input_select.benjamin_status_dropdown
           {% endif %}
         option: Just Left

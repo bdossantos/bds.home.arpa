@@ -1,10 +1,10 @@
 ---
 
-group.benjamin_devices:
+person.benjamin:
   entity_picture: 'https://avatars3.githubusercontent.com/u/245284?s=460&v=4'
   friendly_name: Benjamin
   hidden: true
-group.laura_devices:
+person.laura:
   entity_picture: 'https://lafeber.com/mammals/wp-content/uploads/rabbit-in-bunnysupplyco.jpg'
   friendly_name: Laura
   hidden: true
