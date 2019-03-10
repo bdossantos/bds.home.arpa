@@ -9,8 +9,31 @@ person.laura:
   friendly_name: Laura
   hidden: true
 group.all_automations:
+  control: hidden
   hidden: false
 group.all_scripts:
   hidden: false
+  control: hidden
+group.family:
+  control: hidden
+group.input_booleans:
+  control: hidden
+group.door:
+  control: hidden
+group.hall:
+  control: hidden
+group.toilet:
+  control: hidden
+group.kitchen:
+  control: hidden
+group.livingroom:
+  control: hidden
+group.bedroom:
+  control: hidden
 group.dressing:
   initial_state: 'off'
+  control: hidden
+group.bathroom:
+  control: hidden
+group.scenes:
+  control: hidden
