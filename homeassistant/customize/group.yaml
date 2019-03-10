@@ -37,3 +37,9 @@ group.bathroom:
   control: hidden
 group.scenes:
   control: hidden
+group.darksky:
+  control: hidden
+group.air_quality:
+  control: hidden
+group.apc_be700g:
+  control: hidden
