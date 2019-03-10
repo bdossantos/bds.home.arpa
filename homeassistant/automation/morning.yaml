@@ -20,9 +20,4 @@
       entity_id: input_boolean.guest_mode
       state: 'off'
   action:
-    - service: light.turn_on
-      entity_id: light.bedroom_lights
-      data:
-        transition: 1200
-        brightness_pct: 30
-        xy_color: [0.561, 0.404]
+    - service: script.morning
