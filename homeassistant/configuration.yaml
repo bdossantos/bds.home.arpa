@@ -85,12 +85,11 @@ sonos:
       - 192.168.1.248
       - 192.168.1.245
 
-switch:
-  - platform: tplink
-    host: 192.168.1.240
-  - platform: tplink
-    host: 192.168.1.241
-    name: Hot Water Cylinder
+tplink:
+  discovery: true
+  switch:
+    - host: 192.168.1.240
+    - host: 192.168.1.241
 
 nest:
   client_id: !secret nest_client_id
