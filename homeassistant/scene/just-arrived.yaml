@@ -10,13 +10,13 @@ entities:
     state: off
   light.hallway_lights:
     state: on
-    brightness_pct: 20
+    brightness_pct: 30
     xy_color: [0.5639, 0.3904]
   light.livingroom_lights:
     state: on
-    brightness_pct: 20
+    brightness_pct: 30
     xy_color: [0.5639, 0.3904]
   light.bedroom_lights:
     state: on
-    brightness_pct: 15
+    brightness_pct: 20
     xy_color: [0.5639, 0.3904]
