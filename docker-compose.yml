@@ -11,12 +11,13 @@ services:
     security_opt:
       - apparmor:unconfined
     volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /volume1/docker/netdata/config:/etc/netdata:rw
       - /volume1/docker/netdata/log:/var/log/netdata:rw
       - /volume1/homes/admin/Code/bds.home/scripts/netdata:/netdata
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
     env_file:
       - /volume1/homes/admin/Code/bds.home/.env
     ports:
@@ -31,6 +32,7 @@ services:
       - /dev/ttyACM0:/dev/ttyACM0
     volumes:
       - /dev/bus/usb:/dev/bus/usb:ro
+      - /etc/localtime:/etc/localtime:ro
       - /volume1/homes/admin/Code/bds.home/homeassistant:/config
     environment:
       - TZ=Europe/Paris
@@ -43,6 +45,7 @@ services:
     image: postgres:11.2
     container_name: homeassistant-postgresql
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - /volume1/docker/homeassistant-postgres/data:/var/lib/postgresql/data
     env_file:
       - /volume1/homes/admin/Code/bds.home/.env
