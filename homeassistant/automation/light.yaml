@@ -13,7 +13,7 @@
       state: 'home'
   action:
     - service: scene.turn_on
-      entity_id: scene.candle
+      entity_id: scene.sun_gets_dim
 
 - alias: 'Turn more lights on as the sun gets dimmer'
   initial_state: 'True'
