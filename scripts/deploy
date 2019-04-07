@@ -31,7 +31,7 @@ fi
 pushd "${HOME}/Code/bds.home" >/dev/null
   git checkout .
   git pull
-  sudo docker-compose build --pull
+  sudo docker-compose pull
   sudo docker-compose up -d
 popd >/dev/null
 
