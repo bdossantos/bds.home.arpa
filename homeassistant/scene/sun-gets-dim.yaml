@@ -1,0 +1,23 @@
+---
+
+name: Sun gets dim
+entities:
+  light.hallway_lights:
+    state: on
+    brightness_pct: 40
+    transition: 10
+    xy_color: [0.5639, 0.3904]
+  light.dressing_lights:
+    state: off
+    transition: 10
+  light.kitchen_lights:
+    state: off
+    transition: 10
+  light.bedroom1:
+    state: off
+    transition: 10
+  light.candle_lights:
+    state: on
+    brightness_pct: 40
+    transition: 10
+    xy_color: [0.5639, 0.3904]
