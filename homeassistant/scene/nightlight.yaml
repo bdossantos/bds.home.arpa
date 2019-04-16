@@ -7,7 +7,6 @@ entities:
     brightness_pct: 30
     xy_color: [0.561, 0.404]
     transition: 10
-  switch.smartplug_kitchen1: off
   light.bedroom1:
     state: on
     brightness_pct: 10
