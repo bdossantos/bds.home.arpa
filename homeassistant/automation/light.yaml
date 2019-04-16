@@ -202,6 +202,41 @@
             20
           {%- endif %}
 
+- alias: 'Turn off living room lights when there is not movement and when dark'
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.livingroom_motion_sensor
+    to: 'off'
+    for:
+      minutes: 2
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+      - condition: state
+        entity_id: light.livingroom1
+        state: 'on'
+      - condition: state
+        entity_id: light.livingroom4
+        state: 'on'
+      - condition: numeric_state
+        entity_id: sensor.livingroom_motion_luminance
+        below: 10
+      - condition: or
+        conditions:
+          - condition: sun
+            after: sunset
+          - condition: sun
+            before: sunrise
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.livingroom1
+        - light.livingroom4
+
 - alias: 'Turn off all lights when everybody is Away'
   initial_state: 'True'
   trigger:
