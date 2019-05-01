@@ -90,6 +90,19 @@ tplink:
     - host: 192.168.1.240
     - host: 192.168.1.241
 
+meteo_france:
+  - city: 'Paris'
+    monitored_conditions:
+      - freeze_chance
+      - next_rain
+      - rain_chance
+      - snow_chance
+      - temperature
+      - thunder_chance
+      - uv
+      - weather
+      - wind_speed
+
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
