@@ -7,6 +7,5 @@ morning:
       entity_id: light.bedroom_lights
       data:
         transition: 1200
-        brightness_pct: 30
-        xy_color: [0.561, 0.404]
+        profile: energize
     - delay: "{{ delay or '00:00:30' }}"
