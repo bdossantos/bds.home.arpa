@@ -6,6 +6,6 @@ morning:
     - service: light.turn_on
       entity_id: light.bedroom_lights
       data:
-        transition: 1200
+        transition: 900
         profile: energize
-    - delay: "{{ delay or '00:00:30' }}"
+    - delay: '00:00:30'
