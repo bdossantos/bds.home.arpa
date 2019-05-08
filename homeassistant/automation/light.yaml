@@ -1,5 +1,29 @@
 ---
 
+- alias: 'Turn a few lights on when there is high cloud coverage'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.dark_sky_cloud_coverage
+      above: 60
+    - platform: numeric_state
+      entity_id: sensor.dark_sky_cloud_coverage
+      below: 100
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '17:00'
+        before: '20:00'
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+      - condition: state
+        entity_id: light.livingroom_lights
+        state: 'off'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.sun_gets_dim
+
 - alias: 'Turn a few lights on when the sun gets dim'
   initial_state: 'True'
   trigger:
