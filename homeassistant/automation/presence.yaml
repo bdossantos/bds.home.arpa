@@ -22,4 +22,20 @@
         entity_id: input_boolean.guest_mode
         state: 'off'
   action:
-    - service: script.simulate_presence
+    - service: script.turn_on
+      data:
+        entity_id: script.simulate_presence
+
+- alias: 'Turn off presence simulation when family arrive home'
+  trigger:
+    - platform: state
+      entity_id: group.family
+      to: 'home'
+  condition:
+    - condition: state
+      entity_id: script.simulate_presence
+      state: 'on'
+  action:
+    - service: script.turn_off
+      data:
+        entity_id: script.simulate_presence
