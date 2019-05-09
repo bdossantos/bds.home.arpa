@@ -22,38 +22,4 @@
         entity_id: input_boolean.guest_mode
         state: 'off'
   action:
-    - service: notify.slack
-      data_template:
-        message: ''
-        data:
-          attachments:
-            - color: >
-                good
-              title: >
-                :information_source: Information
-              text: |
-                Presence simulation triggered :speaking_head_in_silhouette:
-    - service: scene.turn_on
-      entity_id: scene.candle
-    - delay: '00:00:{{ (range(1, 59)|random|int) }}'
-    - service: light.turn_on
-      entity_id: light.hall1
-      data_template:
-        rgb_color: [255, 255, 255]
-        brightness_pct: '{{ (range(20, 100)|random|int) }}'
-    - delay: '00:0{{ (range(1, 4) | random) }}:{{ (range(1, 59)|random|int) }}'
-    - service: light.turn_on
-      data_template:
-        entity_id: >
-          light.livingroom{{ (range(1, 2)|random|int) }}
-    - delay: '00:00:{{ (range(10, 59)|random|int) }}'
-    - service: light.turn_on
-      data_template:
-        entity_id: >
-          light.livingroom{{ (range(3, 4)|random|int) }}
-    - delay: '00:0{{ (range(1, 9) | random) }}:{{ (range(1, 59)|random|int) }}'
-    - service: scene.turn_on
-      entity_id: scene.all_lights_off
-    - delay: '00:00:0{{ (range(1, 59)|random|int) }}'
-    # generate an event to call again this automation rule
-    - event: event_simulate_presence
+    - service: script.simulate_presence
