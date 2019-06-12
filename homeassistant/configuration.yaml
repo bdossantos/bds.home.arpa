@@ -370,20 +370,6 @@ zone:
     icon: mdi:worker
     radius: 100
 
-proximity:
-  home:
-    zone: home
-    devices:
-      - device_tracker.tile_home_keys
-      - device_tracker.tile_home_keys_double
-      - device_tracker.tile_passport
-    tolerance: 50
-  work:
-    zone: work
-    devices:
-      - device_tracker.tile_home_keys
-    tolerance: 100
-
 zwave:
   usb_path: /dev/ttyACM0
   network_key: !secret z_wave_network_key
