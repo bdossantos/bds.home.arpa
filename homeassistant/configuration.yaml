@@ -374,8 +374,6 @@ proximity:
   home:
     zone: home
     devices:
-      - device_tracker.tile_bag_tnf_basecamp_s_black
-      - device_tracker.tile_bag_tnf_borealis_backpack
       - device_tracker.tile_home_keys
       - device_tracker.tile_home_keys_double
       - device_tracker.tile_passport
@@ -383,7 +381,6 @@ proximity:
   work:
     zone: work
     devices:
-      - device_tracker.tile_bag_pro_laptop_briefcase
       - device_tracker.tile_home_keys
     tolerance: 100
 
