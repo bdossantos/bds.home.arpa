@@ -31,10 +31,6 @@
     - platform: state
       entity_id: group.family
       to: 'home'
-  condition:
-    - condition: state
-      entity_id: script.simulate_presence
-      state: 'on'
   action:
     - service: script.turn_off
       data:
