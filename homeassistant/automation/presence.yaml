@@ -35,3 +35,35 @@
     - service: script.turn_off
       data:
         entity_id: script.simulate_presence
+
+- alias: 'Turn off presence simulation'
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: 'not_home'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+  action:
+    - delay: '00:{{ (range(1, 30) | random) }}:{{ (range(1, 59) | random) }}'
+    - service: script.turn_off
+      data:
+        entity_id: script.simulate_presence
+    - service: scene.turn_on
+      entity_id: scene.all_lights_off
+    - service: notify.slack
+      data_template:
+        message: ''
+        data:
+          attachments:
+            - color: >
+                good
+              title: >
+                :information_source: Information
+              text: |
+                Turn off presence simulation :mute:
