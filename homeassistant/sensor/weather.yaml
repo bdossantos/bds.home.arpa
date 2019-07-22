@@ -41,13 +41,6 @@
     - wind_speed
 
 - platform: netatmo
+  station: BDS
   modules:
-    indoor:
-      - temperature
-      - co2
-      - pressure
-      - noise
-      - humidity
-      - min_temp
-      - max_temp
-      - battery_vp
+    - indoor
