@@ -20,7 +20,11 @@ fi
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
 
 if [[ ! -d "${HOME}/Code/bds.home" ]]; then
   mkdir "${HOME}/Code"
@@ -29,10 +33,10 @@ if [[ ! -d "${HOME}/Code/bds.home" ]]; then
 fi
 
 pushd "${HOME}/Code/bds.home" >/dev/null
-  git checkout .
-  git pull
-  sudo docker-compose pull
-  sudo docker-compose up -d
+git checkout .
+git pull
+sudo docker-compose pull
+sudo docker-compose up -d
 popd >/dev/null
 
 if [[ ! -d "${HOME}/Code/dockerfiles" ]]; then
@@ -42,12 +46,12 @@ if [[ ! -d "${HOME}/Code/dockerfiles" ]]; then
 fi
 
 pushd "${HOME}/Code/dockerfiles" >/dev/null
-  git checkout .
-  git pull
-  sudo docker-compose \
-    -f docker-compose.yml \
-    -f docker-compose.synology.override.yml pull
-  sudo docker-compose \
-    -f docker-compose.yml \
-    -f docker-compose.synology.override.yml up -d
+git checkout .
+git pull
+sudo docker-compose \
+  -f docker-compose.yml \
+  -f docker-compose.synology.override.yml pull
+sudo docker-compose \
+  -f docker-compose.yml \
+  -f docker-compose.synology.override.yml up -d
 popd >/dev/null

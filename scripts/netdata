@@ -4,7 +4,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-cat <<EOF > /etc/netdata/health_alarm_notify.conf
+cat <<EOF >/etc/netdata/health_alarm_notify.conf
 SEND_SLACK="YES"
 SLACK_WEBHOOK_URL="${SLACK_WEBHOOK_URL='https://hooks.slack.com/services/XXXX'}"
 DEFAULT_RECIPIENT_SLACK="${SLACK_CHANNEL:='general'}"
