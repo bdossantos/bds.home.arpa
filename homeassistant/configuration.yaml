@@ -91,7 +91,7 @@ tplink:
     - host: 192.168.1.241
 
 meteo_france:
-  - city: 'Paris'
+  - city: 'paris,france'
     monitored_conditions:
       - freeze_chance
       - next_rain
@@ -101,6 +101,7 @@ meteo_france:
       - thunder_chance
       - uv
       - weather
+      - weather_alert
       - wind_speed
 
 nest:
