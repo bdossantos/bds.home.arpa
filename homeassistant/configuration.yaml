@@ -85,7 +85,7 @@ sonos:
       - 192.168.1.245
 
 tplink:
-  discovery: true
+  discovery: false
   switch:
     - host: 192.168.1.240
     - host: 192.168.1.241
