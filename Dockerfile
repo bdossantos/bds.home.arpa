@@ -1,4 +1,4 @@
-FROM homeassistant/home-assistant:0.96.5
+FROM homeassistant/home-assistant:0.97.0
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
@@ -7,7 +7,7 @@ ENV \
 RUN set -x \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    nut-client=2.7.4-5 \
+    nut-client=2.7.4-8 \
   && apt-get autoremove -y \
   && apt-get clean \
   && apt-get autoclean \
