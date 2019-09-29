@@ -58,6 +58,7 @@ ENV \
 RUN set -x \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
+    ca-certificates=20190110 \
     nmap=7.40-1 \
     net-tools=1.60+git20161116.90da8a0-1 \
     bluetooth=5.43-2+deb9u1 \
