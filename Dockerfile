@@ -24,6 +24,7 @@ RUN set -x \
     libgmp-dev=2:6.1.2+dfsg-4 \
     libmpc-dev=1.1.0-1 \
     libmpfr-dev=4.0.2-1 \
+    libpq5=11.5-1+deb10u1 \
     libswresample-dev=7:4.1.4-1~deb10u1 \
     libswscale-dev=7:4.1.4-1~deb10u1 \
     libudev-dev=241-7~deb10u1 \
@@ -64,6 +65,7 @@ RUN set -x \
     bluetooth=5.50-1 \
     ffmpeg=7:4.1.4-1~deb10u1 \
     iperf3=3.6-2 \
+    libpq5=11.5-1+deb10u1 \
     nut-client=2.7.4-8 \
   && apt-get autoremove -y \
   && apt-get clean \
