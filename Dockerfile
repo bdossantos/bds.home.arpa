@@ -38,7 +38,7 @@ RUN set -x \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
       mysqlclient \
-      psycopg2 \
+      psycopg2-binary \
       uvloop==0.12.2 \
       cchardet \
       cython \
