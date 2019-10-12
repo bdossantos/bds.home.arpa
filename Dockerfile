@@ -67,6 +67,7 @@ RUN set -x \
     ffmpeg=7:4.1.4-1~deb10u1 \
     iperf3=3.6-2 \
     libpq5=11.5-1+deb10u1 \
+    libbluetooth3=5.50-1 \
     nut-client=2.7.4-8 \
   && apt-get autoremove -y \
   && apt-get clean \
