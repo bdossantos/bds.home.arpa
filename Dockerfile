@@ -52,6 +52,7 @@ FROM python:3.7-slim-buster
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
+  LD_LIBRARY_PATH="/app/lib:/usr/lib64:$LD_LIBRARY_PATH" \
   PATH=$PATH:/app/bin \
   PYTHONUSERBASE=/app \
   TZ=Europe/Paris
