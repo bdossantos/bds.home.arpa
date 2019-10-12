@@ -66,8 +66,9 @@ RUN set -x \
     bluetooth=5.50-1 \
     ffmpeg=7:4.1.4-1~deb10u1 \
     iperf3=3.6-2 \
-    libpq5=11.5-1+deb10u1 \
+    iputils-ping=3:20180629-2 \
     libbluetooth3=5.50-1 \
+    libpq5=11.5-1+deb10u1 \
     nut-client=2.7.4-8 \
   && apt-get autoremove -y \
   && apt-get clean \
