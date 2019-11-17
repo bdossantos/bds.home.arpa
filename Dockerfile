@@ -20,14 +20,14 @@ RUN set -x \
     libavutil-dev=7:4.1.4-1~deb10u1 \
     libbluetooth-dev=5.50-1 \
     libcurl4-openssl-dev=7.64.0-4 \
-    libglib2.0-dev=2.58.3-2+deb10u1 \
+    libglib2.0-dev=2.58.3-2+deb10u2 \
     libgmp-dev=2:6.1.2+dfsg-4 \
     libmpc-dev=1.1.0-1 \
     libmpfr-dev=4.0.2-1 \
     libpq5=11.5-1+deb10u1 \
     libswresample-dev=7:4.1.4-1~deb10u1 \
     libswscale-dev=7:4.1.4-1~deb10u1 \
-    libudev-dev=241-7~deb10u1 \
+    libudev-dev=241-7~deb10u2 \
     libxrandr-dev=2:1.5.1-1 \
     swig=3.0.12-2 \
   && pip3 install \
