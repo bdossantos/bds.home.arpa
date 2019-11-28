@@ -1,6 +1,5 @@
 ---
-
-- alias: 'Turn a few lights on when there is high cloud coverage'
+- alias: "Turn a few lights on when there is high cloud coverage"
   trigger:
     - platform: numeric_state
       entity_id: sensor.dark_sky_cloud_coverage
@@ -12,69 +11,78 @@
     condition: and
     conditions:
       - condition: time
-        after: '17:00'
-        before: '20:00'
+        after: "17:00"
+        before: "20:00"
       - condition: state
         entity_id: group.family
-        state: 'home'
+        state: "home"
       - condition: state
         entity_id: light.livingroom_lights
-        state: 'off'
+        state: "off"
   action:
     - service: scene.turn_on
       entity_id: scene.sun_gets_dim
 
-- alias: 'Turn a few lights on when the sun gets dim'
-  initial_state: 'True'
+- alias: "Turn a few lights on when the sun gets dim"
+  initial_state: "True"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
+    value_template: "{{ state.attributes.elevation }}"
     below: 3.5
   condition:
     - condition: state
       entity_id: group.family
-      state: 'home'
+      state: "home"
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: "off"
   action:
     - service: scene.turn_on
       entity_id: scene.sun_gets_dim
 
-- alias: 'Turn more lights on as the sun gets dimmer'
-  initial_state: 'True'
+- alias: "Turn more lights on as the sun gets dimmer"
+  initial_state: "True"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
+    value_template: "{{ state.attributes.elevation }}"
     below: 1.5
   condition:
     - condition: state
       entity_id: group.family
-      state: 'home'
+      state: "home"
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: "off"
   action:
     - service: scene.turn_on
       entity_id: scene.sun_gets_dimmer
 
-- alias: 'Turn on nightlight at dusk'
-  initial_state: 'True'
+- alias: "Turn on nightlight at dusk"
+  initial_state: "True"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
+    value_template: "{{ state.attributes.elevation }}"
     below: -5
   condition:
     - condition: state
       entity_id: group.family
-      state: 'home'
+      state: "home"
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: "off"
   action:
     - service: scene.turn_on
       entity_id: scene.nightlight
 
-- alias: 'Turn on lights when dark and we Just Arrived'
-  initial_state: 'True'
+- alias: "Turn on lights when dark and we Just Arrived"
+  initial_state: "True"
   trigger:
     - platform: state
       entity_id: sensor.benjamin_status
-      to: 'Just Arrived'
+      to: "Just Arrived"
   condition:
     condition: or
     conditions:
@@ -88,16 +96,19 @@
     - service: switch.turn_on
       entity_id: switch.smartplug_kitchen1
 
-- alias: 'Turn on kitchen lights when there is a movement'
+- alias: "Turn on kitchen lights when there is a movement"
   trigger:
     platform: state
     entity_id:
       - binary_sensor.kitchen_motion_sensor
-    to: 'on'
+    to: "on"
   condition:
     - condition: numeric_state
       entity_id: sensor.kitchen_motion_luminance
       below: 150
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: "off"
   action:
     - service: switch.turn_on
       entity_id: switch.smartplug_kitchen1
@@ -122,14 +133,18 @@
             50
           {%- endif %}
 
-- alias: 'Turn off kitchen lights few minutes after last movement'
+- alias: "Turn off kitchen lights few minutes after last movement"
   trigger:
     platform: state
     entity_id:
       - binary_sensor.kitchen_motion_sensor
-    to: 'off'
+    to: "off"
     for:
       minutes: 5
+  condition:
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: "off"
   action:
     - service: switch.turn_off
       entity_id: switch.smartplug_kitchen1
@@ -137,13 +152,17 @@
       entity_id:
         - light.kitchen_lights
 
-- alias: 'Turn on dressing lights when there is a movement'
+- alias: "Turn on dressing lights when there is a movement"
   trigger:
     platform: state
     entity_id:
       - binary_sensor.dressing1_motion_sensor
       - binary_sensor.dressing2_motion_sensor
-    to: 'on'
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: "off"
   action:
     - service: light.turn_on
       data_template:
@@ -166,41 +185,45 @@
             50
           {%- endif %}
 
-- alias: 'Turn off dressing lights few minutes after last movement'
+- alias: "Turn off dressing lights few minutes after last movement"
   trigger:
     platform: state
     entity_id:
       - binary_sensor.dressing1_motion_sensor
       - binary_sensor.dressing2_motion_sensor
-    to: 'off'
+    to: "off"
     for:
       minutes: 2
+  condition:
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: "off"
   action:
     - service: light.turn_off
       entity_id:
         - light.dressing_lights
 
-- alias: 'Turn on living room lights when there is a movement and when dark'
+- alias: "Turn on living room lights when there is a movement and when dark"
   trigger:
     platform: state
     entity_id:
       - binary_sensor.livingroom_motion_sensor
-    to: 'on'
+    to: "on"
   condition:
     condition: and
     conditions:
       - condition: state
         entity_id: group.family
-        state: 'home'
+        state: "home"
       - condition: state
         entity_id: input_boolean.guest_mode
-        state: 'off'
+        state: "off"
       - condition: state
         entity_id: light.livingroom1
-        state: 'off'
+        state: "off"
       - condition: state
         entity_id: light.livingroom4
-        state: 'off'
+        state: "off"
       - condition: numeric_state
         entity_id: sensor.livingroom_motion_luminance
         below: 10
@@ -229,12 +252,12 @@
             20
           {%- endif %}
 
-- alias: 'Turn off living room lights when there is not movement and when dark'
+- alias: "Turn off living room lights when there is not movement and when dark"
   trigger:
     platform: state
     entity_id:
       - binary_sensor.livingroom_motion_sensor
-    to: 'off'
+    to: "off"
     for:
       minutes: 2
   condition:
@@ -242,19 +265,19 @@
     conditions:
       - condition: state
         entity_id: group.family
-        state: 'home'
+        state: "home"
       - condition: state
         entity_id: light.livingroom1
-        state: 'on'
+        state: "on"
       - condition: state
         entity_id: light.livingroom4
-        state: 'on'
+        state: "on"
       - condition: time
-        after: '02:00:00'
-        before: '06:00:00'
+        after: "02:00:00"
+        before: "06:00:00"
       - condition: state
         entity_id: input_boolean.guest_mode
-        state: 'off'
+        state: "off"
       - condition: or
         conditions:
           - condition: sun
@@ -267,30 +290,30 @@
         - light.livingroom1
         - light.livingroom4
 
-- alias: 'Turn off all lights when everybody is Away'
-  initial_state: 'True'
+- alias: "Turn off all lights when everybody is Away"
+  initial_state: "True"
   trigger:
     platform: state
     entity_id: sensor.benjamin_status
-    to: 'Away'
+    to: "Away"
   condition:
     condition: and
     conditions:
       - condition: state
         entity_id: group.family
-        state: 'not_home'
+        state: "not_home"
       - condition: state
         entity_id: input_boolean.guest_mode
-        state: 'off'
+        state: "off"
       - condition: state
         entity_id: group.all_lights
-        state: 'on'
+        state: "on"
   action:
     - service: scene.turn_on
       entity_id: scene.all_lights_off
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >
