@@ -140,7 +140,7 @@
       - binary_sensor.kitchen_motion_sensor
     to: "off"
     for:
-      minutes: 5
+      minutes: 1
   condition:
     - condition: state
       entity_id: input_boolean.guest_mode
@@ -193,7 +193,7 @@
       - binary_sensor.dressing2_motion_sensor
     to: "off"
     for:
-      minutes: 2
+      minutes: 1
   condition:
     - condition: state
       entity_id: input_boolean.guest_mode
@@ -259,7 +259,7 @@
       - binary_sensor.livingroom_motion_sensor
     to: "off"
     for:
-      minutes: 2
+      minutes: 1
   condition:
     condition: and
     conditions:
