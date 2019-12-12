@@ -4,7 +4,7 @@ ENV \
   DEBIAN_FRONTEND=noninteractive \
   PATH=$PATH:/app/bin \
   PYTHONUSERBASE=/app \
-  VERSION=0.102.2
+  VERSION=0.103.0
 
 ADD "https://raw.githubusercontent.com/home-assistant/home-assistant/${VERSION}/requirements_all.txt" "$PYTHONUSERBASE/requirements_all.txt"
 
