@@ -1,13 +1,12 @@
 ---
-
-- alias: 'Nest Protect smoke or carbon monoxide emergency'
-  initial_state: 'True'
+- alias: "Nest Protect smoke or carbon monoxide emergency"
+  initial_state: "True"
   trigger:
     platform: state
     entity_id:
       - sensor.hallway_nest_protect_smoke_status
       - sensor.hallway_nest_protect_co_status
-    to: 'Emergency'
+    to: "Emergency"
   action:
     - service: light.turn_on
       entity_id:
@@ -22,7 +21,7 @@
         - group.all_lights
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >
@@ -38,17 +37,17 @@
         message: |
           There's smoke or carbon monoxide detected!
 
-- alias: 'Nest Protect is Offline'
-  initial_state: 'True'
+- alias: "Nest Protect is Offline"
+  initial_state: "True"
   trigger:
     platform: state
     entity_id:
       - binary_sensor.hallway_nest_protect_online
-    from: 'on'
+    from: "on"
   action:
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >
@@ -64,17 +63,17 @@
         message: |
           'Nest protect is Offline!'
 
-- alias: 'Nest Protect is back Online'
-  initial_state: 'True'
+- alias: "Nest Protect is back Online"
+  initial_state: "True"
   trigger:
     platform: state
     entity_id:
       - binary_sensor.hallway_nest_protect_online
-    to: 'on'
+    to: "on"
   action:
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >

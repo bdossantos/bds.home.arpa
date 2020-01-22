@@ -1,7 +1,6 @@
 ---
-
-- alias: 'APC status changed'
-  initial_state: 'True'
+- alias: "APC status changed"
+  initial_state: "True"
   trigger:
     platform: state
     entity_id:
@@ -9,7 +8,7 @@
   action:
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >
@@ -26,18 +25,18 @@
                 Input voltage: {{ states("sensor.apc_be700g_input_voltage") }}
                 Load: {{ states("sensor.apc_be700g_load") }}
 
-- alias: 'Power outage finished'
-  initial_state: 'True'
+- alias: "Power outage finished"
+  initial_state: "True"
   trigger:
     platform: state
     entity_id:
       - sensor.apc_be700g_status_data
-    from: 'OB DISCHRG'
-    to: 'OL CHRG'
+    from: "OB DISCHRG"
+    to: "OL CHRG"
   action:
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >
@@ -49,10 +48,10 @@
 
     # wait few minutes to let hue bridge reboot after a power outage
     # TODO: buy an APC with more battery backed slots
-    - delay: '00:02:00'
+    - delay: "00:02:00"
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >

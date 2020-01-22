@@ -1,6 +1,5 @@
 ---
-
-- alias: 'Fridge temperature'
+- alias: "Fridge temperature"
   trigger:
     platform: numeric_state
     entity_id: sensor.fridge_motion_temperature
@@ -9,7 +8,7 @@
   action:
     service: notify.slack
     data_template:
-      message: ''
+      message: ""
       data:
         attachments:
           - color: >

@@ -1,5 +1,4 @@
 ---
-
 indoor_temperature:
   name: Indoor temperature
   entities:

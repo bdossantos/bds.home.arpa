@@ -1,5 +1,4 @@
 ---
-
 - platform: statistics
   entity_id: sensor.bedroom_motion_temperature
   name: bedroom_temperature
@@ -35,8 +34,8 @@
 - platform: history_stats
   name: Time in bed
   entity_id: binary_sensor.in_bed
-  state: 'on'
+  state: "on"
   type: time
-  end: '{{ now() }}'
+  end: "{{ now() }}"
   duration:
     hours: 24

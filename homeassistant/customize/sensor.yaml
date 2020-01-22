@@ -1,4 +1,3 @@
 ---
-
 sensor.benjamin_status:
-  entity_picture: 'https://avatars3.githubusercontent.com/u/245284?s=460&v=4'
+  entity_picture: "https://avatars3.githubusercontent.com/u/245284?s=460&v=4"

@@ -1,5 +1,4 @@
 ---
-
 - name: Benjamin
   id: bdossantos
   device_trackers:

@@ -1,11 +1,10 @@
 ---
-
 morning:
-  alias: 'Morning routine'
+  alias: "Morning routine"
   sequence:
     - service: light.turn_on
       entity_id: light.bedroom_lights
       data:
         transition: 900
         profile: energize
-    - delay: '00:00:30'
+    - delay: "00:00:30"

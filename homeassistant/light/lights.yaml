@@ -1,5 +1,4 @@
 ---
-
 - platform: group
   name: hallway lights
   entities:

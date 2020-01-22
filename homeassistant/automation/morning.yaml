@@ -1,14 +1,13 @@
 ---
-
-- alias: 'Weekdays morning routine'
-  initial_state: 'True'
+- alias: "Weekdays morning routine"
+  initial_state: "True"
   trigger:
     - platform: time
-      at: '07:15:00'
+      at: "07:15:00"
   condition:
     - condition: state
       entity_id: group.family
-      state: 'home'
+      state: "home"
     - condition: time
       weekday:
         - mon
@@ -18,6 +17,6 @@
         - fri
     - condition: state
       entity_id: input_boolean.guest_mode
-      state: 'off'
+      state: "off"
   action:
     - service: script.morning

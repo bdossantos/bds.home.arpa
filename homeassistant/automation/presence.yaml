@@ -1,56 +1,55 @@
 ---
-
-- alias: 'Simulate presence'
+- alias: "Simulate presence"
   trigger:
     - platform: state
-      entity_id: 'sun.sun'
-      to: 'below_horizon'
+      entity_id: "sun.sun"
+      to: "below_horizon"
     - platform: event
       event_type: event_simulate_presence
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: 'sun.sun'
-        state: 'below_horizon'
+        entity_id: "sun.sun"
+        state: "below_horizon"
       - condition: time
-        before: '00:00:00'
+        before: "00:00:00"
       - condition: state
         entity_id: group.family
-        state: 'not_home'
+        state: "not_home"
       - condition: state
         entity_id: input_boolean.guest_mode
-        state: 'off'
+        state: "off"
   action:
     - service: script.turn_on
       data:
         entity_id: script.simulate_presence
 
-- alias: 'Turn off presence simulation when family arrive home'
+- alias: "Turn off presence simulation when family arrive home"
   trigger:
     - platform: state
       entity_id: group.family
-      to: 'home'
+      to: "home"
   action:
     - service: script.turn_off
       data:
         entity_id: script.simulate_presence
 
-- alias: 'Turn off presence simulation'
+- alias: "Turn off presence simulation"
   trigger:
     - platform: time
-      at: '00:00:00'
+      at: "00:00:00"
   condition:
     condition: and
     conditions:
       - condition: state
         entity_id: group.family
-        state: 'not_home'
+        state: "not_home"
       - condition: state
         entity_id: input_boolean.guest_mode
-        state: 'off'
+        state: "off"
   action:
-    - delay: '00:{{ (range(1, 30) | random) }}:{{ (range(1, 59) | random) }}'
+    - delay: "00:{{ (range(1, 30) | random) }}:{{ (range(1, 59) | random) }}"
     - service: script.turn_off
       data:
         entity_id: script.simulate_presence
@@ -58,7 +57,7 @@
       entity_id: scene.all_lights_off
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >

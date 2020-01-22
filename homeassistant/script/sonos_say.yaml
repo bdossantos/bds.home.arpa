@@ -1,7 +1,6 @@
 ---
-
 sonos_say:
-  alias: 'Sonos TTS script'
+  alias: "Sonos TTS script"
   sequence:
     - service: sonos.snapshot
       data_template:

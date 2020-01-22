@@ -1,14 +1,13 @@
 ---
-
-- alias: 'Hass Startup Notification'
-  initial_state: 'True'
+- alias: "Hass Startup Notification"
+  initial_state: "True"
   trigger:
     - platform: homeassistant
       event: start
   action:
     service: notify.slack
     data_template:
-      message: ''
+      message: ""
       data:
         attachments:
           - color: >
@@ -17,15 +16,15 @@
               :information_source: Information
             text: |
               Home Assistant restarted at {{ now().strftime('%c') }} :ok_hand:
-- alias: 'Hass Shutdown Notification'
-  initial_state: 'True'
+- alias: "Hass Shutdown Notification"
+  initial_state: "True"
   trigger:
     - platform: homeassistant
       event: shutdown
   action:
     service: notify.slack
     data_template:
-      message: ''
+      message: ""
       data:
         attachments:
           - color: >
@@ -34,15 +33,15 @@
               :warning: Warning
             text: |
               Home Assistant shutdown at {{ now().strftime('%c') }} :wave:
-- alias: 'Hass Update notifications'
-  initial_state: 'True'
+- alias: "Hass Update notifications"
+  initial_state: "True"
   trigger:
     - platform: state
       entity_id: updater.updater
   action:
     service: notify.slack
     data_template:
-      message: ''
+      message: ""
       data:
         attachments:
           - color: >

@@ -1,11 +1,10 @@
 ---
-
 simulate_presence:
-  alias: 'Simulate Presence'
+  alias: "Simulate Presence"
   sequence:
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >
@@ -16,25 +15,25 @@ simulate_presence:
                 Presence simulation triggered :speaking_head_in_silhouette:
     - service: scene.turn_on
       entity_id: scene.candle
-    - delay: '00:00:{{ (range(1, 59)|random|int) }}'
+    - delay: "00:00:{{ (range(1, 59)|random|int) }}"
     - service: light.turn_on
       entity_id: light.hall1
       data_template:
         rgb_color: [255, 255, 255]
-        brightness_pct: '{{ (range(20, 100)|random|int) }}'
-    - delay: '00:0{{ (range(1, 4) | random) }}:{{ (range(1, 59)|random|int) }}'
+        brightness_pct: "{{ (range(20, 100)|random|int) }}"
+    - delay: "00:0{{ (range(1, 4) | random) }}:{{ (range(1, 59)|random|int) }}"
     - service: light.turn_on
       data_template:
         entity_id: >
           light.livingroom{{ (range(1, 2)|random|int) }}
-    - delay: '00:00:{{ (range(10, 59)|random|int) }}'
+    - delay: "00:00:{{ (range(10, 59)|random|int) }}"
     - service: light.turn_on
       data_template:
         entity_id: >
           light.livingroom{{ (range(3, 4)|random|int) }}
-    - delay: '00:0{{ (range(1, 9) | random) }}:{{ (range(1, 59)|random|int) }}'
+    - delay: "00:0{{ (range(1, 9) | random) }}:{{ (range(1, 59)|random|int) }}"
     - service: scene.turn_on
       entity_id: scene.all_lights_off
-    - delay: '00:00:0{{ (range(1, 59)|random|int) }}'
+    - delay: "00:00:0{{ (range(1, 59)|random|int) }}"
     # generate an event to call again this automation rule
     - event: event_simulate_presence

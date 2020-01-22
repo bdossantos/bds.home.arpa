@@ -1,5 +1,4 @@
 ---
-
 name: All Lights Off
 entities:
   switch.smartplug_kitchen1: off

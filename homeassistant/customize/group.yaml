@@ -1,11 +1,10 @@
 ---
-
 person.benjamin:
-  entity_picture: 'https://github.com/bdossantos.png'
+  entity_picture: "https://github.com/bdossantos.png"
   friendly_name: Benjamin
   hidden: true
 person.laura:
-  entity_picture: 'https://lafeber.com/mammals/wp-content/uploads/rabbit-in-bunnysupplyco.jpg'
+  entity_picture: "https://lafeber.com/mammals/wp-content/uploads/rabbit-in-bunnysupplyco.jpg"
   friendly_name: Laura
   hidden: true
 group.all_automations:
@@ -31,7 +30,7 @@ group.livingroom:
 group.bedroom:
   control: hidden
 group.dressing:
-  initial_state: 'off'
+  initial_state: "off"
   control: hidden
 group.bathroom:
   control: hidden

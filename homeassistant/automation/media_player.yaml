@@ -1,26 +1,25 @@
 ---
-
-- alias: 'Turn off Media Players when everybody is Away'
-  initial_state: 'True'
+- alias: "Turn off Media Players when everybody is Away"
+  initial_state: "True"
   trigger:
     - platform: state
       entity_id: sensor.benjamin_status
-      to: 'Away'
+      to: "Away"
   condition:
     condition: and
     conditions:
       - condition: state
         entity_id: group.family
-        state: 'not_home'
+        state: "not_home"
       - condition: state
         entity_id: input_boolean.guest_mode
-        state: 'off'
+        state: "off"
   action:
     - service: media_player.turn_off
       entity_id: group.all_media_players
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >

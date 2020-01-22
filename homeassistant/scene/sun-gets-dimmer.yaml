@@ -1,5 +1,4 @@
 ---
-
 name: Sun gets dimmer
 entities:
   light.hall1:

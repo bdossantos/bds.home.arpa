@@ -1,5 +1,4 @@
 ---
-
 name: Candle bedroom
 entities:
   switch.smartplug_kitchen1: off

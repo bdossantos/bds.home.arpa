@@ -1,5 +1,4 @@
 ---
-
 name: Sun gets dim
 entities:
   light.hallway_lights:

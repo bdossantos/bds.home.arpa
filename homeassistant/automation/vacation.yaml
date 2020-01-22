@@ -1,11 +1,10 @@
 ---
-
-- alias: 'Turn on vacation mode when away for 24h'
-  initial_state: 'True'
+- alias: "Turn on vacation mode when away for 24h"
+  initial_state: "True"
   trigger:
     - platform: state
       entity_id: group.family
-      to: 'not_home'
+      to: "not_home"
       for:
         hours: 24
   condition:
@@ -13,10 +12,10 @@
     conditions:
       - condition: state
         entity_id: input_boolean.guest_mode
-        state: 'off'
+        state: "off"
       - condition: state
         entity_id: input_boolean.vacation_mode
-        state: 'off'
+        state: "off"
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.vacation_mode
@@ -24,7 +23,7 @@
       entity_id: switch.hot_water_cylinder
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >
@@ -34,21 +33,21 @@
               text: |
                 Vacation mode had been turned on automatically because everyone is away since 24h :beach_with_umbrella:
 
-- alias: 'Turn off vacation mode when coming home'
-  initial_state: 'True'
+- alias: "Turn off vacation mode when coming home"
+  initial_state: "True"
   trigger:
     - platform: state
       entity_id: group.family
-      to: 'home'
+      to: "home"
   condition:
     condition: and
     conditions:
       - condition: state
         entity_id: input_boolean.guest_mode
-        state: 'off'
+        state: "off"
       - condition: state
         entity_id: input_boolean.vacation_mode
-        state: 'on'
+        state: "on"
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.vacation_mode
@@ -56,7 +55,7 @@
       entity_id: switch.hot_water_cylinder
     - service: notify.slack
       data_template:
-        message: ''
+        message: ""
         data:
           attachments:
             - color: >

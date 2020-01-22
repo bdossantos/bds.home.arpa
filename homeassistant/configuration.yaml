@@ -26,7 +26,7 @@ config:
 
 http:
   server_port: 8080
-  ip_ban_enabled: 'True'
+  ip_ban_enabled: "True"
   login_attempts_threshold: 3
   use_x_forwarded_for: true
   trusted_proxies:
@@ -51,7 +51,7 @@ tts:
     cache: true
     cache_dir: /tmp/tts
     time_memory: 300
-    language: 'en'
+    language: "en"
 
 recorder:
   db_url: !secret db_url
@@ -89,7 +89,7 @@ tplink:
     - host: 192.168.1.241
 
 meteo_france:
-  - city: 'paris,france'
+  - city: "paris,france"
     monitored_conditions:
       - freeze_chance
       - next_rain
@@ -111,13 +111,13 @@ netatmo:
   secret_key: !secret netatmo_secret_key
   username: !secret netatmo_username
   password: !secret netatmo_password
-  discovery: 'True'
+  discovery: "True"
 
 group:
   default_view:
     name: Home
     icon: mdi:home
-    view: 'True'
+    view: "True"
     entities:
       - group.family
       - group.input_booleans
@@ -133,7 +133,7 @@ group:
   sensor_view:
     name: Sensors
     icon: mdi:thermometer
-    view: 'True'
+    view: "True"
     entities:
       - group.door
       - group.netatmo
@@ -151,7 +151,7 @@ group:
   system_view:
     name: System
     icon: mdi:toolbox
-    view: 'True'
+    view: "True"
     entities:
       - group.all_automations
       - group.all_scripts
@@ -359,7 +359,7 @@ notify:
   - name: slack
     platform: slack
     api_key: !secret slack_api_key
-    default_channel: '#general'
+    default_channel: "#general"
 
 zone:
   - name: Work

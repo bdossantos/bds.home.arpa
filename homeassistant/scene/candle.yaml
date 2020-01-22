@@ -1,5 +1,4 @@
 ---
-
 name: Candle
 entities:
   light.hallway_lights:

@@ -1,14 +1,13 @@
 ---
-
 # Automating Transitions Between States
 # https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
-- alias: 'Mark person as just arrived'
-  initial_state: 'True'
+- alias: "Mark person as just arrived"
+  initial_state: "True"
   trigger:
     - platform: state
       entity_id: person.benjamin
-      from: 'not_home'
-      to: 'home'
+      from: "not_home"
+      to: "home"
   action:
     - service: input_select.select_option
       data_template:
@@ -25,18 +24,18 @@
             {% endif %}
           {% endif %}
 
-- alias: 'Mark person as home'
-  initial_state: 'True'
+- alias: "Mark person as home"
+  initial_state: "True"
   trigger:
     - platform: state
       entity_id: input_select.benjamin_status_dropdown
-      to: 'Just Arrived'
+      to: "Just Arrived"
       for:
         minutes: 10
     - platform: state
       entity_id: input_select.benjamin_status_dropdown
-      from: 'Just Left'
-      to: 'Just Arrived'
+      from: "Just Left"
+      to: "Just Arrived"
   action:
     - service: input_select.select_option
       data_template:
@@ -46,13 +45,13 @@
           {% endif %}
         option: Home
 
-- alias: 'Mark person as just left'
-  initial_state: 'True'
+- alias: "Mark person as just left"
+  initial_state: "True"
   trigger:
     - platform: state
       entity_id: person.benjamin
-      from: 'home'
-      to: 'not_home'
+      from: "home"
+      to: "not_home"
   action:
     - service: input_select.select_option
       data_template:
@@ -62,12 +61,12 @@
           {% endif %}
         option: Just Left
 
-- alias: 'Mark person as away'
-  initial_state: 'True'
+- alias: "Mark person as away"
+  initial_state: "True"
   trigger:
     - platform: state
       entity_id: input_select.benjamin_status_dropdown
-      to: 'Just Left'
+      to: "Just Left"
       for:
         minutes: 10
   action:
@@ -79,12 +78,12 @@
           {% endif %}
         option: Away
 
-- alias: 'Mark person as extended away'
-  initial_state: 'True'
+- alias: "Mark person as extended away"
+  initial_state: "True"
   trigger:
     - platform: state
       entity_id: input_select.benjamin_status_dropdown
-      to: 'Away'
+      to: "Away"
       for:
         hours: 24
   action:

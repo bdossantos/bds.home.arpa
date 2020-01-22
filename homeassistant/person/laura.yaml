@@ -1,5 +1,4 @@
 ---
-
 - name: Laura
   id: laura
   device_trackers:

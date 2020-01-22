@@ -1,5 +1,4 @@
 ---
-
 outdoor_temperature:
   name: Outdoor temperature
   entities:
