@@ -22,20 +22,20 @@ indoor_luminance:
 indoor_co2:
   name: Indoor CO2
   entities:
-    - sensor.netatmo_indoor_co2
+    - sensor.netatmo_bds_indoor_co2
   hours_to_show: 168
   refresh: 600
 
 indoor_humidity:
   name: Indoor humidity
   entities:
-    - sensor.netatmo_indoor_humidity
+    - sensor.netatmo_bds_indoor_humidity
   hours_to_show: 168
   refresh: 600
 
 indoor_noise:
   name: Indoor noise
   entities:
-    - sensor.netatmo_indoor_noise
+    - sensor.netatmo_bds_indoor_noise
   hours_to_show: 24
   refresh: 60
