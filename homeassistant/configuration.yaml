@@ -1,5 +1,4 @@
 ---
-
 homeassistant:
   auth_providers:
     - type: homeassistant
@@ -62,7 +61,6 @@ recorder:
 hue:
   bridges:
     - host: 192.168.1.249
-      filename: phue.conf
       allow_unreachable: true
       allow_hue_groups: false
 
