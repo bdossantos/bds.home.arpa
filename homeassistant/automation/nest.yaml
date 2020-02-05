@@ -9,16 +9,14 @@
     to: "Emergency"
   action:
     - service: light.turn_on
-      entity_id:
-        - group.all_lights
+      entity_id: all
       data:
         flash: long
         brightness_pct: 100
         white_value: 255
         kelvin: 4100
     - service: light.turn_on
-      entity_id:
-        - group.all_lights
+      entity_id: all
     - service: notify.slack
       data_template:
         message: ""

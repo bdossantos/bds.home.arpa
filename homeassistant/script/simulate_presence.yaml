@@ -32,8 +32,8 @@ simulate_presence:
         entity_id: >
           light.livingroom{{ (range(3, 4)|random|int) }}
     - delay: "00:0{{ (range(1, 9) | random) }}:{{ (range(1, 59)|random|int) }}"
-    - service: scene.turn_on
-      entity_id: scene.all_lights_off
+    - service: light.turn_off
+      entity_id: all
     - delay: "00:00:0{{ (range(1, 59)|random|int) }}"
     # generate an event to call again this automation rule
     - event: event_simulate_presence

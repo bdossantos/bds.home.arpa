@@ -238,7 +238,6 @@ group:
   scenes:
     name: Scenes
     entities:
-      - scene.all_lights_off
       - scene.nightlight
       - scene.candle
       - scene.candle_bedroom

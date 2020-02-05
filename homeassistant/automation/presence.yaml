@@ -51,10 +51,9 @@
   action:
     - delay: "00:{{ (range(1, 30) | random) }}:{{ (range(1, 59) | random) }}"
     - service: script.turn_off
-      data:
-        entity_id: script.simulate_presence
-    - service: scene.turn_on
-      entity_id: scene.all_lights_off
+      entity_id: script.simulate_presence
+    - service: script.turn_on
+      entity_id: script.all_lights_off
     - service: notify.slack
       data_template:
         message: ""
