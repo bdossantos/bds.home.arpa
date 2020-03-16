@@ -4,7 +4,7 @@ ENV \
   DEBIAN_FRONTEND=noninteractive \
   PATH=$PATH:/app/bin \
   PYTHONUSERBASE=/app \
-  VERSION=0.104.3
+  VERSION=0.106.6
 
 ADD "https://raw.githubusercontent.com/home-assistant/home-assistant/${VERSION}/requirements_all.txt" "$PYTHONUSERBASE/requirements_all.txt"
 
@@ -27,7 +27,7 @@ RUN set -x \
     libpq5=11.5-1+deb10u1 \
     libswresample-dev=7:4.1.4-1~deb10u1 \
     libswscale-dev=7:4.1.4-1~deb10u1 \
-    libudev-dev=241-7~deb10u2 \
+    libudev-dev=241-7~deb10u3 \
     libxrandr-dev=2:1.5.1-1 \
     swig=3.0.12-2 \
   && pip3 install \
