@@ -55,7 +55,6 @@ tts:
 
 recorder:
   db_url: !secret db_url
-  purge_interval: 1
   purge_keep_days: 7
 
 hue:
@@ -89,35 +88,20 @@ tplink:
     - host: 192.168.1.241
 
 meteo_france:
-  - city: "Paris"
-    monitored_conditions:
-      - freeze_chance
-      - next_rain
-      - rain_chance
-      - snow_chance
-      - temperature
-      - thunder_chance
-      - uv
-      - weather
-      - weather_alert
-      - wind_speed
+  - city: "Paris, France"
 
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
 netatmo:
-  api_key: !secret netatmo_api_key
-  secret_key: !secret netatmo_secret_key
-  username: !secret netatmo_username
-  password: !secret netatmo_password
-  discovery: "True"
+  client_id: !secret netatmo_client_id
+  client_secret: !secret netatmo_client_secret
 
 group:
   default_view:
     name: Home
     icon: mdi:home
-    view: "True"
     entities:
       - group.family
       - group.input_booleans
@@ -133,25 +117,15 @@ group:
   sensor_view:
     name: Sensors
     icon: mdi:thermometer
-    view: "True"
     entities:
       - group.door
       - group.netatmo
       - group.darksky
       - group.air_quality
-      - history_graph.indoor_temperature
-      - history_graph.indoor_luminance
-      - history_graph.indoor_co2
-      - history_graph.indoor_humidity
-      - history_graph.indoor_noise
-      - history_graph.outdoor_temperature
-      - history_graph.outdoor_humidity
-      - history_graph.outdoor_ozone
       - group.apc_be700g
   system_view:
     name: System
     icon: mdi:toolbox
-    view: "True"
     entities:
       - group.all_automations
       - group.all_scripts
@@ -318,8 +292,6 @@ input_select:
       - Extended Away
     initial: Home
 
-history_graph: !include_dir_merge_list history_graph
-
 automation: !include_dir_merge_list automation
 
 android_ip_webcam:
@@ -364,7 +336,6 @@ zone:
   - name: Work
     latitude: !secret work_latitude
     longitude: !secret work_longitude
-    elevation: 40
     icon: mdi:worker
     radius: 100
 
