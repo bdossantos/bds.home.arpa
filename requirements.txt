@@ -1,2 +1,2 @@
 phue==1.0
-pre-commit==1.18.3
+pre-commit==2.4.0
