@@ -255,12 +255,6 @@ group:
       - sensor.apc_be700g_beeper_status
       - sensor.apc_be700g_input_voltage
       - sensor.apc_be700g_load
-  tile:
-    name: Tile
-    entities:
-      - device_tracker.tile_home_keys
-      - device_tracker.tile_home_keys_double
-      - device_tracker.tile_passport
   input_booleans:
     name: Home modes
     entities:
