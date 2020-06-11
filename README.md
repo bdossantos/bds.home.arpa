@@ -38,13 +38,38 @@ git clone https://github.com/bdossantos/bds.home ~/Code/bds.home
 
 ### Internet
 
-* Add VLAN 835 on WAN interface: go to Interfaces -> Assignements -> VLANs
+* Add VLAN 832 on WAN interface: go to Interfaces -> Assignements -> VLANs
   * Parent Interface: your WAN interface
-  * VLAN Tag: 835
+  * VLAN Tag: 832
   * VLAN Priority: 0
   * Description:  "Orange Internet"
-* Edit WAN interface and setup the PPPoE:
-  * IPv4 Configuration Type: PPPoE
-  * PPPoE Configuration:
-    * Username: fti/xxxx
-    * Password: secret
+* Edit WAN interface and setup the DHCP:
+  * IPv4 Configuration Type: DHCP
+  * DHCP Configuration:
+    * Send options: `dhcp-class-identifier "sagem",user-class "+FSVDSL_livebox.Internet.softathome.Livebox3",option-90 $thescriptoutput`
+    * Request options: `subnet-mask,broadcast-address,dhcp-lease-time,dhcp-renewal-time,dhcp-rebinding-time,domain-search,routers,domain-name-servers,option-90`
+
+This helper script help you to generate `Send options` section:
+
+```bash
+#!/usr/bin/env bash
+
+login='fti/*******'
+pass='*********'
+
+tohex() {
+  for h in $(echo $1 | sed "s/\(.\)/\1 /g"); do
+    printf %02x \'$h
+  done
+}
+
+addsep() {
+  echo $(echo $1 | sed "s/\(.\)\(.\)/:\1\2/g")
+}
+
+r=$(dd if=/dev/urandom bs=1k count=1 2>&1 | md5sum | cut -c1-16)
+id=${r:0:1}
+h=3C12$(tohex ${r})0313$(tohex ${id})$(echo -n ${id}${pass}${r} | md5sum | cut -c1-32)
+
+echo 00:00:00:00:00:00:00:00:00:00:00:1A:09:00:00:05:58:01:03:41:01:0D$(addsep $(tohex ${login})${h})
+```
