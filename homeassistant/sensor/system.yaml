@@ -10,7 +10,7 @@
 
 - platform: nut
   name: APC BE700G
-  host: 192.168.1.250
+  host: 192.168.1.254
   username: ups
   port: 3493
   resources:
