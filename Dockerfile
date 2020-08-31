@@ -6,7 +6,8 @@ ENV \
   PYTHONUSERBASE=/app \
   VERSION=0.114.4
 
-ADD "https://raw.githubusercontent.com/home-assistant/home-assistant/${VERSION}/requirements_all.txt" "$PYTHONUSERBASE/requirements_all.txt"
+COPY homeassistant /config
+COPY homeassistant/secrets.yaml.dist /config/secrets.yaml
 
 RUN set -x \
   && apt-get update \
@@ -41,6 +42,7 @@ RUN set -x \
       tensorflow \
       pybluez==0.22 \
       homeassistant=="${VERSION}" \
+  && python -m homeassistant --config /config --script check_config \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
