@@ -1,6 +1,5 @@
 ---
 - alias: "Weekdays morning routine"
-  initial_state: "True"
   trigger:
     - platform: time
       at: "07:15:00"
