@@ -57,12 +57,6 @@ recorder:
   db_url: !secret db_url
   purge_keep_days: 7
 
-hue:
-  bridges:
-    - host: 192.168.1.249
-      allow_unreachable: true
-      allow_hue_groups: false
-
 scene: !include_dir_list scene
 
 light: !include_dir_merge_list light
