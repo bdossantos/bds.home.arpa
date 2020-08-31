@@ -1,35 +1,19 @@
 ---
 - platform: statistics
-  entity_id: sensor.bedroom_motion_temperature
+  entity_id: sensor.hue_motion_sensor_dressing2_temperature
   name: bedroom_temperature
 
 - platform: statistics
-  entity_id: sensor.hallway_motion_temperature
+  entity_id: sensor.hue_motion_sensor_hallway_temperature
   name: hallway_temperature
 
 - platform: statistics
-  entity_id: sensor.kitchen_motion_temperature
+  entity_id: sensor.hue_motion_sensor_kitchen_temperature
   name: kitchen_temperature
 
 - platform: statistics
-  entity_id: sensor.livingroom_motion_temperature
-  name: livingroom_temperature
-
-- platform: statistics
-  entity_id: sensor.bedroom_motion_luminance
-  name: bedroom_luminance
-
-- platform: statistics
-  entity_id: sensor.bedroom_motion_luminance
-  name: bedroom_luminance
-
-- platform: statistics
-  entity_id: sensor.kitchen_motion_luminance
+  entity_id: sensor.hue_motion_sensor_kitchen_light_level
   name: kitchen_luminance
-
-- platform: statistics
-  entity_id: sensor.livingroom_motion_luminance
-  name: livingroom_luminance
 
 - platform: history_stats
   name: Time in bed

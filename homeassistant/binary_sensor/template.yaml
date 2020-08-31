@@ -1,32 +1,6 @@
 ---
 - platform: template
   sensors:
-    front_door:
-      friendly_name: "Front door"
-      device_class: door
-      value_template: >-
-        {% if is_state('sensor.fibaro_system_fgdw002_door_opening_sensor_2_access_control', '22') %}
-          on
-        {% elif is_state('sensor.fibaro_system_fgdw002_door_opening_sensor_2_access_control', '254') %}
-          off
-        {% else %}
-          unknown
-        {% endif %}
-- platform: template
-  sensors:
-    livingroom_door:
-      friendly_name: "Living room door"
-      device_class: door
-      value_template: >-
-        {% if is_state('sensor.fibaro_system_fgdw002_door_opening_sensor_2_access_control_2', '22') %}
-          on
-        {% elif is_state('sensor.fibaro_system_fgdw002_door_opening_sensor_2_access_control_2', '254') %}
-          off
-        {% else %}
-          unknown
-        {% endif %}
-- platform: template
-  sensors:
     time_in_bed_template:
       friendly_name: "Time in bed"
       value_template: "{{ states.sensor.time_in_bed.attributes.value }}"

@@ -100,11 +100,11 @@
   trigger:
     platform: state
     entity_id:
-      - binary_sensor.kitchen_motion_sensor
+      - binary_sensor.hue_motion_sensor_kitchen_motion
     to: "on"
   condition:
     - condition: numeric_state
-      entity_id: sensor.kitchen_motion_luminance
+      entity_id: sensor.hue_motion_sensor_kitchen_light_level
       below: 150
     - condition: state
       entity_id: input_boolean.guest_mode
@@ -137,7 +137,7 @@
   trigger:
     platform: state
     entity_id:
-      - binary_sensor.kitchen_motion_sensor
+      - binary_sensor.hue_motion_sensor_kitchen_motion
     to: "off"
     for:
       minutes: 1
@@ -156,8 +156,8 @@
   trigger:
     platform: state
     entity_id:
-      - binary_sensor.dressing1_motion_sensor
-      - binary_sensor.dressing2_motion_sensor
+      - binary_sensor.hue_motion_sensor_dressing1_motion
+      - binary_sensor.hue_motion_sensor_dressing2_motion
     to: "on"
   condition:
     - condition: state
@@ -189,8 +189,8 @@
   trigger:
     platform: state
     entity_id:
-      - binary_sensor.dressing1_motion_sensor
-      - binary_sensor.dressing2_motion_sensor
+      - binary_sensor.hue_motion_sensor_dressing1_motion
+      - binary_sensor.hue_motion_sensor_dressing2_motion
     to: "off"
     for:
       minutes: 1
@@ -224,9 +224,6 @@
       - condition: state
         entity_id: light.livingroom4
         state: "off"
-      - condition: numeric_state
-        entity_id: sensor.livingroom_motion_luminance
-        below: 10
       - condition: or
         conditions:
           - condition: sun

@@ -123,11 +123,6 @@ group:
     entities:
       - group.all_automations
       - group.all_scripts
-  door:
-    name: Door
-    entities:
-      - binary_sensor.front_door
-      - binary_sensor.livingroom_door
   bathroom:
     name: Bathroom
     entities:
@@ -151,9 +146,9 @@ group:
       - sensor.hallway_nest_protect_co_status
       - sensor.hallway_nest_protect_color_status
       - sensor.hallway_nest_protect_smoke_status
-      - binary_sensor.hallway_motion_sensor
-      - sensor.hallway_motion_luminance
-      - sensor.hallway_motion_temperature
+      - binary_sensor.hue_motion_sensor_hallway_motion
+      - sensor.hue_motion_sensor_hallway_light_level
+      - sensor.hue_motion_sensor_hallway_temperature
   toilet:
     name: Toilet
     entities:
@@ -168,9 +163,9 @@ group:
     entities:
       - light.kitchen1
       - switch.smartplug_kitchen1
-      - binary_sensor.kitchen_motion_sensor
-      - sensor.kitchen_motion_luminance
-      - sensor.kitchen_motion_temperature
+      - binary_sensor.hue_motion_sensor_kitchen_motion
+      - sensor.hue_motion_sensor_kitchen_light_level
+      - sensor.hue_motion_sensor_kitchen_temperature
       - binary_sensor.fridge_motion_sensor
       - sensor.fridge_motion_luminance
       - sensor.fridge_motion_temperature
@@ -195,13 +190,13 @@ group:
     name: Dressing
     entities:
       - light.dressing1
-      - binary_sensor.dressing1_motion_sensor
-      - sensor.dressing1_motion_luminance
-      - sensor.dressing1_motion_temperature
+      - binary_sensor.hue_motion_sensor_dressing1_motion
+      - sensor.hue_motion_sensor_dressing1_light_level
+      - sensor.hue_motion_sensor_dressing1_temperature
       - light.dressing2
-      - binary_sensor.dressing2_motion_sensor
-      - sensor.dressing2_motion_luminance
-      - sensor.dressing2_motion_temperature
+      - binary_sensor.hue_motion_sensor_dressing2_motion
+      - sensor.hue_motion_sensor_dressing2_light_level
+      - sensor.hue_motion_sensor_dressing2_temperature
 
   scenes:
     name: Scenes

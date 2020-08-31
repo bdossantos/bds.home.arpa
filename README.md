@@ -30,7 +30,7 @@ git clone https://github.com/bdossantos/bds.home ~/Code/bds.home
 * 1 * TP-Link MC220L RJ45 Gigabit Converter
 * 2 * Fibaro Door / Window Sensor
 * 6 * Fibaro Motion Sensor
-* 2 * Philips Hue Motion Sensor
+* 4 * Philips Hue Motion Sensor
 * 2 * Sonos PLAY:3
 * 6 * Phillips Hue bulbs
 

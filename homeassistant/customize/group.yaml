@@ -17,8 +17,6 @@ group.family:
   control: hidden
 group.input_booleans:
   control: hidden
-group.door:
-  control: hidden
 group.hall:
   control: hidden
 group.toilet:
