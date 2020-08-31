@@ -28,5 +28,5 @@ test: ## Run tests suite
 	docker run \
 		-v "${PWD}/homeassistant:/config" \
 		-v '${PWD}/homeassistant/secrets.yaml.dist:/config/secrets.yaml:ro' \
-		bdossantos/home-assistant \
+		bdossantos/home-assistant:latest \
 		python -m homeassistant --config /config --script check_config
