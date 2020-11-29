@@ -2,4 +2,4 @@
 - name: Laura
   id: laura
   device_trackers:
-    - device_tracker.iphone_laura
+    - device_tracker.laura_smartphone

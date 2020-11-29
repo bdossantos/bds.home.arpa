@@ -3,4 +3,3 @@
   id: bdossantos
   device_trackers:
     - device_tracker.benjamin_smartphone
-    - device_tracker.pixel3bdshome
