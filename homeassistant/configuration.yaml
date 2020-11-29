@@ -117,7 +117,7 @@ group:
       - group.netatmo
       - group.darksky
       - group.air_quality
-      - group.apc_be700g
+      - group.ups
   system_view:
     name: System
     icon: mdi:toolbox
@@ -182,8 +182,8 @@ group:
       - sensor.netatmo_bds_indoor_co2
       - sensor.netatmo_bds_indoor_humidity
       - sensor.netatmo_bds_indoor_noise
-      - sensor.apc_be700g_input_voltage
-      - sensor.apc_be700g_load
+      - sensor.ups_input_voltage
+      - sensor.ups_load
   dressing:
     name: Dressing
     entities:
@@ -232,16 +232,16 @@ group:
       - sensor.dark_sky_temperature
       - sensor.dark_sky_uv_index
       - sensor.dark_sky_wind_speed
-  apc_be700g:
+  ups:
     name: APC BE700G
     entities:
-      - sensor.apc_be700g_status
-      - sensor.apc_be700g_battery_charge
-      - sensor.apc_be700g_battery_runtime
-      - sensor.apc_be700g_battery_voltage
-      - sensor.apc_be700g_beeper_status
-      - sensor.apc_be700g_input_voltage
-      - sensor.apc_be700g_load
+      - sensor.ups_status
+      - sensor.ups_battery_charge
+      - sensor.ups_battery_runtime
+      - sensor.ups_battery_voltage
+      - sensor.ups_beeper_status
+      - sensor.ups_input_voltage
+      - sensor.ups_load
   input_booleans:
     name: Home modes
     entities:

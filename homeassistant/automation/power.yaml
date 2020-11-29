@@ -1,10 +1,10 @@
 ---
-- alias: "APC status changed"
+- alias: "UPS status changed"
   initial_state: "True"
   trigger:
     platform: state
     entity_id:
-      - sensor.apc_be700g_status
+      - sensor.ups_status
   action:
     - service: notify.slack
       data_template:
@@ -18,19 +18,19 @@
               text: |
                 APC status summary :battery:
 
-                Status: {{ states("sensor.apc_be700g_status") }}
-                Battery: {{ states("sensor.apc_be700g_battery_charge") }}
-                Battery runtime: {{ states("sensor.apc_be700g_battery_runtime") }}
-                Battery voltage: {{ states("sensor.apc_be700g_battery_voltage") }}
-                Input voltage: {{ states("sensor.apc_be700g_input_voltage") }}
-                Load: {{ states("sensor.apc_be700g_load") }}
+                Status: {{ states("sensor.ups_status") }}
+                Battery: {{ states("sensor.ups_battery_charge") }}
+                Battery runtime: {{ states("sensor.ups_battery_runtime") }}
+                Battery voltage: {{ states("sensor.ups_battery_voltage") }}
+                Input voltage: {{ states("sensor.ups_input_voltage") }}
+                Load: {{ states("sensor.ups_load") }}
 
 - alias: "Power outage finished"
   initial_state: "True"
   trigger:
     platform: state
     entity_id:
-      - sensor.apc_be700g_status_data
+      - sensor.ups_status_data
     from: "OB DISCHRG"
     to: "OL CHRG"
   action:
