@@ -322,7 +322,3 @@ zone:
     longitude: !secret work_longitude
     icon: mdi:worker
     radius: 100
-
-zwave:
-  usb_path: /dev/ttyACM0
-  network_key: !secret z_wave_network_key
