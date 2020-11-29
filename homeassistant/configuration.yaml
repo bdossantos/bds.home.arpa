@@ -167,9 +167,6 @@ group:
       - binary_sensor.hue_motion_sensor_kitchen_motion
       - sensor.hue_motion_sensor_kitchen_light_level
       - sensor.hue_motion_sensor_kitchen_temperature
-      - binary_sensor.fridge_motion_sensor
-      - sensor.fridge_motion_luminance
-      - sensor.fridge_motion_temperature
   livingroom:
     name: Living Room
     entities:
