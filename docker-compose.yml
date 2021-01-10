@@ -41,7 +41,7 @@ services:
     privileged: true
     restart: always
   homeassistant-postgresql:
-    image: postgres:12.4
+    image: postgres:12.5
     container_name: homeassistant-postgresql
     volumes:
       - /etc/localtime:/etc/localtime:ro
