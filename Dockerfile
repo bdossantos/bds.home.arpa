@@ -4,7 +4,7 @@ ENV \
   DEBIAN_FRONTEND=noninteractive \
   PATH=$PATH:/app/bin \
   PYTHONUSERBASE=/app \
-  VERSION=0.114.4
+  VERSION=2021.1.1
 
 COPY homeassistant /config
 COPY homeassistant/secrets.yaml.dist /config/secrets.yaml
@@ -25,23 +25,25 @@ RUN set -x \
     libgmp-dev=2:6.1.2+dfsg-4 \
     libmpc-dev=1.1.0-1 \
     libmpfr-dev=4.0.2-1 \
-    libpq5=11.7-0+deb10u1 \
+    libpq5=11.9-0+deb10u1 \
     libswresample-dev=7:4.1.6-1~deb10u1 \
     libswscale-dev=7:4.1.6-1~deb10u1 \
-    libudev-dev=241-7~deb10u4 \
+    libudev-dev=241-7~deb10u5 \
+    libuv1-dev=1.24.1-1 \
     libxrandr-dev=2:1.5.1-1 \
     swig=3.0.12-2 \
+  && python -m pip install --upgrade pip \
   && pip3 install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
-      mysqlclient \
-      psycopg2-binary \
-      uvloop==0.12.2 \
       cchardet \
       cython \
-      tensorflow \
-      pybluez==0.22 \
+      google-api-core \
+      grpcio-tools \
       homeassistant=="${VERSION}" \
+      psycopg2-binary \
+      pybluez \
+      tensorflow \
   && python -m homeassistant --config /config --script check_config \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
@@ -66,7 +68,7 @@ RUN set -x \
     iperf3=3.6-2 \
     iputils-ping=3:20180629-2+deb10u1 \
     libbluetooth3=5.50-1.2~deb10u1 \
-    libpq5=11.7-0+deb10u1 \
+    libpq5=11.9-0+deb10u1 \
     nut-client=2.7.4-8 \
   && apt-get autoremove -y \
   && apt-get clean \
@@ -75,8 +77,8 @@ RUN set -x \
 
 COPY --from=build "$PYTHONUSERBASE" "$PYTHONUSERBASE"
 
-EXPOSE 8123
-EXPOSE 8300
-EXPOSE 51827
+EXPOSE 8123/tcp
+EXPOSE 8300/tcp
+EXPOSE 51827/tcp
 
 CMD ["python", "-m", "homeassistant", "--config", "/config"]
