@@ -14,7 +14,6 @@ git clone https://github.com/bdossantos/bds.home ~/Code/bds.home
 ## Hardware and devices
 
 * 1 * APC BE700G-FR Onduleur BACK-UPS ES 700VA / 405 W
-* 1 * Aeon Labs - Z-Wave Plus Z-Stick GEN5
 * 1 * Google Wifi
 * 1 * Module mini-GBiC SFP Multimode-Monomode/0.55-10km
 * 1 * Nest Protect 2
@@ -25,11 +24,9 @@ git clone https://github.com/bdossantos/bds.home ~/Code/bds.home
 * 1 * Phillips Hue hub
 * 1 * Plugable Technologies USB-BT4LE Bluetooth
 * 1 * Raspberry Pi 3
-* 1 * Synology DiskStation DS716+ II
+* 1 * Synology DiskStation DS720+
 * 1 * TP-Link HS100
 * 1 * TP-Link MC220L RJ45 Gigabit Converter
-* 2 * Fibaro Door / Window Sensor
-* 6 * Fibaro Motion Sensor
 * 4 * Philips Hue Motion Sensor
 * 2 * Sonos PLAY:3
 * 6 * Phillips Hue bulbs
