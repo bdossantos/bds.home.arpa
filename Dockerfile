@@ -1,4 +1,4 @@
-FROM python:3.8-buster as build
+FROM python:3.9-buster as build
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
@@ -48,7 +48,7 @@ RUN set -x \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-FROM python:3.8-slim-buster
+FROM python:3.9-slim-buster
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
