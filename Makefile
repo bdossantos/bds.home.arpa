@@ -1,4 +1,5 @@
 CWD := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+PATH := $(HOME)/.local/bin:$(CWD)/bin:$(PATH)
 SHELL := /usr/bin/env bash -e -u -o pipefail
 
 help:
