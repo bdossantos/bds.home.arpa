@@ -32,6 +32,7 @@ RUN set -x \
     libuv1-dev=1.24.1-1 \
     libxrandr-dev=2:1.5.1-1 \
     swig=3.0.12-2 \
+    zlib1g-dev=1:1.2.11.dfsg-1 \
   && python -m pip install --upgrade pip \
   && pip install \
     --no-cache-dir \
@@ -67,6 +68,7 @@ RUN set -x \
     libbluetooth3=5.50-1.2~deb10u1 \
     libpq5=11.9-0+deb10u1 \
     nut-client=2.7.4-8 \
+    zlib1g=1:1.2.11.dfsg-1 \
   && apt-get autoremove -y \
   && apt-get clean \
   && apt-get autoclean \
