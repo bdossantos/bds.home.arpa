@@ -33,17 +33,14 @@ RUN set -x \
     libxrandr-dev=2:1.5.1-1 \
     swig=3.0.12-2 \
   && python -m pip install --upgrade pip \
-  && pip3 install \
+  && pip install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
       cchardet \
       cython \
-      google-api-core \
-      grpcio-tools \
       homeassistant=="${VERSION}" \
       psycopg2-binary \
       pybluez \
-      tensorflow \
   && python -m homeassistant --config /config --script check_config \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
