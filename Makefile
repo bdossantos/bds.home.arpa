@@ -8,9 +8,9 @@ help:
 
 install: ## Install all the things
 	@if [[ -z $CI ]]; then \
-		pip install --user -r requirements.txt; \
+		pip3 install --user -r requirements.txt; \
 	else \
-		pip install -r requirements.txt; \
+		pip3 install -r requirements.txt; \
 	fi
 
 pre-commit: ## Run pre-commit tests
