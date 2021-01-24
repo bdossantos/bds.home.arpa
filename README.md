@@ -1,6 +1,6 @@
 # bds.home
 
-[![Build Status](https://travis-ci.org/bdossantos/bds.home.svg?branch=feat%2Fhome-assistant)](https://travis-ci.org/bdossantos/bds.home)
+![CI](https://github.com/bdossantos/bds.home/workflows/CI/badge.svg?branch=master)
 
 🏡 The source code and issue tracker of my house (powered by [@home-assistant](https://www.home-assistant.io/))
 
