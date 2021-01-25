@@ -41,6 +41,7 @@ RUN set -x \
       cython \
       google-api-core==1.25.1 \
       google-auth==1.24.0 \
+      google-cloud==0.34.0 \
       grpcio==1.35.0 \
       grpcio-tools==1.35.0 \
       homeassistant=="${VERSION}" \
