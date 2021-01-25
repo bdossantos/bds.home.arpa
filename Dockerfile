@@ -40,6 +40,7 @@ RUN set -x \
       cchardet \
       cython \
       homeassistant=="${VERSION}" \
+      pillow==7.2.0 \
       psycopg2-binary \
       pybluez \
   && python -m homeassistant --config /config --script check_config \
