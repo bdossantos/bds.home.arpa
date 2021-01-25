@@ -39,6 +39,7 @@ RUN set -x \
     --prefix="${PYTHONUSERBASE}" \
       cchardet \
       cython \
+      grpcio-tools==1.35.0 \
       homeassistant=="${VERSION}" \
       pillow==7.2.0 \
       psycopg2-binary \
