@@ -39,6 +39,7 @@ RUN set -x \
     --prefix="${PYTHONUSERBASE}" \
       cchardet \
       cython \
+      google-api-core==1.25.1 \
       google-auth==1.24.0 \
       grpcio-tools==1.35.0 \
       homeassistant=="${VERSION}" \
