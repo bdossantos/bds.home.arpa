@@ -37,17 +37,16 @@ RUN set -x \
   && pip install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
-      cchardet \
-      cython \
+      cchardet==2.1.7 \
+      cython==0.29.21 \
       google-api-core==1.25.1 \
       google-auth==1.24.0 \
       google-cloud==0.34.0 \
-      grpcio==1.35.0 \
-      grpcio-tools==1.35.0 \
       homeassistant=="${VERSION}" \
       pillow==7.2.0 \
-      psycopg2-binary \
-      pybluez \
+      psycopg2-binary==2.8.6 \
+      pybluez==0.23 \
+      wheel==0.36.2 \
   && python -m homeassistant --config /config --script check_config \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
