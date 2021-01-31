@@ -44,6 +44,13 @@ logbook:
 
 map:
 
+prometheus:
+  filter:
+    include_entity_globs:
+      - sensor.*_temperature
+      - sensor.*_luminance
+      - sensor.ups_*
+
 sun:
 
 tts:
