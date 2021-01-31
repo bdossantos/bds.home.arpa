@@ -27,8 +27,6 @@ services:
   home-assistant:
     image: bdossantos/home-assistant:latest
     container_name: home-assistant
-    devices:
-      - /dev/ttyACM0:/dev/ttyACM0
     volumes:
       - /dev/bus/usb:/dev/bus/usb:ro
       - /etc/localtime:/etc/localtime:ro
