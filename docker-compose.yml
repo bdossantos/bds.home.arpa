@@ -36,7 +36,6 @@ services:
     ports:
       - 192.168.1.250:8080:8080/tcp
     network_mode: host
-    privileged: true
     restart: always
   homeassistant-postgresql:
     image: postgres:12.5
