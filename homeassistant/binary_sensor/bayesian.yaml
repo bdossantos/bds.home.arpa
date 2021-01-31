@@ -9,20 +9,11 @@
       prob_given_false: 0.5
       platform: "state"
       to_state: "home"
-    - entity_id: "binary_sensor.livingroom_motion_sensor"
-      prob_given_true: 0.4
-      prob_given_false: 0.2
-      platform: "state"
-      to_state: "off"
     - entity_id: "binary_sensor.hue_motion_sensor_hallway_motion"
       prob_given_true: 0.5
       prob_given_false: 0.4
       platform: "state"
       to_state: "off"
-    - entity_id: "binary_sensor.bedroom_motion_sensor"
-      prob_given_true: 0.5
-      platform: "state"
-      to_state: "on"
     - entity_id: "binary_sensor.hue_motion_sensor_kitchen_motion"
       prob_given_true: 0.4
       prob_given_false: 0.2
