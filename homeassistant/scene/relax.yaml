@@ -3,7 +3,7 @@ name: Relax
 entities:
   light.hall1:
     state: on
-    brightness: 144
+    brightness_pct: 144
     xy_color: [0.5119, 0.4147]
     transition: 10
   light.bedroom1:
