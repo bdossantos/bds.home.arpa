@@ -54,12 +54,33 @@ RUN set -x \
 
 FROM python:3.9-slim-buster
 
+ARG BUILD_DATE
+ARG VCS_REF
+
 ENV \
   DEBIAN_FRONTEND=noninteractive \
   LD_LIBRARY_PATH="/app/lib:/usr/lib64:$LD_LIBRARY_PATH" \
   PATH=$PATH:/app/bin \
   PYTHONUSERBASE=/app \
   TZ=Europe/Paris
+
+LABEL org.label-schema.build-date="$BUILD_DATE" \
+  org.label-schema.name="home-assistant" \
+  org.label-schema.schema-version="1.0" \
+  org.label-schema.url="https://github.com/bdossantos/bds.home" \
+  org.label-schema.usage="https://github.com/bdossantos/bds.home" \
+  org.label-schema.vcs-ref="$VCS_REF" \
+  org.label-schema.vcs-url="https://github.com/bdossantos/bds.home" \
+  org.label-schema.vendor="home-assistant" \
+  org.label-schema.version="$VERSION" \
+  org.opencontainers.image.created="$BUILD_DATE" \
+  org.opencontainers.image.documentation="https://github.com/bdossantos/bds.home" \
+  org.opencontainers.image.revision="$VCS_REF" \
+  org.opencontainers.image.source="https://github.com/bdossantos/bds.home" \
+  org.opencontainers.image.title="home-assistant" \
+  org.opencontainers.image.url="https://github.com/bdossantos/bds.home" \
+  org.opencontainers.image.vendor="home-assistant" \
+  org.opencontainers.image.version="$VERSION"
 
 RUN set -x \
   && apt-get update \
