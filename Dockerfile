@@ -28,7 +28,7 @@ RUN set -x \
     libpq5=11.10-0+deb10u1 \
     libswresample-dev=7:4.1.6-1~deb10u1 \
     libswscale-dev=7:4.1.6-1~deb10u1 \
-    libudev-dev=241-7~deb10u5 \
+    libudev-dev=241-7~deb10u6 \
     libuv1-dev=1.24.1-1 \
     libxrandr-dev=2:1.5.1-1 \
     swig=3.0.12-2 \
