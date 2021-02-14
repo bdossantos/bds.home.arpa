@@ -51,7 +51,7 @@ services:
     network_mode: host
     restart: always
   grafana:
-    image: grafana/grafana:7.4.0
+    image: grafana/grafana:7.4.1
     container_name: grafana
     volumes:
       - /volume1/docker/grafana:/var/lib/grafana
