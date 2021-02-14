@@ -38,11 +38,11 @@ services:
     network_mode: host
     restart: always
   homeassistant-postgresql:
-    image: postgres:12.5
+    image: postgres:13.2
     container_name: homeassistant-postgresql
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /volume1/docker/homeassistant-postgres/12/data:/var/lib/postgresql/data
+      - /volume1/docker/homeassistant-postgres/13/data:/var/lib/postgresql/data
     env_file:
       - /volume1/homes/admin/Code/bds.home/.env
     command: -p 5433
