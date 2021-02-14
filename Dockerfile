@@ -4,7 +4,7 @@ ENV \
   DEBIAN_FRONTEND=noninteractive \
   PATH=$PATH:/app/bin \
   PYTHONUSERBASE=/app \
-  VERSION=2021.2.2
+  VERSION=2021.2.3
 
 COPY homeassistant /config
 COPY homeassistant/secrets.yaml.dist /config/secrets.yaml
@@ -85,7 +85,7 @@ LABEL org.label-schema.build-date="$BUILD_DATE" \
 RUN set -x \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    ca-certificates=20200601~deb10u1 \
+    ca-certificates=20200601~deb10u2 \
     nmap=7.70+dfsg1-6+deb10u1 \
     net-tools=1.60+git20180626.aebd88e-1 \
     bluetooth=5.50-1.2~deb10u1 \
