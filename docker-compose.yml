@@ -63,3 +63,10 @@ services:
       - GF_PLUGINS_ENABLE_ALPHA=true
       - GF_STRAVA_DS_DATA_PATH=/var/lib/grafana/strava
     restart: always
+  # Default backend
+  nginx:
+    image: nginx:stable
+    container_name: nginx
+    ports:
+      - 8081:80/tcp
+    restart: always
