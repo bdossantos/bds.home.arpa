@@ -20,7 +20,7 @@ RUN set -x \
     libavformat-dev=7:4.1.6-1~deb10u1 \
     libavutil-dev=7:4.1.6-1~deb10u1 \
     libbluetooth-dev=5.50-1.2~deb10u1 \
-    libcurl4-openssl-dev=7.64.0-4+deb10u1 \
+    libcurl4-openssl-dev=7.64.0-4+deb10u2 \
     libglib2.0-dev=2.58.3-2+deb10u2 \
     libgmp-dev=2:6.1.2+dfsg-4 \
     libmpc-dev=1.1.0-1 \
