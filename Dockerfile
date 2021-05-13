@@ -91,7 +91,7 @@ RUN set -x \
     bluetooth=5.50-1.2~deb10u1 \
     ffmpeg=7:4.1.6-1~deb10u1 \
     iperf3=3.6-2 \
-    iputils-ping=3:20180629-2+deb10u1 \
+    iputils-ping=3:20180629-2+deb10u2 \
     libbluetooth3=5.50-1.2~deb10u1 \
     libpq5=11.11-0+deb10u1 \
     nut-client=2.7.4-8 \
