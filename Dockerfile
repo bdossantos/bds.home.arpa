@@ -25,7 +25,7 @@ RUN set -x \
     libgmp-dev=2:6.1.2+dfsg-4 \
     libmpc-dev=1.1.0-1 \
     libmpfr-dev=4.0.2-1 \
-    libpq5=11.10-0+deb10u1 \
+    libpq5=11.11-0+deb10u1 \
     libswresample-dev=7:4.1.6-1~deb10u1 \
     libswscale-dev=7:4.1.6-1~deb10u1 \
     libudev-dev=241-7~deb10u6 \
@@ -93,7 +93,7 @@ RUN set -x \
     iperf3=3.6-2 \
     iputils-ping=3:20180629-2+deb10u1 \
     libbluetooth3=5.50-1.2~deb10u1 \
-    libpq5=11.10-0+deb10u1 \
+    libpq5=11.11-0+deb10u1 \
     nut-client=2.7.4-8 \
     zlib1g=1:1.2.11.dfsg-1 \
   && apt-get autoremove -y \
