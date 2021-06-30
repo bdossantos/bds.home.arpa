@@ -1,4 +1,4 @@
-FROM python:3.9-buster as build
+FROM python:3.9.6-buster as build
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
@@ -52,7 +52,7 @@ RUN set -x \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-FROM python:3.9-slim-buster
+FROM python:3.9.6-buster
 
 ARG BUILD_DATE
 ARG VCS_REF
