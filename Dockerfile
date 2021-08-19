@@ -1,10 +1,10 @@
-FROM python:3.9-buster as build
+FROM python:3.9-bullseye as build
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
   PATH=$PATH:/app/bin \
   PYTHONUSERBASE=/app \
-  VERSION=2021.7.2
+  VERSION=2021.8.6
 
 COPY homeassistant /config
 COPY homeassistant/secrets.yaml.dist /config/secrets.yaml
@@ -12,28 +12,27 @@ COPY homeassistant/secrets.yaml.dist /config/secrets.yaml
 RUN set -x \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    build-essential=12.6 \
-    cmake=3.13.4-1 \
-    libavcodec-dev=7:4.1.6-1~deb10u1 \
-    libavdevice-dev=7:4.1.6-1~deb10u1 \
-    libavfilter-dev=7:4.1.6-1~deb10u1 \
-    libavformat-dev=7:4.1.6-1~deb10u1 \
-    libavutil-dev=7:4.1.6-1~deb10u1 \
-    libbluetooth-dev=5.50-1.2~deb10u1 \
-    libcurl4-openssl-dev=7.64.0-4+deb10u2 \
-    libglib2.0-dev=2.58.3-2+deb10u3 \
-    libgmp-dev=2:6.1.2+dfsg-4 \
-    libmpc-dev=1.1.0-1 \
-    libmpfr-dev=4.0.2-1 \
-    libpq5=11.12-0+deb10u1 \
-    libswresample-dev=7:4.1.6-1~deb10u1 \
-    libswscale-dev=7:4.1.6-1~deb10u1 \
-    libudev-dev=241-7~deb10u7 \
-    libuv1-dev=1.24.1-1 \
+    build-essential=12.9 \
+    cmake=3.18.4-2 \
+    libavcodec-dev=7:4.3.2-0+deb11u2 \
+    libavdevice-dev=7:4.3.2-0+deb11u2 \
+    libavfilter-dev=7:4.3.2-0+deb11u2 \
+    libavformat-dev=7:4.3.2-0+deb11u2 \
+    libavutil-dev=7:4.3.2-0+deb11u2 \
+    libbluetooth-dev=5.55-3.1 \
+    libcurl4-openssl-dev=7.74.0-1.3+b1 \
+    libglib2.0-dev=2.66.8-1 \
+    libgmp-dev=2:6.2.1+dfsg-1 \
+    libmpc-dev=1.2.0-1 \
+    libmpfr-dev=4.1.0-3 \
+    libpq5=13.3-1 \
+    libswresample-dev=7:4.3.2-0+deb11u2 \
+    libswscale-dev=7:4.3.2-0+deb11u2 \
+    libudev-dev=247.3-6 \
+    libuv1-dev=1.40.0-2 \
     libxrandr-dev=2:1.5.1-1 \
-    swig=3.0.12-2 \
-    zlib1g-dev=1:1.2.11.dfsg-1 \
-  && python -m pip install --upgrade pip \
+    swig=4.0.2-1 \
+    zlib1g-dev=1:1.2.11.dfsg-2 \
   && python -m pip install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
@@ -52,7 +51,7 @@ RUN set -x \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-FROM python:3.9-slim-buster
+FROM python:3.9-slim-bullseye
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -85,17 +84,17 @@ LABEL org.label-schema.build-date="$BUILD_DATE" \
 RUN set -x \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    ca-certificates=20200601~deb10u2 \
-    nmap=7.70+dfsg1-6+deb10u2 \
-    net-tools=1.60+git20180626.aebd88e-1 \
-    bluetooth=5.50-1.2~deb10u1 \
-    ffmpeg=7:4.1.6-1~deb10u1 \
-    iperf3=3.6-2 \
-    iputils-ping=3:20180629-2+deb10u2 \
-    libbluetooth3=5.50-1.2~deb10u1 \
-    libpq5=11.12-0+deb10u1 \
-    nut-client=2.7.4-8 \
-    zlib1g=1:1.2.11.dfsg-1 \
+    ca-certificates=20210119 \
+    nmap=7.91+dfsg1+really7.80+dfsg1-2 \
+    net-tools=1.60+git20181103.0eebece-1 \
+    bluetooth=5.55-3.1 \
+    ffmpeg=7:4.3.2-0+deb11u2 \
+    iperf3=3.9-1 \
+    iputils-ping=3:20210202-1 \
+    libbluetooth3=5.55-3.1 \
+    libpq5=13.3-1 \
+    nut-client=2.7.4-13 \
+    zlib1g=1:1.2.11.dfsg-2 \
   && apt-get autoremove -y \
   && apt-get clean \
   && apt-get autoclean \
