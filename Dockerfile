@@ -4,12 +4,14 @@ ENV \
   DEBIAN_FRONTEND=noninteractive \
   PATH=$PATH:/app/bin \
   PYTHONUSERBASE=/app \
-  VERSION=2021.8.6
+  VERSION=2021.9.5
 
 COPY homeassistant /config
 COPY homeassistant/secrets.yaml.dist /config/secrets.yaml
 
-RUN set -x \
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
     build-essential=12.9 \
@@ -33,7 +35,7 @@ RUN set -x \
     libxrandr-dev=2:1.5.1-1 \
     swig=4.0.2-1 \
     zlib1g-dev=1:1.2.11.dfsg-2 \
-  && python -m pip install \
+  && pip install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
       cchardet==2.1.7 \
@@ -44,10 +46,10 @@ RUN set -x \
       grpcio==1.31.0 \
       homeassistant=="${VERSION}" \
       pillow==7.2.0 \
+      pip==20.2.4 \
       psycopg2-binary==2.8.6 \
       pybluez==0.22 \
       wheel==0.36.2 \
-  && python -m homeassistant --config /config --script check_config \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
@@ -81,7 +83,9 @@ LABEL org.label-schema.build-date="$BUILD_DATE" \
   org.opencontainers.image.vendor="home-assistant" \
   org.opencontainers.image.version="$VERSION"
 
-RUN set -x \
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
     ca-certificates=20210119 \
