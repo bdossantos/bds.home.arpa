@@ -29,7 +29,7 @@ jobs:
         run: |
           version=$(egrep ' VERSION=(.*)$' 'Dockerfile' | sed 's/^.*=//')
           vcs_ref=$(git rev-parse --short HEAD)
-          image_name=$(cd $(dirname Dockerfile) && echo "${PWD##*/}")
+          image_name='home-assistant'
           tags=bdossantos/${image_name}:latest,bdossantos/${image_name}:${version},bdossantos/${image_name}:${version}-${vcs_ref}
           echo ::set-output name=build_date::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           echo ::set-output name=path::$(dirname ${{ inputs.dockerfile }})
@@ -43,5 +43,5 @@ jobs:
             VCS_REF=${{ steps.context.outputs.vcs_ref }}
           context: ${{ steps.context.outputs.path }}
           file: Dockerfile
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.context.outputs.tags }}
