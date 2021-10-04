@@ -21,7 +21,7 @@ services:
     env_file:
       - /volume1/homes/admin/Code/bds.home/.env
     ports:
-      - 192.168.1.250:19999:19999/tcp
+      - 19999:19999/tcp
     restart: always
   home-assistant:
     image: bdossantos/home-assistant:latest
@@ -33,19 +33,7 @@ services:
     environment:
       - TZ=Europe/Paris
     ports:
-      - 192.168.1.250:8080:8080/tcp
-    restart: always
-  homeassistant-postgresql:
-    image: postgres:13.4-bullseye
-    container_name: homeassistant-postgresql
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /volume1/docker/homeassistant-postgres/13/data:/var/lib/postgresql/data
-    env_file:
-      - /volume1/homes/admin/Code/bds.home/.env
-    command: -p 5433
-    ports:
-      - 127.0.0.1:5433:5433/tcp
+      - 8080:8080/tcp
     restart: always
   grafana:
     image: grafana/grafana:8.1.5
@@ -53,7 +41,7 @@ services:
     volumes:
       - /volume1/docker/grafana:/var/lib/grafana
     ports:
-      - 192.168.1.250:3000:3000/tcp
+      - 3000:3000/tcp
     environment:
       - GF_INSTALL_PLUGINS=grafana-strava-datasource,grafana-worldmap-panel
       - GF_PLUGINS_ENABLE_ALPHA=true

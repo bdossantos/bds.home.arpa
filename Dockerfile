@@ -27,12 +27,12 @@ RUN set -eux \
     libgmp-dev=2:6.2.1+dfsg-1 \
     libmpc-dev=1.2.0-1 \
     libmpfr-dev=4.1.0-3 \
-    libpq5=13.3-1 \
     libswresample-dev=7:4.3.2-0+deb11u2 \
     libswscale-dev=7:4.3.2-0+deb11u2 \
     libudev-dev=247.3-6 \
     libuv1-dev=1.40.0-2 \
     libxrandr-dev=2:1.5.1-1 \
+    sqlite3=3.34.1-3 \
     swig=4.0.2-1 \
     zlib1g-dev=1:1.2.11.dfsg-2 \
   && pip install \
@@ -88,16 +88,16 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    ca-certificates=20210119 \
-    nmap=7.91+dfsg1+really7.80+dfsg1-2 \
-    net-tools=1.60+git20181103.0eebece-1 \
     bluetooth=5.55-3.1 \
+    ca-certificates=20210119 \
     ffmpeg=7:4.3.2-0+deb11u2 \
     iperf3=3.9-1 \
     iputils-ping=3:20210202-1 \
     libbluetooth3=5.55-3.1 \
-    libpq5=13.3-1 \
+    net-tools=1.60+git20181103.0eebece-1 \
+    nmap=7.91+dfsg1+really7.80+dfsg1-2 \
     nut-client=2.7.4-13 \
+    sqlite3=3.34.1-3 \
     zlib1g=1:1.2.11.dfsg-2 \
   && apt-get autoremove -y \
   && apt-get clean \
