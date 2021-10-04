@@ -33,7 +33,7 @@ services:
     environment:
       - TZ=Europe/Paris
     ports:
-      - 8080:8080/tcp
+      - 8123:8123/tcp
     restart: always
   grafana:
     image: grafana/grafana:8.1.5
