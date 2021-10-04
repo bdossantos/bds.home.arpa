@@ -36,7 +36,7 @@ services:
       - 192.168.1.250:8080:8080/tcp
     restart: always
   homeassistant-postgresql:
-    image: postgres:13.2
+    image: postgres:13.4-bullseye
     container_name: homeassistant-postgresql
     volumes:
       - /etc/localtime:/etc/localtime:ro
