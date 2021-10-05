@@ -38,8 +38,3 @@
     - visibility
     - wind_bearing
     - wind_speed
-
-- platform: netatmo
-  station: BDS
-  modules:
-    - indoor

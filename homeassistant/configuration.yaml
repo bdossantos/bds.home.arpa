@@ -96,10 +96,6 @@ nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
-netatmo:
-  client_id: !secret netatmo_client_id
-  client_secret: !secret netatmo_client_secret
-
 group:
   default_view:
     name: Home
@@ -119,7 +115,6 @@ group:
     name: Sensors
     icon: mdi:thermometer
     entities:
-      - group.netatmo
       - group.darksky
       - group.air_quality
       - group.ups
@@ -177,10 +172,6 @@ group:
       - light.livingroom3
       - light.livingroom4
       - media_player.living_room
-      - sensor.netatmo_bds_indoor_temperature
-      - sensor.netatmo_bds_indoor_co2
-      - sensor.netatmo_bds_indoor_humidity
-      - sensor.netatmo_bds_indoor_noise
       - sensor.ups_input_voltage
       - sensor.ups_load
   dressing:
@@ -212,14 +203,6 @@ group:
       - sensor.us_air_pollution_level
       - sensor.us_air_quality_index
       - sensor.us_main_pollutant
-  netatmo:
-    name: Indoor metrics
-    entities:
-      - sensor.netatmo_bds_indoor_co2
-      - sensor.netatmo_bds_indoor_humidity
-      - sensor.netatmo_bds_indoor_noise
-      - sensor.netatmo_bds_indoor_pressure
-      - sensor.netatmo_bds_indoor_temperature
   darksky:
     name: Outdoor metrics
     entities:
