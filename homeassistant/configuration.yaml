@@ -151,11 +151,10 @@ group:
     name: Toilet
     entities:
       - switch.hot_water_cylinder
-      - sensor.hot_water_cylinder_amps
-      - sensor.hot_water_cylinder_volts
-      - sensor.hot_water_cylinder_watts
-      - sensor.hot_water_cylinder_today_kwh
-      - sensor.hot_water_cylinder_total_kwh
+      - sensor.hot_water_cylinder_current_consumption
+      - sensor.hot_water_cylinder_today_s_consumption
+      - sensor.hot_water_cylinder_total_consumption
+      - sensor.hot_water_cylinder_voltage
   kitchen:
     name: Kitchen
     entities:
