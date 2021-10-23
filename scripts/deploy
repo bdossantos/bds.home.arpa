@@ -45,6 +45,9 @@ if [[ ! -d "${HOME}/Code/dockerfiles" ]]; then
   git clone https://github.com/bdossantos/dockerfiles "${HOME}/Code/dockerfiles"
 fi
 
+cp -f etc/prometheus/prometheus.yml /volume1/docker_datas/prometheus/prometheus.yml
+sudo chown -R 65534:65534 /volume1/docker_datas/prometheus/
+
 pushd "${HOME}/Code/dockerfiles" >/dev/null
 git checkout .
 git pull
