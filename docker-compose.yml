@@ -36,7 +36,7 @@ services:
       - 8123:8123/tcp
     restart: always
   grafana:
-    image: grafana/grafana:8.1.5
+    image: grafana/grafana:8.3.3
     container_name: grafana
     volumes:
       - /volume1/docker/grafana:/var/lib/grafana
