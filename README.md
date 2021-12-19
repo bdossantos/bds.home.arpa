@@ -41,9 +41,16 @@ git clone https://github.com/bdossantos/bds.home ~/Code/bds.home
   * Description:  "Orange Internet"
 * Edit WAN interface and setup the DHCP:
   * IPv4 Configuration Type: DHCP
-  * DHCP Configuration:
+  * DHCP client Configuration:
     * Send options: `dhcp-class-identifier "sagem",user-class "+FSVDSL_livebox.Internet.softathome.Livebox3",option-90 $thescriptoutput`
     * Request options: `subnet-mask,broadcast-address,dhcp-lease-time,dhcp-renewal-time,dhcp-rebinding-time,domain-search,routers,domain-name-servers,option-90`
+  * DHCP6 client Configuration:
+    * DHCPv6 Prefix Delegation size: none
+    * Send options: `ia-pd 0, raw-option 15 00:2b:46:53:56:44:53:4c:5f:6c:69:76:65:62:6f:78:2e:49:6e:74:65:72:6e:65:74:2e:73:6f:66:74:61:74:68:6f:6d:65:2e:6c:69:76:65:62:6f:78:33,raw-option 16 00:00:04:0e:00:05:73:61:67:65:6d,raw-option 6 00:0b:00:11:00:17:00:18,raw-option 11 $thescriptoutput`
+    * Prefix interface statement: 0
+    * sla-len: 8
+    * Prefix Interface: LAN
+* Add IPV6 Gateway
 
 This helper script help you to generate `Send options` section:
 
