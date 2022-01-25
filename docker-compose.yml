@@ -22,6 +22,8 @@ services:
       - /volume1/homes/admin/Code/bds.home/.env
     ports:
       - 19999:19999/tcp
+    networks:
+      - monitoring
     restart: always
   home-assistant:
     image: bdossantos/home-assistant:latest
@@ -34,6 +36,8 @@ services:
       - TZ=Europe/Paris
     ports:
       - 8123:8123/tcp
+    networks:
+      - home-assistant
     restart: always
   grafana:
     image: grafana/grafana:8.3.3
@@ -46,4 +50,59 @@ services:
       - GF_INSTALL_PLUGINS=grafana-strava-datasource,grafana-worldmap-panel
       - GF_PLUGINS_ENABLE_ALPHA=true
       - GF_STRAVA_DS_DATA_PATH=/var/lib/grafana/strava
+    networks:
+      - monitoring
     restart: always
+  paperless-ng:
+    image: bdossantos/paperless-ng:latest
+    container_name: paperless
+    depends_on:
+      - paperless-broker
+      - paperless-gotenberg
+      - paperless-tika
+    ports:
+      - 8000:8000/tcp
+    volumes:
+      - /volume1/docker/paperless/data:/app/data
+      - /volume1/docker/paperless/media:/app/media
+      - /volume1/docker/paperless/export:/app/export
+      - /volume1/docker/paperless/consume:/app/consume
+    environment:
+      - PAPERLESS_REDIS=redis://paperless-broker:6379
+      - PAPERLESS_TIKA_ENABLED=1
+      - PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://paperless-gotenberg:3001
+      - PAPERLESS_TIKA_ENDPOINT=http://papereless-tika:9998
+    networks:
+      - paperless
+    restart: always
+  paperless-broker:
+    image: redis:6.2-bullseye
+    container_name: paperless-broker
+    ports:
+      - 6379:6379/tcp
+    networks:
+      - paperless
+    restart: always
+  paperless-gotenberg:
+    image: thecodingmachine/gotenberg:7
+    container_name: paperless-gotenberg
+    environment:
+      - DISABLE_GOOGLE_CHROME=1
+    ports:
+      - 3001:3000/tcp
+    networks:
+      - paperless
+    restart: always
+  paperless-tika:
+    image: apache/tika:2.2.1
+    container_name: paperless-tika
+    ports:
+      - 9998:9998/tcp
+    networks:
+      - paperless
+    restart: always
+
+networks:
+  home-assistant:
+  monitoring:
+  paperless:
