@@ -63,10 +63,11 @@ services:
     ports:
       - 8000:8000/tcp
     volumes:
-      - /volume1/docker/paperless/data:/app/data
-      - /volume1/docker/paperless/media:/app/media
-      - /volume1/docker/paperless/export:/app/export
       - /volume1/docker/paperless/consume:/app/consume
+      - /volume1/docker/paperless/data:/app/data
+      - /volume1/docker/paperless/export:/app/export
+      - /volume1/docker/paperless/media:/app/media
+      - /volume1/docker/paperless/static:/app/static
     environment:
       - PAPERLESS_REDIS=redis://paperless-broker:6379
       - PAPERLESS_TIKA_ENABLED=1
