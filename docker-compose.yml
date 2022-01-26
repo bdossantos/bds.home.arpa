@@ -3,7 +3,7 @@ version: "3"
 
 services:
   netdata:
-    image: netdata/netdata:v1.32.1
+    image: netdata/netdata:v1.33.0
     container_name: netdata
     cap_add:
       - SYS_PTRACE
