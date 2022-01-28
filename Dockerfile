@@ -41,7 +41,7 @@ RUN set -eux \
       cchardet==2.1.7 \
       cython==0.29.26 \
       google-api-core==2.4.0 \
-      google-auth==1.24.0 \
+      google-auth==2.5.0 \
       google-cloud==0.34.0 \
       grpcio==1.31.0 \
       homeassistant=="${VERSION}" \
