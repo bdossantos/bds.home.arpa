@@ -15,7 +15,7 @@ RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
     build-essential=12.9 \
-    cmake=3.18.4-2 \
+    cmake=3.18.4-2+deb11u1 \
     libavcodec-dev=7:4.3.3-0+deb11u1 \
     libavdevice-dev=7:4.3.3-0+deb11u1 \
     libavfilter-dev=7:4.3.3-0+deb11u1 \
