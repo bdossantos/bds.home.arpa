@@ -49,7 +49,7 @@ RUN set -eux \
       pip==20.2.4 \
       psycopg2-binary==2.9.3 \
       pybluez==0.22 \
-      wheel==0.36.2 \
+      wheel==0.37.1 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
