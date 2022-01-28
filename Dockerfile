@@ -43,7 +43,7 @@ RUN set -eux \
       google-api-core==2.4.0 \
       google-auth==2.5.0 \
       google-cloud==0.34.0 \
-      grpcio==1.31.0 \
+      grpcio==1.43.0 \
       homeassistant=="${VERSION}" \
       pillow==7.2.0 \
       pip==20.2.4 \
