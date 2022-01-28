@@ -40,7 +40,7 @@ RUN set -eux \
     --prefix="${PYTHONUSERBASE}" \
       cchardet==2.1.7 \
       cython==0.29.26 \
-      google-api-core==1.25.1 \
+      google-api-core==2.4.0 \
       google-auth==1.24.0 \
       google-cloud==0.34.0 \
       grpcio==1.31.0 \
