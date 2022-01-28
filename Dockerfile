@@ -47,7 +47,7 @@ RUN set -eux \
       homeassistant=="${VERSION}" \
       pillow==7.2.0 \
       pip==20.2.4 \
-      psycopg2-binary==2.8.6 \
+      psycopg2-binary==2.9.3 \
       pybluez==0.22 \
       wheel==0.36.2 \
   && apt-get clean \
