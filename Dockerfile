@@ -4,7 +4,7 @@ ENV \
   DEBIAN_FRONTEND=noninteractive \
   PATH=$PATH:/app/bin \
   PYTHONUSERBASE=/app \
-  VERSION=2021.10.4
+  VERSION=2021.12.10
 
 COPY homeassistant /config
 COPY homeassistant/secrets.yaml.dist /config/secrets.yaml
