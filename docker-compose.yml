@@ -74,6 +74,7 @@ services:
       - PAPERLESS_TIKA_ENABLED=1
       - PAPERLESS_TIKA_ENDPOINT=http://papereless-tika:9998
       - PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://paperless-gotenberg:3001
+      - PAPERLESS_WEBSERVER_WORKERS=1
     networks:
       - paperless
     restart: always
