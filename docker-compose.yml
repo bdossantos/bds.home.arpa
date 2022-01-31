@@ -69,10 +69,11 @@ services:
       - /volume1/docker/paperless/media:/app/media
       - /volume1/docker/paperless/static:/app/static
     environment:
+      - PAPERLESS_OCR_PAGES=1
       - PAPERLESS_REDIS=redis://paperless-broker:6379
       - PAPERLESS_TIKA_ENABLED=1
-      - PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://paperless-gotenberg:3001
       - PAPERLESS_TIKA_ENDPOINT=http://papereless-tika:9998
+      - PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://paperless-gotenberg:3001
     networks:
       - paperless
     restart: always
