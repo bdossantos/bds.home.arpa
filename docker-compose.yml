@@ -58,6 +58,7 @@ services:
     container_name: paperless
     depends_on:
       - paperless-broker
+      - paperless-db
       - paperless-gotenberg
       - paperless-tika
     ports:
@@ -69,12 +70,35 @@ services:
       - /volume1/docker/paperless/media:/app/media
       - /volume1/docker/paperless/static:/app/static
     environment:
+      - PAPERLESS_DBHOST=paperless-db
+      - PAPERLESS_DBNAME=paperless
+      - PAPERLESS_DBPORT=5433
+      - PAPERLESS_DBUSER=paperless
       - PAPERLESS_OCR_PAGES=1
       - PAPERLESS_REDIS=redis://paperless-broker:6379
       - PAPERLESS_TIKA_ENABLED=1
       - PAPERLESS_TIKA_ENDPOINT=http://papereless-tika:9998
       - PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://paperless-gotenberg:3001
       - PAPERLESS_WEBSERVER_WORKERS=1
+    env_file:
+      - /volume1/docker/paperless/.env
+    networks:
+      - paperless
+    restart: always
+  paperless-db:
+    image: postgres:14-bullseye
+    container_name: paperless-db
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /volume1/docker/paperless-db/14/data:/var/lib/postgresql/data
+    env_file:
+      - /volume1/docker/paperless/.env
+    command: -p 5433
+    ports:
+      - 5433:5433/tcp
+    environment:
+      - POSTGRES_DB=paperless
+      - POSTGRES_USER=paperless
     networks:
       - paperless
     restart: always
