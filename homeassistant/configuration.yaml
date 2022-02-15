@@ -17,9 +17,6 @@ logger:
 
 system_health:
 
-updater:
-  reporting: false
-
 frontend:
 
 config:
