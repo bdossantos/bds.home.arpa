@@ -64,11 +64,12 @@ services:
     ports:
       - 8000:8000/tcp
     volumes:
-      - /volume1/docker/paperless/consume:/app/consume
-      - /volume1/docker/paperless/data:/app/data
-      - /volume1/docker/paperless/export:/app/export
-      - /volume1/docker/paperless/media:/app/media
-      - /volume1/docker/paperless/static:/app/static
+      - /volume1/docker/paperless/consume:/app/consume:rw
+      - /volume1/docker/paperless/data:/app/data:rw
+      - /volume1/docker/paperless/export:/app/export:rw
+      - /volume1/docker/paperless/media:/app/media:rw
+      - /volume1/docker/paperless/static:/app/static:rw
+      - /volume1/homes/bdossantos/Google\ Drive:/app/watch:ro
     environment:
       - PAPERLESS_DBHOST=paperless-db
       - PAPERLESS_DBNAME=paperless
