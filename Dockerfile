@@ -46,7 +46,7 @@ RUN set -eux \
       grpcio==1.43.0 \
       homeassistant=="${VERSION}" \
       pillow==9.0.0 \
-      pip==20.2.4 \
+      pip==22.0.4 \
       psycopg2-binary==2.9.3 \
       pybluez==0.22 \
       wheel==0.37.1 \
