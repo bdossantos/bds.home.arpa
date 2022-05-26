@@ -10,6 +10,3 @@
     laura_smartphone: 192.168.1.12
     count: 2
   consider_home: 600
-
-- platform: bluetooth_tracker
-  consider_home: 600
