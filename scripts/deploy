@@ -36,7 +36,7 @@ pushd "${HOME}/Code/bds.home" >/dev/null
 git checkout .
 git pull
 sudo docker-compose pull
-sudo docker-compose up -d
+sudo docker-compose up --remove-orphans -d
 popd >/dev/null
 
 if [[ ! -d "${HOME}/Code/dockerfiles" ]]; then
@@ -53,5 +53,5 @@ sudo docker-compose \
   -f docker-compose.synology.override.yml pull
 sudo docker-compose \
   -f docker-compose.yml \
-  -f docker-compose.synology.override.yml up -d
+  -f docker-compose.synology.override.yml up --remove-orphans -d
 popd >/dev/null
