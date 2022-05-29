@@ -64,7 +64,8 @@ services:
     ports:
       - 8000:8000/tcp
     volumes:
-      - /volume1/docker/paperless/consume:/app/consume
+      #- /volume1/docker/paperless/consume:/app/consume
+      - /volume1/homes/bdossantos/Google\ Drive/:/app/consume:/app/consume:ro
       - /volume1/docker/paperless/data:/app/data
       - /volume1/docker/paperless/export:/app/export
       - /volume1/docker/paperless/media:/app/media
