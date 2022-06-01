@@ -15,8 +15,8 @@ services:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /volume1/docker/netdata/config:/etc/netdata:rw
-      - /volume1/docker/netdata/log:/var/log/netdata:rw
+      - /volume1/docker_datas/netdata/config:/etc/netdata:rw
+      - /volume1/docker_datas/netdata/log:/var/log/netdata:rw
       - /volume1/homes/admin/Code/bds.home/scripts/netdata:/netdata
     env_file:
       - /volume1/homes/admin/Code/bds.home/.env
@@ -43,7 +43,7 @@ services:
     image: grafana/grafana:8.5.3
     container_name: grafana
     volumes:
-      - /volume1/docker/grafana:/var/lib/grafana
+      - /volume1/docker_datas/grafana:/var/lib/grafana
     ports:
       - 3000:3000/tcp
     environment:
@@ -64,11 +64,11 @@ services:
     ports:
       - 8000:8000/tcp
     volumes:
-      - /volume1/docker/paperless/consume:/app/consume
-      - /volume1/docker/paperless/data:/app/data
-      - /volume1/docker/paperless/export:/app/export
-      - /volume1/docker/paperless/media:/app/media
-      - /volume1/docker/paperless/static:/app/static
+      - /volume1/docker_datas/paperless/consume:/app/consume
+      - /volume1/docker_datas/paperless/data:/app/data
+      - /volume1/docker_datas/paperless/export:/app/export
+      - /volume1/docker_datas/paperless/media:/app/media
+      - /volume1/docker_datas/paperless/static:/app/static
     environment:
       - PAPERLESS_DBHOST=paperless-db
       - PAPERLESS_DBNAME=paperless
@@ -81,7 +81,7 @@ services:
       - PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://paperless-gotenberg:3001
       - PAPERLESS_WEBSERVER_WORKERS=2
     env_file:
-      - /volume1/docker/paperless/.env
+      - /volume1/docker_datas/paperless/.env
     networks:
       - paperless
     restart: always
@@ -90,9 +90,9 @@ services:
     container_name: paperless-db
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /volume1/docker/paperless-db/14/data:/var/lib/postgresql/data
+      - /volume1/docker_datas/paperless-db/14/data:/var/lib/postgresql/data
     env_file:
-      - /volume1/docker/paperless/.env
+      - /volume1/docker_datas/paperless/.env
     command: -p 5433
     ports:
       - 5433:5433/tcp
