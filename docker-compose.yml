@@ -37,7 +37,8 @@ services:
     ports:
       - 8123:8123/tcp
     networks:
-      - home-assistant
+      home-assistant:
+        ipv4_address: 172.18.0.2
     restart: always
   grafana:
     image: grafana/grafana:8.5.3
