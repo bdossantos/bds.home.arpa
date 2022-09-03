@@ -46,7 +46,7 @@ RUN set -eux \
       google-cloud==0.34.0 \
       grpcio==1.43.0 \
       homeassistant=="${VERSION}" \
-      pillow==9.0.0 \
+      pillow==9.2.0 \
       pip==22.0.4 \
       psycopg2-binary==2.9.3 \
       pybluez==0.22 \
