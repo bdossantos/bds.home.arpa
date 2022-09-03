@@ -49,7 +49,7 @@ RUN set -eux \
       pip==22.0.4 \
       psycopg2-binary==2.9.3 \
       pybluez==0.22 \
-      SQLAlchemy==1.4.40 \
+      sqlalchemy==1.4.40 \
       wheel==0.37.1 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
