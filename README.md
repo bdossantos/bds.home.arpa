@@ -16,7 +16,6 @@ git clone https://github.com/bdossantos/bds.home ~/Code/bds.home
 * 1 * APC BE700G-FR Onduleur BACK-UPS ES 700VA / 405 W
 * 1 * Google Wifi
 * 1 * Module mini-GBiC SFP Multimode-Monomode/0.55-10km
-* 1 * Nest Protect 2
 * 1 * Netgate SG-3100
 * 1 * Netgear GS308P-100PES Switch Gigabit Ethernet 8 Ports with 4 Ports PoE
 * 5 * Philips Hue Go

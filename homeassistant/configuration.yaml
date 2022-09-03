@@ -88,10 +88,6 @@ tplink:
     - host: 192.168.1.240
     - host: 192.168.1.241
 
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
-
 group:
   default_view:
     name: Home
@@ -135,11 +131,6 @@ group:
     name: Hall
     entities:
       - light.hall1
-      - binary_sensor.hallway_nest_protect_online
-      - sensor.hallway_nest_protect_battery_health
-      - sensor.hallway_nest_protect_co_status
-      - sensor.hallway_nest_protect_color_status
-      - sensor.hallway_nest_protect_smoke_status
       - binary_sensor.hue_motion_sensor_hallway_motion
       - sensor.hue_motion_sensor_hallway_light_level
       - sensor.hue_motion_sensor_hallway_temperature
