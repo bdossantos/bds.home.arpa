@@ -21,17 +21,11 @@
       entity_id: input_boolean.vacation_mode
     - service: switch.turn_off
       entity_id: switch.hot_water_cylinder
-    - service: notify.slack
-      data_template:
-        message: ""
+    - service: notify.all_smartphones
+      data:
+        message: Vacation mode had been turned on automatically because everyone is away since 24h ⛱️
         data:
-          attachments:
-            - color: >
-                good
-              title: >
-                :information_source: Information
-              text: |
-                Vacation mode had been turned on automatically because everyone is away since 24h :beach_with_umbrella:
+          color: green
 
 - alias: "Turn off vacation mode when coming home"
   initial_state: "True"
@@ -53,14 +47,8 @@
       entity_id: input_boolean.vacation_mode
     - service: switch.turn_on
       entity_id: switch.hot_water_cylinder
-    - service: notify.slack
-      data_template:
-        message: ""
+    - service: notify.all_smartphones
+      data:
+        message: Vacation mode had been turned off 🧳
         data:
-          attachments:
-            - color: >
-                good
-              title: >
-                :information_source: Information
-              text: |
-                Vacation mode had been turned off :briefcase:
+          color: green

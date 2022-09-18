@@ -17,14 +17,8 @@
         entity_id: input_boolean.guest_mode
         state: "off"
   action:
-    - service: notify.slack
-      data_template:
-        message: ""
+    - service: notify.all_smartphones
+      data:
+        message: Intrusion detected!
         data:
-          attachments:
-            - color: >
-                danger
-              title: >
-                :sos: Fatal
-              text: |
-                Intrusion detected!
+          color: red

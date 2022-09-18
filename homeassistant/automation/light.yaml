@@ -305,14 +305,8 @@
   action:
     - service: light.turn_off
       entity_id: all
-    - service: notify.slack
-      data_template:
-        message: ""
+    - service: notify.all_smartphones
+      data:
+        message: All light turned off 💡
         data:
-          attachments:
-            - color: >
-                good
-              title: >
-                :information_source: Information
-              text: |
-                All light turned off :bulb:
+          color: green

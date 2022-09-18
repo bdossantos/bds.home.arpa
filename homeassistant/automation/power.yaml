@@ -6,24 +6,18 @@
     entity_id:
       - sensor.ups_status
   action:
-    - service: notify.slack
-      data_template:
-        message: ""
+    - service: notify.all_smartphones
+      data:
+        title: APC status summary 🔋
+        message: |
+          Status: {{ states("sensor.ups_status") }}
+          Battery: {{ states("sensor.ups_battery_charge") }}
+          Battery runtime: {{ states("sensor.ups_battery_runtime") }}
+          Battery voltage: {{ states("sensor.ups_battery_voltage") }}
+          Input voltage: {{ states("sensor.ups_input_voltage") }}
+          Load: {{ states("sensor.ups_load") }}
         data:
-          attachments:
-            - color: >
-                danger
-              title: >
-                :sos: Fatal
-              text: |
-                APC status summary :battery:
-
-                Status: {{ states("sensor.ups_status") }}
-                Battery: {{ states("sensor.ups_battery_charge") }}
-                Battery runtime: {{ states("sensor.ups_battery_runtime") }}
-                Battery voltage: {{ states("sensor.ups_battery_voltage") }}
-                Input voltage: {{ states("sensor.ups_input_voltage") }}
-                Load: {{ states("sensor.ups_load") }}
+          color: red
 
 - alias: "Power outage finished"
   initial_state: "True"
@@ -34,31 +28,18 @@
     from: "OB DISCHRG"
     to: "OL CHRG"
   action:
-    - service: notify.slack
-      data_template:
-        message: ""
+    - service: notify.all_smartphones
+      data:
+        message: Power is back 🔋
         data:
-          attachments:
-            - color: >
-                good
-              title: >
-                :information_source: Information
-              text: |
-                Power is back! :battery:
-
+          color: green
     # wait few minutes to let hue bridge reboot after a power outage
     # TODO: buy an APC with more battery backed slots
     - delay: "00:02:00"
-    - service: notify.slack
-      data_template:
-        message: ""
+    - service: notify.all_smartphones
+      data:
+        message: Turn all lights are off after the power outage 💡
         data:
-          attachments:
-            - color: >
-                good
-              title: >
-                :information_source: Information
-              text: |
-                Turn all lights are off after the power outage :bulb:
+          color: green
     - service: light.turn_off
       entity_id: all

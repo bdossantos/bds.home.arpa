@@ -248,10 +248,10 @@ script: !include_dir_merge_named script
 input_boolean: !include input_boolean.yaml
 
 notify:
-  - name: slack
-    platform: slack
-    api_key: !secret slack_api_key
-    default_channel: "#general"
+  - name: all_smartphones
+    platform: group
+    services:
+      - service: mobile_app_pixel_5
 
 zone:
   - name: Work

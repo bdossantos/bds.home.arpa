@@ -54,14 +54,7 @@
       entity_id: script.simulate_presence
     - service: script.turn_on
       entity_id: script.all_lights_off
-    - service: notify.slack
+    - service: notify.all_smartphones
       data_template:
-        message: ""
         data:
-          attachments:
-            - color: >
-                good
-              title: >
-                :information_source: Information
-              text: |
-                Turn off presence simulation :mute:
+          message: Turn off presence simulation 🔇
