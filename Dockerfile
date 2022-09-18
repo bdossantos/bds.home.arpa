@@ -29,7 +29,7 @@ RUN set -eux \
     libmpfr-dev=4.1.0-3 \
     libswresample-dev=7:4.3.4-0+deb11u1 \
     libswscale-dev=7:4.3.4-0+deb11u1 \
-    libudev-dev=247.3-7 \
+    libudev-dev=247.3-7+deb11u1 \
     libuv1-dev=1.40.0-2 \
     libxrandr-dev=2:1.5.1-1 \
     sqlite3=3.34.1-3 \
