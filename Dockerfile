@@ -34,7 +34,7 @@ RUN set -eux \
     libxrandr-dev=2:1.5.1-1 \
     sqlite3=3.34.1-3 \
     swig=4.0.2-1 \
-    zlib1g-dev=1:1.2.11.dfsg-2+deb11u1 \
+    zlib1g-dev=1:1.2.11.dfsg-2+deb11u2 \
   && pip install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
@@ -100,7 +100,7 @@ RUN set -eux \
     nmap=7.91+dfsg1+really7.80+dfsg1-2 \
     nut-client=2.7.4-13 \
     sqlite3=3.34.1-3 \
-    zlib1g=1:1.2.11.dfsg-2+deb11u1 \
+    zlib1g=1:1.2.11.dfsg-2+deb11u2 \
   && apt-get autoremove -y \
   && apt-get clean \
   && apt-get autoclean \
