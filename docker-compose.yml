@@ -92,7 +92,7 @@ services:
       - /volume1/docker_datas/paperless-db/14/data:/var/lib/postgresql/data
     env_file:
       - /volume1/docker_datas/paperless/.env
-    command: -p 5433
+    command: -p 5433 -c shared_buffers=1GB -c effective_cache_size=3GB
     ports:
       - 5433:5433/tcp
     environment:
