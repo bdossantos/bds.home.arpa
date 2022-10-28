@@ -92,7 +92,7 @@ services:
       - /volume1/docker_datas/paperless-db/14/data:/var/lib/postgresql/data
     env_file:
       - /volume1/docker_datas/paperless/.env
-    command: -p 5433 -c shared_buffers=1GB -c effective_cache_size=3GB
+    command: -p 5433 -c shared_buffers=512MB -c effective_cache_size=2GB -c maintenance_work_mem=512MB -c min_wal_size=100MB -c max_wal_size=2GB -c max_worker_processes=4 -c max_parallel_workers_per_gather=2 -c max_parallel_workers=4 -c max_parallel_maintenance_workers=2 -c checkpoint_completion_target=0.9 -c wal_buffers=16MB -c default_statistics_target=100 -c random_page_cost=4 -c effective_io_concurrency=2
     ports:
       - 5433:5433/tcp
     environment:
