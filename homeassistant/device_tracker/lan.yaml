@@ -1,12 +1,12 @@
 ---
 - platform: ping
   hosts:
-    benjamin_smartphone: 192.168.1.11
+    benjamin_smartphone: pixel5.bds.home.arpa
     count: 2
   consider_home: 600
 
 - platform: ping
   hosts:
-    laura_smartphone: 192.168.1.12
+    gf_smartphone: gf.bds.home.arpa
     count: 2
   consider_home: 600

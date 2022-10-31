@@ -29,6 +29,41 @@ git clone https://github.com/bdossantos/bds.home ~/Code/bds.home
 * 2 * Sonos PLAY:3
 * 6 * Phillips Hue bulbs
 
+## Network
+
+```
+# $ ipcalc 10.92.64.0/22
+# Address:   10.92.64.0           00001010.01011100.010000 00.00000000
+# Netmask:   255.255.252.0 = 22   11111111.11111111.111111 00.00000000
+# Wildcard:  0.0.3.255            00000000.00000000.000000 11.11111111
+# =>
+# Network:   10.92.64.0/22        00001010.01011100.010000 00.00000000
+# HostMin:   10.92.64.1           00001010.01011100.010000 00.00000001
+# HostMax:   10.92.67.254         00001010.01011100.010000 11.11111110
+# Broadcast: 10.92.67.255         00001010.01011100.010000 11.11111111
+# Hosts/Net: 1022                  Class A, Private Internet
+
+10.92.64.0/22 bds.home.arpa
+  10.92.64.0/24 infrastructure
+    10.92.64.1 router.bds.home.arpa
+    10.92.64.2 wifi.bds.home.arpa
+    10.92.64.3 nas.bds.home.arpa
+  10.92.65.0/24 humans
+    10.92.65.1 troubleshootinator.bds.home.arpa
+    10.92.65.2 pixel5.bds.home.arpa
+  10.92.66.0/24 Wireguard
+    10.92.66.1 router.bds.home.arpa
+    10.92.66.2 troubleshootinator.bds.home.arpa
+    10.92.66.3 pixel5.bds.home.arpa
+  10.92.67.0/24 IOT, Guest ?
+    10.92.67.1 hue.bds.home.arpa
+    10.92.67.2 sonos01.bds.home.arpa
+    10.92.67.3 sonos02.bds.home.arpa
+    10.92.67.4 smartplug-kitchen.bds.home.arpa
+    10.92.67.5 hot-water-cylinder.bds.home.arpa
+    10.92.67.6 nest-protect.bds.home.arpa
+```
+
 ## Replace your Livebox 4 by a Pfsense Router
 
 ### Internet

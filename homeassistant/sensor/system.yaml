@@ -1,6 +1,6 @@
 ---
 - platform: google_wifi
-  host: 192.168.1.253
+  host: wifi.bds.home.arpa
   monitored_conditions:
     - current_version
     - new_version
@@ -13,7 +13,7 @@
 # upsmon slave
 - platform: nut
   name: APC BE700G
-  host: 192.168.1.254
+  host: router.bds.home.arpa
   username: ups
   port: 3493
   resources:

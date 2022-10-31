@@ -1,5 +1,5 @@
 ---
-- name: Laura
-  id: laura
+- name: gf
+  id: gf
   device_trackers:
-    - device_tracker.laura_smartphone
+    - device_tracker.gf_smartphone
