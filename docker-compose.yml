@@ -40,7 +40,7 @@ services:
       - home-assistant
     restart: always
   grafana:
-    image: grafana/grafana:9.1.2
+    image: grafana/grafana:9.2.3
     container_name: grafana
     volumes:
       - /volume1/docker_datas/grafana:/var/lib/grafana
