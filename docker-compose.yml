@@ -131,5 +131,20 @@ services:
 
 networks:
   home-assistant:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.10.0.0/16
+          gateway: 172.10.0.1
   monitoring:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.11.0.0/16
+          gateway: 172.11.0.1
   paperless:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.12.0.0/16
+          gateway: 172.12.0.1
