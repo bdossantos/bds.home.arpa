@@ -103,7 +103,7 @@ services:
       - paperless
     restart: always
   paperless-broker:
-    image: redis:6.2-bullseye
+    image: redis:7.0-bullseye
     container_name: paperless-broker
     ports:
       - 6379:6379/tcp
