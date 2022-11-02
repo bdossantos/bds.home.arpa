@@ -51,17 +51,14 @@ git clone https://github.com/bdossantos/bds.home ~/Code/bds.home
   10.92.65.0/24 humans
     10.92.65.1 troubleshootinator.bds.home.arpa
     10.92.65.2 pixel5.bds.home.arpa
-  10.92.66.0/24 Wireguard
-    10.92.66.1 router.bds.home.arpa
-    10.92.66.2 troubleshootinator.bds.home.arpa
-    10.92.66.3 pixel5.bds.home.arpa
-  10.92.67.0/24 IOT, Guest ?
-    10.92.67.1 hue.bds.home.arpa
-    10.92.67.2 sonos01.bds.home.arpa
-    10.92.67.3 sonos02.bds.home.arpa
-    10.92.67.4 smartplug-kitchen.bds.home.arpa
-    10.92.67.5 hot-water-cylinder.bds.home.arpa
-    10.92.67.6 nest-protect.bds.home.arpa
+  10.92.66.0/24 IOT
+    10.92.66.1 hue.bds.home.arpa
+    10.92.66.2 sonos01.bds.home.arpa
+    10.92.66.3 sonos02.bds.home.arpa
+    10.92.66.4 smartplug-kitchen.bds.home.arpa
+    10.92.66.5 hot-water-cylinder.bds.home.arpa
+    10.92.66.6 nest-protect.bds.home.arpa
+  10.92.67.0/24 Guest ?
 ```
 
 ## Replace your Livebox 4 by a Pfsense Router
