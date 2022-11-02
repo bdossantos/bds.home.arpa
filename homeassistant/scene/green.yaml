@@ -3,7 +3,7 @@ name: Green
 entities:
   light.bedroom1:
     state: on
-    brightness: 170
+    brightness_pct: 170
     rgb_color: [255, 178, 142]
   group.dressing:
     state: off

@@ -3,7 +3,7 @@ name: Concentrate
 entities:
   group.all_lights:
     state: on
-    brightness: 219
+    brightness_pct: 219
     xy_color: [0.5119, 0.4147]
   group.dressing:
     state: off
