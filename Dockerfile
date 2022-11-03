@@ -92,7 +92,7 @@ RUN set -eux \
   && apt-get install -y --no-install-recommends \
     bluetooth=5.55-3.1 \
     ca-certificates=20210119 \
-    ffmpeg=7:4.3.4-0+deb11u1 \
+    ffmpeg=7:4.3.5-0+deb11u1 \
     iperf3=3.9-1 \
     iputils-ping=3:20210202-1 \
     libbluetooth3=5.55-3.1 \
