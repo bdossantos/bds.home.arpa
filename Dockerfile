@@ -16,19 +16,19 @@ RUN set -eux \
   && apt-get install -y --no-install-recommends \
     build-essential=12.9 \
     cmake=3.18.4-2+deb11u1 \
-    libavcodec-dev=7:4.3.4-0+deb11u1 \
-    libavdevice-dev=7:4.3.4-0+deb11u1 \
-    libavfilter-dev=7:4.3.4-0+deb11u1 \
-    libavformat-dev=7:4.3.4-0+deb11u1 \
-    libavutil-dev=7:4.3.4-0+deb11u1 \
+    libavcodec-dev=7:4.3.5-0+deb11u1 \
+    libavdevice-dev=7:4.3.5-0+deb11u1 \
+    libavfilter-dev=7:4.3.5-0+deb11u1 \
+    libavformat-dev=7:4.3.5-0+deb11u1 \
+    libavutil-dev=7:4.3.5-0+deb11u1 \
     libbluetooth-dev=5.55-3.1 \
     libcurl4-openssl-dev=7.74.0-1.3+deb11u3 \
     libglib2.0-dev=2.66.8-1 \
     libgmp-dev=2:6.2.1+dfsg-1+deb11u1 \
     libmpc-dev=1.2.0-1 \
     libmpfr-dev=4.1.0-3 \
-    libswresample-dev=7:4.3.4-0+deb11u1 \
-    libswscale-dev=7:4.3.4-0+deb11u1 \
+    libswresample-dev=7:4.3.5-0+deb11u1 \
+    libswscale-dev=7:4.3.5-0+deb11u1 \
     libudev-dev=247.3-7+deb11u1 \
     libuv1-dev=1.40.0-2 \
     libxrandr-dev=2:1.5.1-1 \
