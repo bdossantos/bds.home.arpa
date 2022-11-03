@@ -31,10 +31,10 @@ jobs:
           vcs_ref=$(git rev-parse --short HEAD)
           image_name='home-assistant'
           tags=bdossantos/${image_name}:latest,bdossantos/${image_name}:${version},bdossantos/${image_name}:${version}-${vcs_ref}
-          echo ::set-output name=build_date::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-          echo ::set-output name=path::$(dirname ${{ inputs.dockerfile }})
-          echo ::set-output name=tags::${tags}
-          echo ::set-output name=vcs_ref::${vcs_ref}
+          echo "build_date=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+          echo "path=$(dirname ${{ inputs.dockerfile }})" >> $GITHUB_OUTPUT
+          echo "tags=${tags}" >> $GITHUB_OUTPUT
+          echo "vcs_ref=${vcs_ref}" >> $GITHUB_OUTPUT
       - name: Build and push docker image
         uses: docker/build-push-action@v3
         with:
