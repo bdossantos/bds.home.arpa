@@ -6,6 +6,8 @@
 - platform: statistics
   entity_id: sensor.hue_motion_sensor_hallway_temperature
   name: hallway_temperature
+  max_age:
+    hours: 2190
 
 - platform: statistics
   entity_id: sensor.hue_motion_sensor_kitchen_temperature
