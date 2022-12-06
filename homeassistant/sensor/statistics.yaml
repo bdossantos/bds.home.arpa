@@ -2,20 +2,24 @@
 - platform: statistics
   entity_id: sensor.hue_motion_sensor_dressing2_temperature
   name: bedroom_temperature
+  state_characteristic: mean
 
 - platform: statistics
   entity_id: sensor.hue_motion_sensor_hallway_temperature
   name: hallway_temperature
+  state_characteristic: mean
   max_age:
     hours: 2190
 
 - platform: statistics
   entity_id: sensor.hue_motion_sensor_kitchen_temperature
   name: kitchen_temperature
+  state_characteristic: mean
 
 - platform: statistics
   entity_id: sensor.hue_motion_sensor_kitchen_light_level
   name: kitchen_luminance
+  state_characteristic: mean
 
 - platform: history_stats
   name: Time in bed
@@ -23,5 +27,6 @@
   state: "on"
   type: time
   end: "{{ now() }}"
+  state_characteristic: mean
   duration:
     hours: 24
