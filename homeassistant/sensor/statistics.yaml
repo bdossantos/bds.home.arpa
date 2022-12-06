@@ -3,6 +3,7 @@
   entity_id: sensor.hue_motion_sensor_dressing2_temperature
   name: bedroom_temperature
   state_characteristic: mean
+  sampling_size: 20
 
 - platform: statistics
   entity_id: sensor.hue_motion_sensor_hallway_temperature
@@ -15,6 +16,7 @@
   entity_id: sensor.hue_motion_sensor_kitchen_temperature
   name: kitchen_temperature
   state_characteristic: mean
+  sampling_size: 20
 
 - platform: statistics
   entity_id: sensor.hue_motion_sensor_kitchen_light_level
