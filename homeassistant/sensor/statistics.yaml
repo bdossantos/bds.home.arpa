@@ -29,6 +29,5 @@
   state: "on"
   type: time
   end: "{{ now() }}"
-  state_characteristic: mean
   duration:
     hours: 24
