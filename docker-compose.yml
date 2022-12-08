@@ -111,8 +111,11 @@ services:
       - paperless
     restart: always
   paperless-gotenberg:
-    image: thecodingmachine/gotenberg:7
+    image: docker.io/gotenberg/gotenberg:7.6
     container_name: paperless-gotenberg
+    command:
+      - "gotenberg"
+      - "--chromium-disable-routes=true"
     environment:
       - DISABLE_GOOGLE_CHROME=1
     ports:
@@ -121,7 +124,7 @@ services:
       - paperless
     restart: always
   paperless-tika:
-    image: apache/tika:2.2.1
+    image: apache/tika:2.6.0.1
     container_name: paperless-tika
     ports:
       - 9998:9998/tcp
