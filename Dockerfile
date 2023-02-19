@@ -22,7 +22,7 @@ RUN set -eux \
     libavformat-dev=7:4.3.5-0+deb11u1 \
     libavutil-dev=7:4.3.5-0+deb11u1 \
     libbluetooth-dev=5.55-3.1 \
-    libcurl4-openssl-dev=7.74.0-1.3+deb11u3 \
+    libcurl4-openssl-dev=7.74.0-1.3+deb11u5 \
     libglib2.0-dev=2.66.8-1 \
     libgmp-dev=2:6.2.1+dfsg-1+deb11u1 \
     libmpc-dev=1.2.0-1 \
