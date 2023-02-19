@@ -257,5 +257,5 @@ zone:
   - name: Work
     latitude: !secret work_latitude
     longitude: !secret work_longitude
-    icon: mdi:worker
+    icon: mdi:briefcase
     radius: 100
