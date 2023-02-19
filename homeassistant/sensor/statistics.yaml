@@ -22,6 +22,7 @@
   entity_id: sensor.hue_motion_sensor_kitchen_light_level
   name: kitchen_luminance
   state_characteristic: mean
+  sampling_size: 20
 
 - platform: history_stats
   name: Time in bed
