@@ -79,8 +79,8 @@ sonos:
   media_player:
     advertise_addr: nas.bds.home.arpa
     hosts:
-      - sono01.bds.home.arpa
-      - sono02.bds.home.arpa
+      - sonos01.bds.home.arpa
+      - sonos02.bds.home.arpa
 
 tplink:
   discovery: true
