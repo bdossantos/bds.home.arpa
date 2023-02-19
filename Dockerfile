@@ -1,4 +1,4 @@
-FROM python:3.10-bullseye as build
+FROM python:3.11-bullseye as build
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
@@ -55,7 +55,7 @@ RUN set -eux \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-FROM python:3.10-slim-bullseye
+FROM python:3.11-slim-bullseye
 
 ARG BUILD_DATE
 ARG VCS_REF
