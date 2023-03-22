@@ -1,0 +1,9 @@
+modules:
+  pfsense:
+    walk:
+      - ifEntry
+      - pfStatus
+      - pfStateTable
+      - pfInterfaces
+    auth:
+      community: YONj70Ss47D8xv3NM3W4

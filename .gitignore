@@ -10,3 +10,4 @@ known_devices.yaml
 nest.conf
 phue*
 secrets.yaml
+snmp_generator/snmp_exporter

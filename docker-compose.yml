@@ -51,6 +51,16 @@ services:
     ports:
       - 9090:9090/tcp
     restart: always
+  snmp-exporter:
+    image: prom/snmp-exporter:v0.21.0
+    container_name: snmp-exporter
+    volumes:
+      - /volume1/homes/admin/Code/bds.home/snmp_generator/snmp.yml:/etc/snmp_exporter/snmp.yml
+    ports:
+      - 9116:9116/tcp
+    command:
+      - "--config.file=/etc/snmp_exporter/snmp.yml"
+    restart: always
   grafana:
     image: grafana/grafana:9.2.3
     container_name: grafana
