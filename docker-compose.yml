@@ -50,6 +50,8 @@ services:
       - "--storage.tsdb.path=/prometheus"
     ports:
       - 9090:9090/tcp
+    networks:
+      - monitoring
     restart: always
   snmp-exporter:
     image: prom/snmp-exporter:v0.21.0
@@ -60,6 +62,8 @@ services:
       - 9116:9116/tcp
     command:
       - "--config.file=/etc/snmp_exporter/snmp.yml"
+    networks:
+      - monitoring
     restart: always
   grafana:
     image: grafana/grafana:9.2.3
