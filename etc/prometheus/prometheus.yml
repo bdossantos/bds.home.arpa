@@ -11,11 +11,11 @@ scrape_configs:
   #  static_configs:
   #    - targets:
   #        - localhost:9100
-  - job_name: "snmp_pfsense"
+  - job_name: snmp
     static_configs:
       - targets:
-          - "nas.bds.home.arpa"
-    metrics_path: "/snmp"
+          - router.bds.home.arpa
+    metrics_path: /snmp
     params:
       module:
         - pfsense
@@ -25,4 +25,4 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: router.bds.home.arpa:9116
+        replacement: nas.bds.home.arpa:9116 # The SNMP exporter's real hostname:port.
