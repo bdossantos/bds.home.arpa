@@ -25,4 +25,4 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: nas.bds.home.arpa:9116 # The SNMP exporter's real hostname:port.
+        replacement: 172.11.0.1:9116 # The SNMP exporter's real hostname:port.
