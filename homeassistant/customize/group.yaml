@@ -3,7 +3,7 @@ person.benjamin:
   entity_picture: "https://github.com/bdossantos.png"
   friendly_name: Benjamin
   hidden: true
-person.laura:
+person.gf:
   friendly_name: GF
   hidden: true
 group.all_automations:
