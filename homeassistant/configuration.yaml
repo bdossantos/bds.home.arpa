@@ -219,7 +219,7 @@ group:
     name: Family
     entities:
       - person.benjamin
-      - person.laura
+      - person.gf
   all_media_players:
     name: All media players
     entities:
