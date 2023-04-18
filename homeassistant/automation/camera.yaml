@@ -1,0 +1,72 @@
+---
+- alias: "Turn on Camera recording when everybody is Away"
+  initial_state: "True"
+  trigger:
+    - platform: state
+      entity_id: sensor.benjamin_status
+      to: "Away"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: "not_home"
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: "off"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.cam01_record
+    - service: switch.turn_on
+      entity_id: switch.cam01_record_audio
+    - service: switch.turn_on
+      entity_id: switch.cam01_auto_focus
+    - service: switch.turn_on
+      entity_id: switch.cam01_ftp_upload
+    - service: switch.turn_on
+      entity_id: light.cam01_infra_red_lights_in_night_mode
+    - service: number.set_value
+      entity_id: number.cam01_motion_sensitivity
+      data:
+        value: 50
+    - service: notify.all_smartphones
+      data:
+        message: Turn on Camera recording when everybody is Away 📸
+        data:
+          color: green
+
+- alias: "Turn off Camera recording when we are home"
+  initial_state: "True"
+  trigger:
+    - platform: state
+      entity_id: sensor.benjamin_status
+      to: "Just Arrived"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: "not_home"
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: "off"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.cam01_record
+    - service: switch.turn_off
+      entity_id: switch.cam01_record_audio
+    - service: switch.turn_off
+      entity_id: switch.cam01_auto_focus
+    - service: switch.turn_off
+      entity_id: switch.cam01_ftp_upload
+    - service: switch.turn_off
+      entity_id: light.cam01_infra_red_lights_in_night_mode
+    - service: number.set_value
+      entity_id: number.cam01_motion_sensitivity
+      data:
+        value: 50
+    - service: notify.all_smartphones
+      data:
+        message: Turn off Camera recording when we are home 📸
+        data:
+          color: green
