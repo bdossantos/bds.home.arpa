@@ -19,7 +19,7 @@
   sampling_size: 20
 
 - platform: statistics
-  entity_id: sensor.hue_motion_sensor_kitchen_light_level
+  entity_id: sensor.hue_motion_sensor_kitchen_illuminance
   name: kitchen_luminance
   state_characteristic: mean
   sampling_size: 20

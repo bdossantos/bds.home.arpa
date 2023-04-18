@@ -104,7 +104,7 @@
     to: "on"
   condition:
     - condition: numeric_state
-      entity_id: sensor.hue_motion_sensor_kitchen_light_level
+      entity_id: sensor.hue_motion_sensor_kitchen_illuminance
       below: 150
     - condition: state
       entity_id: input_boolean.guest_mode

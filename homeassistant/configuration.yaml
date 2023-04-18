@@ -131,7 +131,7 @@ group:
     entities:
       - light.hall1
       - binary_sensor.hue_motion_sensor_hallway_motion
-      - sensor.hue_motion_sensor_hallway_light_level
+      - sensor.hue_motion_sensor_hallway_illuminance
       - sensor.hue_motion_sensor_hallway_temperature
   toilet:
     name: Toilet
@@ -147,7 +147,7 @@ group:
       - light.kitchen1
       - switch.smartplug_kitchen1
       - binary_sensor.hue_motion_sensor_kitchen_motion
-      - sensor.hue_motion_sensor_kitchen_light_level
+      - sensor.hue_motion_sensor_kitchen_illuminance
       - sensor.hue_motion_sensor_kitchen_temperature
   livingroom:
     name: Living Room
@@ -164,11 +164,11 @@ group:
     entities:
       - light.dressing1
       - binary_sensor.hue_motion_sensor_dressing1_motion
-      - sensor.hue_motion_sensor_dressing1_light_level
+      - sensor.hue_motion_sensor_dressing1_illuminance
       - sensor.hue_motion_sensor_dressing1_temperature
       - light.dressing2
       - binary_sensor.hue_motion_sensor_dressing2_motion
-      - sensor.hue_motion_sensor_dressing2_light_level
+      - sensor.hue_motion_sensor_dressing2_illuminance
       - sensor.hue_motion_sensor_dressing2_temperature
 
   scenes:
