@@ -2,10 +2,10 @@
 - alias: "Turn a few lights on when there is high cloud coverage"
   trigger:
     - platform: numeric_state
-      entity_id: sensor.dark_sky_cloud_coverage
+      entity_id: sensor.clichy_cloud_cover
       above: 60
     - platform: numeric_state
-      entity_id: sensor.dark_sky_cloud_coverage
+      entity_id: sensor.clichy_cloud_cover
       below: 100
   condition:
     condition: and
