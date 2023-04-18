@@ -39,17 +39,17 @@
   initial_state: "True"
   trigger:
     - platform: state
-      entity_id: sensor.benjamin_status
-      to: "Just Arrived"
+      entity_id: group.family
+      to: "home"
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: group.family
-        state: "not_home"
-      - condition: state
         entity_id: input_boolean.guest_mode
         state: "off"
+      - condition: state
+        entity_id: input_boolean.vacation_mode
+        state: "on"
   action:
     - service: switch.turn_off
       entity_id: switch.cam01_record
