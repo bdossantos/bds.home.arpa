@@ -49,9 +49,6 @@
       - condition: state
         entity_id: input_boolean.guest_mode
         state: "off"
-      - condition: state
-        entity_id: input_boolean.vacation_mode
-        state: "on"
   action:
     - service: switch.turn_off
       entity_id: switch.cam01_record
