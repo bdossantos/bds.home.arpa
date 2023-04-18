@@ -38,6 +38,7 @@ RUN set -eux \
   && pip install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
+      aiodiscover==1.4.16 \
       cchardet==2.1.7 \
       cython==0.29.26 \
       fnvhash==0.1.0 \
