@@ -41,6 +41,8 @@
     - platform: state
       entity_id: group.family
       to: "home"
+    - platform: time_pattern
+      minutes: "/10"
   condition:
     condition: and
     conditions:
