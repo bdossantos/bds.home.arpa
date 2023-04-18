@@ -107,7 +107,6 @@ group:
     name: Sensors
     icon: mdi:thermometer
     entities:
-      - group.darksky
       - group.air_quality
       - group.ups
   system_view:
@@ -189,17 +188,6 @@ group:
       - sensor.us_air_pollution_level
       - sensor.us_air_quality_index
       - sensor.us_main_pollutant
-  darksky:
-    name: Outdoor metrics
-    entities:
-      - sensor.dark_sky_daily_summary
-      - sensor.dark_sky_humidity
-      - sensor.dark_sky_ozone
-      - sensor.dark_sky_precip_intensity
-      - sensor.dark_sky_precip_probability
-      - sensor.dark_sky_temperature
-      - sensor.dark_sky_uv_index
-      - sensor.dark_sky_wind_speed
   ups:
     name: APC BE700G
     entities:
