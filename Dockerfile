@@ -21,7 +21,6 @@ RUN set -eux \
     libavfilter-dev=7:4.3.6-0+deb11u1 \
     libavformat-dev=7:4.3.6-0+deb11u1 \
     libavutil-dev=7:4.3.6-0+deb11u1 \
-    libbluetooth-dev=5.55-3.1 \
     libcurl4-openssl-dev=7.74.0-1.3+deb11u7 \
     libglib2.0-dev=2.66.8-1 \
     libgmp-dev=2:6.2.1+dfsg-1+deb11u1 \
@@ -49,7 +48,6 @@ RUN set -eux \
       pillow==9.5.0 \
       pip==23.1.2 \
       psycopg2-binary==2.9.6 \
-      pybluez==0.23 \
       sqlalchemy==2.0.15 \
       webrtcvad==2.0.10 \
       wheel==0.40.0 \
@@ -91,12 +89,10 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    bluetooth=5.55-3.1 \
     ca-certificates=20210119 \
     ffmpeg=7:4.3.6-0+deb11u1 \
     iperf3=3.9-1 \
     iputils-ping=3:20210202-1 \
-    libbluetooth3=5.55-3.1 \
     net-tools=1.60+git20181103.0eebece-1 \
     nmap=7.91+dfsg1+really7.80+dfsg1-2 \
     nut-client=2.7.4-13 \
