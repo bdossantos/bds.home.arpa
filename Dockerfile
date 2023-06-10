@@ -39,21 +39,20 @@ RUN set -eux \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
       aiodiscover==1.4.16 \
-      cchardet==2.1.7 \
-      cython==0.29.26 \
+      cython==0.29.35 \
       fnvhash==0.1.0 \
-      google-api-core==2.4.0 \
-      google-auth==2.5.0 \
+      google-api-core==2.11.0 \
+      google-auth==2.19.1 \
       google-cloud==0.34.0 \
-      grpcio==1.43.0 \
+      grpcio==1.54.2 \
       homeassistant=="${VERSION}" \
-      pillow==9.2.0 \
-      pip==22.0.4 \
-      psycopg2-binary==2.9.3 \
-      pybluez==0.22 \
-      sqlalchemy==1.4.40 \
+      pillow==9.5.0 \
+      pip==23.1.2 \
+      psycopg2-binary==2.9.6 \
+      pybluez==0.23 \
+      sqlalchemy==2.0.15 \
       webrtcvad==2.0.10 \
-      wheel==0.37.1 \
+      wheel==0.40.0 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
