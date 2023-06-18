@@ -81,6 +81,9 @@
     condition: and
     conditions:
       - condition: state
+        entity_id: group.family
+        state: "not_home"
+      - condition: state
         entity_id: input_boolean.guest_mode
         state: "off"
       - condition: state
