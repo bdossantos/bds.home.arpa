@@ -24,6 +24,8 @@
     - service: switch.turn_on
       entity_id: switch.cam01_ftp_upload
     - service: switch.turn_on
+      entity_id: switch.cam01_push_notifications
+    - service: switch.turn_on
       entity_id: light.cam01_infra_red_lights_in_night_mode
     - service: number.set_value
       entity_id: number.cam01_motion_sensitivity
@@ -56,6 +58,8 @@
       entity_id: switch.cam01_auto_focus
     - service: switch.turn_off
       entity_id: switch.cam01_ftp_upload
+    - service: switch.turn_off
+      entity_id: switch.cam01_push_notifications
     - service: switch.turn_off
       entity_id: light.cam01_infra_red_lights_in_night_mode
     - service: number.set_value
@@ -91,6 +95,8 @@
       entity_id: switch.cam01_auto_focus
     - service: switch.turn_on
       entity_id: switch.cam01_ftp_upload
+    - service: switch.turn_on
+      entity_id: switch.cam01_push_notifications
     - service: switch.turn_on
       entity_id: light.cam01_infra_red_lights_in_night_mode
     - service: number.set_value
