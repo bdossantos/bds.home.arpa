@@ -38,7 +38,7 @@
           color: green
 
 - alias: "Turn off Camera recording when we are home"
-  initial_state: "False"
+  initial_state: "True"
   trigger:
     - platform: state
       entity_id: group.family
