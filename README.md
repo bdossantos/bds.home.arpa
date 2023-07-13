@@ -1,14 +1,14 @@
-# bds.home
+# bds.home.arpa
 
-![CI](https://github.com/bdossantos/bds.home/workflows/CI/badge.svg?branch=master)
+![CI](https://github.com/bdossantos/bds.home.arpa/workflows/CI/badge.svg?branch=master)
 
 🏡 The source code and issue tracker of my house (powered by [@home-assistant](https://www.home-assistant.io/))
 
 ## Installation
 
 ```
-git clone https://github.com/bdossantos/bds.home ~/Code/bds.home
-~/Code/bds.home/scripts/deploy
+git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
+~/Code/bds.home.arpa/scripts/deploy
 ```
 
 ## Hardware and devices
