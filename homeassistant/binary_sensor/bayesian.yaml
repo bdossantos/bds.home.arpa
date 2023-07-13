@@ -6,10 +6,15 @@
   observations:
     - entity_id: "group.family"
       prob_given_true: 0.9
-      prob_given_false: 0.5
+      prob_given_false: 0.2
       platform: "state"
       to_state: "home"
     - entity_id: "binary_sensor.hue_motion_sensor_hallway_motion"
+      prob_given_true: 0.5
+      prob_given_false: 0.4
+      platform: "state"
+      to_state: "off"
+    - entity_id: "binary_sensor.cam01_motion"
       prob_given_true: 0.5
       prob_given_false: 0.4
       platform: "state"
@@ -20,7 +25,7 @@
       platform: "state"
       to_state: "off"
     - entity_id: "sun.sun"
-      prob_given_true: 0.7
+      prob_given_true: 0.8
       prob_given_false: 0.1
       platform: "state"
       to_state: "below_horizon"
