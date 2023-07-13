@@ -82,12 +82,6 @@ sonos:
       - sonos01.bds.home.arpa
       - sonos02.bds.home.arpa
 
-tplink:
-  discovery: true
-  switch:
-    - host: hot-water-cylinder.bds.home.arpa
-    - host: smartplug-kitchen.bds.home.arpa
-
 group:
   default_view:
     name: Home
