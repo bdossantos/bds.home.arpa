@@ -26,13 +26,13 @@ while true; do
   kill -0 "$$" || exit
 done 2>/dev/null &
 
-if [[ ! -d "${HOME}/Code/bds.home" ]]; then
+if [[ ! -d "${HOME}/Code/bds.home.arpa" ]]; then
   mkdir "${HOME}/Code"
   chmod 0755 "${HOME}/Code"
-  git clone https://github.com/bdossantos/bds.home "${HOME}/Code/bds.home"
+  git clone https://github.com/bdossantos/bds.home "${HOME}/Code/bds.home.arpa"
 fi
 
-pushd "${HOME}/Code/bds.home" >/dev/null
+pushd "${HOME}/Code/bds.home.arpa" >/dev/null
 git checkout .
 git pull
 sudo docker-compose pull
