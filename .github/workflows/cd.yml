@@ -36,7 +36,7 @@ jobs:
           echo "tags=${tags}" >> $GITHUB_OUTPUT
           echo "vcs_ref=${vcs_ref}" >> $GITHUB_OUTPUT
       - name: Build and push docker image
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           build-args: |
             BUILD_DATE=${{ steps.context.outputs.build_date }}
