@@ -35,8 +35,6 @@ http:
 
 mobile_app:
 
-discovery:
-
 conversation:
 
 history:
