@@ -53,18 +53,6 @@ services:
     networks:
       - monitoring
     restart: always
-  snmp-exporter:
-    image: prom/snmp-exporter:v0.21.0
-    container_name: snmp-exporter
-    volumes:
-      - /volume1/homes/admin/Code/bds.home.arpa/snmp_generator/snmp.yml:/etc/snmp_exporter/snmp.yml
-    ports:
-      - 9116:9116/tcp
-    command:
-      - "--config.file=/etc/snmp_exporter/snmp.yml"
-    networks:
-      - monitoring
-    restart: always
   grafana:
     image: grafana/grafana:10.0.2
     container_name: grafana
