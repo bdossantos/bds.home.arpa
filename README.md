@@ -107,3 +107,12 @@ h=3C12$(tohex ${r})0313$(tohex ${id})$(echo -n ${id}${pass}${r} | md5sum | cut -
 
 echo 00:00:00:00:00:00:00:00:00:00:00:1A:09:00:00:05:58:01:03:41:01:0D$(addsep $(tohex ${login})${h})
 ```
+
+## Flash Netgate
+
+```
+login admin
+sudo diskutil unmountDisk /dev/rdisk4
+sudo dd if=/path/to/pfSense-plus-memstick-serial-23.05.1-RELEASE-amd64.img of=/dev/rdisk4 bs=4m status=progress
+sudo diskutil eject /dev/rdisk4
+```
