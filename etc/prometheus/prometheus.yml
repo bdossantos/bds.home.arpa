@@ -7,10 +7,10 @@ scrape_configs:
     static_configs:
       - targets:
           - localhost:9090
-  #- job_name: node-exporter
-  #  static_configs:
-  #    - targets:
-  #        - localhost:9100
+  - job_name: node-exporter
+    static_configs:
+      - targets:
+          - router.bds.home.arpa:9100
   - job_name: snmp
     static_configs:
       - targets:
