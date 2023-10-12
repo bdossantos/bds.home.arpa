@@ -35,10 +35,12 @@ services:
     environment:
       - TZ=Europe/Paris
     ports:
+      - 5353:5353/udp
       - 8123:8123/tcp
       - 21063:21063/tcp
-    networks:
-      - home-assistant
+    #networks:
+    #  - home-assistant
+    network_mode: host
     restart: always
   prometheus:
     image: prom/prometheus:v2.47.1
