@@ -1,7 +1,7 @@
 ---
 - platform: ping
   hosts:
-    benjamin_smartphone: pixel5.bds.home.arpa
+    benjamin_smartphone: smartphone.bds.home.arpa
     count: 2
   consider_home: 600
 

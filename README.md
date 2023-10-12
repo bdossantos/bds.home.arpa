@@ -50,7 +50,7 @@ git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
     10.92.64.3 nas.bds.home.arpa
   10.92.65.0/24 humans
     10.92.65.1 troubleshootinator.bds.home.arpa
-    10.92.65.2 pixel5.bds.home.arpa
+    10.92.65.2 smartphone.bds.home.arpa
   10.92.66.0/24 IOT
     10.92.66.1 hue.bds.home.arpa
     10.92.66.2 sonos01.bds.home.arpa
