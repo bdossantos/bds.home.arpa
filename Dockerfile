@@ -91,7 +91,7 @@ RUN set -eux \
   && apt-get install -y --no-install-recommends \
     ca-certificates=20210119 \
     ffmpeg=7:4.3.6-0+deb11u1 \
-    iperf3=3.9-1 \
+    iperf3=3.9-1+deb11u1 \
     iputils-ping=3:20210202-1 \
     net-tools=1.60+git20181103.0eebece-1 \
     nmap=7.91+dfsg1+really7.80+dfsg1-2 \
