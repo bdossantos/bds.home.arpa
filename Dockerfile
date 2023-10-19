@@ -30,7 +30,7 @@ RUN set -eux \
     libswscale-dev=7:5.1.3-1 \
     libudev-dev=252.17-1~deb12u1 \
     libuv1-dev=1.44.2-1 \
-    libxrandr-dev=2:1.5.2-2 \
+    libxrandr-dev=2:1.5.2-2+b1 \
     sqlite3=3.40.1-2 \
     swig=4.1.0-0.2 \
     zlib1g-dev=1:1.2.13.dfsg-1 \
