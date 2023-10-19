@@ -1,4 +1,4 @@
-FROM python:3.11-bullseye as build
+FROM python:3.13-bookworm as build
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
@@ -15,25 +15,25 @@ RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
     build-essential=12.9 \
-    cmake=3.18.4-2+deb11u1 \
-    libavcodec-dev=7:4.3.6-0+deb11u1 \
-    libavdevice-dev=7:4.3.6-0+deb11u1 \
-    libavfilter-dev=7:4.3.6-0+deb11u1 \
-    libavformat-dev=7:4.3.6-0+deb11u1 \
-    libavutil-dev=7:4.3.6-0+deb11u1 \
-    libcurl4-openssl-dev=7.74.0-1.3+deb11u7 \
-    libglib2.0-dev=2.66.8-1 \
-    libgmp-dev=2:6.2.1+dfsg-1+deb11u1 \
-    libmpc-dev=1.2.0-1 \
-    libmpfr-dev=4.1.0-3 \
-    libswresample-dev=7:4.3.6-0+deb11u1 \
-    libswscale-dev=7:4.3.6-0+deb11u1 \
-    libudev-dev=247.3-7+deb11u2 \
-    libuv1-dev=1.40.0-2 \
-    libxrandr-dev=2:1.5.1-1 \
-    sqlite3=3.34.1-3 \
-    swig=4.0.2-1 \
-    zlib1g-dev=1:1.2.11.dfsg-2+deb11u2 \
+    cmake=3.25.1-1 \
+    libavcodec-dev=7:5.1.3-1 \
+    libavdevice-dev=7:5.1.3-1 \
+    libavfilter-dev=7:5.1.3-1 \
+    libavformat-dev=7:5.1.3-1 \
+    libavutil-dev=7:5.1.3-1 \
+    libcurl4-openssl-dev=7.88.1-10+deb12u4 \
+    libglib2.0-dev=2.74.6-2 \
+    libgmp-dev=2:6.2.1+dfsg1-1.1 \
+    libmpc-dev=1.3.1-1 \
+    libmpfr-dev=4.2.0-1 \
+    libswresample-dev=7:5.1.3-1 \
+    libswscale-dev=7:5.1.3-1 \
+    libudev-dev=252.17-1~deb12u1 \
+    libuv1-dev=1.44.2-1 \
+    libxrandr-dev=2:1.5.2-2 \
+    sqlite3=3.40.1-2 \
+    swig=4.1.0-0.2 \
+    zlib1g-dev=1:1.2.13.dfsg-1 \
   && pip install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
@@ -54,7 +54,7 @@ RUN set -eux \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-FROM python:3.11-slim-bullseye
+FROM python:3.13-slim-bookworm
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -89,15 +89,15 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    ca-certificates=20210119 \
-    ffmpeg=7:4.3.6-0+deb11u1 \
+    ca-certificates=20230311 \
+    ffmpeg=7:5.1.3-1 \
     iperf3=3.9-1+deb11u1 \
-    iputils-ping=3:20210202-1 \
-    net-tools=1.60+git20181103.0eebece-1 \
-    nmap=7.91+dfsg1+really7.80+dfsg1-2 \
-    nut-client=2.7.4-13 \
-    sqlite3=3.34.1-3 \
-    zlib1g=1:1.2.11.dfsg-2+deb11u2 \
+    iputils-ping=3:20221126-1 \
+    net-tools=2.10-0.1 \
+    nmap=7.93+dfsg1-1 \
+    nut-client=2.8.0-7 \
+    sqlite3=3.40.1-2 \
+    zlib1g=1:1.2.13.dfsg-1 \
   && apt-get autoremove -y \
   && apt-get clean \
   && apt-get autoclean \
