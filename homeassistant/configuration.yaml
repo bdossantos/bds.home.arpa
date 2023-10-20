@@ -88,6 +88,10 @@ homekit:
     include_domains:
       - light
       - media_player
+      - camera
+  entity_config:
+    camera.cam01:
+      video_codec: copy
 
 group:
   default_view:
