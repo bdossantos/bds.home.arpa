@@ -108,7 +108,6 @@ group:
     name: Sensors
     icon: mdi:thermometer
     entities:
-      - group.air_quality
       - group.ups
   system_view:
     name: System
@@ -171,7 +170,6 @@ group:
       - binary_sensor.hue_motion_sensor_dressing2_motion
       - sensor.hue_motion_sensor_dressing2_illuminance
       - sensor.hue_motion_sensor_dressing2_temperature
-
   scenes:
     name: Scenes
     entities:
@@ -183,12 +181,6 @@ group:
       - scene.reading
       - scene.energize
       - scene.arctic
-  air_quality:
-    name: Paris Air quality
-    entities:
-      - sensor.us_air_pollution_level
-      - sensor.us_air_quality_index
-      - sensor.us_main_pollutant
   ups:
     name: APC BE700G
     entities:
