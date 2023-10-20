@@ -1,6 +1,6 @@
 ---
 - platform: google_wifi
-  host: wifi.bds.home.arpa
+  host: 10.92.64.2
   monitored_conditions:
     - current_version
     - new_version
