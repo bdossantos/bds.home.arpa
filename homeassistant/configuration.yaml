@@ -85,13 +85,38 @@ homekit:
   advertise_ip: 10.92.64.3
   port: 21063
   filter:
+    exclude_domains:
+      - light.bathroom_lights
+      - light.bedroom_lights
+      - light.candle_lights
+      - light.dressing_lights
+      - light.livingroom_lights
     include_domains:
-      - light
-      - media_player
       - camera
+      - input_boolean.guest_mode
+      - input_boolean.vacation_mode
+      - light
+      - media_player.bedroom
+      - media_player.living_room
+    include_entity_globs:
+      - person.benjamin
+      - person.gf
   entity_config:
     camera.cam01:
       video_codec: copy
+      support_audio: True
+    media_player.bedroom:
+      feature_list:
+        - feature: on_off
+        - feature: play_pause
+        - feature: play_stop
+        - feature: toggle_mute
+    media_player.living_room:
+      feature_list:
+        - feature: on_off
+        - feature: play_pause
+        - feature: play_stop
+        - feature: toggle_mute
 
 group:
   default_view:
