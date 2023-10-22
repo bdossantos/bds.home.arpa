@@ -49,7 +49,7 @@ services:
       - /volume1/docker_datas/prometheus:/prometheus:rw
     command:
       - "--config.file=/prometheus/prometheus.yml"
-      - "--storage.tsdb.retention.time=90d"
+      - "--storage.tsdb.retention.time=360d"
       - "--storage.tsdb.path=/prometheus"
     ports:
       - 9090:9090/tcp
