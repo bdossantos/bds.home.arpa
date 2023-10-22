@@ -120,7 +120,7 @@ services:
       - paperless
     restart: always
   paperless-broker:
-    image: redis:7.0-bookworm
+    image: redis:7.2-bookworm
     container_name: paperless-broker
     ports:
       - 6379:6379/tcp
