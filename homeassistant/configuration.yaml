@@ -85,20 +85,22 @@ homekit:
   advertise_ip: 10.92.64.3
   port: 21063
   filter:
-    exclude_domains:
-      - light.bathroom_lights
-      - light.bedroom_lights
-      - light.candle_lights
-      - light.dressing_lights
-      - light.livingroom_lights
+    exclude_entity_globs:
+      - light.*_lights
     include_domains:
       - camera
+    include_entity_globs:
+      - light.bathroom*
+      - light.bedroom*
+      - light.dressing*
+      - light.hallway*
+      - light.kitchen*
+      - light.livingroom*
+    include_entities:
       - input_boolean.guest_mode
       - input_boolean.vacation_mode
-      - light
       - media_player.bedroom
       - media_player.living_room
-    include_entity_globs:
       - person.benjamin
       - person.gf
   entity_config:
