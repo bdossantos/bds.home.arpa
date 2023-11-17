@@ -221,9 +221,6 @@
       - condition: state
         entity_id: light.livingroom1
         state: "off"
-      - condition: state
-        entity_id: light.livingroom4
-        state: "off"
       - condition: or
         conditions:
           - condition: sun
@@ -235,7 +232,6 @@
       data_template:
         entity_id:
           - light.livingroom1
-          - light.livingroom4
         color_temp: >
           {%- if now().strftime('%H') | int <= 9 %}
             350
@@ -244,9 +240,9 @@
           {%- endif %}
         brightness_pct: >
           {%- if now().strftime('%H') | int <= 9 %}
-            15
+            30
           {%- else %}
-            20
+            70
           {%- endif %}
 
 - alias: "Turn off living room lights when there is not movement and when dark"
@@ -266,9 +262,6 @@
       - condition: state
         entity_id: light.livingroom1
         state: "on"
-      - condition: state
-        entity_id: light.livingroom4
-        state: "on"
       - condition: time
         after: "02:00:00"
         before: "06:00:00"
@@ -285,7 +278,6 @@
     - service: light.turn_off
       entity_id:
         - light.livingroom1
-        - light.livingroom4
 
 - alias: "Turn off all lights when everybody is Away"
   initial_state: "True"
