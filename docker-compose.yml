@@ -42,6 +42,27 @@ services:
     #  - home-assistant
     network_mode: host
     restart: always
+  node-exporter:
+    image: prom/node-exporter:v1.7.0
+    container_name: node_exporter
+    privileged: true
+    volumes:
+      - /:/rootfs:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+    command:
+      - "--path.procfs=/host/proc"
+      - "--path.sysfs=/host/sys"
+      - "--collector.filesystem.ignored-mount-points"
+      - "^/(rootfs/)?(dev|etc|host|proc|run|sys|volume1)($$|/)"
+    ports:
+      - 9100:9100/tcp
+    networks:
+      monitoring:
+        aliases:
+          - nas.bds.home.arpa
+    pid: host
+    restart: always
   prometheus:
     image: prom/prometheus:v2.48.0
     container_name: prometheus
