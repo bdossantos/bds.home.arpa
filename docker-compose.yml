@@ -64,7 +64,7 @@ services:
     pid: host
     restart: always
   prometheus:
-    image: prom/prometheus:v2.48.0
+    image: prom/prometheus:v2.48.1
     container_name: prometheus
     volumes:
       - /volume1/docker_datas/prometheus:/prometheus:rw
