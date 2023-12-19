@@ -18,15 +18,15 @@ git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
 * 1 * Module mini-GBiC SFP Multimode-Monomode/0.55-10km
 * 1 * Netgate SG-3100
 * 1 * Netgear GS308P-100PES Switch Gigabit Ethernet 8 Ports with 4 Ports PoE
+* 1 * Netgear EAX15
 * 5 * Philips Hue Go
 * 1 * Phillips Hue hub
 * 1 * Plugable Technologies USB-BT4LE Bluetooth
-* 1 * Raspberry Pi 3
 * 1 * Synology DiskStation DS720+
 * 1 * TP-Link HS100
 * 1 * TP-Link MC220L RJ45 Gigabit Converter
 * 4 * Philips Hue Motion Sensor
-* 2 * Sonos PLAY:3
+* 1 * Phantom II 95 dB
 * 6 * Phillips Hue bulbs
 
 ## Network
@@ -48,6 +48,8 @@ git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
     10.92.64.1 router.bds.home.arpa
     10.92.64.2 wifi.bds.home.arpa
     10.92.64.3 nas.bds.home.arpa
+    10.92.64.5 wifi-ext.bds.home.arpa
+    10.92.64.6 wifi-ext.bds.home.arpa
   10.92.65.0/24 humans
     10.92.65.1 troubleshootinator.bds.home.arpa
     10.92.65.2 smartphone.bds.home.arpa
