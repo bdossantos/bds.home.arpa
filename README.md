@@ -50,6 +50,7 @@ git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
     10.92.64.3 nas.bds.home.arpa
     10.92.64.5 wifi-ext.bds.home.arpa
     10.92.64.6 wifi-ext.bds.home.arpa
+    10.92.64.7 wifi-ext.bds.home.arpa
   10.92.65.0/24 humans
     10.92.65.1 troubleshootinator.bds.home.arpa
     10.92.65.2 smartphone.bds.home.arpa
