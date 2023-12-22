@@ -64,11 +64,11 @@
         data:
           color: green
 
-- alias: "Enforce Camera configuration missmatch (cron safeguard)"
+- alias: "Enforce Camera configuration missmatch when everybody is away (cron safeguard)"
   initial_state: "True"
   trigger:
     - platform: time_pattern
-      minutes: "/10"
+      minutes: "/5"
   condition:
     condition: and
     conditions:
@@ -100,6 +100,27 @@
         value: 50
     - service: notify.all_smartphones
       data:
-        message: Turn off Camera recording when we are home 📸
+        message: Turn on Camera recording when everybody is Away (safeguard cron) 📸
         data:
           color: green
+
+- alias: "Enforce Camera configuration missmatch when we are home (cron safeguard)"
+  initial_state: "True"
+  trigger:
+    - platform: time_pattern
+      minutes: "/5"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: "home"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.cam01_record
+    - service: switch.turn_off
+      entity_id: switch.cam01_record_audio
+    - service: switch.turn_off
+      entity_id: switch.cam01_ftp_upload
+    - service: switch.turn_off
+      entity_id: switch.cam01_push_notifications
