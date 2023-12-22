@@ -3,51 +3,46 @@ name: Sun gets dimmer
 entities:
   light.hall1:
     state: on
-    brightness_pct: 60
+    brightness_pct: 100
     transition: 120
     xy_color: [0.5639, 0.3904]
   light.corridor1:
     state: on
-    brightness_pct: 60
+    brightness_pct: 80
     transition: 120
     xy_color: [0.5639, 0.3904]
   light.corridor2:
     state: on
-    brightness_pct: 60
+    brightness_pct: 80
     transition: 120
     xy_color: [0.5639, 0.3904]
   light.bedroom2:
     state: on
-    brightness_pct: 40
+    brightness_pct: 90
     transition: 120
     xy_color: [0.5639, 0.3904]
   light.bedroom3:
     state: on
-    brightness_pct: 40
-    transition: 120
-    xy_color: [0.5639, 0.3904]
-  light.bathroom1:
-    state: on
-    brightness_pct: 40
+    brightness_pct: 90
     transition: 120
     xy_color: [0.5639, 0.3904]
   light.livingroom1:
     state: on
-    brightness_pct: 60
+    brightness_pct: 90
     transition: 120
     xy_color: [0.5639, 0.3904]
   light.livingroom2:
     state: on
-    brightness_pct: 60
+    brightness_pct: 90
     transition: 120
     xy_color: [0.5639, 0.3904]
   light.livingroom3:
     state: on
-    brightness_pct: 40
+    brightness_pct: 90
     transition: 120
     xy_color: [0.5639, 0.3904]
   light.livingroom4:
     state: on
-    brightness_pct: 40
+    brightness_pct: 90
     transition: 120
     xy_color: [0.5639, 0.3904]

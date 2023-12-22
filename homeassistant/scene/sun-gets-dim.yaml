@@ -3,11 +3,11 @@ name: Sun gets dim
 entities:
   light.hallway_lights:
     state: on
-    brightness_pct: 50
+    brightness_pct: 70
     transition: 10
     xy_color: [0.5639, 0.3904]
   light.candle_lights:
     state: on
-    brightness_pct: 40
+    brightness_pct: 60
     transition: 10
     xy_color: [0.5639, 0.3904]
