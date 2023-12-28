@@ -229,7 +229,8 @@ group:
   all_media_players:
     name: All media players
     entities:
-      - media_player.living_room
+      - media_player.phantomii_livingroom
+      - media_player.tv
   all_switchs:
     name: All switchs
     entities:
