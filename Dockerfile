@@ -29,7 +29,7 @@ RUN set -eux \
     libswresample-dev=7:5.1.3-1 \
     libswscale-dev=7:5.1.3-1 \
     libturbojpeg0=1:2.1.5-2 \
-    libudev-dev=252.17-1~deb12u1 \
+    libudev-dev=252.19-1~deb12u1 \
     libuv1-dev=1.44.2-1 \
     libxrandr-dev=2:1.5.2-2+b1 \
     sqlite3=3.40.1-2 \
