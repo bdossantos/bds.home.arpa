@@ -1,13 +1,4 @@
 ---
-- platform: google_wifi
-  host: 10.92.64.2
-  monitored_conditions:
-    - current_version
-    - new_version
-    - uptime
-    - last_restart
-    - status
-
 - platform: systemmonitor
   resources:
     - type: disk_use_percent
