@@ -91,7 +91,7 @@ RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
     ca-certificates=20230311 \
-    ffmpeg=7:5.1.3-1 \
+    ffmpeg=7:5.1.4-0+deb12u1 \
     iperf3=3.12-1+deb12u1 \
     iputils-ping=3:20221126-1 \
     libturbojpeg0=1:2.1.5-2 \
