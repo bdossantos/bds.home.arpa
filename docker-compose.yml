@@ -2,29 +2,6 @@
 version: "3"
 
 services:
-  netdata:
-    image: netdata/netdata:v1.42.1
-    container_name: netdata
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - apparmor:unconfined
-    volumes:
-      - /dev/bus/usb:/dev/bus/usb:ro
-      - /etc/localtime:/etc/localtime:ro
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /volume1/docker_datas/netdata/config:/etc/netdata:rw
-      - /volume1/docker_datas/netdata/log:/var/log/netdata:rw
-      - /volume1/homes/admin/Code/bds.home.arpa/scripts/netdata:/netdata
-    env_file:
-      - /volume1/homes/admin/Code/bds.home.arpa/.env
-    ports:
-      - 19999:19999/tcp
-    networks:
-      - monitoring
-    restart: always
   home-assistant:
     image: bdossantos/home-assistant:latest
     container_name: home-assistant
