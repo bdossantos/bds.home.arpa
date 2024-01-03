@@ -3,4 +3,5 @@
   id: gf
   device_trackers:
     - device_tracker.gf
+    - device_tracker.gf_smartphone
     - device_tracker.gf_pro_laptop_ethernet
