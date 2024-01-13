@@ -2,4 +2,6 @@
 - name: Benjamin
   id: bdossantos
   device_trackers:
+    - device_tracker.smartphone
     - device_tracker.fecc7fb1_7194_4a02_90c5_cc19ee34d9e9
+    - device_tracker.smartphone_bds_home_arpa
