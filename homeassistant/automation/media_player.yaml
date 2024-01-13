@@ -15,7 +15,7 @@
         entity_id: input_boolean.guest_mode
         state: "off"
   action:
-    - service: media_player.media_stop
+    - service: media_player.turn_off
       entity_id: group.all_media_players
     - service: notify.all_smartphones
       data:
