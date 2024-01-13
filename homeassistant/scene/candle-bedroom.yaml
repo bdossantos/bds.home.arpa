@@ -16,12 +16,12 @@ entities:
     transition: 10
   light.bedroom2:
     state: on
-    brightness_pct: 40
+    brightness_pct: 70
     xy_color: [0.5639, 0.3904]
     transition: 10
   light.bedroom3:
     state: on
-    brightness_pct: 40
+    brightness_pct: 70
     xy_color: [0.5639, 0.3904]
     transition: 10
   light.bathroom1:
