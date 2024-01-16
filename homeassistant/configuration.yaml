@@ -257,7 +257,7 @@ notify:
   - name: all_smartphones
     platform: group
     services:
-      - service: mobile_app_pixel_5
+      - service: mobile_app_fecc7fb1_7194_4a02_90c5_cc19ee34d9e9
 
 zone:
   - name: Work
