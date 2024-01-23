@@ -147,6 +147,20 @@ services:
     networks:
       - paperless
     restart: always
+  anki:
+    image: bdossantos/anki:23.12.1-d2f4fed
+    container_name: anki
+    ports:
+      - 8081:8080/tcp
+    volumes:
+      - /volume1/docker_datas/anki/data:/data
+    environment:
+      - SYNC_BASE=/data
+    env_file:
+      - /volume1/docker_datas/anki/.env
+    networks:
+      - anki
+    restart: always
 
 networks:
   home-assistant:
@@ -167,3 +181,9 @@ networks:
       config:
         - subnet: 172.12.0.0/16
           gateway: 172.12.0.1
+  anki:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.13.0.0/16
+          gateway: 172.13.0.1
