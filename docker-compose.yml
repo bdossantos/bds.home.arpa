@@ -69,7 +69,7 @@ services:
       - monitoring
     restart: always
   paperless-ngx:
-    image: bdossantos/paperless-ngx:2.4.0-b702234
+    image: bdossantos/paperless-ngx:2.4.1-0ce6f06
     container_name: paperless
     depends_on:
       - paperless-broker
