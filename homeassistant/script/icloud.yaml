@@ -4,7 +4,6 @@ update_icloud_bds:
   sequence:
     - condition: template
       value_template: "{{ not is_state('device_tracker.fecc7fb1_7194_4a02_90c5_cc19ee34d9e9', 'home') }}"
-    - service: icloud.update_icloud
+    - service: icloud.update
       data:
-        accountname: !secret icloud_bds_accountname
-        devicename: FECC7FB1-7194-4A02-90C5-CC19EE34D9E9
+        account: !secret icloud_bds_accountname
