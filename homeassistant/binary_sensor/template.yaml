@@ -1,6 +1,1 @@
 ---
-- platform: template
-  sensors:
-    time_in_bed_template:
-      friendly_name: "Time in bed"
-      value_template: "{{ states.sensor.time_in_bed.attributes.value }}"

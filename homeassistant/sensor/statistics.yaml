@@ -23,12 +23,3 @@
   name: kitchen_luminance
   state_characteristic: mean
   sampling_size: 20
-
-- platform: history_stats
-  name: Time in bed
-  entity_id: binary_sensor.in_bed
-  state: "on"
-  type: time
-  end: "{{ now() }}"
-  duration:
-    hours: 24
