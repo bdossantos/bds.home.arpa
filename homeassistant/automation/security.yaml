@@ -4,6 +4,7 @@
   trigger:
     platform: state
     entity_id:
+      - binary_sensor.cam01_motion
       - binary_sensor.hue_motion_sensor_hallway_motion
       - binary_sensor.hue_motion_sensor_kitchen_motion
     to: "on"
@@ -22,3 +23,24 @@
         message: Intrusion detected!
         data:
           color: red
+
+- alias: "Update icloud Location when hallway motion detection"
+  initial_state: "True"
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.cam01_motion
+      - binary_sensor.hue_motion_sensor_hallway_motion
+      - binary_sensor.hue_motion_sensor_kitchen_motion
+    to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: "not_home"
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: "off"
+  action:
+    - service: script.update_icloud_bds
