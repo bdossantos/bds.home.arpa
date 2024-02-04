@@ -1,6 +1,6 @@
 ---
 update_icloud_bds:
-  name: Update BDS icloud Location
+  alias: Update BDS icloud Location
   sequence:
     - condition: template
       value_template: "{{ not is_state('device_tracker.fecc7fb1_7194_4a02_90c5_cc19ee34d9e9', 'home') }}"
