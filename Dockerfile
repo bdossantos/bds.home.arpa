@@ -30,7 +30,7 @@ RUN set -eux \
     libswscale-dev=7:5.1.4-0+deb12u1 \
     libturbojpeg0=1:2.1.5-2 \
     libudev-dev=252.22-1~deb12u1 \
-    libuv1-dev=1.44.2-1 \
+    libuv1-dev=1.44.2-1+deb12u1 \
     libxrandr-dev=2:1.5.2-2+b1 \
     sqlite3=3.40.1-2 \
     swig=4.1.0-0.2 \
