@@ -47,7 +47,7 @@ RUN set -eux \
       grpcio==1.54.2 \
       homeassistant=="${VERSION}" \
       numpy==1.26.2 \
-      pillow==9.5.0 \
+      pillow==10.3.0 \
       pip==23.1.2 \
       psycopg2-binary==2.9.6 \
       sqlalchemy==2.0.15 \
