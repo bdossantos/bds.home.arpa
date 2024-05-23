@@ -49,7 +49,7 @@ RUN set -eux \
       numpy==1.26.2 \
       pillow==10.3.0 \
       pip==23.1.2 \
-      psycopg2-binary==2.9.6 \
+      psycopg2-binary==2.9.9 \
       sqlalchemy==2.0.30 \
       webrtcvad==2.0.10 \
       wheel==0.40.0 \
