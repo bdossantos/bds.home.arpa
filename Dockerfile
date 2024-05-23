@@ -22,7 +22,7 @@ RUN set -eux \
     libavformat-dev=7:5.1.4-0+deb12u1 \
     libavutil-dev=7:5.1.4-0+deb12u1 \
     libcurl4-openssl-dev=7.88.1-10+deb12u5 \
-    libglib2.0-dev=2.74.6-2 \
+    libglib2.0-dev=2.74.6-2+deb12u2 \
     libgmp-dev=2:6.2.1+dfsg1-1.1 \
     libmpc-dev=1.3.1-1 \
     libmpfr-dev=4.2.0-1 \
