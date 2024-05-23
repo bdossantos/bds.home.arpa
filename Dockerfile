@@ -38,7 +38,7 @@ RUN set -eux \
   && pip install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
-      aiodiscover==1.4.16 \
+      aiodiscover==2.1.0 \
       cython==0.29.35 \
       fnvhash==0.1.0 \
       google-api-core==2.11.0 \
