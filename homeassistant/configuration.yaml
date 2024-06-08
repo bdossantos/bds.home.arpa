@@ -36,10 +36,6 @@ http:
     - 10.92.64.1
     - 10.92.64.254
 
-mobile_app:
-
-conversation:
-
 history:
 
 logbook:
