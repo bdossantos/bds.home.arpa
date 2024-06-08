@@ -50,7 +50,7 @@ RUN set -eux \
       pillow==10.3.0 \
       pip==23.1.2 \
       psycopg2-binary==2.9.9 \
-      sqlalchemy==2.0.29 \
+      sqlalchemy==2.0.30 \
       webrtcvad==2.0.10 \
       wheel==0.40.0 \
   && apt-get clean \
