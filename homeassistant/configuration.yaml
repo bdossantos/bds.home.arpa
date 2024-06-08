@@ -44,8 +44,6 @@ history:
 
 logbook:
 
-map:
-
 prometheus:
   filter:
     include_entity_globs:
