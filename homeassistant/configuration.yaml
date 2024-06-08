@@ -81,14 +81,13 @@ homekit:
     include_entity_globs:
       - light.bathroom*
       - light.bedroom*
-      - light.dressing*
       - light.hallway*
       - light.kitchen*
       - light.livingroom*
+      - media_player.living_room*
     include_entities:
       - input_boolean.guest_mode
       - input_boolean.vacation_mode
-      - media_player.bedroom
       - media_player.living_room
       - person.benjamin
       - person.gf
@@ -96,13 +95,13 @@ homekit:
     camera.cam01:
       video_codec: copy
       support_audio: True
-    media_player.bedroom:
+    media_player.living_room:
       feature_list:
         - feature: on_off
         - feature: play_pause
         - feature: play_stop
         - feature: toggle_mute
-    media_player.living_room:
+    media_player.living_room_2:
       feature_list:
         - feature: on_off
         - feature: play_pause
