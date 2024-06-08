@@ -17,7 +17,7 @@
         entity_id: group.family
         state: "home"
       - condition: state
-        entity_id: light.livingroom_lights
+        entity_id: light.livingroom
         state: "off"
   action:
     - service: scene.turn_on
@@ -150,7 +150,7 @@
       entity_id: switch.smartplug_kitchen1
     - service: light.turn_off
       entity_id:
-        - light.kitchen_lights
+        - light.kitchen
 
 - alias: "Turn on dressing lights when there is a movement"
   trigger:
@@ -167,7 +167,7 @@
     - service: light.turn_on
       data_template:
         entity_id:
-          - light.dressing_lights
+          - light.dressing
         color_temp: >
           {%- if now().strftime('%H') | int >= 20 %}
             450
@@ -201,7 +201,7 @@
   action:
     - service: light.turn_off
       entity_id:
-        - light.dressing_lights
+        - light.dressing
 
 - alias: "Turn on living room lights when there is a movement and when dark"
   trigger:

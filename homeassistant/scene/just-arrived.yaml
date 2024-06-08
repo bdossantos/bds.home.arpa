@@ -1,21 +1,19 @@
 ---
 name: Just arrived
 entities:
-  switch.smartplug_kitchen1:
-    state: off
-  light.dressing_lights:
-    state: off
-  light.kitchen_lights:
-    state: off
-  light.hallway_lights:
+  light.hallway:
     state: on
     brightness_pct: 100
     xy_color: [0.5639, 0.3904]
-  light.livingroom_lights:
+  light.kitchen:
     state: on
     brightness_pct: 100
     xy_color: [0.5639, 0.3904]
-  light.bedroom_lights:
+  light.livingroom:
+    state: on
+    brightness_pct: 100
+    xy_color: [0.5639, 0.3904]
+  light.bedroom:
     state: on
     brightness_pct: 100
     xy_color: [0.5639, 0.3904]

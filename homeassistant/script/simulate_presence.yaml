@@ -2,11 +2,14 @@
 simulate_presence:
   alias: "Simulate Presence"
   sequence:
-    - service: scene.turn_on
-      entity_id: scene.candle
+    - service: light.turn_on
+      entity_id: light.kitchen
+      data_template:
+        rgb_color: [255, 255, 255]
+        brightness_pct: "{{ (range(20, 100)|random|int) }}"
     - delay: "00:00:{{ (range(1, 59)|random|int) }}"
     - service: light.turn_on
-      entity_id: light.hall1
+      entity_id: light.hallway
       data_template:
         rgb_color: [255, 255, 255]
         brightness_pct: "{{ (range(20, 100)|random|int) }}"

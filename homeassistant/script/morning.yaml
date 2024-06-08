@@ -3,7 +3,7 @@ morning:
   alias: "Morning routine"
   sequence:
     - service: light.turn_on
-      entity_id: light.bedroom_lights
+      entity_id: light.bedroom
       data:
         transition: 900
         profile: energize

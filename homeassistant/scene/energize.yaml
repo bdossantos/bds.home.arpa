@@ -1,9 +1,0 @@
----
-name: Energize
-entities:
-  group.dressing:
-    state: off
-  group.all_lights:
-    state: on
-    brightness_pct: 203
-    xy_color: [0.368, 0.3686]

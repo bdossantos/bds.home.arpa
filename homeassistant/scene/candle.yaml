@@ -1,16 +1,16 @@
 ---
 name: Candle
 entities:
-  light.hallway_lights:
+  light.hallway:
     state: off
     transition: 10
   light.dressing_lights:
     state: off
     transition: 10
-  light.kitchen_lights:
+  light.kitchen:
     state: off
     transition: 10
-  light.bedroom1:
+  light.bedroom:
     state: off
     transition: 10
   light.candle_lights:

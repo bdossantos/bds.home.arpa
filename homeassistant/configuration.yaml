@@ -194,17 +194,6 @@ group:
       - binary_sensor.hue_motion_sensor_dressing2_motion
       - sensor.hue_motion_sensor_dressing2_illuminance
       - sensor.hue_motion_sensor_dressing2_temperature
-  scenes:
-    name: Scenes
-    entities:
-      - scene.nightlight
-      - scene.candle
-      - scene.candle_bedroom
-      - scene.relax
-      - scene.concentrate
-      - scene.reading
-      - scene.energize
-      - scene.arctic
   ups:
     name: APC BE700G
     entities:

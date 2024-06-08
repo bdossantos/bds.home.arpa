@@ -1,7 +1,7 @@
 ---
 name: Sun gets dim
 entities:
-  light.hallway_lights:
+  light.hallway:
     state: on
     brightness_pct: 80
     transition: 10
