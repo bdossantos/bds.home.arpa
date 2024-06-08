@@ -60,6 +60,9 @@ git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
     10.92.66.4 smartplug-kitchen.bds.home.arpa
     10.92.66.5 hot-water-cylinder.bds.home.arpa
     10.92.66.6 nest-protect.bds.home.arpa
+    10.92.66.7 tv.bds.home.arpa
+    10.92.66.8 dyson-pure-hot-cool01.bds.home.arpa
+    10.92.66.9 apple-tv.bds.home.arpa
   10.92.67.0/24 Guest ?
 ```
 
