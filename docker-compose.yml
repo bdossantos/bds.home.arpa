@@ -148,7 +148,7 @@ services:
       - paperless
     restart: always
   anki:
-    image: bdossantos/anki:23.12.1-d2f4fed
+    image: bdossantos/anki:24.6.2-792e399
     container_name: anki
     ports:
       - 8081:8080/tcp
