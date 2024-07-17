@@ -69,7 +69,7 @@ services:
       - monitoring
     restart: always
   paperless-ngx:
-    image: bdossantos/paperless-ngx:2.10.1-500874d
+    image: bdossantos/paperless-ngx:2.11.0-7c6d638
     container_name: paperless
     depends_on:
       - paperless-broker
@@ -126,7 +126,7 @@ services:
       - paperless
     restart: always
   paperless-gotenberg:
-    image: docker.io/gotenberg/gotenberg:7.8
+    image: docker.io/gotenberg/gotenberg:8.7
     container_name: paperless-gotenberg
     command:
       - "gotenberg"
