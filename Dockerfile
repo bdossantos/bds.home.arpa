@@ -21,7 +21,7 @@ RUN set -eux \
     libavfilter-dev=7:5.1.6-0+deb12u1 \
     libavformat-dev=7:5.1.6-0+deb12u1 \
     libavutil-dev=7:5.1.6-0+deb12u1 \
-    libcurl4-openssl-dev=7.88.1-10+deb12u6 \
+    libcurl4-openssl-dev=7.88.1-10+deb12u7 \
     libglib2.0-dev=2.74.6-2+deb12u3 \
     libgmp-dev=2:6.2.1+dfsg1-1.1 \
     libmpc-dev=1.3.1-1 \
