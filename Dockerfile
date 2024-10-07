@@ -16,18 +16,18 @@ RUN set -eux \
   && apt-get install -y --no-install-recommends \
     build-essential=12.9 \
     cmake=3.25.1-1 \
-    libavcodec-dev=7:5.1.5-0+deb12u1 \
-    libavdevice-dev=7:5.1.5-0+deb12u1 \
-    libavfilter-dev=7:5.1.5-0+deb12u1 \
-    libavformat-dev=7:5.1.5-0+deb12u1 \
-    libavutil-dev=7:5.1.5-0+deb12u1 \
+    libavcodec-dev=7:5.1.6-0+deb12u1 \
+    libavdevice-dev=7:5.1.6-0+deb12u1 \
+    libavfilter-dev=7:5.1.6-0+deb12u1 \
+    libavformat-dev=7:5.1.6-0+deb12u1 \
+    libavutil-dev=7:5.1.6-0+deb12u1 \
     libcurl4-openssl-dev=7.88.1-10+deb12u6 \
     libglib2.0-dev=2.74.6-2+deb12u3 \
     libgmp-dev=2:6.2.1+dfsg1-1.1 \
     libmpc-dev=1.3.1-1 \
     libmpfr-dev=4.2.0-1 \
-    libswresample-dev=7:5.1.5-0+deb12u1 \
-    libswscale-dev=7:5.1.5-0+deb12u1 \
+    libswresample-dev=7:5.1.6-0+deb12u1 \
+    libswscale-dev=7:5.1.6-0+deb12u1 \
     libturbojpeg0=1:2.1.5-2 \
     libudev-dev=252.26-1~deb12u2 \
     libuv1-dev=1.44.2-1+deb12u1 \
@@ -91,7 +91,7 @@ RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
     ca-certificates=20230311 \
-    ffmpeg=7:5.1.5-0+deb12u1 \
+    ffmpeg=7:5.1.6-0+deb12u1 \
     iperf3=3.12-1+deb12u1 \
     iputils-ping=3:20221126-1 \
     libturbojpeg0=1:2.1.5-2 \
