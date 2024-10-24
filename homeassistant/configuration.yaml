@@ -236,6 +236,8 @@ script: !include_dir_merge_named script
 
 input_boolean: !include input_boolean.yaml
 
+mobile_app:
+
 notify:
   - name: all_smartphones
     platform: group
