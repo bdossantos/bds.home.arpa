@@ -24,6 +24,7 @@ RUN set -eux \
     libcurl4-openssl-dev=7.88.1-10+deb12u7 \
     libglib2.0-dev=2.74.6-2+deb12u3 \
     libgmp-dev=2:6.2.1+dfsg1-1.1 \
+    libjpeg-turbo==1:2.1.5-2 \
     libmpc-dev=1.3.1-1 \
     libmpfr-dev=4.2.0-1 \
     libswresample-dev=7:5.1.6-0+deb12u1 \
@@ -95,7 +96,8 @@ RUN set -eux \
     ffmpeg=7:5.1.6-0+deb12u1 \
     iperf3=3.12-1+deb12u1 \
     iputils-ping=3:20221126-1 \
-    libturbojpeg0=1:2.1.5-2 \
+    libjpeg-turbo==1:2.1.5-2 \
+    libmpc-dev=1.3.1-1 \
     net-tools=2.10-0.1 \
     nmap=7.93+dfsg1-1 \
     nut-client=2.8.0-7 \
