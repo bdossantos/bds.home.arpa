@@ -50,6 +50,7 @@ RUN set -eux \
       numpy==1.26.4 \
       pillow==10.4.0 \
       pip==23.1.2 \
+      PyTurboJPEG==1.7.7 \
       psycopg2-binary==2.9.9 \
       pyspeex-noise==1.0.2 \
       webrtcvad==2.0.10 \
