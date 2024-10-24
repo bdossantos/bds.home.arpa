@@ -50,6 +50,7 @@ RUN set -eux \
       pillow==10.4.0 \
       pip==23.1.2 \
       psycopg2-binary==2.9.9 \
+      pyspeex-noise==1.0.2 \
       webrtcvad==2.0.10 \
       wheel==0.40.0 \
   && apt-get clean \
