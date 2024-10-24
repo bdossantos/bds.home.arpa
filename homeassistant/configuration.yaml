@@ -238,6 +238,8 @@ input_boolean: !include input_boolean.yaml
 
 mobile_app:
 
+ios:
+
 notify:
   - name: all_smartphones
     platform: group
