@@ -101,12 +101,6 @@ homekit:
         - feature: play_pause
         - feature: play_stop
         - feature: toggle_mute
-    media_player.living_room_2:
-      feature_list:
-        - feature: on_off
-        - feature: play_pause
-        - feature: play_stop
-        - feature: toggle_mute
 
 group:
   default_view:
@@ -144,7 +138,6 @@ group:
       - light.bedroom1
       - light.bedroom2
       - light.bedroom3
-      - media_player.bedroom
   hall:
     name: Hall
     entities:
