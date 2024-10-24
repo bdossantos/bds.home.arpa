@@ -97,7 +97,7 @@ RUN set -eux \
     ffmpeg=7:5.1.6-0+deb12u1 \
     iperf3=3.12-1+deb12u1 \
     iputils-ping=3:20221126-1 \
-    libjpeg-turbo==1:2.1.5-2 \
+    libjpeg-turbo=1:2.1.5-2 \
     libmpc-dev=1.3.1-1 \
     net-tools=2.10-0.1 \
     nmap=7.93+dfsg1-1 \
