@@ -161,6 +161,19 @@ services:
     networks:
       - anki
     restart: always
+  radicale:
+    image: bdossantos/radicale:3.3.0-c1734bc
+    container_name: radicale
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /volume1/docker_datas/radicale/data:/data
+      - /volume1/docker_datas/radicale/users:/config/users:ro
+    shm_size: 8M
+    ports:
+      - 5232:5232/tcp
+    networks:
+      - radicale
+    restart: always
 
 networks:
   home-assistant:
@@ -187,3 +200,9 @@ networks:
       config:
         - subnet: 172.13.0.0/16
           gateway: 172.13.0.1
+  radicale:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.14.0.0/16
+          gateway: 172.14.0.1
