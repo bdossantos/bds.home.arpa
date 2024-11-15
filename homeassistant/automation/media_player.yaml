@@ -16,9 +16,9 @@
         state: "off"
   action:
     - service: media_player.turn_off
-      entity_id: media_player.tv
-    - service: media_player.media_stop
-      entity_id: media_player.living_room
+      entity_id: media_player.apple_tv_livingroom
+    - service: media_player.media_pause
+      entity_id: media_player.living_room_2
     - service: notify.all_smartphones
       data:
         message: All media players was turned off 🔇
