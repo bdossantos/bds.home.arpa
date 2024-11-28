@@ -67,8 +67,8 @@
       target:
         entity_id:
           - scene.hallway_relax
-          - scene.livingroom_relax
-          - scene.kitchen_relax
+          - scene.livingroom_read
+          - scene.kitchen_read
 
 - alias: "Turn off all lights when everybody is Away"
   initial_state: "True"
