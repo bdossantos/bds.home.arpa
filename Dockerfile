@@ -21,6 +21,7 @@ RUN set -eux \
     libavfilter-dev=7:5.1.6-0+deb12u1 \
     libavformat-dev=7:5.1.6-0+deb12u1 \
     libavutil-dev=7:5.1.6-0+deb12u1 \
+    libbluetooth-dev=5.66-1+deb12u2 \
     libcurl4-openssl-dev=7.88.1-10+deb12u7 \
     libglib2.0-dev=2.74.6-2+deb12u3 \
     libgmp-dev=2:6.2.1+dfsg1-1.1 \
@@ -52,6 +53,7 @@ RUN set -eux \
       PyTurboJPEG==1.7.7 \
       psycopg2-binary==2.9.9 \
       pyspeex-noise==1.0.2 \
+      pybluez==0.23 \
       webrtcvad==2.0.10 \
       wheel==0.40.0 \
   && apt-get clean \
@@ -92,10 +94,12 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
+    bluetooth=5.66-1+deb12u2 \
     ca-certificates=20230311 \
     ffmpeg=7:5.1.6-0+deb12u1 \
     iperf3=3.12-1+deb12u1 \
     iputils-ping=3:20221126-1 \
+    libbluetooth3=5.66-1+deb12u2 \
     libmpc-dev=1.3.1-1 \
     libturbojpeg0=1:2.1.5-2 \
     net-tools=2.10-0.1 \
