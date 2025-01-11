@@ -1,6 +1,0 @@
----
-- platform: cert_expiry
-  host: bds.run
-
-- platform: cert_expiry
-  host: b-ds.fr
