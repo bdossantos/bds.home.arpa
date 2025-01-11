@@ -8,6 +8,7 @@ services:
     volumes:
       - /dev/bus/usb:/dev/bus/usb:ro
       - /etc/localtime:/etc/localtime:ro
+      - /var/run/dbus:/run/dbus:ro
       - /volume1/homes/admin/Code/bds.home.arpa/homeassistant:/config:rw
     environment:
       - TZ=Europe/Paris
