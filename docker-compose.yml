@@ -21,7 +21,7 @@ services:
     network_mode: host
     restart: always
   node-exporter:
-    image: prom/node-exporter:v1.8.1
+    image: prom/node-exporter:v1.8.2@sha256:4032c6d5bfd752342c3e631c2f1de93ba6b86c41db6b167b9a35372c139e7706
     container_name: node_exporter
     privileged: true
     volumes:
@@ -42,7 +42,7 @@ services:
     pid: host
     restart: always
   prometheus:
-    image: prom/prometheus:v2.55.0
+    image: prom/prometheus:v3.1.0@sha256:6559acbd5d770b15bb3c954629ce190ac3cbbdb2b7f1c30f0385c4e05104e218
     container_name: prometheus
     volumes:
       - /volume1/docker_datas/prometheus:/prometheus:rw
@@ -56,7 +56,7 @@ services:
       - monitoring
     restart: always
   grafana:
-    image: grafana/grafana:11.3.0
+    image: grafana/grafana:11.4.0@sha256:d8ea37798ccc41061a62ab080f2676dda6bf7815558499f901bdb0f533a456fb
     container_name: grafana
     volumes:
       - /volume1/docker_datas/grafana:/var/lib/grafana
@@ -70,7 +70,7 @@ services:
       - monitoring
     restart: always
   paperless-ngx:
-    image: bdossantos/paperless-ngx:2.13.5-dc5a51a
+    image: bdossantos/paperless-ngx:2.13.5-18e3c2b@sha256:d6d374bf66bd8916400764c008500d8d00365d75f2cec371ac9076c53f977606
     container_name: paperless
     depends_on:
       - paperless-broker
@@ -102,7 +102,7 @@ services:
       - paperless
     restart: always
   paperless-db:
-    image: postgres:14-bookworm
+    image: postgres:14-bookworm@sha256:7fe0928f6de61208d6b39730456085d74578046df4c684fa198f0fb065f4381e
     container_name: paperless-db
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -119,7 +119,7 @@ services:
       - paperless
     restart: always
   paperless-broker:
-    image: redis:7.2-bookworm
+    image: redis:7.4-bookworm@sha256:ca65ea36ae16e709b0f1c7534bc7e5b5ac2e5bb3c97236e4fec00e3625eb678d
     container_name: paperless-broker
     ports:
       - 6379:6379/tcp
@@ -127,7 +127,7 @@ services:
       - paperless
     restart: always
   paperless-gotenberg:
-    image: docker.io/gotenberg/gotenberg:8.7
+    image: docker.io/gotenberg/gotenberg:8.15@sha256:cec2b75259ea1828bc473521b83c1d4e4a6c45209c56bd6bb0f98f79c071e70d
     container_name: paperless-gotenberg
     command:
       - "gotenberg"
@@ -149,7 +149,7 @@ services:
       - paperless
     restart: always
   anki:
-    image: bdossantos/anki:24.6.3-7118a8b
+    image: bdossantos/anki:24.6.3-18e3c2b@sha256:91b13d0a90ad6fb2a2db14398fd0f182dbd83280b93099380c151d4a5a0c9604
     container_name: anki
     ports:
       - 8081:8080/tcp
@@ -163,7 +163,7 @@ services:
       - anki
     restart: always
   radicale:
-    image: bdossantos/radicale:3.3.2-dc5a51a
+    image: bdossantos/radicale:3.4.0-18e3c2b@sha256:715181b6bd20bb01c619665d7610b58dbaad8282efe0aeb602215a11a4c1f55c
     container_name: radicale
     volumes:
       - /etc/localtime:/etc/localtime:ro
