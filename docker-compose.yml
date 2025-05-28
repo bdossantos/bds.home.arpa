@@ -70,7 +70,7 @@ services:
       - monitoring
     restart: always
   paperless-ngx:
-    image: bdossantos/paperless-ngx:2.15.3-06009f8@sha256:432265fbb3b88444fdd263b2ba4b3faaec597c9303609f962647fc2d116e50f7
+    image: bdossantos/paperless-ngx:2.16.2-9c02c99@sha256:72af13e2dafa7020fd087726fa62edcd446fec5a44c059908c61c159c933dd3c
     container_name: paperless
     depends_on:
       - paperless-broker
@@ -163,7 +163,7 @@ services:
       - anki
     restart: always
   radicale:
-    image: bdossantos/radicale:3.4.0-18e3c2b@sha256:715181b6bd20bb01c619665d7610b58dbaad8282efe0aeb602215a11a4c1f55c
+    image: bdossantos/radicale:3.5.4-9c02c99@sha256:9a3f28928776aaca3e90cf50ffd6439ddfe4852d8ff8cbcd54d3e379ab503725
     container_name: radicale
     volumes:
       - /etc/localtime:/etc/localtime:ro
