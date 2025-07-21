@@ -27,6 +27,8 @@
       entity_id: switch.cam01_push_notifications
     - service: switch.turn_on
       entity_id: light.cam01_infra_red_lights_in_night_mode
+    - service: switch.turn_off
+      entity_id: switch.cam01_siren_on_event
     - service: number.set_value
       entity_id: number.cam01_motion_sensitivity
       data:
@@ -58,6 +60,8 @@
       entity_id: switch.cam01_ftp_upload
     - service: switch.turn_off
       entity_id: switch.cam01_push_notifications
+    - service: switch.turn_off
+      entity_id: switch.cam01_siren_on_event
     - service: notify.all_smartphones
       data:
         message: Turn off Camera recording when we are home 📸
@@ -94,6 +98,8 @@
       entity_id: switch.cam01_push_notifications
     - service: switch.turn_on
       entity_id: light.cam01_infra_red_lights_in_night_mode
+    - service: switch.turn_off
+      entity_id: switch.cam01_siren_on_event
     - service: number.set_value
       entity_id: number.cam01_motion_sensitivity
       data:
@@ -124,3 +130,5 @@
       entity_id: switch.cam01_ftp_upload
     - service: switch.turn_off
       entity_id: switch.cam01_push_notifications
+    - service: switch.turn_off
+      entity_id: switch.cam01_siren_on_event
