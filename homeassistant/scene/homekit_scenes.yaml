@@ -1,0 +1,170 @@
+---
+# HomeKit-optimized scenes for better iOS integration
+# These scenes work well with HomeKit automation and shortcuts
+
+- name: "Good Morning"
+  icon: "mdi:weather-sunny"
+  entities:
+    light.bedroom1:
+      state: on
+      brightness: 153  # 60%
+      color_temp: 400  # Warm white
+      transition: 30
+    light.hall1:
+      state: on
+      brightness: 153
+      color_temp: 400
+      transition: 30
+    light.lightstripkitchen1:
+      state: on
+      brightness: 153
+      color_temp: 400
+      transition: 30
+    switch.smartplug_kitchen1:
+      state: on
+
+- name: "Good Night"
+  icon: "mdi:weather-night"
+  entities:
+    light.hall1:
+      state: off
+      transition: 10
+    light.lightstripkitchen1:
+      state: off
+      transition: 10
+    light.livingroom1:
+      state: off
+      transition: 10
+    light.bedroom1:
+      state: off
+      transition: 10
+    light.bedroom2:
+      state: on
+      brightness: 51   # 20%
+      color_temp: 500  # Very warm
+      transition: 15
+    light.bedroom3:
+      state: on
+      brightness: 51
+      color_temp: 500
+      transition: 15
+    media_player.living_room:
+      state: off
+    switch.smartplug_kitchen1:
+      state: off
+
+- name: "Movie Time"
+  icon: "mdi:movie-open"
+  entities:
+    light.hall1:
+      state: off
+      transition: 5
+    light.lightstripkitchen1:
+      state: off
+      transition: 5
+    light.livingroom1:
+      state: on
+      brightness: 38   # 15%
+      color_temp: 500  # Warm
+      transition: 5
+    light.bedroom1:
+      state: off
+    light.bedroom2:
+      state: off
+    light.bedroom3:
+      state: off
+    media_player.living_room:
+      state: on
+
+- name: "Candle Light"
+  icon: "mdi:candle"
+  entities:
+    light.hall1:
+      state: off
+      transition: 5
+    light.lightstripkitchen1:
+      state: off
+      transition: 5
+    light.bedroom1:
+      state: off
+      transition: 5
+    light.bedroom2:
+      state: on
+      brightness: 64   # 25%
+      color_temp: 500
+      transition: 10
+    light.bedroom3:
+      state: on
+      brightness: 64
+      color_temp: 500
+      transition: 10
+    light.livingroom1:
+      state: on
+      brightness: 64
+      color_temp: 500
+      transition: 10
+
+- name: "All Off"
+  icon: "mdi:power"
+  entities:
+    light.bedroom1:
+      state: off
+      transition: 5
+    light.bedroom2:
+      state: off
+      transition: 5
+    light.bedroom3:
+      state: off
+      transition: 5
+    light.hall1:
+      state: off
+      transition: 5
+    light.lightstripkitchen1:
+      state: off
+      transition: 5
+    light.livingroom1:
+      state: off
+      transition: 5
+    switch.smartplug_kitchen1:
+      state: off
+    media_player.living_room:
+      state: off
+
+- name: "Welcome Home"
+  icon: "mdi:home-import-outline"
+  entities:
+    light.hall1:
+      state: on
+      brightness: 191  # 75%
+      transition: 3
+    light.livingroom1:
+      state: on
+      brightness: 191
+      transition: 3
+    # Kitchen light will be handled by automation based on time
+
+- name: "Energy Save"
+  icon: "mdi:leaf"
+  entities:
+    light.bedroom1:
+      state: off
+      transition: 5
+    light.bedroom2:
+      state: off
+      transition: 5
+    light.bedroom3:
+      state: off
+      transition: 5
+    light.hall1:
+      state: off
+      transition: 5
+    light.lightstripkitchen1:
+      state: off
+      transition: 5
+    light.livingroom1:
+      state: off
+      transition: 5
+    switch.smartplug_kitchen1:
+      state: off
+    media_player.living_room:
+      state: off

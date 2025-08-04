@@ -17,6 +17,11 @@ logger:
   default: warning
   logs:
     homeassistant.components.http.ban: warning
+    # HomeKit logging for better debugging and monitoring
+    homeassistant.components.homekit: info
+    homeassistant.components.homekit.accessories: warning
+    homeassistant.components.homekit.util: warning
+    pyhap: warning
 
 system_health:
 
@@ -83,35 +88,178 @@ binary_sensor: !include_dir_merge_list binary_sensor
 device_tracker: !include_dir_merge_list device_tracker
 
 homekit:
+  # Network configuration for HomeKit bridge
   advertise_ip: 10.92.64.3
   port: 21063
+  
+  # HomeKit device name and identifier
+  name: BDS Home Assistant
+  
+  # Enable safe mode for better reliability
+  safe_mode: true
+  
+  # Automatic start after Home Assistant startup
+  auto_start: true
+  
+  # Enhanced entity filtering for better HomeKit experience
   filter:
+    # Exclude entity patterns that shouldn't appear in HomeKit
     exclude_entity_globs:
-      - light.*_lights
+      - light.*_lights  # Exclude light groups (will include individual lights)
+      - sensor.*_battery  # Exclude battery sensors for cleaner interface
+      - automation.*
+      - script.all_lights_off  # Exclude basic script (use scenes instead)
+      - script.morning  # Exclude basic script (use scenes instead)
+      - group.*
+    
+    # Include specific domains that work well with HomeKit
     include_domains:
       - camera
+      - switch  # Add switches for smart plugs and controls
+      - scene   # Include scenes for HomeKit automation
+    
+    # Include specific entity patterns
     include_entity_globs:
       - light.bedroom*
-      - light.hallway*
+      - light.hall*  # Fix hallway pattern to match actual entities
       - light.lightstripkitchen*
       - light.livingroom*
       - media_player.living_room*
+      - binary_sensor.*_motion  # Include motion sensors
+      - sensor.*_temperature  # Include temperature sensors
+      - sensor.*_illuminance  # Include light sensors
+      - scene.good_*  # Include good morning/night scenes
+      - scene.movie_*  # Include movie time scene
+      - scene.candle_*  # Include candle light scene
+      - scene.welcome_*  # Include welcome home scene
+      - scene.energy_*  # Include energy save scene
+      - scene.all_*  # Include all off scene
+      - script.homekit_*  # Include HomeKit-specific scripts
+    
+    # Include specific useful entities
     include_entities:
       - input_boolean.guest_mode
       - input_boolean.vacation_mode
       - media_player.living_room
       - person.benjamin
       - person.gf
+      - switch.hot_water_cylinder  # Water heater control
+      - switch.smartplug_kitchen1  # Kitchen smart plug
+  
+  # Enhanced entity configuration for better HomeKit presentation
   entity_config:
+    # Camera configuration with optimized streaming
     camera.cam01:
+      name: Security Camera
       video_codec: copy
-      support_audio: True
+      support_audio: true
+      video_map: 0:0  # Use first video stream
+      audio_map: 0:1  # Use first audio stream
+      max_fps: 30
+      max_width: 1920
+      max_height: 1080
+    
+    # Media player with enhanced features
     media_player.living_room:
+      name: Living Room TV
       feature_list:
         - feature: on_off
         - feature: play_pause
         - feature: play_stop
         - feature: toggle_mute
+        - feature: volume_step
+        - feature: volume_mute
+      
+    # Light configurations with proper HomeKit names
+    light.bedroom1:
+      name: Main Bedroom Light
+      type: light
+    light.bedroom2:
+      name: Bedroom Side Light 1
+      type: light
+    light.bedroom3:
+      name: Bedroom Side Light 2
+      type: light
+    light.hall1:
+      name: Hallway Light
+      type: light
+    light.lightstripkitchen1:
+      name: Kitchen Strip Light
+      type: light
+    light.livingroom1:
+      name: Living Room Light
+      type: light
+    
+    # Input boolean configurations
+    input_boolean.guest_mode:
+      name: Guest Mode
+      type: switch
+    input_boolean.vacation_mode:
+      name: Vacation Mode
+      type: switch
+    
+    # Switch configurations
+    switch.hot_water_cylinder:
+      name: Water Heater
+      type: switch
+    switch.smartplug_kitchen1:
+      name: Kitchen Smart Plug
+      type: outlet
+    
+    # Motion sensor configurations
+    binary_sensor.hue_motion_sensor_hallway_motion:
+      name: Hallway Motion
+      type: motion
+    binary_sensor.hue_motion_sensor_kitchen_motion:
+      name: Kitchen Motion
+      type: motion
+    
+    # Temperature sensor configurations
+    sensor.hue_motion_sensor_hallway_temperature:
+      name: Hallway Temperature
+      type: temperature
+    sensor.hue_motion_sensor_kitchen_temperature:
+      name: Kitchen Temperature
+      type: temperature
+    
+    # Light sensor configurations
+    sensor.hue_motion_sensor_hallway_illuminance:
+      name: Hallway Light Level
+      type: light
+    sensor.hue_motion_sensor_kitchen_illuminance:
+      name: Kitchen Light Level
+      type: light
+    
+    # Person tracking (for HomeKit automation triggers)
+    person.benjamin:
+      name: Benjamin
+      type: person
+    person.gf:
+      name: Partner
+      type: person
+    
+    # Scene configurations for HomeKit
+    scene.good_morning:
+      name: Good Morning
+      type: scene
+    scene.good_night:
+      name: Good Night  
+      type: scene
+    scene.movie_time:
+      name: Movie Time
+      type: scene
+    scene.candle_light:
+      name: Candle Light
+      type: scene
+    scene.welcome_home:
+      name: Welcome Home
+      type: scene
+    scene.energy_save:
+      name: Energy Save
+      type: scene
+    scene.all_off:
+      name: All Off
+      type: scene
 
 group:
   default_view:
