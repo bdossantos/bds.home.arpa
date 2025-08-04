@@ -91,16 +91,16 @@ homekit:
   # Network configuration for HomeKit bridge
   advertise_ip: 10.92.64.3
   port: 21063
-  
+
   # HomeKit device name and identifier
   name: BDS Home Assistant
-  
+
   # Enable safe mode for better reliability
   safe_mode: true
-  
+
   # Automatic start after Home Assistant startup
   auto_start: true
-  
+
   # Enhanced entity filtering for better HomeKit experience
   filter:
     # Exclude entity patterns that shouldn't appear in HomeKit
@@ -111,13 +111,13 @@ homekit:
       - script.all_lights_off  # Exclude basic script (use scenes instead)
       - script.morning  # Exclude basic script (use scenes instead)
       - group.*
-    
+
     # Include specific domains that work well with HomeKit
     include_domains:
       - camera
       - switch  # Add switches for smart plugs and controls
       - scene   # Include scenes for HomeKit automation
-    
+
     # Include specific entity patterns
     include_entity_globs:
       - light.bedroom*
@@ -135,7 +135,7 @@ homekit:
       - scene.energy_*  # Include energy save scene
       - scene.all_*  # Include all off scene
       - script.homekit_*  # Include HomeKit-specific scripts
-    
+
     # Include specific useful entities
     include_entities:
       - input_boolean.guest_mode
@@ -145,7 +145,7 @@ homekit:
       - person.gf
       - switch.hot_water_cylinder  # Water heater control
       - switch.smartplug_kitchen1  # Kitchen smart plug
-  
+
   # Enhanced entity configuration for better HomeKit presentation
   entity_config:
     # Camera configuration with optimized streaming
@@ -158,7 +158,7 @@ homekit:
       max_fps: 30
       max_width: 1920
       max_height: 1080
-    
+
     # Media player with enhanced features
     media_player.living_room:
       name: Living Room TV
@@ -169,7 +169,7 @@ homekit:
         - feature: toggle_mute
         - feature: volume_step
         - feature: volume_mute
-      
+
     # Light configurations with proper HomeKit names
     light.bedroom1:
       name: Main Bedroom Light
@@ -189,7 +189,7 @@ homekit:
     light.livingroom1:
       name: Living Room Light
       type: light
-    
+
     # Input boolean configurations
     input_boolean.guest_mode:
       name: Guest Mode
@@ -197,7 +197,7 @@ homekit:
     input_boolean.vacation_mode:
       name: Vacation Mode
       type: switch
-    
+
     # Switch configurations
     switch.hot_water_cylinder:
       name: Water Heater
@@ -205,7 +205,7 @@ homekit:
     switch.smartplug_kitchen1:
       name: Kitchen Smart Plug
       type: outlet
-    
+
     # Motion sensor configurations
     binary_sensor.hue_motion_sensor_hallway_motion:
       name: Hallway Motion
@@ -213,7 +213,7 @@ homekit:
     binary_sensor.hue_motion_sensor_kitchen_motion:
       name: Kitchen Motion
       type: motion
-    
+
     # Temperature sensor configurations
     sensor.hue_motion_sensor_hallway_temperature:
       name: Hallway Temperature
@@ -221,7 +221,7 @@ homekit:
     sensor.hue_motion_sensor_kitchen_temperature:
       name: Kitchen Temperature
       type: temperature
-    
+
     # Light sensor configurations
     sensor.hue_motion_sensor_hallway_illuminance:
       name: Hallway Light Level
@@ -229,7 +229,7 @@ homekit:
     sensor.hue_motion_sensor_kitchen_illuminance:
       name: Kitchen Light Level
       type: light
-    
+
     # Person tracking (for HomeKit automation triggers)
     person.benjamin:
       name: Benjamin
@@ -237,13 +237,13 @@ homekit:
     person.gf:
       name: Partner
       type: person
-    
+
     # Scene configurations for HomeKit
     scene.good_morning:
       name: Good Morning
       type: scene
     scene.good_night:
-      name: Good Night  
+      name: Good Night
       type: scene
     scene.movie_time:
       name: Movie Time

@@ -9,7 +9,7 @@ Your Home Assistant setup has been upgraded with a beautiful, intuitive modern i
 ### Main Views
 - **🏠 Home**: Overview dashboard with quick controls and status
 - **🛋️ Living Room**: Detailed lighting and media controls
-- **👨‍🍳 Kitchen**: Kitchen automation and sensor monitoring  
+- **👨‍🍳 Kitchen**: Kitchen automation and sensor monitoring
 - **🛏️ Bedroom**: Bedroom lighting and ambiance controls
 - **🚪 Hall & Spaces**: Hallway, dressing, and bathroom controls
 - **🔧 Utilities**: Water heater and UPS system monitoring
@@ -67,7 +67,7 @@ Two theme options available:
 - Media player controls for your TV
 - Environmental monitoring
 
-### Kitchen  
+### Kitchen
 - Overhead lighting control
 - Smart plug management
 - Motion sensor and temperature monitoring

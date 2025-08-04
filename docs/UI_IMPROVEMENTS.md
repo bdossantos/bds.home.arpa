@@ -68,7 +68,7 @@ The custom theme provides:
 
 - **Light Mode**: Clean, modern interface with blue primary colors
 - **Dark Mode**: Available as `modern-home-dark` variant
-- **Consistent Color Palette**: 
+- **Consistent Color Palette**:
   - Primary: Blue (#3f51b5)
   - Accent: Orange (#ff5722)
   - Background: Light grey (#fafafa) / Dark grey (#121212)
