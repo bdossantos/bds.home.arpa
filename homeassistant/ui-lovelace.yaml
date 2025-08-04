@@ -38,11 +38,6 @@ views:
             name: Bedroom
             icon: mdi:bed
             
-          - type: light
-            entity: light.kid_bedroom_lights
-            name: Kid Bedroom
-            icon: mdi:teddy-bear
-            
       - type: picture-entity
         entity: camera.cam01
         name: Security Camera
@@ -55,7 +50,6 @@ views:
           - light.livingroom_lights
           - light.kitchen_lights
           - light.bedroom_lights
-          - light.kid_bedroom_lights
               
   - title: Living Room
     path: livingroom
@@ -66,7 +60,6 @@ views:
         title: Living Room Lights
         entities:
           - light.livingroom1
-          - light.livingroom2
           - light.livingroom4
           
       - type: media-control
@@ -125,34 +118,6 @@ views:
               service_data:
                 entity_id: script.all_lights_off
                 
-  - title: Kid Bedroom
-    path: kid_bedroom
-    icon: mdi:teddy-bear
-    theme: modern-home
-    cards:
-      - type: entities
-        title: Kid Bedroom Lights
-        entities:
-          - light.livingroom3
-          
-      - type: horizontal-stack
-        cards:
-          - type: button
-            entity: light.livingroom3
-            name: Kid Light
-            icon: mdi:teddy-bear
-            tap_action:
-              action: toggle
-          - type: button
-            entity: script.all_lights_off
-            name: All Off
-            icon: mdi:lightbulb-off
-            tap_action:
-              action: call-service
-              service: script.turn_on
-              service_data:
-                entity_id: script.all_lights_off
-            
   - title: Hall & Spaces
     path: hall
     icon: mdi:home-outline
