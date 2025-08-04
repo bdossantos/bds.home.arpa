@@ -32,12 +32,7 @@ binary_sensor.hue_motion_sensor_hallway_motion:
 binary_sensor.hue_motion_sensor_kitchen_motion:
   friendly_name: "Kitchen Motion"
   icon: mdi:motion-sensor
-binary_sensor.hue_motion_sensor_dressing1_motion:
-  friendly_name: "Dressing 1 Motion"
-  icon: mdi:motion-sensor
-binary_sensor.hue_motion_sensor_dressing2_motion:
-  friendly_name: "Dressing 2 Motion"
-  icon: mdi:motion-sensor
+
 
 # Temperature Sensors
 sensor.hue_motion_sensor_hallway_temperature:
@@ -46,12 +41,7 @@ sensor.hue_motion_sensor_hallway_temperature:
 sensor.hue_motion_sensor_kitchen_temperature:
   friendly_name: "Kitchen Temperature"
   icon: mdi:thermometer
-sensor.hue_motion_sensor_dressing1_temperature:
-  friendly_name: "Dressing 1 Temperature"
-  icon: mdi:thermometer
-sensor.hue_motion_sensor_dressing2_temperature:
-  friendly_name: "Dressing 2 Temperature"
-  icon: mdi:thermometer
+
 
 # Light Sensors
 sensor.hue_motion_sensor_hallway_illuminance:
@@ -60,12 +50,7 @@ sensor.hue_motion_sensor_hallway_illuminance:
 sensor.hue_motion_sensor_kitchen_illuminance:
   friendly_name: "Kitchen Light Level"
   icon: mdi:brightness-6
-sensor.hue_motion_sensor_dressing1_illuminance:
-  friendly_name: "Dressing 1 Light Level"
-  icon: mdi:brightness-6
-sensor.hue_motion_sensor_dressing2_illuminance:
-  friendly_name: "Dressing 2 Light Level"
-  icon: mdi:brightness-6
+
 
 # Water Heater Sensors
 sensor.hot_water_cylinder_current_consumption:

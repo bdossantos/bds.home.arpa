@@ -126,7 +126,6 @@ group:
       - group.kitchen
       - group.livingroom
       - group.bedroom
-      - group.dressing
       - group.bathroom
       - group.scenes
   sensor_view:
@@ -183,17 +182,7 @@ group:
       - media_player.living_room
       - sensor.ups_input_voltage
       - sensor.ups_load
-  dressing:
-    name: Dressing
-    entities:
-      - light.dressing1
-      - binary_sensor.hue_motion_sensor_dressing1_motion
-      - sensor.hue_motion_sensor_dressing1_illuminance
-      - sensor.hue_motion_sensor_dressing1_temperature
-      - light.dressing2
-      - binary_sensor.hue_motion_sensor_dressing2_motion
-      - sensor.hue_motion_sensor_dressing2_illuminance
-      - sensor.hue_motion_sensor_dressing2_temperature
+
   ups:
     name: APC BE700G
     entities:

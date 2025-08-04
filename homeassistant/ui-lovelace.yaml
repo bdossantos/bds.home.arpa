@@ -129,8 +129,6 @@ views:
         title: Hallway & Dressing Areas
         entities:
           - light.hall1
-          - light.dressing1
-          - light.dressing2
           - light.bathroom1
           
       - type: entities
@@ -139,8 +137,6 @@ views:
           - binary_sensor.hue_motion_sensor_hallway_motion
           - sensor.hue_motion_sensor_hallway_temperature
           - sensor.hue_motion_sensor_hallway_illuminance
-          - binary_sensor.hue_motion_sensor_dressing1_motion
-          - binary_sensor.hue_motion_sensor_dressing2_motion
           
   - title: Utilities
     path: utilities

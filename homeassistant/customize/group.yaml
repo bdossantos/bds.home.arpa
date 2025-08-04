@@ -26,9 +26,7 @@ group.livingroom:
   control: hidden
 group.bedroom:
   control: hidden
-group.dressing:
-  initial_state: "off"
-  control: hidden
+
 group.bathroom:
   control: hidden
 group.scenes:
