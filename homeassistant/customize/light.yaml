@@ -30,12 +30,6 @@ light.hall1:
 light.bathroom1:
   friendly_name: "Bathroom Light"
   icon: mdi:lightbulb
-light.dressing1:
-  friendly_name: "Dressing Area 1"
-  icon: mdi:lightbulb
-light.dressing2:
-  friendly_name: "Dressing Area 2"
-  icon: mdi:lightbulb
 
 # Light Groups
 light.livingroom_lights:
@@ -53,9 +47,7 @@ light.bathroom_lights:
 light.hallway_lights:
   friendly_name: "Hallway Lights"
   icon: mdi:home-outline
-light.dressing_lights:
-  friendly_name: "Dressing Lights"
-  icon: mdi:wardrobe
+
 light.candle_lights:
   friendly_name: "Ambient Lighting"
   icon: mdi:candle

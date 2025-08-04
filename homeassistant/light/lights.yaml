@@ -20,11 +20,7 @@
     - light.bedroom1
     - light.bedroom2
     - light.bedroom3
-- platform: group
-  name: dressing lights
-  entities:
-    - light.dressing1
-    - light.dressing2
+
 - platform: group
   name: bathroom lights
   entities:
