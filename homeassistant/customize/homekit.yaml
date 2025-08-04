@@ -1,0 +1,113 @@
+---
+# HomeKit-specific entity customizations
+# These customizations improve the HomeKit presentation and functionality
+
+# Input booleans for HomeKit
+input_boolean.guest_mode:
+  friendly_name: "Guest Mode"
+  icon: mdi:human-male-female
+  homekit_type: switch
+
+input_boolean.vacation_mode:
+  friendly_name: "Vacation Mode"
+  icon: mdi:airplane
+  homekit_type: switch
+
+# Water heater switch
+switch.hot_water_cylinder:
+  friendly_name: "Water Heater"
+  icon: mdi:water-boiler
+  homekit_type: switch
+
+# Kitchen smart plug
+switch.smartplug_kitchen1:
+  friendly_name: "Kitchen Smart Plug"
+  icon: mdi:power-socket-eu
+  homekit_type: outlet
+
+# Motion sensors
+binary_sensor.hue_motion_sensor_hallway_motion:
+  friendly_name: "Hallway Motion"
+  icon: mdi:motion-sensor
+  device_class: motion
+
+binary_sensor.hue_motion_sensor_kitchen_motion:
+  friendly_name: "Kitchen Motion"
+  icon: mdi:motion-sensor
+  device_class: motion
+
+# Temperature sensors
+sensor.hue_motion_sensor_hallway_temperature:
+  friendly_name: "Hallway Temperature"
+  icon: mdi:thermometer
+  device_class: temperature
+  unit_of_measurement: "°C"
+
+sensor.hue_motion_sensor_kitchen_temperature:
+  friendly_name: "Kitchen Temperature"
+  icon: mdi:thermometer
+  device_class: temperature
+  unit_of_measurement: "°C"
+
+# Light sensors
+sensor.hue_motion_sensor_hallway_illuminance:
+  friendly_name: "Hallway Light Level"
+  icon: mdi:brightness-6
+  device_class: illuminance
+  unit_of_measurement: "lx"
+
+sensor.hue_motion_sensor_kitchen_illuminance:
+  friendly_name: "Kitchen Light Level"
+  icon: mdi:brightness-6
+  device_class: illuminance
+  unit_of_measurement: "lx"
+
+# People for HomeKit presence
+person.benjamin:
+  friendly_name: "Benjamin"
+  icon: mdi:account
+  entity_picture: /local/avatars/benjamin.jpg
+
+person.gf:
+  friendly_name: "Partner"
+  icon: mdi:account
+  entity_picture: /local/avatars/partner.jpg
+
+# Camera
+camera.cam01:
+  friendly_name: "Security Camera"
+  icon: mdi:cctv
+
+# Media player
+media_player.living_room:
+  friendly_name: "Living Room TV"
+  icon: mdi:television
+
+# Scenes for HomeKit
+scene.good_morning:
+  friendly_name: "Good Morning"
+  icon: mdi:weather-sunny
+
+scene.good_night:
+  friendly_name: "Good Night"
+  icon: mdi:weather-night
+
+scene.movie_time:
+  friendly_name: "Movie Time"
+  icon: mdi:movie-open
+
+scene.candle_light:
+  friendly_name: "Candle Light"
+  icon: mdi:candle
+
+scene.welcome_home:
+  friendly_name: "Welcome Home"
+  icon: mdi:home-import-outline
+
+scene.energy_save:
+  friendly_name: "Energy Save"
+  icon: mdi:leaf
+
+scene.all_off:
+  friendly_name: "All Off"
+  icon: mdi:power
