@@ -43,11 +43,6 @@ views:
             name: Kid Bedroom
             icon: mdi:teddy-bear
             
-          - type: light
-            entity: light.bathroom_lights
-            name: Bathroom
-            icon: mdi:shower
-            
       - type: picture-entity
         entity: camera.cam01
         name: Security Camera
@@ -61,7 +56,6 @@ views:
           - light.kitchen_lights
           - light.bedroom_lights
           - light.kid_bedroom_lights
-          - light.bathroom_lights
               
   - title: Living Room
     path: livingroom
@@ -168,7 +162,6 @@ views:
         title: Hallway & Dressing Areas
         entities:
           - light.hall1
-          - light.bathroom1
           
       - type: entities
         title: Motion Sensors

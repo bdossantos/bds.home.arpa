@@ -91,7 +91,6 @@ homekit:
     include_domains:
       - camera
     include_entity_globs:
-      - light.bathroom*
       - light.bedroom*
       - light.hallway*
       - light.lightstripkitchen*
@@ -126,7 +125,6 @@ group:
       - group.kitchen
       - group.livingroom
       - group.bedroom
-      - group.bathroom
       - group.scenes
   sensor_view:
     name: Sensors
@@ -139,10 +137,7 @@ group:
     entities:
       - group.all_automations
       - group.all_scripts
-  bathroom:
-    name: Bathroom
-    entities:
-      - light.bathroom1
+
   bedroom:
     name: Bedroom
     entities:
