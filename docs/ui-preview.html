@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDS Home Assistant - Modern UI Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fafafa;
+            color: #212121;
+        }
+        
+        .header {
+            background: #3f51b5;
+            color: white;
+            padding: 16px 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .navigation {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0 24px;
+            overflow-x: auto;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 0;
+        }
+        
+        .nav-tab {
+            padding: 16px 20px;
+            border: none;
+            background: none;
+            color: #727272;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .nav-tab.active {
+            color: #3f51b5;
+            border-bottom-color: #3f51b5;
+        }
+        
+        .nav-tab:hover {
+            background: #f5f5f5;
+        }
+        
+        .content {
+            padding: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .badges {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: white;
+            border-radius: 20px;
+            padding: 8px 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+            border: 2px solid #3f51b5;
+        }
+        
+        .badge.on {
+            background: #3f51b5;
+            color: white;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .card-header {
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .light-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .light-control {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .light-control:hover {
+            background: #e9ecef;
+        }
+        
+        .light-control.on {
+            background: #e3f2fd;
+            border-color: #3f51b5;
+            color: #1976d2;
+        }
+        
+        .light-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .entity-list {
+            list-style: none;
+        }
+        
+        .entity-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .entity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .entity-icon {
+            margin-right: 12px;
+            color: #727272;
+        }
+        
+        .entity-value {
+            font-weight: 500;
+            color: #3f51b5;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            background: #3f51b5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .action-button:hover {
+            background: #303f9f;
+            transform: translateY(-1px);
+        }
+        
+        .action-button:active {
+            transform: scale(0.95);
+        }
+        
+        .vacation-alert {
+            background: linear-gradient(135deg, rgba(63, 81, 181, 0.1), rgba(255, 87, 34, 0.1));
+            border: 1px solid rgba(63, 81, 181, 0.2);
+            border-left: 4px solid #ff5722;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .vacation-alert h3 {
+            color: #3f51b5;
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 16px;
+            }
+            
+            .light-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .badges {
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏡 BDS Home</h1>
+    </div>
+    
+    <nav class="navigation">
+        <div class="nav-tabs">
+            <button class="nav-tab active">🏠 Home</button>
+            <button class="nav-tab">🛋️ Living Room</button>
+            <button class="nav-tab">👨‍🍳 Kitchen</button>
+            <button class="nav-tab">🛏️ Bedroom</button>
+            <button class="nav-tab">🚪 Hall & Spaces</button>
+            <button class="nav-tab">🔧 Utilities</button>
+            <button class="nav-tab">▶️ Scenes & Automation</button>
+        </div>
+    </nav>
+    
+    <main class="content">
+        <div class="badges">
+            <div class="badge on">👨 Benjamin</div>
+            <div class="badge">👩 GF</div>
+            <div class="badge">✈️ Vacation Mode</div>
+            <div class="badge on">👥 Guest Mode</div>
+        </div>
+        
+        <div class="vacation-alert">
+            <h3>🏖️ Vacation Mode Active</h3>
+            <ul>
+                <li>• Security automations enabled</li>
+                <li>• Lights simulating presence</li>
+                <li>• Energy saving mode active</li>
+            </ul>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-header">⚡ Power & System Status</div>
+                <div class="card-content">
+                    <ul class="entity-list">
+                        <li class="entity-item">
+                            <span><span class="entity-icon">📊</span>Power Load</span>
+                            <span class="entity-value">45%</span>
+                        </li>
+                        <li class="entity-item">
+                            <span><span class="entity-icon">🔋</span>Battery Level</span>
+                            <span class="entity-value">98%</span>
+                        </li>
+                        <li class="entity-item">
+                            <span><span class="entity-icon">⚡</span>UPS Status</span>
+                            <span class="entity-value">Online</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">💡 Room Lighting</div>
+                <div class="card-content">
+                    <div class="light-grid">
+                        <div class="light-control on">
+                            <span class="light-icon">🛋️</span>
+                            <div>Living Room</div>
+                        </div>
+                        <div class="light-control">
+                            <span class="light-icon">👨‍🍳</span>
+                            <div>Kitchen</div>
+                        </div>
+                        <div class="light-control on">
+                            <span class="light-icon">🛏️</span>
+                            <div>Bedroom</div>
+                        </div>
+                        <div class="light-control">
+                            <span class="light-icon">🚿</span>
+                            <div>Bathroom</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">🎬 Quick Actions</div>
+                <div class="card-content">
+                    <div class="action-buttons">
+                        <button class="action-button">🕯️ Candle Lights</button>
+                        <button class="action-button">💡 All Lights Off</button>
+                        <button class="action-button">☀️ Morning Scene</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">🌡️ Environment</div>
+                <div class="card-content">
+                    <ul class="entity-list">
+                        <li class="entity-item">
+                            <span><span class="entity-icon">🌡️</span>Hallway Temperature</span>
+                            <span class="entity-value">22°C</span>
+                        </li>
+                        <li class="entity-item">
+                            <span><span class="entity-icon">🌡️</span>Kitchen Temperature</span>
+                            <span class="entity-value">24°C</span>
+                        </li>
+                        <li class="entity-item">
+                            <span><span class="entity-icon">💡</span>Kitchen Light Level</span>
+                            <span class="entity-value">450 lux</span>
+                        </li>
+                        <li class="entity-item">
+                            <span><span class="entity-icon">🏃</span>Motion Detected</span>
+                            <span class="entity-value">Hallway</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Simple interaction demo
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+        
+        document.querySelectorAll('.light-control').forEach(control => {
+            control.addEventListener('click', () => {
+                control.classList.toggle('on');
+            });
+        });
+        
+        document.querySelectorAll('.action-button').forEach(button => {
+            button.addEventListener('click', () => {
+                button.style.background = '#4caf50';
+                button.textContent = '✓ ' + button.textContent;
+                setTimeout(() => {
+                    button.style.background = '#3f51b5';
+                    button.textContent = button.textContent.replace('✓ ', '');
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
