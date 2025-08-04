@@ -171,7 +171,6 @@ group:
     name: Living Room
     entities:
       - light.livingroom1
-      - light.livingroom4
       - media_player.living_room
       - sensor.ups_input_voltage
       - sensor.ups_load

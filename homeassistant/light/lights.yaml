@@ -11,7 +11,6 @@
   name: livingroom lights
   entities:
     - light.livingroom1
-    - light.livingroom4
 - platform: group
   name: bedroom lights
   entities:
@@ -27,4 +26,3 @@
     - light.bedroom2
     - light.bedroom3
     - light.livingroom1
-    - light.livingroom4

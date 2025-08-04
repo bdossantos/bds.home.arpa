@@ -13,9 +13,7 @@ light.livingroom1:
   friendly_name: "Floor Lamp"
   icon: mdi:floor-lamp
 
-light.livingroom4:
-  friendly_name: "Table Lamp"
-  icon: mdi:lamp
+
 light.lightstripkitchen1:
   friendly_name: "Kitchen Overhead"
   icon: mdi:ceiling-light
