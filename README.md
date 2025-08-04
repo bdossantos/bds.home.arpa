@@ -4,6 +4,18 @@
 
 🏡 The source code and issue tracker of my house (powered by [@home-assistant](https://www.home-assistant.io/))
 
+## ✨ Recent Updates
+
+### Modern UI/UX Improvements
+- **🎨 Modern Lovelace Dashboard**: Upgraded from legacy groups to modern card-based interface
+- **🎭 Custom Themes**: Added light and dark theme variants with consistent Material Design
+- **📱 Mobile Optimized**: Responsive layouts for all screen sizes
+- **🏠 Room-Based Navigation**: Intuitive organization by living spaces
+- **⚡ Quick Actions**: One-touch access to common scenes and controls
+- **📊 Enhanced Monitoring**: Better visualization of sensors and system status
+
+See the [UI Improvements Documentation](docs/UI_IMPROVEMENTS.md) for detailed information.
+
 ## Installation
 
 ```
