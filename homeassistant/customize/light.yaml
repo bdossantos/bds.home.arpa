@@ -1,8 +1,5 @@
 ---
 # Individual Light Customization
-light.bedroom1:
-  friendly_name: "Main Bedroom Light"
-  icon: mdi:ceiling-light
 light.bedroom2:
   friendly_name: "Bedside Lamp (Left)"
   icon: mdi:lava-lamp
@@ -42,9 +39,6 @@ light.candle_lights:
   icon: mdi:candle
 
 # Switches
-switch.smartplug_kitchen1:
-  friendly_name: "Kitchen Smart Plug"
-  icon: mdi:power-socket-eu
 
 # Input Booleans
 input_boolean.vacation_mode:

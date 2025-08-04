@@ -5,11 +5,6 @@
 - name: "Good Morning"
   icon: "mdi:weather-sunny"
   entities:
-    light.bedroom1:
-      state: on
-      brightness: 153  # 60%
-      color_temp: 400  # Warm white
-      transition: 30
     light.hall1:
       state: on
       brightness: 153
@@ -20,8 +15,6 @@
       brightness: 153
       color_temp: 400
       transition: 30
-    switch.smartplug_kitchen1:
-      state: on
 
 - name: "Good Night"
   icon: "mdi:weather-night"
@@ -35,9 +28,6 @@
     light.livingroom1:
       state: off
       transition: 10
-    light.bedroom1:
-      state: off
-      transition: 10
     light.bedroom2:
       state: on
       brightness: 51   # 20%
@@ -49,8 +39,6 @@
       color_temp: 500
       transition: 15
     media_player.living_room:
-      state: off
-    switch.smartplug_kitchen1:
       state: off
 
 - name: "Movie Time"
@@ -67,8 +55,6 @@
       brightness: 38   # 15%
       color_temp: 500  # Warm
       transition: 5
-    light.bedroom1:
-      state: off
     light.bedroom2:
       state: off
     light.bedroom3:
@@ -83,9 +69,6 @@
       state: off
       transition: 5
     light.lightstripkitchen1:
-      state: off
-      transition: 5
-    light.bedroom1:
       state: off
       transition: 5
     light.bedroom2:
@@ -107,9 +90,6 @@
 - name: "All Off"
   icon: "mdi:power"
   entities:
-    light.bedroom1:
-      state: off
-      transition: 5
     light.bedroom2:
       state: off
       transition: 5
@@ -125,8 +105,6 @@
     light.livingroom1:
       state: off
       transition: 5
-    switch.smartplug_kitchen1:
-      state: off
     media_player.living_room:
       state: off
 
@@ -146,9 +124,6 @@
 - name: "Energy Save"
   icon: "mdi:leaf"
   entities:
-    light.bedroom1:
-      state: off
-      transition: 5
     light.bedroom2:
       state: off
       transition: 5
@@ -164,7 +139,5 @@
     light.livingroom1:
       state: off
       transition: 5
-    switch.smartplug_kitchen1:
-      state: off
     media_player.living_room:
       state: off

@@ -120,7 +120,6 @@ homekit:
 
     # Include specific entity patterns
     include_entity_globs:
-      - light.bedroom*
       - light.hall*  # Fix hallway pattern to match actual entities
       - light.lightstripkitchen*
       - light.livingroom*
@@ -144,7 +143,6 @@ homekit:
       - person.benjamin
       - person.gf
       - switch.hot_water_cylinder  # Water heater control
-      - switch.smartplug_kitchen1  # Kitchen smart plug
 
   # Enhanced entity configuration for better HomeKit presentation
   entity_config:
@@ -169,8 +167,6 @@ homekit:
         - feature: toggle_mute
 
     # Light configurations with proper HomeKit names
-    light.bedroom1:
-      name: Main Bedroom Light
     light.bedroom2:
       name: Bedroom Side Light 1
     light.bedroom3:
@@ -194,9 +190,6 @@ homekit:
     switch.hot_water_cylinder:
       name: Water Heater
       type: switch
-    switch.smartplug_kitchen1:
-      name: Kitchen Smart Plug
-      type: outlet
 
     # Motion sensor configurations
     binary_sensor.hue_motion_sensor_hallway_motion:
@@ -266,7 +259,6 @@ group:
   bedroom:
     name: Bedroom
     entities:
-      - light.bedroom1
       - light.bedroom2
       - light.bedroom3
   hall:
@@ -288,7 +280,6 @@ group:
     name: Kitchen
     entities:
       - light.lightstripkitchen1
-      - switch.smartplug_kitchen1
       - binary_sensor.hue_motion_sensor_kitchen_motion
       - sensor.hue_motion_sensor_kitchen_illuminance
       - sensor.hue_motion_sensor_kitchen_temperature
@@ -328,7 +319,6 @@ group:
   all_switchs:
     name: All switchs
     entities:
-      - switch.smartplug_kitchen1
 
 input_select:
   benjamin_status_dropdown:

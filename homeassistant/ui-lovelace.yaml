@@ -19,6 +19,13 @@ views:
           - sensor.ups_status
         icon: mdi:battery
 
+      - type: entities
+        title: Temperature Monitoring
+        entities:
+          - sensor.hue_motion_sensor_kitchen_temperature
+          - sensor.hue_motion_sensor_hallway_temperature
+        icon: mdi:thermometer
+
       - type: grid
         columns: 2
         square: false
@@ -82,10 +89,19 @@ views:
       - type: entities
         title: Kitchen Controls & Sensors
         entities:
-          - switch.smartplug_kitchen1
           - binary_sensor.hue_motion_sensor_kitchen_motion
           - sensor.hue_motion_sensor_kitchen_temperature
           - sensor.hue_motion_sensor_kitchen_illuminance
+
+      - type: gauge
+        entity: sensor.hue_motion_sensor_kitchen_temperature
+        name: Kitchen Temperature
+        min: 10
+        max: 35
+        severity:
+          green: 18
+          yellow: 25
+          red: 30
 
   - title: Bedroom
     path: bedroom
@@ -95,7 +111,6 @@ views:
       - type: entities
         title: Bedroom Lights
         entities:
-          - light.bedroom1
           - light.bedroom2
           - light.bedroom3
 
@@ -133,6 +148,16 @@ views:
           - binary_sensor.hue_motion_sensor_hallway_motion
           - sensor.hue_motion_sensor_hallway_temperature
           - sensor.hue_motion_sensor_hallway_illuminance
+
+      - type: gauge
+        entity: sensor.hue_motion_sensor_hallway_temperature
+        name: Hallway Temperature
+        min: 10
+        max: 35
+        severity:
+          green: 18
+          yellow: 25
+          red: 30
 
   - title: Utilities
     path: utilities
