@@ -60,7 +60,6 @@ views:
         title: Living Room Lights
         entities:
           - light.livingroom1
-          - light.livingroom4
           
       - type: media-control
         entity: media_player.living_room
