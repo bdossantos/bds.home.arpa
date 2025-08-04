@@ -39,6 +39,11 @@ views:
             icon: mdi:bed
             
           - type: light
+            entity: light.kid_bedroom_lights
+            name: Kid Bedroom
+            icon: mdi:teddy-bear
+            
+          - type: light
             entity: light.bathroom_lights
             name: Bathroom
             icon: mdi:shower
@@ -55,6 +60,7 @@ views:
           - light.livingroom_lights
           - light.kitchen_lights
           - light.bedroom_lights
+          - light.kid_bedroom_lights
           - light.bathroom_lights
               
   - title: Living Room
@@ -67,7 +73,6 @@ views:
         entities:
           - light.livingroom1
           - light.livingroom2
-          - light.livingroom3
           - light.livingroom4
           
       - type: media-control
@@ -114,6 +119,34 @@ views:
             entity: light.candle_lights
             name: Candle Mode
             icon: mdi:candle
+            tap_action:
+              action: toggle
+          - type: button
+            entity: script.all_lights_off
+            name: All Off
+            icon: mdi:lightbulb-off
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.all_lights_off
+                
+  - title: Kid Bedroom
+    path: kid_bedroom
+    icon: mdi:teddy-bear
+    theme: modern-home
+    cards:
+      - type: entities
+        title: Kid Bedroom Lights
+        entities:
+          - light.livingroom3
+          
+      - type: horizontal-stack
+        cards:
+          - type: button
+            entity: light.livingroom3
+            name: Kid Light
+            icon: mdi:teddy-bear
             tap_action:
               action: toggle
           - type: button
