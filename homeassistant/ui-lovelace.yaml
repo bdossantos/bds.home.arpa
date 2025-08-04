@@ -71,6 +71,10 @@ views:
       - type: media-control
         entity: media_player.living_room
 
+      - type: media-control
+        entity: media_player.apple_tv_livingroom
+        name: Apple TV
+
       - type: entities
         title: Environment
         entities:
