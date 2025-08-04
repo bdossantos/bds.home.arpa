@@ -10,38 +10,38 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #fafafa;
             color: #212121;
         }
-        
+
         .header {
             background: #3f51b5;
             color: white;
             padding: 16px 24px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
+
         .header h1 {
             margin: 0;
             font-size: 1.5rem;
             font-weight: 500;
         }
-        
+
         .navigation {
             background: white;
             border-bottom: 1px solid #e0e0e0;
             padding: 0 24px;
             overflow-x: auto;
         }
-        
+
         .nav-tabs {
             display: flex;
             gap: 0;
         }
-        
+
         .nav-tab {
             padding: 16px 20px;
             border: none;
@@ -52,29 +52,29 @@
             transition: all 0.3s ease;
             white-space: nowrap;
         }
-        
+
         .nav-tab.active {
             color: #3f51b5;
             border-bottom-color: #3f51b5;
         }
-        
+
         .nav-tab:hover {
             background: #f5f5f5;
         }
-        
+
         .content {
             padding: 24px;
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .badges {
             display: flex;
             gap: 12px;
             margin-bottom: 24px;
             flex-wrap: wrap;
         }
-        
+
         .badge {
             background: white;
             border-radius: 20px;
@@ -83,18 +83,18 @@
             font-size: 0.9rem;
             border: 2px solid #3f51b5;
         }
-        
+
         .badge.on {
             background: #3f51b5;
             color: white;
         }
-        
+
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
         }
-        
+
         .card {
             background: white;
             border-radius: 12px;
@@ -102,12 +102,12 @@
             overflow: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .card:hover {
             box-shadow: 0 8px 16px rgba(0,0,0,0.15);
             transform: translateY(-2px);
         }
-        
+
         .card-header {
             padding: 16px 20px;
             background: #f8f9fa;
@@ -115,17 +115,17 @@
             font-weight: 600;
             color: #495057;
         }
-        
+
         .card-content {
             padding: 20px;
         }
-        
+
         .light-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
         }
-        
+
         .light-control {
             background: #f8f9fa;
             border-radius: 8px;
@@ -135,27 +135,27 @@
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
-        
+
         .light-control:hover {
             background: #e9ecef;
         }
-        
+
         .light-control.on {
             background: #e3f2fd;
             border-color: #3f51b5;
             color: #1976d2;
         }
-        
+
         .light-icon {
             font-size: 2rem;
             margin-bottom: 8px;
             display: block;
         }
-        
+
         .entity-list {
             list-style: none;
         }
-        
+
         .entity-item {
             display: flex;
             justify-content: space-between;
@@ -163,27 +163,27 @@
             padding: 12px 0;
             border-bottom: 1px solid #f0f0f0;
         }
-        
+
         .entity-item:last-child {
             border-bottom: none;
         }
-        
+
         .entity-icon {
             margin-right: 12px;
             color: #727272;
         }
-        
+
         .entity-value {
             font-weight: 500;
             color: #3f51b5;
         }
-        
+
         .action-buttons {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
         }
-        
+
         .action-button {
             background: #3f51b5;
             color: white;
@@ -194,16 +194,16 @@
             transition: all 0.3s ease;
             font-weight: 500;
         }
-        
+
         .action-button:hover {
             background: #303f9f;
             transform: translateY(-1px);
         }
-        
+
         .action-button:active {
             transform: scale(0.95);
         }
-        
+
         .vacation-alert {
             background: linear-gradient(135deg, rgba(63, 81, 181, 0.1), rgba(255, 87, 34, 0.1));
             border: 1px solid rgba(63, 81, 181, 0.2);
@@ -212,26 +212,26 @@
             padding: 16px;
             margin-bottom: 24px;
         }
-        
+
         .vacation-alert h3 {
             color: #3f51b5;
             margin-bottom: 8px;
         }
-        
+
         @media (max-width: 768px) {
             .content {
                 padding: 16px;
             }
-            
+
             .light-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .cards-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
-            
+
             .badges {
                 gap: 8px;
             }
@@ -242,7 +242,7 @@
     <div class="header">
         <h1>🏡 BDS Home</h1>
     </div>
-    
+
     <nav class="navigation">
         <div class="nav-tabs">
             <button class="nav-tab active">🏠 Home</button>
@@ -254,7 +254,7 @@
             <button class="nav-tab">▶️ Scenes & Automation</button>
         </div>
     </nav>
-    
+
     <main class="content">
         <div class="badges">
             <div class="badge on">👨 Benjamin</div>
@@ -262,7 +262,7 @@
             <div class="badge">✈️ Vacation Mode</div>
             <div class="badge on">👥 Guest Mode</div>
         </div>
-        
+
         <div class="vacation-alert">
             <h3>🏖️ Vacation Mode Active</h3>
             <ul>
@@ -271,7 +271,7 @@
                 <li>• Energy saving mode active</li>
             </ul>
         </div>
-        
+
         <div class="cards-grid">
             <div class="card">
                 <div class="card-header">⚡ Power & System Status</div>
@@ -292,7 +292,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="card">
                 <div class="card-header">💡 Room Lighting</div>
                 <div class="card-content">
@@ -316,7 +316,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="card">
                 <div class="card-header">🎬 Quick Actions</div>
                 <div class="card-content">
@@ -327,7 +327,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="card">
                 <div class="card-header">🌡️ Environment</div>
                 <div class="card-content">
@@ -353,7 +353,7 @@
             </div>
         </div>
     </main>
-    
+
     <script>
         // Simple interaction demo
         document.querySelectorAll('.nav-tab').forEach(tab => {
@@ -362,13 +362,13 @@
                 tab.classList.add('active');
             });
         });
-        
+
         document.querySelectorAll('.light-control').forEach(control => {
             control.addEventListener('click', () => {
                 control.classList.toggle('on');
             });
         });
-        
+
         document.querySelectorAll('.action-button').forEach(button => {
             button.addEventListener('click', () => {
                 button.style.background = '#4caf50';

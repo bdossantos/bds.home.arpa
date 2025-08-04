@@ -18,7 +18,7 @@ views:
           - sensor.ups_battery_charge
           - sensor.ups_status
         icon: mdi:battery
-        
+
       - type: grid
         columns: 2
         square: false
@@ -27,30 +27,30 @@ views:
             entity: light.livingroom_lights
             name: Living Room
             icon: mdi:sofa
-            
+
           - type: light
             entity: light.kitchen_lights
             name: Kitchen
             icon: mdi:chef-hat
-            
+
           - type: light
             entity: light.bedroom_lights
             name: Bedroom
             icon: mdi:bed
-            
+
       - type: picture-entity
         entity: camera.cam01
         name: Security Camera
         show_state: false
         show_name: true
-            
+
       - type: entities
         title: Quick Room Overview
         entities:
           - light.livingroom_lights
           - light.kitchen_lights
           - light.bedroom_lights
-              
+
   - title: Living Room
     path: livingroom
     icon: mdi:sofa
@@ -60,16 +60,16 @@ views:
         title: Living Room Lights
         entities:
           - light.livingroom1
-          
+
       - type: media-control
         entity: media_player.living_room
-        
+
       - type: entities
         title: Environment
         entities:
           - sensor.ups_input_voltage
           - sensor.ups_load
-          
+
   - title: Kitchen
     path: kitchen
     icon: mdi:chef-hat
@@ -78,7 +78,7 @@ views:
       - type: light
         entity: light.lightstripkitchen1
         name: Kitchen Light
-        
+
       - type: entities
         title: Kitchen Controls & Sensors
         entities:
@@ -86,7 +86,7 @@ views:
           - binary_sensor.hue_motion_sensor_kitchen_motion
           - sensor.hue_motion_sensor_kitchen_temperature
           - sensor.hue_motion_sensor_kitchen_illuminance
-          
+
   - title: Bedroom
     path: bedroom
     icon: mdi:bed
@@ -98,7 +98,7 @@ views:
           - light.bedroom1
           - light.bedroom2
           - light.bedroom3
-          
+
       - type: horizontal-stack
         cards:
           - type: button
@@ -116,7 +116,7 @@ views:
               service: script.turn_on
               service_data:
                 entity_id: script.all_lights_off
-                
+
   - title: Hall & Spaces
     path: hall
     icon: mdi:home-outline
@@ -126,14 +126,14 @@ views:
         title: Hallway & Dressing Areas
         entities:
           - light.hall1
-          
+
       - type: entities
         title: Motion Sensors
         entities:
           - binary_sensor.hue_motion_sensor_hallway_motion
           - sensor.hue_motion_sensor_hallway_temperature
           - sensor.hue_motion_sensor_hallway_illuminance
-          
+
   - title: Utilities
     path: utilities
     icon: mdi:wrench
@@ -143,7 +143,7 @@ views:
         title: Security Camera
         entities:
           - camera.cam01
-          
+
       - type: entities
         title: UPS Battery Backup
         entities:
@@ -154,7 +154,7 @@ views:
           - sensor.ups_beeper_status
           - sensor.ups_input_voltage
           - sensor.ups_load
-          
+
   - title: Scenes & Automation
     path: automation
     icon: mdi:play-circle
@@ -186,14 +186,14 @@ views:
               service: script.turn_on
               service_data:
                 entity_id: script.morning
-                
+
       - type: entities
         title: Home Modes & Status
         entities:
           - input_boolean.vacation_mode
           - input_boolean.guest_mode
           - input_select.benjamin_status_dropdown
-          
+
       - type: conditional
         conditions:
           - entity: input_boolean.vacation_mode

@@ -70,11 +70,11 @@ ha-card:hover {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
   }
-  
+
   ha-card {
     margin: 4px !important;
   }
-  
+
   .card-header {
     font-size: 1em !important;
   }
@@ -156,7 +156,7 @@ paper-button:focus,
   ha-card {
     border: 2px solid var(--primary-text-color) !important;
   }
-  
+
   .card-header {
     font-weight: 700 !important;
   }
@@ -176,7 +176,7 @@ paper-button:focus,
   ha-card {
     background: var(--card-background-color, #1e1e1e) !important;
   }
-  
+
   .type-markdown {
     background: linear-gradient(135deg, rgba(92, 107, 192, 0.1), rgba(255, 112, 67, 0.1)) !important;
   }
