@@ -120,6 +120,7 @@ homekit:
 
     # Include specific entity patterns
     include_entity_globs:
+      - light.bedroom*
       - light.hall*  # Fix hallway pattern to match actual entities
       - light.lightstripkitchen*
       - light.livingroom*
