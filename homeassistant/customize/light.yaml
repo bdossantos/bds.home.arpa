@@ -27,9 +27,7 @@ light.lightstripkitchen1:
 light.hall1:
   friendly_name: "Hallway Light"
   icon: mdi:ceiling-light
-light.bathroom1:
-  friendly_name: "Bathroom Light"
-  icon: mdi:lightbulb
+
 
 # Light Groups
 light.livingroom_lights:
@@ -44,9 +42,7 @@ light.bedroom_lights:
 light.kid_bedroom_lights:
   friendly_name: "Kid Bedroom Lights"
   icon: mdi:teddy-bear
-light.bathroom_lights:
-  friendly_name: "Bathroom Lights"
-  icon: mdi:shower
+
 light.hallway_lights:
   friendly_name: "Hallway Lights"
   icon: mdi:home-outline

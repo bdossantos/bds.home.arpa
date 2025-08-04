@@ -27,8 +27,7 @@ group.livingroom:
 group.bedroom:
   control: hidden
 
-group.bathroom:
-  control: hidden
+
 group.scenes:
   control: hidden
 group.apc_be700g:

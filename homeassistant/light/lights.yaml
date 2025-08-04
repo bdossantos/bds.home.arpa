@@ -25,10 +25,7 @@
   entities:
     - light.livingroom3
 
-- platform: group
-  name: bathroom lights
-  entities:
-    - light.bathroom1
+
 - platform: group
   name: candle lights
   entities:
