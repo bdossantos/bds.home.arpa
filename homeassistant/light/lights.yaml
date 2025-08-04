@@ -12,7 +12,6 @@
   entities:
     - light.livingroom1
     - light.livingroom2
-    - light.livingroom3
     - light.livingroom4
 - platform: group
   name: bedroom lights
@@ -20,6 +19,11 @@
     - light.bedroom1
     - light.bedroom2
     - light.bedroom3
+
+- platform: group
+  name: kid_bedroom_lights
+  entities:
+    - light.livingroom3
 
 - platform: group
   name: bathroom lights
