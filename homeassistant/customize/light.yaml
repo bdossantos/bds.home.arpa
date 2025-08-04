@@ -1,13 +1,82 @@
 ---
+# Individual Light Customization
+light.bedroom1:
+  friendly_name: "Main Bedroom Light"
+  icon: mdi:ceiling-light
 light.bedroom2:
+  friendly_name: "Bedside Lamp (Left)"
   icon: mdi:lava-lamp
 light.bedroom3:
+  friendly_name: "Bedside Lamp (Right)"
   icon: mdi:lava-lamp
 light.livingroom1:
+  friendly_name: "Floor Lamp"
   icon: mdi:floor-lamp
 light.livingroom2:
+  friendly_name: "Ambient Light 1"
   icon: mdi:lava-lamp
 light.livingroom3:
+  friendly_name: "Ambient Light 2"
   icon: mdi:lava-lamp
 light.livingroom4:
+  friendly_name: "Table Lamp"
   icon: mdi:lamp
+light.kitchen1:
+  friendly_name: "Kitchen Overhead"
+  icon: mdi:ceiling-light
+light.hall1:
+  friendly_name: "Hallway Light"
+  icon: mdi:ceiling-light
+light.bathroom1:
+  friendly_name: "Bathroom Light"
+  icon: mdi:lightbulb
+light.dressing1:
+  friendly_name: "Dressing Area 1"
+  icon: mdi:lightbulb
+light.dressing2:
+  friendly_name: "Dressing Area 2"
+  icon: mdi:lightbulb
+
+# Light Groups
+light.livingroom_lights:
+  friendly_name: "Living Room Lights"
+  icon: mdi:sofa
+light.kitchen_lights:
+  friendly_name: "Kitchen Lights"
+  icon: mdi:chef-hat
+light.bedroom_lights:
+  friendly_name: "Bedroom Lights"
+  icon: mdi:bed
+light.bathroom_lights:
+  friendly_name: "Bathroom Lights"
+  icon: mdi:shower
+light.hallway_lights:
+  friendly_name: "Hallway Lights"
+  icon: mdi:home-outline
+light.dressing_lights:
+  friendly_name: "Dressing Lights"
+  icon: mdi:wardrobe
+light.candle_lights:
+  friendly_name: "Ambient Lighting"
+  icon: mdi:candle
+
+# Switches
+switch.hot_water_cylinder:
+  friendly_name: "Water Heater"
+  icon: mdi:water-boiler
+switch.smartplug_kitchen1:
+  friendly_name: "Kitchen Smart Plug"
+  icon: mdi:power-socket-eu
+
+# Input Booleans
+input_boolean.vacation_mode:
+  friendly_name: "Vacation Mode"
+  icon: mdi:airplane
+input_boolean.guest_mode:
+  friendly_name: "Guest Mode"
+  icon: mdi:account-multiple
+
+# Media Players
+media_player.living_room:
+  friendly_name: "Living Room TV"
+  icon: mdi:television

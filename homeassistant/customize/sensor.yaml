@@ -1,3 +1,82 @@
 ---
 sensor.benjamin_status:
   entity_picture: "https://avatars3.githubusercontent.com/u/245284?s=460&v=4"
+
+# UPS Sensors
+sensor.ups_status:
+  friendly_name: "UPS Status"
+  icon: mdi:power
+sensor.ups_battery_charge:
+  friendly_name: "Battery Level"
+  icon: mdi:battery
+sensor.ups_battery_runtime:
+  friendly_name: "Runtime Remaining"
+  icon: mdi:clock
+sensor.ups_battery_voltage:
+  friendly_name: "Battery Voltage"
+  icon: mdi:lightning-bolt
+sensor.ups_beeper_status:
+  friendly_name: "Beeper"
+  icon: mdi:volume-high
+sensor.ups_input_voltage:
+  friendly_name: "Input Voltage"
+  icon: mdi:flash
+sensor.ups_load:
+  friendly_name: "Power Load"
+  icon: mdi:gauge
+
+# Motion Sensors
+binary_sensor.hue_motion_sensor_hallway_motion:
+  friendly_name: "Hallway Motion"
+  icon: mdi:motion-sensor
+binary_sensor.hue_motion_sensor_kitchen_motion:
+  friendly_name: "Kitchen Motion"
+  icon: mdi:motion-sensor
+binary_sensor.hue_motion_sensor_dressing1_motion:
+  friendly_name: "Dressing 1 Motion"
+  icon: mdi:motion-sensor
+binary_sensor.hue_motion_sensor_dressing2_motion:
+  friendly_name: "Dressing 2 Motion"
+  icon: mdi:motion-sensor
+
+# Temperature Sensors
+sensor.hue_motion_sensor_hallway_temperature:
+  friendly_name: "Hallway Temperature"
+  icon: mdi:thermometer
+sensor.hue_motion_sensor_kitchen_temperature:
+  friendly_name: "Kitchen Temperature"
+  icon: mdi:thermometer
+sensor.hue_motion_sensor_dressing1_temperature:
+  friendly_name: "Dressing 1 Temperature"
+  icon: mdi:thermometer
+sensor.hue_motion_sensor_dressing2_temperature:
+  friendly_name: "Dressing 2 Temperature"
+  icon: mdi:thermometer
+
+# Light Sensors
+sensor.hue_motion_sensor_hallway_illuminance:
+  friendly_name: "Hallway Light Level"
+  icon: mdi:brightness-6
+sensor.hue_motion_sensor_kitchen_illuminance:
+  friendly_name: "Kitchen Light Level"
+  icon: mdi:brightness-6
+sensor.hue_motion_sensor_dressing1_illuminance:
+  friendly_name: "Dressing 1 Light Level"
+  icon: mdi:brightness-6
+sensor.hue_motion_sensor_dressing2_illuminance:
+  friendly_name: "Dressing 2 Light Level"
+  icon: mdi:brightness-6
+
+# Water Heater Sensors
+sensor.hot_water_cylinder_current_consumption:
+  friendly_name: "Current Power Usage"
+  icon: mdi:flash
+sensor.hot_water_cylinder_today_s_consumption:
+  friendly_name: "Today's Energy"
+  icon: mdi:calendar-today
+sensor.hot_water_cylinder_total_consumption:
+  friendly_name: "Total Energy"
+  icon: mdi:chart-line
+sensor.hot_water_cylinder_voltage:
+  friendly_name: "Supply Voltage"
+  icon: mdi:lightning-bolt
