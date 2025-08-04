@@ -1,0 +1,219 @@
+---
+title: BDS Home
+views:
+  - title: Home
+    path: home
+    icon: mdi:home
+    theme: modern-home
+    badges:
+      - entity: person.benjamin
+      - entity: person.gf
+      - entity: input_boolean.vacation_mode
+      - entity: input_boolean.guest_mode
+    cards:
+      - type: entities
+        title: Power & System Status
+        entities:
+          - sensor.ups_load
+          - sensor.ups_battery_charge
+          - sensor.ups_status
+        icon: mdi:battery
+        
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: light
+            entity: light.livingroom_lights
+            name: Living Room
+            icon: mdi:sofa
+            
+          - type: light
+            entity: light.kitchen_lights
+            name: Kitchen
+            icon: mdi:chef-hat
+            
+          - type: light
+            entity: light.bedroom_lights
+            name: Bedroom
+            icon: mdi:bed
+            
+          - type: light
+            entity: light.bathroom_lights
+            name: Bathroom
+            icon: mdi:shower
+            
+      - type: entities
+        title: Quick Room Overview
+        entities:
+          - light.livingroom_lights
+          - light.kitchen_lights
+          - light.bedroom_lights
+          - light.bathroom_lights
+              
+  - title: Living Room
+    path: livingroom
+    icon: mdi:sofa
+    theme: modern-home
+    cards:
+      - type: entities
+        title: Living Room Lights
+        entities:
+          - light.livingroom1
+          - light.livingroom2
+          - light.livingroom3
+          - light.livingroom4
+          
+      - type: media-control
+        entity: media_player.living_room
+        
+      - type: entities
+        title: Environment
+        entities:
+          - sensor.ups_input_voltage
+          - sensor.ups_load
+          
+  - title: Kitchen
+    path: kitchen
+    icon: mdi:chef-hat
+    theme: modern-home
+    cards:
+      - type: light
+        entity: light.kitchen1
+        name: Kitchen Light
+        
+      - type: entities
+        title: Kitchen Controls & Sensors
+        entities:
+          - switch.smartplug_kitchen1
+          - binary_sensor.hue_motion_sensor_kitchen_motion
+          - sensor.hue_motion_sensor_kitchen_temperature
+          - sensor.hue_motion_sensor_kitchen_illuminance
+          
+  - title: Bedroom
+    path: bedroom
+    icon: mdi:bed
+    theme: modern-home
+    cards:
+      - type: entities
+        title: Bedroom Lights
+        entities:
+          - light.bedroom1
+          - light.bedroom2
+          - light.bedroom3
+          
+      - type: horizontal-stack
+        cards:
+          - type: button
+            entity: light.candle_lights
+            name: Candle Mode
+            icon: mdi:candle
+            tap_action:
+              action: toggle
+          - type: button
+            entity: script.all_lights_off
+            name: All Off
+            icon: mdi:lightbulb-off
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.all_lights_off
+            
+  - title: Hall & Spaces
+    path: hall
+    icon: mdi:home-outline
+    theme: modern-home
+    cards:
+      - type: entities
+        title: Hallway & Dressing Areas
+        entities:
+          - light.hall1
+          - light.dressing1
+          - light.dressing2
+          - light.bathroom1
+          
+      - type: entities
+        title: Motion Sensors
+        entities:
+          - binary_sensor.hue_motion_sensor_hallway_motion
+          - sensor.hue_motion_sensor_hallway_temperature
+          - sensor.hue_motion_sensor_hallway_illuminance
+          - binary_sensor.hue_motion_sensor_dressing1_motion
+          - binary_sensor.hue_motion_sensor_dressing2_motion
+          
+  - title: Utilities
+    path: utilities
+    icon: mdi:wrench
+    theme: modern-home
+    cards:
+      - type: entities
+        title: Water Heating System
+        entities:
+          - switch.hot_water_cylinder
+          - sensor.hot_water_cylinder_current_consumption
+          - sensor.hot_water_cylinder_today_s_consumption
+          - sensor.hot_water_cylinder_total_consumption
+          - sensor.hot_water_cylinder_voltage
+          
+      - type: entities
+        title: UPS Battery Backup
+        entities:
+          - sensor.ups_status
+          - sensor.ups_battery_charge
+          - sensor.ups_battery_runtime
+          - sensor.ups_battery_voltage
+          - sensor.ups_beeper_status
+          - sensor.ups_input_voltage
+          - sensor.ups_load
+          
+  - title: Scenes & Automation
+    path: automation
+    icon: mdi:play-circle
+    theme: modern-home
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: button
+            entity: light.candle_lights
+            name: Candle Lights
+            icon: mdi:candle
+            tap_action:
+              action: toggle
+          - type: button
+            entity: script.all_lights_off
+            name: All Lights Off
+            icon: mdi:lightbulb-off
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.all_lights_off
+          - type: button
+            entity: script.morning
+            name: Morning Scene
+            icon: mdi:weather-sunny
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.morning
+                
+      - type: entities
+        title: Home Modes & Status
+        entities:
+          - input_boolean.vacation_mode
+          - input_boolean.guest_mode
+          - input_select.benjamin_status_dropdown
+          
+      - type: conditional
+        conditions:
+          - entity: input_boolean.vacation_mode
+            state: "on"
+        card:
+          type: markdown
+          content: |
+            ## 🏖️ Vacation Mode Active
+            - Security automations enabled
+            - Lights simulating presence
+            - Energy saving mode active
