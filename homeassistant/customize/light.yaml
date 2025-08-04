@@ -53,9 +53,6 @@ light.candle_lights:
   icon: mdi:candle
 
 # Switches
-switch.hot_water_cylinder:
-  friendly_name: "Water Heater"
-  icon: mdi:water-boiler
 switch.smartplug_kitchen1:
   friendly_name: "Kitchen Smart Plug"
   icon: mdi:power-socket-eu

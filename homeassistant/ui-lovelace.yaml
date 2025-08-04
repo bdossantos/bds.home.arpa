@@ -43,6 +43,12 @@ views:
             name: Bathroom
             icon: mdi:shower
             
+      - type: picture-entity
+        entity: camera.cam01
+        name: Security Camera
+        show_state: false
+        show_name: true
+            
       - type: entities
         title: Quick Room Overview
         entities:
@@ -144,13 +150,9 @@ views:
     theme: modern-home
     cards:
       - type: entities
-        title: Water Heating System
+        title: Security Camera
         entities:
-          - switch.hot_water_cylinder
-          - sensor.hot_water_cylinder_current_consumption
-          - sensor.hot_water_cylinder_today_s_consumption
-          - sensor.hot_water_cylinder_total_consumption
-          - sensor.hot_water_cylinder_voltage
+          - camera.cam01
           
       - type: entities
         title: UPS Battery Backup
