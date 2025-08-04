@@ -10,7 +10,6 @@ homekit_good_morning:
       entity_id: input_boolean.vacation_mode
     - service: light.turn_on
       entity_id:
-        - light.bedroom1
         - light.hall1
         - light.lightstripkitchen1
       data:
@@ -18,8 +17,6 @@ homekit_good_morning:
         color_temp: 400  # Warm white for morning
         transition: 30
     - delay: "00:00:05"
-    - service: switch.turn_on
-      entity_id: switch.smartplug_kitchen1
     - service: notify.all_smartphones
       data:
         title: "Good Morning! ☀️"
@@ -46,8 +43,6 @@ homekit_good_night:
         transition: 15
     - service: media_player.turn_off
       entity_id: media_player.living_room
-    - service: switch.turn_off
-      entity_id: switch.smartplug_kitchen1
     - delay: "00:15:00"  # Keep bedroom lights on for 15 minutes
     - service: light.turn_off
       entity_id:
@@ -83,8 +78,6 @@ homekit_away_secure:
       entity_id: all
       data:
         transition: 2
-    - service: switch.turn_off
-      entity_id: switch.smartplug_kitchen1
     - service: media_player.turn_off
       entity_id: media_player.living_room
     - service: notify.all_smartphones
@@ -127,7 +120,6 @@ homekit_candle_mode:
       entity_id:
         - light.hall1
         - light.lightstripkitchen1
-        - light.bedroom1
       data:
         transition: 5
     - service: light.turn_on
@@ -148,8 +140,6 @@ homekit_energy_save:
       entity_id: all
       data:
         transition: 5
-    - service: switch.turn_off
-      entity_id: switch.smartplug_kitchen1
     - service: media_player.turn_off
       entity_id: media_player.living_room
     - service: notify.all_smartphones
