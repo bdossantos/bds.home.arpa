@@ -12,12 +12,7 @@ light.bedroom3:
 light.livingroom1:
   friendly_name: "Floor Lamp"
   icon: mdi:floor-lamp
-light.livingroom2:
-  friendly_name: "Ambient Light 1"
-  icon: mdi:lava-lamp
-light.livingroom3:
-  friendly_name: "Kid Bedroom Light"
-  icon: mdi:teddy-bear
+
 light.livingroom4:
   friendly_name: "Table Lamp"
   icon: mdi:lamp
@@ -39,9 +34,6 @@ light.kitchen_lights:
 light.bedroom_lights:
   friendly_name: "Bedroom Lights"
   icon: mdi:bed
-light.kid_bedroom_lights:
-  friendly_name: "Kid Bedroom Lights"
-  icon: mdi:teddy-bear
 
 light.hallway_lights:
   friendly_name: "Hallway Lights"
