@@ -94,7 +94,7 @@ homekit:
       - light.bathroom*
       - light.bedroom*
       - light.hallway*
-      - light.kitchen*
+      - light.lightstripkitchen*
       - light.livingroom*
       - media_player.living_room*
     include_entities:
@@ -167,7 +167,7 @@ group:
   kitchen:
     name: Kitchen
     entities:
-      - light.kitchen1
+      - light.lightstripkitchen1
       - switch.smartplug_kitchen1
       - binary_sensor.hue_motion_sensor_kitchen_motion
       - sensor.hue_motion_sensor_kitchen_illuminance

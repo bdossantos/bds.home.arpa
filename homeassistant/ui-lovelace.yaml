@@ -90,7 +90,7 @@ views:
     theme: modern-home
     cards:
       - type: light
-        entity: light.kitchen1
+        entity: light.lightstripkitchen1
         name: Kitchen Light
         
       - type: entities
