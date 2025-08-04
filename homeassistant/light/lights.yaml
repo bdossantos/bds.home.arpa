@@ -6,7 +6,7 @@
 - platform: group
   name: kitchen lights
   entities:
-    - light.kitchen1
+    - light.lightstripkitchen1
 - platform: group
   name: livingroom lights
   entities:
