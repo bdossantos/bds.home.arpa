@@ -201,57 +201,42 @@ homekit:
     # Motion sensor configurations
     binary_sensor.hue_motion_sensor_hallway_motion:
       name: Hallway Motion
-      type: motion
     binary_sensor.hue_motion_sensor_kitchen_motion:
       name: Kitchen Motion
-      type: motion
 
     # Temperature sensor configurations
     sensor.hue_motion_sensor_hallway_temperature:
       name: Hallway Temperature
-      type: temperature
     sensor.hue_motion_sensor_kitchen_temperature:
       name: Kitchen Temperature
-      type: temperature
 
     # Light sensor configurations
     sensor.hue_motion_sensor_hallway_illuminance:
       name: Hallway Light Level
-      type: light
     sensor.hue_motion_sensor_kitchen_illuminance:
       name: Kitchen Light Level
-      type: light
 
     # Person tracking (for HomeKit automation triggers)
     person.benjamin:
       name: Benjamin
-      type: person
     person.gf:
       name: Partner
-      type: person
 
     # Scene configurations for HomeKit
     scene.good_morning:
       name: Good Morning
-      type: scene
     scene.good_night:
       name: Good Night
-      type: scene
     scene.movie_time:
       name: Movie Time
-      type: scene
     scene.candle_light:
       name: Candle Light
-      type: scene
     scene.welcome_home:
       name: Welcome Home
-      type: scene
     scene.energy_save:
       name: Energy Save
-      type: scene
     scene.all_off:
       name: All Off
-      type: scene
 
 group:
   default_view:
