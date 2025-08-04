@@ -1,0 +1,158 @@
+---
+# HomeKit-optimized scenes for iOS devices
+# These scripts create scenes that work well with HomeKit automation
+
+homekit_good_morning:
+  alias: "Good Morning (HomeKit)"
+  description: "Morning routine optimized for HomeKit"
+  sequence:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.vacation_mode
+    - service: light.turn_on
+      entity_id:
+        - light.bedroom1
+        - light.hall1
+        - light.lightstripkitchen1
+      data:
+        brightness_pct: 60
+        color_temp: 400  # Warm white for morning
+        transition: 30
+    - delay: "00:00:05"
+    - service: switch.turn_on
+      entity_id: switch.smartplug_kitchen1
+    - service: notify.all_smartphones
+      data:
+        title: "Good Morning! ☀️"
+        message: "Morning lights activated via HomeKit"
+
+homekit_good_night:
+  alias: "Good Night (HomeKit)"
+  description: "Bedtime routine optimized for HomeKit"
+  sequence:
+    - service: light.turn_off
+      entity_id:
+        - light.hall1
+        - light.lightstripkitchen1
+        - light.livingroom1
+      data:
+        transition: 10
+    - service: light.turn_on
+      entity_id:
+        - light.bedroom2
+        - light.bedroom3
+      data:
+        brightness_pct: 20
+        color_temp: 500  # Very warm for bedtime
+        transition: 15
+    - service: media_player.turn_off
+      entity_id: media_player.living_room
+    - service: switch.turn_off
+      entity_id: switch.smartplug_kitchen1
+    - delay: "00:15:00"  # Keep bedroom lights on for 15 minutes
+    - service: light.turn_off
+      entity_id:
+        - light.bedroom2
+        - light.bedroom3
+      data:
+        transition: 30
+
+homekit_movie_time:
+  alias: "Movie Time (HomeKit)"
+  description: "Cinema mode for living room via HomeKit"
+  sequence:
+    - service: light.turn_off
+      entity_id:
+        - light.hall1
+        - light.lightstripkitchen1
+      data:
+        transition: 5
+    - service: light.turn_on
+      entity_id: light.livingroom1
+      data:
+        brightness_pct: 15
+        color_temp: 500  # Warm dim light
+        transition: 5
+    - service: media_player.turn_on
+      entity_id: media_player.living_room
+
+homekit_away_secure:
+  alias: "Away Secure (HomeKit)"
+  description: "Security mode when leaving home via HomeKit"
+  sequence:
+    - service: light.turn_off
+      entity_id: all
+      data:
+        transition: 2
+    - service: switch.turn_off
+      entity_id: switch.smartplug_kitchen1
+    - service: media_player.turn_off
+      entity_id: media_player.living_room
+    - service: notify.all_smartphones
+      data:
+        title: "Home Secured 🔒"
+        message: "All devices turned off. Home is secure."
+        data:
+          color: red
+
+homekit_arrive_home:
+  alias: "Arrive Home (HomeKit)"
+  description: "Welcome home routine via HomeKit"
+  sequence:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.vacation_mode
+    - condition: numeric_state
+      entity_id: sensor.hue_motion_sensor_hallway_illuminance
+      below: 100  # Only turn on lights if dark
+    - service: light.turn_on
+      entity_id:
+        - light.hall1
+        - light.livingroom1
+      data:
+        brightness_pct: 75
+        transition: 3
+    - delay: "00:00:10"
+    - condition: time
+      after: "18:00:00"
+      before: "22:00:00"
+    - service: light.turn_on
+      entity_id: light.lightstripkitchen1
+      data:
+        brightness_pct: 60
+
+homekit_candle_mode:
+  alias: "Candle Mode (HomeKit)"
+  description: "Romantic candle lighting via HomeKit"
+  sequence:
+    - service: light.turn_off
+      entity_id:
+        - light.hall1
+        - light.lightstripkitchen1
+        - light.bedroom1
+      data:
+        transition: 5
+    - service: light.turn_on
+      entity_id:
+        - light.bedroom2
+        - light.bedroom3
+        - light.livingroom1
+      data:
+        brightness_pct: 25
+        color_temp: 500  # Very warm candle-like light
+        transition: 10
+
+homekit_energy_save:
+  alias: "Energy Save (HomeKit)"
+  description: "Energy saving mode via HomeKit"
+  sequence:
+    - service: light.turn_off
+      entity_id: all
+      data:
+        transition: 5
+    - service: switch.turn_off
+      entity_id: switch.smartplug_kitchen1
+    - service: media_player.turn_off
+      entity_id: media_player.living_room
+    - service: notify.all_smartphones
+      data:
+        title: "Energy Save Mode 💚"
+        message: "All non-essential devices turned off to save energy"
