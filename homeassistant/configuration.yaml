@@ -167,8 +167,6 @@ homekit:
         - feature: play_pause
         - feature: play_stop
         - feature: toggle_mute
-        - feature: volume_step
-        - feature: volume_mute
 
     # Light configurations with proper HomeKit names
     light.bedroom1:
