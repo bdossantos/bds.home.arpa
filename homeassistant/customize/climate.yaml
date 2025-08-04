@@ -1,0 +1,5 @@
+---
+# Dyson Climate Customization
+climate.dyson_pure_hot_cool01:
+  friendly_name: "Dyson Heater"
+  icon: mdi:thermostat

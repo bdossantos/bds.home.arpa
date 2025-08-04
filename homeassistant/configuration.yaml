@@ -85,6 +85,10 @@ sensor: !include_dir_merge_list sensor
 
 binary_sensor: !include_dir_merge_list binary_sensor
 
+fan: !include_dir_merge_list fan
+
+climate: !include_dir_merge_list climate
+
 device_tracker: !include_dir_merge_list device_tracker
 
 homekit:
@@ -117,6 +121,8 @@ homekit:
       - camera
       - switch  # Add switches for smart plugs and controls
       - scene   # Include scenes for HomeKit automation
+      - fan     # Include fans for air circulation and purification
+      - climate # Include climate controls for heating/cooling
 
     # Include specific entity patterns
     include_entity_globs:
@@ -128,6 +134,10 @@ homekit:
       - binary_sensor.*_motion  # Include motion sensors
       - sensor.*_temperature  # Include temperature sensors
       - sensor.*_illuminance  # Include light sensors
+      - fan.dyson_*  # Include Dyson fan controls
+      - climate.dyson_*  # Include Dyson climate controls
+      - sensor.dyson_*_temperature  # Include Dyson temperature sensors
+      - sensor.dyson_*_humidity  # Include Dyson humidity sensors
       - scene.good_*  # Include good morning/night scenes
       - scene.movie_*  # Include movie time scene
       - scene.candle_*  # Include candle light scene
@@ -191,6 +201,16 @@ homekit:
     switch.hot_water_cylinder:
       name: Water Heater
       type: switch
+
+    # Fan configurations
+    fan.dyson_pure_hot_cool01:
+      name: Dyson Air Purifier
+      type: fan
+
+    # Climate configurations
+    climate.dyson_pure_hot_cool01:
+      name: Dyson Heater
+      type: thermostat
 
     # Motion sensor configurations
     binary_sensor.hue_motion_sensor_hallway_motion:
@@ -289,6 +309,8 @@ group:
     entities:
       - light.livingroom1
       - media_player.living_room
+      - fan.dyson_pure_hot_cool01
+      - climate.dyson_pure_hot_cool01
       - sensor.ups_input_voltage
       - sensor.ups_load
 

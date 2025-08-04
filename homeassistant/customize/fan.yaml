@@ -1,0 +1,5 @@
+---
+# Dyson Fan Customization
+fan.dyson_pure_hot_cool01:
+  friendly_name: "Dyson Pure Hot Cool"
+  icon: mdi:fan

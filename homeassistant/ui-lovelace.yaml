@@ -24,7 +24,16 @@ views:
         entities:
           - sensor.hue_motion_sensor_kitchen_temperature
           - sensor.hue_motion_sensor_hallway_temperature
+          - sensor.dyson_pure_hot_cool01_temperature
         icon: mdi:thermometer
+
+      - type: entities
+        title: Air Quality & Climate Control
+        entities:
+          - fan.dyson_pure_hot_cool01
+          - climate.dyson_pure_hot_cool01
+          - sensor.dyson_pure_hot_cool01_particulate_matter_2_5
+        icon: mdi:air-filter
 
       - type: grid
         columns: 2
@@ -70,6 +79,26 @@ views:
 
       - type: media-control
         entity: media_player.living_room
+
+      - type: entities
+        title: Air Quality & Climate
+        entities:
+          - fan.dyson_pure_hot_cool01
+          - climate.dyson_pure_hot_cool01
+          - sensor.dyson_pure_hot_cool01_temperature
+          - sensor.dyson_pure_hot_cool01_humidity
+        icon: mdi:air-filter
+
+      - type: gauge
+        entity: sensor.dyson_pure_hot_cool01_particulate_matter_2_5
+        name: Air Quality (PM2.5)
+        min: 0
+        max: 100
+        severity:
+          green: 0
+          yellow: 25
+          red: 50
+        unit: "µg/m³"
 
       - type: entities
         title: Environment
