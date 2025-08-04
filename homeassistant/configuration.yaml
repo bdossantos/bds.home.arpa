@@ -173,22 +173,16 @@ homekit:
     # Light configurations with proper HomeKit names
     light.bedroom1:
       name: Main Bedroom Light
-      type: light
     light.bedroom2:
       name: Bedroom Side Light 1
-      type: light
     light.bedroom3:
       name: Bedroom Side Light 2
-      type: light
     light.hall1:
       name: Hallway Light
-      type: light
     light.lightstripkitchen1:
       name: Kitchen Strip Light
-      type: light
     light.livingroom1:
       name: Living Room Light
-      type: light
 
     # Input boolean configurations
     input_boolean.guest_mode:
