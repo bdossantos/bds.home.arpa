@@ -1,7 +1,4 @@
----
-# Dyson Pure Hot Cool Fan Configuration
-# This configures the Dyson fan functionality including speed control and oscillation
-- platform: dyson
-  host: dyson-pure-hot-cool01.bds.home.arpa
-  username: !secret dyson_username
-  password: !secret dyson_password
+[]
+# This file is intentionally empty.
+# Dyson integration is configured through the Home Assistant UI.
+# See docs/dyson-integration.md for setup instructions.

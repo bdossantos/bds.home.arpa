@@ -1,7 +1,4 @@
----
-# Dyson Pure Hot Cool Climate Configuration
-# This configures the Dyson heating and temperature control functionality
-- platform: dyson
-  host: dyson-pure-hot-cool01.bds.home.arpa
-  username: !secret dyson_username
-  password: !secret dyson_password
+[]
+# This file is intentionally empty.
+# Dyson integration is configured through the Home Assistant UI.
+# See docs/dyson-integration.md for setup instructions.

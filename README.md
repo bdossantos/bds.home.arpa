@@ -16,6 +16,10 @@
 
 See the [UI Improvements Documentation](docs/UI_IMPROVEMENTS.md) for detailed information.
 
+### Smart Home Integrations
+- **🌪️ Dyson Pure Hot Cool**: Full air purifier, heater, and fan control with air quality monitoring
+  - See [Dyson Integration Setup](docs/dyson-integration.md) for installation and configuration
+
 ## Installation
 
 ```
