@@ -14,6 +14,26 @@ install: ## Install all the things
 		pip3 install -r requirements.txt; \
 	fi
 
+install-dyson: ## Install Dyson custom integration
+	$(info --> Installing Dyson custom integration)
+	@./scripts/install-dyson-integration.sh
+
+build: ## Build Docker image
+	$(info --> Building Docker image)
+	docker build -t bdossantos/home-assistant .
+
+up: ## Start Home Assistant container
+	$(info --> Starting Home Assistant)
+	docker-compose up -d
+
+down: ## Stop Home Assistant container
+	$(info --> Stopping Home Assistant)
+	docker-compose down
+
+logs: ## Show Home Assistant logs
+	$(info --> Showing Home Assistant logs)
+	docker-compose logs -f home-assistant
+
 pre-commit: ## Run pre-commit tests
 	$(info --> Run pre-commit)
 	@pre-commit run --all-files
@@ -25,7 +45,7 @@ shellcheck: ## Run shellcheck on /scripts directory
 
 test: ## Run tests suite
 	$(MAKE) pre-commit
-	docker build -t bdossantos/home-assistant .
+	$(MAKE) build
 	docker run \
 		-v "${PWD}/homeassistant:/config" \
 		-v '${PWD}/homeassistant/secrets.yaml.dist:/config/secrets.yaml:ro' \

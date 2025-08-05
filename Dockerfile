@@ -47,6 +47,7 @@ RUN set -eux \
       google-cloud==0.34.0 \
       grpcio==1.64.0 \
       homeassistant=="${VERSION}" \
+      libdyson==0.8.11 \
       numpy==1.26.4 \
       pillow==11.0.0 \
       pip==23.1.2 \

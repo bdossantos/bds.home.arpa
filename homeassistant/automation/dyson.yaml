@@ -1,0 +1,62 @@
+---
+# Dyson Air Quality Automation Examples
+# These automations demonstrate smart air quality management
+
+# Turn on Dyson fan when air quality is poor
+- alias: "Auto Air Purification - High PM2.5"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.dyson_pure_hot_cool01_particulate_matter_2_5
+    above: 35  # WHO recommended limit
+  condition:
+    condition: state
+    entity_id: fan.dyson_pure_hot_cool01
+    state: "off"
+  action:
+    - service: fan.turn_on
+      entity_id: fan.dyson_pure_hot_cool01
+      data:
+        speed: "medium"
+    - service: notify.all_smartphones
+      data:
+        title: "Air Quality Alert"
+        message: "High PM2.5 detected. Dyson air purifier activated."
+
+# Turn on heating when temperature drops and someone is home
+- alias: "Smart Heating - Temperature Control"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.dyson_pure_hot_cool01_temperature
+    below: 20
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.vacation_mode
+        state: "off"
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: person.benjamin
+            state: "home"
+          - condition: state
+            entity_id: person.gf
+            state: "home"
+  action:
+    - service: climate.set_temperature
+      entity_id: climate.dyson_pure_hot_cool01
+      data:
+        temperature: 22
+        hvac_mode: "heat"
+
+# Energy saving: Turn off during vacation
+- alias: "Vacation Mode - Disable Dyson"
+  trigger:
+    platform: state
+    entity_id: input_boolean.vacation_mode
+    to: "on"
+  action:
+    - service: fan.turn_off
+      entity_id: fan.dyson_pure_hot_cool01
+    - service: climate.turn_off
+      entity_id: climate.dyson_pure_hot_cool01
