@@ -65,3 +65,23 @@ sensor.hot_water_cylinder_total_consumption:
 sensor.hot_water_cylinder_voltage:
   friendly_name: "Supply Voltage"
   icon: mdi:lightning-bolt
+
+# Dyson Pure Hot Cool Sensors
+sensor.dyson_pure_hot_cool01_temperature:
+  friendly_name: "Dyson Temperature"
+  icon: mdi:thermometer
+sensor.dyson_pure_hot_cool01_humidity:
+  friendly_name: "Dyson Humidity"
+  icon: mdi:water-percent
+sensor.dyson_pure_hot_cool01_particulate_matter_2_5:
+  friendly_name: "PM2.5"
+  icon: mdi:dots-circle
+sensor.dyson_pure_hot_cool01_particulate_matter_10:
+  friendly_name: "PM10"
+  icon: mdi:dots-circle
+sensor.dyson_pure_hot_cool01_volatile_organic_compounds:
+  friendly_name: "VOC Index"
+  icon: mdi:chemical-weapon
+sensor.dyson_pure_hot_cool01_nitrogen_dioxide:
+  friendly_name: "NO2 Level"
+  icon: mdi:molecule
