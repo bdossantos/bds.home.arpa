@@ -105,36 +105,36 @@ homekit:
   filter:
     # Exclude entity patterns that shouldn't appear in HomeKit
     exclude_entity_globs:
-      - light.*_lights  # Exclude light groups (will include individual lights)
-      - sensor.*_battery  # Exclude battery sensors for cleaner interface
+      - light.*_lights # Exclude light groups (will include individual lights)
+      - sensor.*_battery # Exclude battery sensors for cleaner interface
       - automation.*
-      - script.all_lights_off  # Exclude basic script (use scenes instead)
-      - script.morning  # Exclude basic script (use scenes instead)
+      - script.all_lights_off # Exclude basic script (use scenes instead)
+      - script.morning # Exclude basic script (use scenes instead)
       - group.*
 
     # Include specific domains that work well with HomeKit
     include_domains:
       - camera
-      - switch  # Add switches for smart plugs and controls
-      - scene   # Include scenes for HomeKit automation
+      - switch # Add switches for smart plugs and controls
+      - scene # Include scenes for HomeKit automation
 
     # Include specific entity patterns
     include_entity_globs:
       - light.bedroom*
-      - light.hall*  # Fix hallway pattern to match actual entities
+      - light.hall* # Fix hallway pattern to match actual entities
       - light.lightstripkitchen*
       - light.livingroom*
       - media_player.living_room*
-      - binary_sensor.*_motion  # Include motion sensors
-      - sensor.*_temperature  # Include temperature sensors
-      - sensor.*_illuminance  # Include light sensors
-      - scene.good_*  # Include good morning/night scenes
-      - scene.movie_*  # Include movie time scene
-      - scene.candle_*  # Include candle light scene
-      - scene.welcome_*  # Include welcome home scene
-      - scene.energy_*  # Include energy save scene
-      - scene.all_*  # Include all off scene
-      - script.homekit_*  # Include HomeKit-specific scripts
+      - binary_sensor.*_motion # Include motion sensors
+      - sensor.*_temperature # Include temperature sensors
+      - sensor.*_illuminance # Include light sensors
+      - scene.good_* # Include good morning/night scenes
+      - scene.movie_* # Include movie time scene
+      - scene.candle_* # Include candle light scene
+      - scene.welcome_* # Include welcome home scene
+      - scene.energy_* # Include energy save scene
+      - scene.all_* # Include all off scene
+      - script.homekit_* # Include HomeKit-specific scripts
 
     # Include specific useful entities
     include_entities:
@@ -143,7 +143,7 @@ homekit:
       - media_player.living_room
       - person.benjamin
       - person.gf
-      - switch.hot_water_cylinder  # Water heater control
+      - switch.hot_water_cylinder # Water heater control
 
   # Enhanced entity configuration for better HomeKit presentation
   entity_config:
@@ -152,8 +152,8 @@ homekit:
       name: Security Camera
       video_codec: copy
       support_audio: true
-      video_map: 0:0  # Use first video stream
-      audio_map: 0:1  # Use first audio stream
+      video_map: 0:0 # Use first video stream
+      audio_map: 0:1 # Use first audio stream
       max_fps: 30
       max_width: 1920
       max_height: 1080
@@ -182,15 +182,12 @@ homekit:
     # Input boolean configurations
     input_boolean.guest_mode:
       name: Guest Mode
-      type: switch
     input_boolean.vacation_mode:
       name: Vacation Mode
-      type: switch
 
     # Switch configurations
     switch.hot_water_cylinder:
       name: Water Heater
-      type: switch
 
     # Motion sensor configurations
     binary_sensor.hue_motion_sensor_hallway_motion:
