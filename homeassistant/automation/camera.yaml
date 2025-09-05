@@ -1,6 +1,6 @@
 ---
 - alias: "Turn on Camera recording when everybody is Away"
-  initial_state: "True"
+  initial_state: "False"
   trigger:
     - platform: state
       entity_id: sensor.benjamin_status
@@ -40,7 +40,7 @@
           color: green
 
 - alias: "Turn off Camera recording when we are home"
-  initial_state: "True"
+  initial_state: "False"
   trigger:
     - platform: state
       entity_id: group.family
@@ -69,7 +69,7 @@
           color: green
 
 - alias: "Enforce Camera configuration missmatch when everybody is away (cron safeguard)"
-  initial_state: "True"
+  initial_state: "False"
   trigger:
     - platform: time_pattern
       minutes: "/5"
@@ -111,7 +111,7 @@
           color: green
 
 - alias: "Enforce Camera configuration missmatch when we are home (cron safeguard)"
-  initial_state: "True"
+  initial_state: "False"
   trigger:
     - platform: time_pattern
       minutes: "/5"
@@ -132,3 +132,28 @@
       entity_id: switch.cam01_push_notifications
     - service: switch.turn_off
       entity_id: switch.cam01_siren_on_event
+
+- alias: "Enforce Camera configuration missmatch every 5 minutes (cron safeguard)"
+  initial_state: "True"
+  trigger:
+    - platform: time_pattern
+      minutes: "/5"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.cam01_record
+    - service: switch.turn_on
+      entity_id: switch.cam01_record_audio
+    - service: switch.turn_on
+      entity_id: switch.cam01_auto_focus
+    - service: switch.turn_on
+      entity_id: switch.cam01_ftp_upload
+    - service: switch.turn_on
+      entity_id: switch.cam01_push_notifications
+    - service: switch.turn_on
+      entity_id: light.cam01_infra_red_lights_in_night_mode
+    - service: switch.turn_off
+      entity_id: switch.cam01_siren_on_event
+    - service: number.set_value
+      entity_id: number.cam01_motion_sensitivity
+      data:
+        value: 50
