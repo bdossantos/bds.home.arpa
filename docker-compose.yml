@@ -163,7 +163,7 @@ services:
       - anki
     restart: always
   radicale:
-    image: bdossantos/radicale:3.5.4-9c02c99@sha256:9a3f28928776aaca3e90cf50ffd6439ddfe4852d8ff8cbcd54d3e379ab503725
+    image: bdossantos/radicale:3.5.5-be9292d@sha256:2afd46b1cd8ce2a72e5e1b6dab992eef82bfe4fdf2a071b4df1d7c4634a165e7
     container_name: radicale
     volumes:
       - /etc/localtime:/etc/localtime:ro
