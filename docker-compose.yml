@@ -141,7 +141,7 @@ services:
       - paperless
     restart: always
   paperless-tika:
-    image: ghcr.io/paperless-ngx/tika:latest
+    image: docker.io/apache/tika:latest
     container_name: paperless-tika
     ports:
       - 9998:9998/tcp
