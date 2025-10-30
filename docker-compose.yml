@@ -91,6 +91,8 @@ services:
       - PAPERLESS_DBPORT=5433
       - PAPERLESS_DBUSER=paperless
       - PAPERLESS_FILENAME_FORMAT={{ created_year }}/{{ title }}
+      - PAPERLESS_READ_CACHE_REDIS_URL=redis://paperless-broker:6379
+      - PAPERLESS_READ_CACHE_TTL=3600
       - PAPERLESS_REDIS=redis://paperless-broker:6379
       - PAPERLESS_TIKA_ENABLED=1
       - PAPERLESS_TIKA_ENDPOINT=http://papereless-tika:9998
