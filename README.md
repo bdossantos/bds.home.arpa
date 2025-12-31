@@ -35,6 +35,62 @@ git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
 - 1 \* Synology DiskStation DS720+
 - 1 \* TP-Link MC220L RJ45 Gigabit Converter
 
+## Network Topology
+
+```
+                            ┌─────────────────┐
+                            │   Fiber Optic   │
+                            │     (ISP)       │
+                            └────────┬────────┘
+                                     │
+                            ┌────────▼────────┐
+                            │      ONT        │
+                            │ (Fiber → ETH)   │
+                            └────────┬────────┘
+                                     │
+                            ┌────────▼────────┐
+                  ┌─────────┤  Netgate 4100   │
+                  │         │   (pfSense)     │
+                  │         └─────────────────┘
+                  │                │
+      ┌───────────┼────────────────┼──────────────┐
+      │           │                │              │
+  ┌───▼────┐  ┌───▼────┐      ┌───▼────┐    ┌───▼────┐
+  │  WAN1  │  │  WAN2  │      │  LAN1  │    │  LAN2  │
+  │ (ONT)  │  │ (Backup)│      │        │    │        │
+  └────────┘  └───┬────┘      └───┬────┘    └───┬────┘
+                  │                │              │
+            ┌─────▼─────┐    ┌─────▼─────┐  ┌─────▼─────┐
+            │LTE Router │    │  Netgear  │  │  TP-Link  │
+            │   (4G)    │    │ GS308P-   │  │ Deco BE85 │
+            │  Backup   │    │ 100PES    │  │WiFi Mesh  │
+            └───────────┘    │  Switch   │  │   Main    │
+                             └─────┬─────┘  └───────────┘
+                                   │
+                        ┌──────────┼──────────┐
+                        │          │          │
+                    ┌───▼───┐  ┌───▼───┐  ┌──▼──────┐
+                    │Port 1 │  │Port 2 │  │ Port 3  │
+                    │  NAS  │  │  NAS  │  │Philips  │
+                    │Bridge │  │Bridge │  │  Hue    │
+                    └───────┘  └───────┘  │ Bridge  │
+                                          └─────────┘
+```
+
+### Network Components
+
+- **ONT (Optical Network Terminal)**: Converts fiber optic to Ethernet connection
+- **Netgate 4100 MAX** (pfSense router):
+  - **WAN1**: Primary internet connection via ONT
+  - **WAN2**: Backup internet connection via LTE router (4G)
+  - **LAN1**: Connected to Netgear switch for wired devices
+  - **LAN2**: Connected to TP-Link Deco BE85 WiFi mesh system
+- **Netgear GS308P-100PES Switch**: 8-port Gigabit PoE switch
+  - Port 1: NAS bridge connection
+  - Port 2: NAS bridge connection
+  - Port 3: Philips Hue bridge
+- **TP-Link Deco BE85**: Main WiFi mesh access point
+
 ## Network
 
 ```
