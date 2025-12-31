@@ -7,6 +7,7 @@
 ## ✨ Recent Updates
 
 ### Modern UI/UX Improvements
+
 - **🎨 Modern Lovelace Dashboard**: Upgraded from legacy groups to modern card-based interface
 - **🎭 Custom Themes**: Added light and dark theme variants with consistent Material Design
 - **📱 Mobile Optimized**: Responsive layouts for all screen sizes
@@ -23,23 +24,16 @@ git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
 ~/Code/bds.home.arpa/scripts/deploy
 ```
 
-## Hardware and devices
+## Hardware and network devices
 
-* 1 * APC BE700G-FR Onduleur BACK-UPS ES 700VA / 405 W
-* 1 * Google Wifi
-* 1 * Module mini-GBiC SFP Multimode-Monomode/0.55-10km
-* 1 * Netgate SG-3100
-* 1 * Netgear GS308P-100PES Switch Gigabit Ethernet 8 Ports with 4 Ports PoE
-* 1 * Netgear EAX15
-* 5 * Philips Hue Go
-* 1 * Phillips Hue hub
-* 1 * Plugable Technologies USB-BT4LE Bluetooth
-* 1 * Synology DiskStation DS720+
-* 1 * TP-Link HS100
-* 1 * TP-Link MC220L RJ45 Gigabit Converter
-* 4 * Philips Hue Motion Sensor
-* 1 * Phantom II 95 dB
-* 6 * Phillips Hue bulbs
+- 1 \* APC BE700G-FR Onduleur BACK-UPS ES 700VA / 405 W
+- 1 \* TP-Link Deco BE85
+- 1 \* Module mini-GBiC SFP Multimode-Monomode/0.55-10km
+- 1 \* Netgate 4100 MAX
+- 1 \* Netgear GS308P-100PES Switch Gigabit Ethernet 8 Ports with 4 Ports PoE
+- 1 \* Netgear EAX15
+- 1 \* Synology DiskStation DS720+
+- 1 \* TP-Link MC220L RJ45 Gigabit Converter
 
 ## Network
 
@@ -82,23 +76,23 @@ git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
 
 ### Internet
 
-* Add VLAN 832 on WAN interface: go to Interfaces -> Assignements -> VLANs
-  * Parent Interface: your WAN interface
-  * VLAN Tag: 832
-  * VLAN Priority: 0
-  * Description:  "Orange Internet"
-* Edit WAN interface and setup the DHCP:
-  * IPv4 Configuration Type: DHCP
-  * DHCP client Configuration:
-    * Send options: `dhcp-class-identifier "sagem",user-class "+FSVDSL_livebox.Internet.softathome.Livebox3",option-90 $thescriptoutput`
-    * Request options: `subnet-mask,broadcast-address,dhcp-lease-time,dhcp-renewal-time,dhcp-rebinding-time,domain-search,routers,domain-name-servers,option-90`
-  * DHCP6 client Configuration:
-    * DHCPv6 Prefix Delegation size: none
-    * Send options: `ia-pd 0, raw-option 15 00:2b:46:53:56:44:53:4c:5f:6c:69:76:65:62:6f:78:2e:49:6e:74:65:72:6e:65:74:2e:73:6f:66:74:61:74:68:6f:6d:65:2e:6c:69:76:65:62:6f:78:33,raw-option 16 00:00:04:0e:00:05:73:61:67:65:6d,raw-option 6 00:0b:00:11:00:17:00:18,raw-option 11 $thescriptoutput`
-    * Prefix interface statement: 0
-    * sla-len: 8
-    * Prefix Interface: LAN
-* Add IPV6 Gateway
+- Add VLAN 832 on WAN interface: go to Interfaces -> Assignements -> VLANs
+  - Parent Interface: your WAN interface
+  - VLAN Tag: 832
+  - VLAN Priority: 0
+  - Description: "Orange Internet"
+- Edit WAN interface and setup the DHCP:
+  - IPv4 Configuration Type: DHCP
+  - DHCP client Configuration:
+    - Send options: `dhcp-class-identifier "sagem",user-class "+FSVDSL_livebox.Internet.softathome.Livebox3",option-90 $thescriptoutput`
+    - Request options: `subnet-mask,broadcast-address,dhcp-lease-time,dhcp-renewal-time,dhcp-rebinding-time,domain-search,routers,domain-name-servers,option-90`
+  - DHCP6 client Configuration:
+    - DHCPv6 Prefix Delegation size: none
+    - Send options: `ia-pd 0, raw-option 15 00:2b:46:53:56:44:53:4c:5f:6c:69:76:65:62:6f:78:2e:49:6e:74:65:72:6e:65:74:2e:73:6f:66:74:61:74:68:6f:6d:65:2e:6c:69:76:65:62:6f:78:33,raw-option 16 00:00:04:0e:00:05:73:61:67:65:6d,raw-option 6 00:0b:00:11:00:17:00:18,raw-option 11 $thescriptoutput`
+    - Prefix interface statement: 0
+    - sla-len: 8
+    - Prefix Interface: LAN
+- Add IPV6 Gateway
 
 This helper script help you to generate `Send options` section:
 
