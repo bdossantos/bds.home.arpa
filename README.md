@@ -62,19 +62,19 @@ git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
                   │                │              │
             ┌─────▼─────┐    ┌─────▼─────┐  ┌─────▼─────┐
             │LTE Router │    │  Netgear  │  │  TP-Link  │
-            │   (4G)    │    │ GS308P-   │  │ Deco BE85 │
-            │  Backup   │    │ 100PES    │  │WiFi Mesh  │
-            └───────────┘    │  Switch   │  │   Main    │
-                             └─────┬─────┘  └───────────┘
+            │   (4G)    │    │  GS308P   │  │ Deco BE85 │
+            │  Backup   │    │  Switch   │  │WiFi Mesh  │
+            └───────────┘    └─────┬─────┘  │   Main    │
+                                   │        └───────────┘
                                    │
                         ┌──────────┼──────────┐
                         │          │          │
                     ┌───▼───┐  ┌───▼───┐  ┌──▼──────┐
                     │Port 1 │  │Port 2 │  │ Port 3  │
-                    │  NAS  │  │  NAS  │  │Philips  │
-                    │Bridge │  │Bridge │  │  Hue    │
-                    └───────┘  └───────┘  │ Bridge  │
-                                          └─────────┘
+                    │Synology│ │Synology│ │Philips  │
+                    │DS720+ │  │DS720+ │  │  Hue    │
+                    │  NAS  │  │  NAS  │  │ Bridge  │
+                    └───────┘  └───────┘  └─────────┘
 ```
 
 ### Network Components
@@ -86,8 +86,7 @@ git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
   - **LAN1**: Connected to Netgear switch for wired devices
   - **LAN2**: Connected to TP-Link Deco BE85 WiFi mesh system
 - **Netgear GS308P-100PES Switch**: 8-port Gigabit PoE switch
-  - Port 1: NAS bridge connection
-  - Port 2: NAS bridge connection
+  - Ports 1-2: Synology DS720+ NAS (link aggregation for increased bandwidth and redundancy)
   - Port 3: Philips Hue bridge
 - **TP-Link Deco BE85**: Main WiFi mesh access point
 
