@@ -1,4 +1,4 @@
-FROM python:3.13-bookworm as build
+FROM python:3.13-trixie as build
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
@@ -14,28 +14,28 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    build-essential=12.9 \
-    cmake=3.25.1-1 \
-    libavcodec-dev=7:5.1.6-0+deb12u1 \
-    libavdevice-dev=7:5.1.6-0+deb12u1 \
-    libavfilter-dev=7:5.1.6-0+deb12u1 \
-    libavformat-dev=7:5.1.6-0+deb12u1 \
-    libavutil-dev=7:5.1.6-0+deb12u1 \
-    libbluetooth-dev=5.66-1+deb12u2 \
-    libcurl4-openssl-dev=7.88.1-10+deb12u8 \
-    libglib2.0-dev=2.74.6-2+deb12u5 \
-    libgmp-dev=2:6.2.1+dfsg1-1.1 \
-    libmpc-dev=1.3.1-1 \
-    libmpfr-dev=4.2.0-1 \
-    libswresample-dev=7:5.1.6-0+deb12u1 \
-    libswscale-dev=7:5.1.6-0+deb12u1 \
-    libturbojpeg0=1:2.1.5-2 \
-    libudev-dev=252.33-1~deb12u1 \
-    libuv1-dev=1.44.2-1+deb12u1 \
-    libxrandr-dev=2:1.5.2-2+b1 \
-    sqlite3=3.40.1-2+deb12u1 \
-    swig=4.1.0-0.2 \
-    zlib1g-dev=1:1.2.13.dfsg-1 \
+    build-essential=12.12 \
+    cmake=3.31.6-2 \
+    libavcodec-dev=7:7.1.3-0+deb13u1 \
+    libavdevice-dev=7:7.1.3-0+deb13u1 \
+    libavfilter-dev=7:7.1.3-0+deb13u1 \
+    libavformat-dev=7:7.1.3-0+deb13u1 \
+    libavutil-dev=7:7.1.3-0+deb13u1 \
+    libbluetooth-dev=5.82-1.1 \
+    libcurl4-openssl-dev=8.14.1-2+deb13u2 \
+    libglib2.0-dev=2.84.4-3~deb13u2 \
+    libgmp-dev=2:6.3.0+dfsg-3 \
+    libmpc-dev=1.3.1-1+b3 \
+    libmpfr-dev=4.2.2-1 \
+    libswresample-dev=7:7.1.3-0+deb13u1 \
+    libswscale-dev=7:7.1.3-0+deb13u1 \
+    libturbojpeg0=1:2.1.5-4 \
+    libudev-dev=257.9-1~deb13u1 \
+    libuv1-dev=1.50.0-2 \
+    libxrandr-dev=2:1.5.4-1+b3 \
+    sqlite3=3.46.1-7 \
+    swig=4.3.0-1 \
+    zlib1g-dev=1:1.3.dfsg+really1.3.1-1+b1 \
   && pip install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
@@ -58,7 +58,7 @@ RUN set -eux \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-FROM python:3.13-slim-bookworm
+FROM python:3.13-slim-trixie
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -93,20 +93,20 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN set -eux \
   && apt-get update \
   && apt-get install -y --no-install-recommends \
-    bluetooth=5.66-1+deb12u2 \
-    bluez=5.66-1+deb12u2 \
-    ca-certificates=20230311 \
-    ffmpeg=7:5.1.6-0+deb12u1 \
-    iperf3=3.12-1+deb12u1 \
-    iputils-ping=3:20221126-1+deb12u1 \
-    libbluetooth3=5.66-1+deb12u2 \
-    libmpc-dev=1.3.1-1 \
-    libturbojpeg0=1:2.1.5-2 \
-    net-tools=2.10-0.1 \
-    nmap=7.93+dfsg1-1 \
-    nut-client=2.8.0-7 \
-    sqlite3=3.40.1-2+deb12u1 \
-    zlib1g=1:1.2.13.dfsg-1 \
+    bluetooth=5.82-1.1 \
+    bluez=5.82-1.1 \
+    ca-certificates=20250419 \
+    ffmpeg=7:7.1.3-0+deb13u1 \
+    iperf3=3.18-2+deb13u2 \
+    iputils-ping=3:20240905-3 \
+    libbluetooth3=5.82-1.1 \
+    libmpc-dev=1.3.1-1+b3 \
+    libturbojpeg0=1:2.1.5-4 \
+    net-tools=2.10-1.3 \
+    nmap=7.95+dfsg-3 \
+    nut-client=2.8.1-5 \
+    sqlite3=3.46.1-7 \
+    zlib1g=1:1.3.dfsg+really1.3.1-1+b1 \
   && apt-get autoremove -y \
   && apt-get clean \
   && apt-get autoclean \
