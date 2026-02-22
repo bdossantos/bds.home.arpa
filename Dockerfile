@@ -39,21 +39,19 @@ RUN set -eux \
   && pip install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
-      aiodiscover==2.1.0 \
-      cython==0.29.35 \
-      fnvhash==0.1.0 \
+      aiodiscover==2.7.1 \
+      fnv-hash-fast==1.6.0 \
       google-api-core==2.11.0 \
       google-auth==2.19.1 \
       google-cloud==0.34.0 \
-      grpcio==1.64.0 \
+      grpcio==1.78.0 \
       homeassistant=="${VERSION}" \
-      numpy==1.26.4 \
-      pillow==11.0.0 \
+      numpy==2.3.2 \
+      Pillow==12.0.0 \
       pip==23.1.2 \
-      PyTurboJPEG==1.7.7 \
+      PyTurboJPEG==1.8.0 \
       psycopg2-binary==2.9.9 \
       pyspeex-noise==1.0.2 \
-      webrtcvad==2.0.10 \
       wheel==0.40.0 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
