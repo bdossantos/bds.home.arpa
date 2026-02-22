@@ -42,7 +42,7 @@ RUN set -eux \
       aiodiscover==2.7.1 \
       fnv-hash-fast==1.6.0 \
       google-api-core==2.11.0 \
-      google-auth==2.19.1 \
+      google-auth==2.38.0 \
       google-cloud==0.34.0 \
       grpcio==1.78.0 \
       homeassistant=="${VERSION}" \
