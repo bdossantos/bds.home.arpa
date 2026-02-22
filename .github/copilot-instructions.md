@@ -39,7 +39,7 @@ chore(deps): bump dependencies
 ## Docker Images
 
 - Use **multi-stage builds**: a `build` stage for compilation/installation and a slim final stage to keep the image small.
-- Base the build stage on `python:3.13-bookworm` and the final stage on `python:3.13-slim-bookworm`.
+- Base the build stage on `python:3.13-trixie` and the final stage on `python:3.13-slim-trixie`.
 - Always **pin apt package versions** with exact Debian version strings (e.g. `build-essential=12.9`).
 - Always **pin Python package versions** with exact version numbers (e.g. `homeassistant==2025.7.4`).
 - Include both `org.label-schema` and `org.opencontainers.image` labels using `BUILD_DATE` and `VCS_REF` build args.
