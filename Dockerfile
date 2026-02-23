@@ -1,4 +1,4 @@
-FROM python:3.13-trixie as build
+FROM python:3.14-trixie as build
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
@@ -56,7 +56,7 @@ RUN set -eux \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-FROM python:3.13-slim-trixie
+FROM python:3.14-slim-trixie
 
 ARG BUILD_DATE
 ARG VCS_REF
