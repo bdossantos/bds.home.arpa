@@ -24,6 +24,7 @@ RUN set -eux \
     libbluetooth-dev=5.82-1.1 \
     libcurl4-openssl-dev=8.14.1-2+deb13u2 \
     libglib2.0-dev=2.84.4-3~deb13u2 \
+    libpq-dev=17.7-0+deb13u1 \
     libgmp-dev=2:6.3.0+dfsg-3 \
     libmpc-dev=1.3.1-1+b3 \
     libmpfr-dev=4.2.2-1 \
