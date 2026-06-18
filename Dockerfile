@@ -4,7 +4,7 @@ ENV \
   DEBIAN_FRONTEND=noninteractive \
   PATH=$PATH:/app/bin \
   PYTHONUSERBASE=/app \
-  VERSION=2026.2.3
+  VERSION=2026.6.3
 
 COPY homeassistant /config
 COPY homeassistant/secrets.yaml.dist /config/secrets.yaml
@@ -40,20 +40,20 @@ RUN set -eux \
   && pip install \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
-      aiodiscover==2.7.1 \
-      fnv-hash-fast==1.6.0 \
-      google-api-core==2.11.0 \
-      google-auth==2.38.0 \
+      aiodiscover==3.3.2 \
+      fnv-hash-fast==2.0.3 \
+      google-api-core==2.31.0 \
+      google-auth==2.55.0 \
       google-cloud==0.34.0 \
-      grpcio==1.78.0 \
+      grpcio==1.81.1 \
       homeassistant=="${VERSION}" \
-      numpy==2.3.2 \
-      Pillow==12.0.0 \
-      pip==23.1.2 \
-      PyTurboJPEG==1.8.0 \
-      psycopg2-binary==2.9.9 \
-      pyspeex-noise==1.0.2 \
-      wheel==0.40.0 \
+      numpy==2.4.6 \
+      Pillow==12.2.0 \
+      pip==26.1.2 \
+      PyTurboJPEG==2.2.0 \
+      psycopg2-binary==2.9.12 \
+      pyspeex-noise==2.0.1 \
+      wheel==0.47.0 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
