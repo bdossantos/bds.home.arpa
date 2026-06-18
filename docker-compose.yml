@@ -21,7 +21,7 @@ services:
     network_mode: host
     restart: always
   node-exporter:
-    image: prom/node-exporter:v1.10.2@sha256:3ac34ce007accad95afed72149e0d2b927b7e42fd1c866149b945b84737c62c3
+    image: prom/node-exporter:v1.11.1@sha256:fbd8062b4529e166e902bd62cd93de2f48b36d50af942620d419657265bc20b1
     container_name: node_exporter
     privileged: true
     volumes:
@@ -42,7 +42,7 @@ services:
     pid: host
     restart: always
   prometheus:
-    image: prom/prometheus:v3.9.1@sha256:1f0f50f06acaceb0f5670d2c8a658a599affe7b0d8e78b898c1035653849a702
+    image: prom/prometheus:v3.12.0@sha256:dd4bced05dfaddf23a7ec50f87334993a4149f7fcfbf58456d1c8bafce91cd13
     container_name: prometheus
     volumes:
       - /volume1/docker_datas/prometheus:/prometheus:rw
@@ -56,7 +56,7 @@ services:
       - monitoring
     restart: always
   grafana:
-    image: grafana/grafana:12.3.3@sha256:9e1e77ade304069aee3196e9a4f210830e96e80ce9a2640891eccc324b152faf
+    image: grafana/grafana:13.0.2@sha256:b8f6abae513b839b2f3487343fa5e44d9c9d7871271fdd17689c4c452cb8098e
     container_name: grafana
     volumes:
       - /volume1/docker_datas/grafana:/var/lib/grafana
@@ -104,7 +104,7 @@ services:
       - paperless
     restart: always
   paperless-db:
-    image: postgres:14-bookworm@sha256:7fe0928f6de61208d6b39730456085d74578046df4c684fa198f0fb065f4381e
+    image: postgres:14.23-bookworm@sha256:bcb5887ba9b5a78399d03e977f770fcc11227e55ed6fc6405ff61973ccddfc1f
     container_name: paperless-db
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -121,7 +121,7 @@ services:
       - paperless
     restart: always
   paperless-broker:
-    image: redis:7.4.7-bookworm@sha256:976ab0f0939b78c06d802bcd3bea44c5142ea9a756a57b861e08819817f768c8
+    image: redis:7.4.9-bookworm@sha256:18a3d98ccee3b996ec4e79400904322b160b08dd063c71b5f46cea9ebc287bbb
     container_name: paperless-broker
     ports:
       - 6379:6379/tcp
@@ -129,7 +129,7 @@ services:
       - paperless
     restart: always
   paperless-gotenberg:
-    image: docker.io/gotenberg/gotenberg:8.26.0@sha256:328551506b3dec3ff6381dd47e5cd72a44def97506908269e201a8fbfa1c12c0
+    image: docker.io/gotenberg/gotenberg:8.34.0@sha256:0ec4b0a125c55ff1dfaed071cab30e0f37cc4326f7d53d903ee5b24e4f27fd85
     container_name: paperless-gotenberg
     command:
       - "gotenberg"
