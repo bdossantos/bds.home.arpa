@@ -56,7 +56,8 @@ RUN set -eux \
       pip==26.1.2 \
       PyTurboJPEG==2.2.0 \
       psycopg2-binary==2.9.12 \
-      pyspeex-noise==2.0.1 \
+      pymicro-vad==1.0.1 \
+      pyspeex-noise==1.0.2 \
       wheel==0.47.0 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
