@@ -1,0 +1,4 @@
+---
+- sensor:
+    - name: "Benjamin Status"
+      state: "{{ states.input_select.benjamin_status_dropdown.state }}"
