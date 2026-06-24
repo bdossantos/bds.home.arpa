@@ -29,8 +29,9 @@
       entity_id: light.cam01_infra_red_lights_in_night_mode
     - service: switch.turn_off
       entity_id: switch.cam01_siren_on_event
-    - service: number.set_value
-      entity_id: number.cam01_motion_sensitivity
+    - action: number.set_value
+      target:
+        entity_id: number.cam01_motion_sensitivity
       data:
         value: 50
     - service: notify.all_smartphones
@@ -100,8 +101,9 @@
       entity_id: light.cam01_infra_red_lights_in_night_mode
     - service: switch.turn_off
       entity_id: switch.cam01_siren_on_event
-    - service: number.set_value
-      entity_id: number.cam01_motion_sensitivity
+    - action: number.set_value
+      target:
+        entity_id: number.cam01_motion_sensitivity
       data:
         value: 50
     - service: notify.all_smartphones
@@ -153,7 +155,8 @@
       entity_id: light.cam01_infra_red_lights_in_night_mode
     - service: switch.turn_off
       entity_id: switch.cam01_siren_on_event
-    - service: number.set_value
-      entity_id: number.cam01_motion_sensitivity
+    - action: number.set_value
+      target:
+        entity_id: number.cam01_motion_sensitivity
       data:
         value: 50
