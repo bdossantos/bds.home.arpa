@@ -14,7 +14,7 @@
       entity_id: input_boolean.guest_mode
       state: "off"
   action:
-    - service: hue.activate_scene
+    - service: scene.turn_on
       data:
         transition: 60
       target:
@@ -37,7 +37,7 @@
       entity_id: input_boolean.guest_mode
       state: "off"
   action:
-    - service: hue.activate_scene
+    - service: scene.turn_on
       data:
         transition: 60
       target:
@@ -63,7 +63,7 @@
         entity_id: light.livingroom
         state: "off"
   action:
-    - service: hue.activate_scene
+    - service: scene.turn_on
       target:
         entity_id:
           - scene.hallway_relax
