@@ -1,10 +1,13 @@
-FROM python:3.14-trixie as build
+ARG VERSION=2026.6.3
+
+FROM python:3.14-trixie AS build
+
+ARG VERSION
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
   PATH=$PATH:/app/bin \
-  PYTHONUSERBASE=/app \
-  VERSION=2026.6.3
+  PYTHONUSERBASE=/app
 
 COPY homeassistant /config
 COPY homeassistant/secrets.yaml.dist /config/secrets.yaml
@@ -16,25 +19,25 @@ RUN set -eux \
   && apt-get install -y --no-install-recommends \
     build-essential=12.12 \
     cmake=3.31.6-2 \
-    libavcodec-dev=7:7.1.3-0+deb13u1 \
-    libavdevice-dev=7:7.1.3-0+deb13u1 \
-    libavfilter-dev=7:7.1.3-0+deb13u1 \
-    libavformat-dev=7:7.1.3-0+deb13u1 \
-    libavutil-dev=7:7.1.3-0+deb13u1 \
+    libavcodec-dev=7:7.1.5-0+deb13u1 \
+    libavdevice-dev=7:7.1.5-0+deb13u1 \
+    libavfilter-dev=7:7.1.5-0+deb13u1 \
+    libavformat-dev=7:7.1.5-0+deb13u1 \
+    libavutil-dev=7:7.1.5-0+deb13u1 \
     libbluetooth-dev=5.82-1.1 \
-    libcurl4-openssl-dev=8.14.1-2+deb13u2 \
-    libglib2.0-dev=2.84.4-3~deb13u2 \
-    libpq-dev=17.7-0+deb13u1 \
+    libcurl4-openssl-dev=8.14.1-2+deb13u3 \
+    libglib2.0-dev=2.84.4-3~deb13u3 \
+    libpq-dev=17.10-0+deb13u1 \
     libgmp-dev=2:6.3.0+dfsg-3 \
     libmpc-dev=1.3.1-1+b3 \
     libmpfr-dev=4.2.2-1 \
-    libswresample-dev=7:7.1.3-0+deb13u1 \
-    libswscale-dev=7:7.1.3-0+deb13u1 \
+    libswresample-dev=7:7.1.5-0+deb13u1 \
+    libswscale-dev=7:7.1.5-0+deb13u1 \
     libturbojpeg0=1:2.1.5-4 \
-    libudev-dev=257.9-1~deb13u1 \
+    libudev-dev=257.13-1~deb13u1 \
     libuv1-dev=1.50.0-2 \
     libxrandr-dev=2:1.5.4-1+b3 \
-    sqlite3=3.46.1-7 \
+    sqlite3=3.46.1-7+deb13u1 \
     swig=4.3.0-1 \
     zlib1g-dev=1:1.3.dfsg+really1.3.1-1+b1 \
   && pip install \
@@ -61,10 +64,11 @@ FROM python:3.14-slim-trixie
 
 ARG BUILD_DATE
 ARG VCS_REF
+ARG VERSION
 
 ENV \
   DEBIAN_FRONTEND=noninteractive \
-  LD_LIBRARY_PATH="/app/lib:/usr/lib64:$LD_LIBRARY_PATH" \
+  LD_LIBRARY_PATH="/app/lib:/usr/lib64:${LD_LIBRARY_PATH:-}" \
   PATH=$PATH:/app/bin \
   PYTHONUSERBASE=/app \
   TZ=Europe/Paris
@@ -95,7 +99,7 @@ RUN set -eux \
     bluetooth=5.82-1.1 \
     bluez=5.82-1.1 \
     ca-certificates=20250419 \
-    ffmpeg=7:7.1.3-0+deb13u1 \
+    ffmpeg=7:7.1.5-0+deb13u1 \
     iperf3=3.18-2+deb13u2 \
     iputils-ping=3:20240905-3 \
     libbluetooth3=5.82-1.1 \
@@ -104,7 +108,7 @@ RUN set -eux \
     net-tools=2.10-1.3 \
     nmap=7.95+dfsg-3 \
     nut-client=2.8.1-5 \
-    sqlite3=3.46.1-7 \
+    sqlite3=3.46.1-7+deb13u1 \
     zlib1g=1:1.3.dfsg+really1.3.1-1+b1 \
   && apt-get autoremove -y \
   && apt-get clean \
