@@ -44,6 +44,7 @@ RUN set -eux \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
       aiodiscover==3.3.2 \
+      aioesphomeapi==45.3.1 \
       fnv-hash-fast==2.0.3 \
       google-api-core==2.31.0 \
       google-auth==2.55.0 \
