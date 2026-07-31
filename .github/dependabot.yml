@@ -3,13 +3,52 @@ version: 2
 updates:
   - package-ecosystem: docker
     directory: "/"
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - docker
+    commit-message:
+      prefix: "chore(deps)"
     schedule:
-      interval: daily
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Europe/Paris
+    groups:
+      docker:
+        patterns:
+          - "*"
   - package-ecosystem: pip
     directory: "/"
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - python
+    commit-message:
+      prefix: "chore(deps)"
     schedule:
-      interval: daily
+      interval: weekly
+      day: monday
+      time: "06:15"
+      timezone: Europe/Paris
+    groups:
+      pip:
+        patterns:
+          - "*"
   - package-ecosystem: github-actions
     directory: "/"
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - github_actions
+    commit-message:
+      prefix: "chore(deps)"
     schedule:
-      interval: daily
+      interval: weekly
+      day: monday
+      time: "06:30"
+      timezone: Europe/Paris
+    groups:
+      github-actions:
+        patterns:
+          - "*"
