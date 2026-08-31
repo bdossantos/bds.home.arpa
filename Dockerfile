@@ -1,4 +1,4 @@
-ARG VERSION=2026.6.3
+ARG VERSION=2026.8.3
 
 FROM python:3.14-trixie AS build
 
@@ -25,9 +25,9 @@ RUN set -eux \
     libavformat-dev=7:7.1.5-0+deb13u1 \
     libavutil-dev=7:7.1.5-0+deb13u1 \
     libbluetooth-dev=5.82-1.1 \
-    libcurl4-openssl-dev=8.14.1-2+deb13u3 \
+    libcurl4-openssl-dev=8.14.1-2+deb13u4 \
     libglib2.0-dev=2.84.4-3~deb13u3 \
-    libpq-dev=17.10-0+deb13u1 \
+    libpq-dev=17.11-0+deb13u1 \
     libgmp-dev=2:6.3.0+dfsg-3 \
     libmpc-dev=1.3.1-1+b3 \
     libmpfr-dev=4.2.2-1 \
@@ -44,21 +44,21 @@ RUN set -eux \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
       aiodiscover==3.3.2 \
-      aioesphomeapi==45.3.1 \
+      aioesphomeapi==46.3.0 \
       fnv-hash-fast==2.0.3 \
-      google-api-core==2.31.0 \
-      google-auth==2.55.0 \
+      google-api-core==2.34.0 \
+      google-auth==2.57.0 \
       google-cloud==0.34.0 \
-      grpcio==1.81.1 \
+      grpcio==1.83.1 \
       homeassistant=="${VERSION}" \
-      numpy==2.4.6 \
-      Pillow==12.2.0 \
-      pip==26.1.2 \
-      PyTurboJPEG==2.2.0 \
+      numpy==2.5.2 \
+      Pillow==12.3.0 \
+      pip==26.2.1 \
+      PyTurboJPEG==2.5.0 \
       psycopg2-binary==2.9.12 \
-      pymicro-vad==1.0.1 \
-      pyspeex-noise==1.0.2 \
-      wheel==0.47.0 \
+      pymicro-vad==2.1.0 \
+      pyspeex-noise==2.0.1 \
+      wheel==0.48.0 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
