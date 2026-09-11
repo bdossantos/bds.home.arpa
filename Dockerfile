@@ -25,7 +25,7 @@ RUN set -eux \
     libavformat-dev=7:7.1.5-0+deb13u1 \
     libavutil-dev=7:7.1.5-0+deb13u1 \
     libbluetooth-dev=5.82-1.1 \
-    libcurl4-openssl-dev=8.14.1-2+deb13u3 \
+    libcurl4-openssl-dev=8.14.1-2+deb13u4 \
     libglib2.0-dev=2.84.4-3~deb13u3 \
     libpq-dev=17.10-0+deb13u1 \
     libgmp-dev=2:6.3.0+dfsg-3 \
