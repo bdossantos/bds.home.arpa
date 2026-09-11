@@ -60,15 +60,17 @@ RUN set -eux \
       pymicro-vad==1.0.1 \
       pyspeex-noise==1.0.2 \
       wheel==0.47.0 \
-  && find "${PYTHONUSERBASE}/lib" \
-    \( -name 'cffi' -o -name 'cffi-*.dist-info' -o -name '_cffi_backend*.so' \) \
-    -exec rm -rf {} + \
+  && rm -rf \
+    "${PYTHONUSERBASE}/lib/python3.14/site-packages/cffi" \
+    "${PYTHONUSERBASE}/lib/python3.14/site-packages"/cffi-*.dist-info \
+  && rm -f \
+    "${PYTHONUSERBASE}/lib/python3.14/site-packages"/_cffi_backend*.so \
   && pip install \
     --force-reinstall \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
       cffi==2.1.1 \
-  && python -c "import cffi; import _cffi_backend; assert cffi.__version__ == _cffi_backend.__version__, f'cffi version mismatch: {cffi.__version__} != {_cffi_backend.__version__}'" \
+  && python -c "import cffi, _cffi_backend, sys; sys.exit(f'cffi version mismatch: {cffi.__version__} != {_cffi_backend.__version__}' if cffi.__version__ != _cffi_backend.__version__ else 0)" \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
