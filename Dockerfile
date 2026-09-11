@@ -51,6 +51,7 @@ RUN set -eux \
       google-cloud==0.34.0 \
       grpcio==1.81.1 \
       homeassistant=="${VERSION}" \
+      isal==1.8.0 \
       numpy==2.4.6 \
       Pillow==12.2.0 \
       pip==26.1.2 \
@@ -59,6 +60,7 @@ RUN set -eux \
       pymicro-vad==1.0.1 \
       pyspeex-noise==1.0.2 \
       wheel==0.47.0 \
+      zlib-ng==1.0.0 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
