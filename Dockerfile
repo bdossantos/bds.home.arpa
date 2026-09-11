@@ -59,12 +59,16 @@ RUN set -eux \
       pymicro-vad==1.0.1 \
       pyspeex-noise==1.0.2 \
       wheel==0.47.0 \
-  && site_packages="$(PYTHONUSERBASE="${PYTHONUSERBASE}" python -c "import os, sysconfig; print(sysconfig.get_path('purelib', vars={'base': os.environ['PYTHONUSERBASE'], 'platbase': os.environ['PYTHONUSERBASE']}))")" \
+  && purelib="$(PYTHONUSERBASE="${PYTHONUSERBASE}" python -c "import os, sysconfig; print(sysconfig.get_path('purelib', vars={'base': os.environ['PYTHONUSERBASE'], 'platbase': os.environ['PYTHONUSERBASE']}))")" \
+  && platlib="$(PYTHONUSERBASE="${PYTHONUSERBASE}" python -c "import os, sysconfig; print(sysconfig.get_path('platlib', vars={'base': os.environ['PYTHONUSERBASE'], 'platbase': os.environ['PYTHONUSERBASE']}))")" \
   && rm -rf \
-    "${site_packages}/cffi" \
-    "${site_packages}"/cffi-*.dist-info \
+    "${purelib}/cffi" \
+    "${purelib}"/cffi-*.dist-info \
+    "${platlib}/cffi" \
+    "${platlib}"/cffi-*.dist-info \
   && rm -f \
-    "${site_packages}"/_cffi_backend*.so \
+    "${purelib}"/_cffi_backend*.so \
+    "${platlib}"/_cffi_backend*.so \
   && pip install \
     --force-reinstall \
     --no-cache-dir \
