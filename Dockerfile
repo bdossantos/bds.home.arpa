@@ -60,11 +60,12 @@ RUN set -eux \
       pymicro-vad==1.0.1 \
       pyspeex-noise==1.0.2 \
       wheel==0.47.0 \
+  && site_packages="$(python -c "import sysconfig; print(sysconfig.get_path('purelib', vars={'base': '/app', 'platbase': '/app'}))")" \
   && rm -rf \
-    "${PYTHONUSERBASE}/lib/python3.14/site-packages/cffi" \
-    "${PYTHONUSERBASE}/lib/python3.14/site-packages"/cffi-*.dist-info \
+    "${site_packages}/cffi" \
+    "${site_packages}"/cffi-*.dist-info \
   && rm -f \
-    "${PYTHONUSERBASE}/lib/python3.14/site-packages"/_cffi_backend*.so \
+    "${site_packages}"/_cffi_backend*.so \
   && pip install \
     --force-reinstall \
     --no-cache-dir \
