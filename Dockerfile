@@ -68,15 +68,7 @@ RUN set -eux \
     --no-cache-dir \
     --prefix="${PYTHONUSERBASE}" \
       cffi==2.1.1 \
-  && python - <<'PY'
-import cffi
-import _cffi_backend
-
-assert cffi.__version__ == _cffi_backend.__version__, (
-    f"cffi version mismatch: {cffi.__version__} != "
-    f"{_cffi_backend.__version__}"
-)
-PY
+  && python -c "import cffi; import _cffi_backend; assert cffi.__version__ == _cffi_backend.__version__, f'cffi version mismatch: {cffi.__version__} != {_cffi_backend.__version__}'" \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
