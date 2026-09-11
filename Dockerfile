@@ -45,6 +45,7 @@ RUN set -eux \
     --prefix="${PYTHONUSERBASE}" \
       aiodiscover==3.3.2 \
       aioesphomeapi==45.3.1 \
+      cffi==2.1.1 \
       fnv-hash-fast==2.0.3 \
       google-api-core==2.31.0 \
       google-auth==2.55.0 \
@@ -59,6 +60,23 @@ RUN set -eux \
       pymicro-vad==1.0.1 \
       pyspeex-noise==1.0.2 \
       wheel==0.47.0 \
+  && find "${PYTHONUSERBASE}/lib" \
+    \( -name 'cffi' -o -name 'cffi-*.dist-info' -o -name '_cffi_backend*.so' \) \
+    -exec rm -rf {} + \
+  && pip install \
+    --force-reinstall \
+    --no-cache-dir \
+    --prefix="${PYTHONUSERBASE}" \
+      cffi==2.1.1 \
+  && python - <<'PY'
+import cffi
+import _cffi_backend
+
+assert cffi.__version__ == _cffi_backend.__version__, (
+    f"cffi version mismatch: {cffi.__version__} != "
+    f"{_cffi_backend.__version__}"
+)
+PY
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
