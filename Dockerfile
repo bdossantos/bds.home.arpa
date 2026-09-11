@@ -1,4 +1,4 @@
-ARG VERSION=2026.6.3
+ARG VERSION=2026.9.1
 
 FROM python:3.14-trixie AS build
 
