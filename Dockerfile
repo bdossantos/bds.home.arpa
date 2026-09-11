@@ -59,7 +59,7 @@ RUN set -eux \
       pymicro-vad==1.0.1 \
       pyspeex-noise==1.0.2 \
       wheel==0.47.0 \
-  && site_packages="$(python -c "import sysconfig; print(sysconfig.get_path('purelib', vars={'base': '/app', 'platbase': '/app'}))")" \
+  && site_packages="$(PYTHONUSERBASE="${PYTHONUSERBASE}" python -c "import os, sysconfig; print(sysconfig.get_path('purelib', vars={'base': os.environ['PYTHONUSERBASE'], 'platbase': os.environ['PYTHONUSERBASE']}))")" \
   && rm -rf \
     "${site_packages}/cffi" \
     "${site_packages}"/cffi-*.dist-info \
