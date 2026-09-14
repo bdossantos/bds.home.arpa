@@ -37,7 +37,7 @@ RUN set -eux \
     libudev-dev=257.13-1~deb13u1 \
     libuv1-dev=1.50.0-2 \
     libxrandr-dev=2:1.5.4-1+b3 \
-    sqlite3=3.46.1-7+deb13u1 \
+    sqlite3=3.46.1-7+deb13u2 \
     swig=4.3.0-1 \
     zlib1g-dev=1:1.3.dfsg+really1.3.1-1+b1 \
   && pip install \
@@ -112,7 +112,7 @@ RUN set -eux \
     net-tools=2.10-1.3 \
     nmap=7.95+dfsg-3 \
     nut-client=2.8.1-5 \
-    sqlite3=3.46.1-7+deb13u1 \
+    sqlite3=3.46.1-7+deb13u2 \
     zlib1g=1:1.3.dfsg+really1.3.1-1+b1 \
   && apt-get autoremove -y \
   && apt-get clean \
