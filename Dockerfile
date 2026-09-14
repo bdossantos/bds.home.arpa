@@ -45,6 +45,7 @@ RUN set -eux \
     --prefix="${PYTHONUSERBASE}" \
       aiodiscover==3.3.2 \
       aioesphomeapi==45.3.1 \
+      cffi==2.0.0 \
       fnv-hash-fast==2.0.3 \
       google-api-core==2.31.0 \
       google-auth==2.55.0 \
