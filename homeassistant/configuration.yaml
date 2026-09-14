@@ -40,18 +40,6 @@ lovelace:
 
 config:
 
-http:
-  server_port: 8123
-  ip_ban_enabled: "True"
-  login_attempts_threshold: 3
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - 127.0.0.1
-    - 172.10.0.1
-    - ::1
-    - 10.92.64.1
-    - 10.92.64.254
-
 history:
 
 logbook:
