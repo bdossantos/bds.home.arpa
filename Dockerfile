@@ -53,7 +53,7 @@ RUN set -eux \
       homeassistant=="${VERSION}" \
       isal==1.8.0 \
       numpy==2.4.6 \
-      Pillow==12.2.0 \
+      Pillow==12.3.0 \
       pip==26.1.2 \
       PyTurboJPEG==2.2.0 \
       psycopg2-binary==2.9.12 \
