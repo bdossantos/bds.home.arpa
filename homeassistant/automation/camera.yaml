@@ -14,6 +14,10 @@
       - condition: state
         entity_id: input_boolean.guest_mode
         state: "off"
+      - condition: template
+        value_template: >
+          {{ states('light.cam01_infra_red_lights_in_night_mode') != 'unavailable'
+             and states('number.cam01_motion_sensitivity') != 'unavailable' }}
   action:
     - service: switch.turn_on
       entity_id: switch.cam01_record
@@ -25,7 +29,7 @@
       entity_id: switch.cam01_ftp_upload
     - service: switch.turn_on
       entity_id: switch.cam01_push_notifications
-    - service: switch.turn_on
+    - service: light.turn_on
       entity_id: light.cam01_infra_red_lights_in_night_mode
     - service: switch.turn_off
       entity_id: switch.cam01_siren_on_event
@@ -86,6 +90,10 @@
       - condition: state
         entity_id: switch.cam01_record
         state: "off"
+      - condition: template
+        value_template: >
+          {{ states('light.cam01_infra_red_lights_in_night_mode') != 'unavailable'
+             and states('number.cam01_motion_sensitivity') != 'unavailable' }}
   action:
     - service: switch.turn_on
       entity_id: switch.cam01_record
@@ -97,7 +105,7 @@
       entity_id: switch.cam01_ftp_upload
     - service: switch.turn_on
       entity_id: switch.cam01_push_notifications
-    - service: switch.turn_on
+    - service: light.turn_on
       entity_id: light.cam01_infra_red_lights_in_night_mode
     - service: switch.turn_off
       entity_id: switch.cam01_siren_on_event
@@ -140,6 +148,11 @@
   trigger:
     - platform: time_pattern
       minutes: "/5"
+  condition:
+    - condition: template
+      value_template: >
+        {{ states('light.cam01_infra_red_lights_in_night_mode') != 'unavailable'
+           and states('number.cam01_motion_sensitivity') != 'unavailable' }}
   action:
     - service: switch.turn_on
       entity_id: switch.cam01_record
@@ -151,7 +164,7 @@
       entity_id: switch.cam01_ftp_upload
     - service: switch.turn_on
       entity_id: switch.cam01_push_notifications
-    - service: switch.turn_on
+    - service: light.turn_on
       entity_id: light.cam01_infra_red_lights_in_night_mode
     - service: switch.turn_off
       entity_id: switch.cam01_siren_on_event
