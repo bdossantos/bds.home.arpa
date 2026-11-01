@@ -56,7 +56,7 @@ services:
       - monitoring
     restart: always
   grafana:
-    image: grafana/grafana:13.2.5@sha256:9f7aa1e1e3246aade5792d35a738049f7f32f89cd51d1956cf426a4e86268a84
+    image: grafana/grafana:13.3.0@sha256:488984b716c0862639f91a698adbe2862677a5a07bad42da5f03f3030883b205
     container_name: grafana
     volumes:
       - /volume1/docker_datas/grafana:/var/lib/grafana
@@ -70,7 +70,7 @@ services:
       - monitoring
     restart: always
   paperless-ngx:
-    image: bdossantos/paperless-ngx:3.3.3-ef49063@sha256:b5e69880961c9a9627cdf6cf4e5c4d34d26026afa7b71c27b7d6daab49573554
+    image: bdossantos/paperless-ngx:3.4.1-3efff71@sha256:210eeeeeefe5255ec65bf39b885ba19484fdaba5aa9986b26ee3ce7b09f131e8
     container_name: paperless
     depends_on:
       - paperless-broker
@@ -121,7 +121,7 @@ services:
       - paperless
     restart: always
   paperless-broker:
-    image: redis:8.8.4-trixie@sha256:ff102ec4ad837e768adf4d67a3a0719ca680685e46e2e429efa6c38ad1a992e4
+    image: redis:8.10.3-trixie@sha256:de1068af6f552240dfab67bcc9bfef99bfc60f776bb4580ef077ea4c8c97e848
     container_name: paperless-broker
     ports:
       - 6379:6379/tcp
@@ -143,7 +143,7 @@ services:
       - paperless
     restart: always
   paperless-tika:
-    image: docker.io/apache/tika:4.2.0@sha256:b99f19c4fd76237dafe7d22f719b9bddfa9a449da687c597a41e2f6d9a595418
+    image: docker.io/apache/tika:4.2.0-1@sha256:b99f19c4fd76237dafe7d22f719b9bddfa9a449da687c597a41e2f6d9a595418
     container_name: paperless-tika
     ports:
       - 9998:9998/tcp
@@ -151,7 +151,7 @@ services:
       - paperless
     restart: always
   anki:
-    image: bdossantos/anki:25.9.2-3efe904@sha256:f5385265b7e30a75ac6b8fbbbe800a9d2cede186d4a1f5557165d57017a6c6ed
+    image: bdossantos/anki:25.9.2-3efff71@sha256:6b9abb8499798c7a03b27f1d7f515d61a04bc2b5d6fcd339235f8ca5ea1535fd
     container_name: anki
     ports:
       - 8081:8080/tcp
@@ -165,7 +165,7 @@ services:
       - anki
     restart: always
   radicale:
-    image: bdossantos/radicale:3.9.0-3efe904@sha256:e250ddc4b1b399d2f981b1e2fb310d65f568a247c9fd47a19d1de46c12719b58
+    image: bdossantos/radicale:3.9.0-3efff71@sha256:997f820544f6d0f61727f358ccb844119c070e5d8516aea63133a34b538cf383
     container_name: radicale
     volumes:
       - /etc/localtime:/etc/localtime:ro
