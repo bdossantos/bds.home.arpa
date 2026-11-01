@@ -3,7 +3,7 @@ version: "3"
 
 services:
   home-assistant:
-    image: bdossantos/home-assistant:latest
+    image: bdossantos/home-assistant:2026.9.1-a72868c@sha256:ed64212082a4e23748c35895df1105b2827b7bb6da0ef1069271e8bc41f5196f
     container_name: home-assistant
     volumes:
       - /dev/bus/usb:/dev/bus/usb:ro
@@ -21,7 +21,7 @@ services:
     network_mode: host
     restart: always
   node-exporter:
-    image: prom/node-exporter:v1.11.1@sha256:e9cff4fc67b1818f8c97adb115b9f12c9a54b533de86765d4a0effc01b357205
+    image: prom/node-exporter:v1.12.1@sha256:1b4e4438faca4dd7e001dd445d161a4a2091b0fededa84093b3a8dfeae1f1be0
     container_name: node_exporter
     privileged: true
     volumes:
@@ -42,7 +42,7 @@ services:
     pid: host
     restart: always
   prometheus:
-    image: prom/prometheus:v3.12.0@sha256:69f5241418838263316593f7274a304b095c40bcf22e57272865da91bd60a8ac
+    image: prom/prometheus:v3.15.1@sha256:fa3302279710be2f21a8301ec17a8b4f2301fd829bd113839b3b6b02b6f191a2
     container_name: prometheus
     volumes:
       - /volume1/docker_datas/prometheus:/prometheus:rw
@@ -56,7 +56,7 @@ services:
       - monitoring
     restart: always
   grafana:
-    image: grafana/grafana:13.0.3@sha256:1a345428a36270f5fb9add69fea71450a5843c15266c99359d6d380470ab19c9
+    image: grafana/grafana:13.2.5@sha256:9f7aa1e1e3246aade5792d35a738049f7f32f89cd51d1956cf426a4e86268a84
     container_name: grafana
     volumes:
       - /volume1/docker_datas/grafana:/var/lib/grafana
@@ -70,7 +70,7 @@ services:
       - monitoring
     restart: always
   paperless-ngx:
-    image: bdossantos/paperless-ngx:2.20.8-5a41ae6@sha256:5cd5c40c5846288b9c50b2f4545cb321e92bb882279884769b48aec56c3ee19a
+    image: bdossantos/paperless-ngx:3.3.3-ef49063@sha256:b5e69880961c9a9627cdf6cf4e5c4d34d26026afa7b71c27b7d6daab49573554
     container_name: paperless
     depends_on:
       - paperless-broker
@@ -104,7 +104,7 @@ services:
       - paperless
     restart: always
   paperless-db:
-    image: postgres:14.23-bookworm@sha256:bcb5887ba9b5a78399d03e977f770fcc11227e55ed6fc6405ff61973ccddfc1f
+    image: postgres:14.24-bookworm@sha256:a389ed49344afc8f4444efd4eb512965df07aaa6ed84b239b54a23246e9fe347
     container_name: paperless-db
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -121,7 +121,7 @@ services:
       - paperless
     restart: always
   paperless-broker:
-    image: redis:8.2.7-bookworm@sha256:ea3d5fc4811ac1d767f22c6d14b04ec631d75ecf02fe9962ce8f7c7f2173ac95
+    image: redis:8.8.4-trixie@sha256:ff102ec4ad837e768adf4d67a3a0719ca680685e46e2e429efa6c38ad1a992e4
     container_name: paperless-broker
     ports:
       - 6379:6379/tcp
@@ -129,7 +129,7 @@ services:
       - paperless
     restart: always
   paperless-gotenberg:
-    image: docker.io/gotenberg/gotenberg:8.34.0@sha256:67097317623a503ba2a6a7e9ae8db6929a1f7e1bbd88077bacf2d325fbdab923
+    image: docker.io/gotenberg/gotenberg:8.39.0@sha256:13672f317b443c793e972b1bd2155ec62a3e7b6891b411e8196442cc053ee5f5
     container_name: paperless-gotenberg
     command:
       - "gotenberg"
@@ -143,7 +143,7 @@ services:
       - paperless
     restart: always
   paperless-tika:
-    image: docker.io/apache/tika:latest
+    image: docker.io/apache/tika:4.2.0@sha256:b99f19c4fd76237dafe7d22f719b9bddfa9a449da687c597a41e2f6d9a595418
     container_name: paperless-tika
     ports:
       - 9998:9998/tcp
@@ -151,7 +151,7 @@ services:
       - paperless
     restart: always
   anki:
-    image: bdossantos/anki:25.9.2-5a41ae6@sha256:69d3d3d28c1f7f24d5abdb6729859d6ed508d580f399db7dab45ab2167c70ea3
+    image: bdossantos/anki:25.9.2-3efe904@sha256:f5385265b7e30a75ac6b8fbbbe800a9d2cede186d4a1f5557165d57017a6c6ed
     container_name: anki
     ports:
       - 8081:8080/tcp
@@ -165,7 +165,7 @@ services:
       - anki
     restart: always
   radicale:
-    image: bdossantos/radicale:3.7.5-5a41ae6@sha256:29fcceecae5e4b6b6b3a21f83458e6504d50ae242d995fdbed0983df3a5f95f5
+    image: bdossantos/radicale:3.9.0-3efe904@sha256:e250ddc4b1b399d2f981b1e2fb310d65f568a247c9fd47a19d1de46c12719b58
     container_name: radicale
     volumes:
       - /etc/localtime:/etc/localtime:ro
