@@ -24,6 +24,86 @@ git clone https://github.com/bdossantos/bds.home.arpa ~/Code/bds.home.arpa
 ~/Code/bds.home.arpa/scripts/deploy
 ```
 
+## Paperless-ngx: PostgreSQL to SQLite
+
+Paperless uses SQLite at `/app/data/db.sqlite3`, persisted on the host as
+`/volume1/docker_datas/paperless/data/db.sqlite3`. Keep this directory on
+local storage (not NFS/SMB) so SQLite locking works correctly.
+
+**Changing the Compose configuration does not migrate existing data.**
+Complete the export below with the old PostgreSQL configuration before
+deploying this change. Do not upgrade the Paperless image during migration.
+Use the same Compose project name throughout.
+
+1. Pause uploads and consumption, let pending tasks finish, and record
+   document/user counts for comparison. Save the old Compose configuration
+   and `/volume1/docker_datas/paperless/.env` securely for rollback. Stop
+   Paperless, leaving PostgreSQL running, then export to a new directory:
+
+   ```sh
+   docker compose stop paperless-ngx
+   docker compose run --rm --no-deps paperless-ngx \
+     python3 /app/manage.py document_exporter /app/export/postgres-to-sqlite
+   docker compose stop paperless-db
+   ```
+
+   Do not continue if the export fails. Verify the export contains the
+   manifest and document files, and copy it to a separate backup location.
+   The export contains sensitive documents and user data; restrict access.
+
+2. With both services stopped, back up
+   `/volume1/docker_datas/paperless-db/14/data` and the Paperless data and
+   media directories. Keep the PostgreSQL data untouched for rollback.
+   Move `/volume1/docker_datas/paperless/data` and
+   `/volume1/docker_datas/paperless/media` to secure backup locations, then
+   recreate both as empty directories writable by UID/GID `65534:65534`
+   (the custom image's runtime user). Keep the export directory mounted.
+   A full import requires an empty database and empty media directories.
+
+3. Deploy the new Compose configuration. Remove obsolete `PAPERLESS_DBHOST`,
+   `PAPERLESS_DBPORT`, `PAPERLESS_DBNAME`, `PAPERLESS_DBUSER`,
+   `PAPERLESS_DBPASS`, and `POSTGRES_*` entries from
+   `/volume1/docker_datas/paperless/.env`; retain other settings and secrets.
+   Remove any `PAPERLESS_DATA_DIR` override so the database stays in the
+   mounted `/app/data` directory. Do not start the webserver yet.
+
+4. Import offline. The image entrypoint initializes the SQLite schema
+   before running the importer, without starting workers or the webserver:
+
+   ```sh
+   docker compose run --rm --no-deps paperless-ngx \
+     python3 /app/manage.py document_importer /app/export/postgres-to-sqlite
+   docker compose run --rm --no-deps paperless-ngx \
+     python3 /app/manage.py document_index reindex
+   ```
+
+   If import fails, keep Paperless stopped and preserve the export/backups.
+   Before retrying, recreate empty data and media directories again; do not
+   import over a partially restored database.
+
+5. After a successful import, start Paperless and its dependencies:
+
+   ```sh
+   docker compose up -d paperless-ngx
+   ```
+
+   Verify login, document/user counts, tags, permissions, search, downloads,
+   and a test upload. Confirm the host `data/db.sqlite3` exists and back it
+   up together with media while Paperless is stopped. API tokens are not
+   exported; regenerate them and update clients. Resume consumption only
+   after verification.
+
+For rollback, stop Paperless, preserve the SQLite data/media separately,
+restore the old data/media directories, Compose configuration, and `.env`,
+then start the old PostgreSQL and Paperless services. Changes made after
+cutover will not exist in PostgreSQL. Retain the old database and backups
+until the SQLite deployment has been verified; only then remove the stopped
+`paperless-db` container. Do not delete its host data during cutover.
+
+See the upstream [exporter/importer documentation][paperless-backup].
+
+[paperless-backup]: https://docs.paperless-ngx.com/administration/#backup
+
 ## Hardware and network devices
 
 - 1 \* APC BE700G-FR Onduleur BACK-UPS ES 700VA / 405 W
