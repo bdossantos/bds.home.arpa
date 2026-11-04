@@ -74,7 +74,6 @@ services:
     container_name: paperless
     depends_on:
       - paperless-broker
-      - paperless-db
       - paperless-gotenberg
       - paperless-tika
     ports:
@@ -86,10 +85,7 @@ services:
       - /volume1/docker_datas/paperless/media:/app/media
       - /volume1/docker_datas/paperless/static:/app/static
     environment:
-      - PAPERLESS_DBHOST=paperless-db
-      - PAPERLESS_DBNAME=paperless
-      - PAPERLESS_DBPORT=5433
-      - PAPERLESS_DBUSER=paperless
+      - PAPERLESS_DBENGINE=sqlite
       - PAPERLESS_FILENAME_FORMAT={{ created_year }}/{{ title }}
       - PAPERLESS_READ_CACHE_REDIS_URL=redis://paperless-broker:6379
       - PAPERLESS_READ_CACHE_TTL=3600
@@ -100,23 +96,6 @@ services:
       - PAPERLESS_WEBSERVER_WORKERS=2
     env_file:
       - /volume1/docker_datas/paperless/.env
-    networks:
-      - paperless
-    restart: always
-  paperless-db:
-    image: postgres:14.24-bookworm@sha256:a389ed49344afc8f4444efd4eb512965df07aaa6ed84b239b54a23246e9fe347
-    container_name: paperless-db
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /volume1/docker_datas/paperless-db/14/data:/var/lib/postgresql/data
-    env_file:
-      - /volume1/docker_datas/paperless/.env
-    command: -p 5433 -c shared_buffers=512MB -c effective_cache_size=2GB -c maintenance_work_mem=512MB -c min_wal_size=100MB -c max_wal_size=2GB -c max_worker_processes=4 -c max_parallel_workers_per_gather=2 -c max_parallel_workers=4 -c max_parallel_maintenance_workers=2 -c checkpoint_completion_target=0.9 -c wal_buffers=16MB -c default_statistics_target=100 -c random_page_cost=4 -c effective_io_concurrency=2
-    ports:
-      - 5433:5433/tcp
-    environment:
-      - POSTGRES_DB=paperless
-      - POSTGRES_USER=paperless
     networks:
       - paperless
     restart: always
