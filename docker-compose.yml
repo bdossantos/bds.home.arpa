@@ -86,6 +86,11 @@ services:
       - /volume1/docker_datas/paperless/static:/app/static
     environment:
       - PAPERLESS_DBENGINE=sqlite
+      - >-
+        PAPERLESS_DB_OPTIONS=init_command=PRAGMA journal_mode=WAL;PRAGMA
+        synchronous=NORMAL;PRAGMA busy_timeout=30000;PRAGMA
+        cache_size=-65536;PRAGMA
+        temp_store=MEMORY,transaction_mode=IMMEDIATE
       - PAPERLESS_FILENAME_FORMAT={{ created_year }}/{{ title }}
       - PAPERLESS_READ_CACHE_REDIS_URL=redis://paperless-broker:6379
       - PAPERLESS_READ_CACHE_TTL=3600
