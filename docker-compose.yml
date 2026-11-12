@@ -92,6 +92,7 @@ services:
         cache_size=-65536;PRAGMA
         temp_store=MEMORY,transaction_mode=IMMEDIATE
       - PAPERLESS_FILENAME_FORMAT={{ created_year }}/{{ title }}
+      - PAPERLESS_CONSUMER_DELETE_DUPLICATES=true
       - PAPERLESS_READ_CACHE_REDIS_URL=redis://paperless-broker:6379
       - PAPERLESS_READ_CACHE_TTL=3600
       - PAPERLESS_REDIS=redis://paperless-broker:6379
