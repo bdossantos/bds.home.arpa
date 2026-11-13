@@ -42,7 +42,7 @@ services:
     pid: host
     restart: always
   prometheus:
-    image: prom/prometheus:v3.15.1@sha256:fa3302279710be2f21a8301ec17a8b4f2301fd829bd113839b3b6b02b6f191a2
+    image: prom/prometheus:v3.16.0@sha256:e04987641b57704f408e31f6373ba4138ecf27cb4a165d24aabb6c38fddd0f06
     container_name: prometheus
     volumes:
       - /volume1/docker_datas/prometheus:/prometheus:rw
@@ -56,7 +56,7 @@ services:
       - monitoring
     restart: always
   grafana:
-    image: grafana/grafana:13.3.0@sha256:488984b716c0862639f91a698adbe2862677a5a07bad42da5f03f3030883b205
+    image: grafana/grafana:13.3.1@sha256:0615ec4fbd4072004b7d86b46ded63013a74b7d6eb1119273dd89e8fa25c13cf
     container_name: grafana
     volumes:
       - /volume1/docker_datas/grafana:/var/lib/grafana
@@ -70,7 +70,7 @@ services:
       - monitoring
     restart: always
   paperless-ngx:
-    image: bdossantos/paperless-ngx:3.4.1-3efff71@sha256:210eeeeeefe5255ec65bf39b885ba19484fdaba5aa9986b26ee3ce7b09f131e8
+    image: bdossantos/paperless-ngx:3.4.2-3afb1e4@sha256:8b55a4f67b4762e1ce39bb93c88f39897d3bf8c731468b137303a37202a983db
     container_name: paperless
     depends_on:
       - paperless-broker
@@ -114,7 +114,7 @@ services:
       - paperless
     restart: always
   paperless-gotenberg:
-    image: docker.io/gotenberg/gotenberg:8.39.0@sha256:13672f317b443c793e972b1bd2155ec62a3e7b6891b411e8196442cc053ee5f5
+    image: docker.io/gotenberg/gotenberg:8.40.0@sha256:53073e798c8ef39ea2187e44cb67bab77894ea2509100b94c4fe3b461f7b2996
     container_name: paperless-gotenberg
     command:
       - "gotenberg"
@@ -136,7 +136,7 @@ services:
       - paperless
     restart: always
   anki:
-    image: bdossantos/anki:25.9.2-3efff71@sha256:6b9abb8499798c7a03b27f1d7f515d61a04bc2b5d6fcd339235f8ca5ea1535fd
+    image: bdossantos/anki:26.9.4-3afb1e4@sha256:db4bac1a477b83c79f8c99fd36f986baa9e574bf4dd6a6da06093e3229e6fead
     container_name: anki
     ports:
       - 8081:8080/tcp
@@ -150,7 +150,7 @@ services:
       - anki
     restart: always
   radicale:
-    image: bdossantos/radicale:3.9.0-3efff71@sha256:997f820544f6d0f61727f358ccb844119c070e5d8516aea63133a34b538cf383
+    image: bdossantos/radicale:3.9.1-3afb1e4@sha256:91476942631210864f2cfe0cacdffcbcc7855c51db31c90abb581a84b6e26563
     container_name: radicale
     volumes:
       - /etc/localtime:/etc/localtime:ro
