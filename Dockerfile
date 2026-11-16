@@ -1,6 +1,6 @@
 ARG VERSION=2026.9.1
 
-FROM python:3.14-trixie AS build
+FROM python:3.15-trixie AS build
 
 ARG VERSION
 
@@ -65,7 +65,7 @@ RUN set -eux \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-FROM python:3.14-slim-trixie
+FROM python:3.15-slim-trixie
 
 ARG BUILD_DATE
 ARG VCS_REF
